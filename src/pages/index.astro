@@ -1,5 +1,19 @@
 ---
+import { SITE_TITLE } from "@src/consts";
+import { getCollection, render } from "astro:content";
 
+const allNotes = await getCollection("notes");
+const allBlogPosts = await getCollection("blog");
+
+const allEntries = [...allNotes, ...allBlogPosts];
+allEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const entries = await Promise.all(
+	allEntries.map(async (entry) => {
+		const { Content } = await render(entry);
+		return { ...entry, Content };
+	}),
+);
 ---
 
 <html lang="en">
@@ -8,9 +22,39 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{SITE_TITLE}</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<hgroup>
+			<h1>{SITE_TITLE}</h1>
+			<p>Notes and Blog Posts - Combined Feed</p>
+		</hgroup>
+		<ul>
+			{
+				entries.map((entry) => {
+					const basePath = entry.collection === "notes" ? "/notes" : "/blog";
+					return (
+						<li>
+							<article>
+								{!!entry.data.title && <h2>{entry.data.title}</h2>}
+								<entry.Content />
+								<p>
+									&rarr;
+									<a href={`${basePath}/${entry.id}/`}>
+										<time datetime={entry.data.pubDate.toISOString()}>
+											{entry.data.pubDate.toLocaleString("en-IN", {
+												year: "numeric",
+												month: "short",
+												day: "numeric",
+											})}
+										</time>
+									</a>
+								</p>
+							</article>
+						</li>
+					);
+				})
+			}
+		</ul>
 	</body>
 </html>
