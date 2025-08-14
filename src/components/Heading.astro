@@ -1,0 +1,21 @@
+---
+interface Props {
+	level: number;
+	id: string;
+}
+
+const { level, id } = Astro.props;
+
+// Detect if we're on the home page
+const isHome = Astro.url.pathname === "/";
+
+// If home page, shift heading levels by 1 (h1 -> h2, h2 -> h3, etc.)
+const adjustedLevel = isHome ? Math.min(level + 1, 6) : level;
+
+const Tag = `h${adjustedLevel}` as keyof HTMLElementTagNameMap;
+const uniqueID = `${id}-${crypto.randomUUID()}`;
+---
+
+<Tag id={uniqueID}>
+	<slot />
+</Tag>
