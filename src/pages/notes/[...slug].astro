@@ -1,4 +1,6 @@
 ---
+import "@css/style.css";
+
 import { type CollectionEntry, getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -25,6 +27,6 @@ const { Content } = await render(post);
 	<body>
 		<h1>TKTK</h1>
 		<Content />
-		<a href="/">&larr; Home</a>
+		<a href="/">Home</a>
 	</body>
 </html>
