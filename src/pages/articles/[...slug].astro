@@ -18,6 +18,19 @@ const { Content } = await render(post);
 
 <BaseLayout pageTitle={post.data.title} pageDesc={post.data.description}>
 	<main>
+		<p>
+			Posted on
+			<time datetime={post.data.pubDate.toISOString()}>
+				{
+					post.data.pubDate.toLocaleString("en-IN", {
+						year: "numeric",
+						month: "short",
+						day: "numeric",
+						dayPeriod: "long",
+					})
+				}
+			</time>
+		</p>
 		<h1>{post.data.title}</h1>
 		<Content />
 		<a href="/">Home</a>
