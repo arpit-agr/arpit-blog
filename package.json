@@ -12,6 +12,7 @@
     "@astrojs/markdoc": "^0.15.4",
     "@astrojs/rss": "^4.0.12",
     "astro": "^5.12.9",
+    "astro-font": "^1.1.0",
     "sanitize-html": "^2.17.0"
   }
 }
