@@ -6,9 +6,9 @@ import sanitizeHtml from "sanitize-html";
 
 export async function GET(context) {
 	const allNotes = await getCollection("notes");
-	const allBlogPosts = await getCollection("blog");
+	const allArticles = await getCollection("articles");
 
-	const allEntries = [...allNotes, ...allBlogPosts].sort(
+	const allEntries = [...allNotes, ...allArticles].sort(
 		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	);
 
@@ -43,7 +43,7 @@ export async function GET(context) {
 				});
 
 				// Determine correct base path
-				const basePath = post.collection === "notes" ? "/notes" : "/blog";
+				const basePath = post.collection === "notes" ? "/notes" : "/articles";
 
 				return {
 					...post.data,
