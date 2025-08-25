@@ -1,5 +1,5 @@
 ---
-import "@css/style.css";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 import { type CollectionEntry, getCollection, render } from "astro:content";
 
@@ -16,23 +16,10 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{post.data.title}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
+<BaseLayout pageTitle={post.data.title} pageDesc={post.data.description}>
+	<main>
 		<h1>{post.data.title}</h1>
 		<Content />
 		<a href="/">Home</a>
-	</body>
-</html>
+	</main>
+</BaseLayout>
