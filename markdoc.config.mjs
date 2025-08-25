@@ -15,12 +15,6 @@ export default defineMarkdocConfig({
 	tags: {
 		"idiomatic-text": {
 			render: component("@components/IdiomaticText.astro"),
-			attributes: {
-				// url: { type: String, required: true },
-				// You can expose more pass-through attributes if you want:
-				// class: { type: String },
-				// style: { type: String },
-			},
 		},
 	},
 });
