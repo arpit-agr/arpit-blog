@@ -1,0 +1,87 @@
+html {
+	color-scheme: light dark;
+}
+
+body {
+	margin: 0;
+	max-inline-size: 40rem;
+	margin-inline: auto;
+	padding-inline: 1lh;
+	background-color: hsl(0deg 0.83% 96.81%);
+	font-family: system-ui, sans-serif;
+	font-size: 1.1rem;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	font-size-adjust: from-font;
+}
+
+hgroup {
+	padding: 1lh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin-block-start: 0;
+	font-weight: 700;
+}
+
+/*h1 {
+	text-transform: uppercase;
+}*/
+
+p {
+	text-wrap: pretty;
+}
+
+a {
+	color: inherit;
+	text-underline-offset: 2px;
+	text-decoration-color: hsl(from currentColor h s calc(l + 33));
+	font-weight: 600;
+
+	&:hover {
+		text-decoration-color: currentColor;
+		text-decoration-thickness: 2px;
+	}
+
+	:where(h1, h2, h3, h4) & {
+		text-decoration-line: none;
+	}
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+li {
+	padding: 1lh;
+	background-color: hsl(0deg 0.83% 99.81%);
+	border-radius: 0.5lh;
+}
+
+li + li {
+	margin-block-start: 1lh;
+}
+
+pre,
+code {
+	font-family: inherit;
+	font-family: "Google Sans Code", monospace;
+	font-optical-sizing: auto;
+
+	border-radius: 0.25em;
+}
+
+pre {
+	overflow-x: auto;
+	tab-size: 2;
+}
+
+code {
+	padding-inline: 2px;
+	font-size: 0.9em;
+}
