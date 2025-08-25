@@ -7,13 +7,14 @@ interface Props {
 const { level, id } = Astro.props;
 
 // Detect if we're on the home page
-const isHome = Astro.url.pathname === "/";
-
 // If home page, shift heading levels by 1 (h1 -> h2, h2 -> h3, etc.)
+const isHome = Astro.url.pathname === "/";
 const adjustedLevel = isHome ? Math.min(level + 1, 6) : level;
-
 const Tag = `h${adjustedLevel}` as keyof HTMLElementTagNameMap;
-const uniqueID = `${id}-${crypto.randomUUID()}`;
+
+/* Only assign id if not home
+Trade-off: You lose anchor functionality on the homepage. But that’s almost never needed, since the homepage is just a feed, not the canonical location of the content. */
+const uniqueID = isHome ? undefined : id;
 ---
 
 <Tag id={uniqueID}>
