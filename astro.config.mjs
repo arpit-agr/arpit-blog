@@ -4,7 +4,7 @@ import markdoc from "@astrojs/markdoc";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://arpit.blog",
+	site: "https://blog.arpit.codes",
 	integrations: [markdoc()],
 	markdown: {
 		syntaxHighlight: false,
