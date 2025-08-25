@@ -1,0 +1,37 @@
+---
+import type { ComponentProps } from "astro/types";
+import BaseHead from "@components/BaseHead.astro";
+
+type Props = ComponentProps<typeof BaseHead> & {
+	bodyClass?: string;
+};
+
+const {
+	pageTitle,
+	pageDesc,
+	ogLocale,
+	ogType,
+	socialImageURL,
+	socialImageAlt,
+	canonicalURL,
+	bodyClass,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="no-js">
+	<head>
+		<BaseHead
+			pageTitle={pageTitle}
+			pageDesc={pageDesc}
+			ogLocale={ogLocale}
+			ogType={ogType}
+			socialImageURL={socialImageURL}
+			socialImageAlt={socialImageAlt}
+			canonicalURL={canonicalURL}
+		/>
+	</head>
+	<body class={bodyClass}>
+		<slot />
+	</body>
+</html>
