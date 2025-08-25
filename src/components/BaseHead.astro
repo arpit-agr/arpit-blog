@@ -1,0 +1,93 @@
+---
+import { join } from "node:path";
+import { AstroFont } from "astro-font";
+import stylesUrl from "@css/style.css?url";
+// import printStylesUrl from "@css/print.css?url";
+
+interface Props {
+	pageTitle: string;
+	pageDesc?: string;
+	ogLocale?: string;
+	ogType?: string;
+	socialImageURL?: URL;
+	socialImageAlt?: string;
+	canonicalURL?: URL;
+}
+
+const {
+	pageTitle,
+	pageDesc,
+	ogLocale = "en_GB",
+	ogType = "article",
+	socialImageURL = new URL("/images/opengraph.png", Astro.url.origin),
+	socialImageAlt = "",
+	canonicalURL = new URL(Astro.url.pathname, Astro.site),
+} = Astro.props;
+---
+
+<!-- https://www.matuzo.at/blog/html-boilerplate/ -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{pageTitle}</title>
+
+<!-- If a browser does not support JS modules, then it is a browser that does not support modern JavaScript, therefore it won’t get any JavaScript and has to live with the plain old, even if reduced but still usable, HTML-only experience -->
+<!-- Processing of the script contents is deferred -->
+<!-- Use the js class in CSS, if the styling of a component is different, when JS is active. -->
+<script type="module" is:inline>
+	document.documentElement.classList.remove("no-js");
+	document.documentElement.classList.add("js");
+</script>
+
+<AstroFont
+	config={[
+		{
+			name: "Sarina",
+			src: [
+				{
+					style: "normal",
+					weight: "400",
+					path: join(
+						process.cwd(),
+						"public",
+						"fonts",
+						"Sarina-Regular-subset.woff2",
+					),
+				},
+			],
+			preload: true,
+			display: "swap",
+			cssVariable: "font-display",
+			fallback: "sans-serif",
+			fallbackName: "Sarina Fallback",
+		},
+	]}
+/>
+
+<link rel="stylesheet" href={stylesUrl} />
+<!-- <link rel="stylesheet" href={printStylesUrl} media="print" /> -->
+
+<meta property="og:title" content={pageTitle} />
+{!!pageDesc && <meta name="description" content={pageDesc} />}
+{!!pageDesc && <meta property="og:description" content={pageDesc} />}
+<meta property="og:type" content={ogType} />
+<meta property="og:image" content={socialImageURL} />
+{!!socialImageAlt && <meta property="og:image:alt" content={socialImageAlt} />}
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:locale" content={ogLocale} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- <link rel="icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/my.webmanifest" /> -->
+
+<!-- <meta name="theme-color" content="white" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="black" media="(prefers-color-scheme: dark)" /> -->
+
+<meta name="author" content="Arpit Agrawal" />
+<meta name="fediverse:creator" content="arpit@indieweb.social" />
+<link rel="me" href="https://indieweb.social/@arpit" />
+<link rel="me" href="mailto:hello@arpit.codes" />
+
+<meta name="robots" content="index,follow" />
+<meta name="generator" content={Astro.generator} />
