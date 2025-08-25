@@ -10,8 +10,8 @@ const notes = defineCollection({
 	}),
 });
 
-const blog = defineCollection({
-	loader: glob({ base: "./src/data/blog", pattern: "**/*.{md,mdoc}" }),
+const articles = defineCollection({
+	loader: glob({ base: "./src/data/articles", pattern: "**/*.{md,mdoc}" }),
 	schema: z.object({
 		title: z.string(),
 		pubDate: z.coerce.date(),
@@ -19,4 +19,4 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { notes, blog };
+export const collections = { notes, articles };
