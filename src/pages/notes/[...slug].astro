@@ -1,5 +1,6 @@
 ---
-import "@css/style.css";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { SITE_TITLE } from "@src/consts";
 
 import { type CollectionEntry, getCollection, render } from "astro:content";
 
@@ -14,19 +15,33 @@ type Props = CollectionEntry<"notes">;
 
 const post = Astro.props;
 const { Content } = await render(post);
+
+const noteTitle = `Note dated ${post.data.pubDate.toLocaleString("en-IN", {
+	year: "numeric",
+	month: "short",
+	day: "numeric",
+	hour: "numeric",
+	minute: "numeric",
+	timeZoneName: "shortOffset",
+})} | ${SITE_TITLE}`;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>TKTK</h1>
+<BaseLayout pageTitle={noteTitle}>
+	<main>
+		<p>
+			Posted on
+			<time datetime={post.data.pubDate.toISOString()}>
+				{
+					post.data.pubDate.toLocaleString("en-IN", {
+						year: "numeric",
+						month: "short",
+						day: "numeric",
+						dayPeriod: "long",
+					})
+				}
+			</time>
+		</p>
 		<Content />
 		<a href="/">Home</a>
-	</body>
-</html>
+	</main>
+</BaseLayout>
