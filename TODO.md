@@ -4,6 +4,7 @@
 - [ ] Add Base Layout
 
 ## Foreseeable Future
+ - [ ] Configure Syntax Highlighting
  - [ ] Add Favicon
 
 ## Someday/Maybe
