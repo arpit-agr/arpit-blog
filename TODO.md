@@ -7,6 +7,7 @@
 ## Foreseeable Future
  - [ ] Configure syntax highlighting
  - [ ] Add favicon
+ - [ ] Update social image URL
 
 ## Someday/Maybe
 
@@ -16,3 +17,4 @@
 - [ ] Bring in likes/replies from the IndieWeb and the Fediverse
 - [ ] Post from mobile editors
 - [ ] Show preview cards for external links
+- [ ] Add print stylesheet
