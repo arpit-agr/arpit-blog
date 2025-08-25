@@ -3,6 +3,9 @@
 ## Next Up
 - [ ] Add Base Layout
 
+## Foreseeable Future
+ - [ ] Add Favicon
+
 ## Someday/Maybe
 
 - [ ] Manually syndicate posts to Bluesky and Mastodon
