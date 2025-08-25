@@ -1,14 +1,16 @@
 # TODO
 
 ## Next Up
-- [ ] Add Base Layout
+- [ ] Add base layout
+- [ ] Update styles
 
 ## Foreseeable Future
- - [ ] Configure Syntax Highlighting
- - [ ] Add Favicon
+ - [ ] Configure syntax highlighting
+ - [ ] Add favicon
 
 ## Someday/Maybe
 
+- [ ] Update README.md
 - [ ] Manually syndicate posts to Bluesky and Mastodon
 - [ ] Automate syndication to Bluesky and Mastodon
 - [ ] Bring in likes/replies from the IndieWeb and the Fediverse
