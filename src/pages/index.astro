@@ -1,5 +1,5 @@
 ---
-import "@css/style.css";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 import { SITE_TITLE } from "@src/consts";
 import { getCollection, render } from "astro:content";
@@ -18,153 +18,51 @@ const entries = await Promise.all(
 );
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{SITE_TITLE}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Sarina&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<h1>
-			<span class="text-fit">
-				<span><span>{SITE_TITLE}</span></span>
-				<span aria-hidden="true">{SITE_TITLE}</span>
-			</span>
-		</h1>
-		<main>
-			<ul>
-				{
-					entries.map((entry) => {
-						const basePath =
-							entry.collection === "notes" ? "/notes" : "/articles";
-						return (
-							<li>
-								<article>
-									<p>
-										Posted on
-										<time datetime={entry.data.pubDate.toISOString()}>
-											{entry.data.pubDate.toLocaleString("en-IN", {
-												year: "numeric",
-												month: "short",
-												day: "numeric",
-											})}
-										</time>
-									</p>
-									{!!entry.data.title && (
-										<h2>
-											<a href={`${basePath}/${entry.id}/`}>
-												{entry.data.title}
-											</a>
-										</h2>
-									)}
-									<entry.Content />
-									<a href={`${basePath}/${entry.id}/`} rel="bookmark">
-										Link
-									</a>
-								</article>
-							</li>
-						);
-					})
-				}
-			</ul>
-		</main>
-	</body>
-</html>
-
-<style>
-	h1 {
-		position: absolute;
-		inset-block-start: 1lh;
-		inset-inline: 0;
-		padding-inline: 1lh;
-
-		font-family: "Sarina", cursive;
-		line-height: 1;
-		text-box-trim: trim-both;
-		text-box-edge: cap alphabetic;
-		color: #feba21;
-		mix-blend-mode: multiply;
-
-		pointer-events: none;
-	}
-
-	.text-fit {
-		display: flex;
-		container-type: inline-size;
-
-		--captured-length: initial;
-		--support-sentinel: var(--captured-length, 9999px);
-
-		& > [aria-hidden] {
-			visibility: hidden;
-		}
-
-		& > :not([aria-hidden]) {
-			flex-grow: 1;
-			container-type: inline-size;
-
-			--captured-length: 100cqi;
-			--available-space: var(--captured-length);
-
-			& > * {
-				--support-sentinel: inherit;
-				--captured-length: 100cqi;
-				--ratio: tan(
-					atan2(
-						var(--available-space),
-						var(--available-space) - var(--captured-length)
-					)
-				);
-				--font-size: clamp(
-					1em,
-					1em * var(--ratio),
-					var(--max-font-size, infinity * 1px) - var(--support-sentinel)
-				);
-				inline-size: var(--available-space);
-
-				&:not(.text-fit) {
-					display: block;
-					font-size: var(--font-size);
-
-					@container (inline-size > 0) {
-						white-space: nowrap;
-					}
-				}
-
-				&.text-fit {
-					--captured-length2: var(--font-size);
-					font-variation-settings: "opsz"
-						tan(atan2(var(--captured-length2), 1px));
-				}
+<BaseLayout
+	bodyClass="homepage"
+	pageTitle={SITE_TITLE}
+	pageDesc="The digital garden of Arpit Agrawal, a web designer-developer from India."
+	ogType="website"
+>
+	<h1>
+		<span class="text-fit">
+			<span><span>{SITE_TITLE}</span></span>
+			<span aria-hidden="true">{SITE_TITLE}</span>
+		</span>
+	</h1>
+	<main>
+		<ul>
+			{
+				entries.map((entry) => {
+					const basePath =
+						entry.collection === "notes" ? "/notes" : "/articles";
+					return (
+						<li>
+							<article>
+								<p>
+									Posted on
+									<time datetime={entry.data.pubDate.toISOString()}>
+										{entry.data.pubDate.toLocaleString("en-IN", {
+											year: "numeric",
+											month: "short",
+											day: "numeric",
+										})}
+									</time>
+								</p>
+								{entry.collection === "articles" && (
+									<h2>
+										<a href={`${basePath}/${entry.id}/`}>{entry.data.title}</a>
+									</h2>
+								)}
+								<entry.Content />
+								<a href={`${basePath}/${entry.id}/`} rel="bookmark">
+									Link
+								</a>
+							</article>
+						</li>
+					);
+				})
 			}
-		}
-	}
-
-	@property --captured-length {
-		syntax: "<length>";
-		initial-value: 0px;
-		inherits: true;
-	}
-
-	@property --captured-length2 {
-		syntax: "<length>";
-		initial-value: 0px;
-		inherits: true;
-	}
-
-	main {
-		padding-block: 15vmin;
-	}
-</style>
+		</ul>
+	</main>
+</BaseLayout>
