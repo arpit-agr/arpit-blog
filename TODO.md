@@ -1,7 +1,6 @@
 # TODO
 
 ## Next Up
-- [ ] Add base layout
 - [ ] Update styles
 
 ## Foreseeable Future
