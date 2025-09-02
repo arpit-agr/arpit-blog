@@ -22,7 +22,7 @@ body {
 	min-block-size: 100%;
 	font-family: system-ui;
 	line-height: 1.5;
-	font-synthesis: none;
+	font-synthesis-weight: none; /* Synthesis of the missing bold typeface by the browser is not allowed */
 	-webkit-font-smoothing: antialiased;
 	overflow-wrap: anywhere;
 }
