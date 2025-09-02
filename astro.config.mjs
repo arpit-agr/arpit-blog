@@ -6,7 +6,4 @@ import markdoc from "@astrojs/markdoc";
 export default defineConfig({
 	site: "https://blog.arpit.codes",
 	integrations: [markdoc()],
-	markdown: {
-		syntaxHighlight: false,
-	},
 });
