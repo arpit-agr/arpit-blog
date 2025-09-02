@@ -1,0 +1,15 @@
+.center {
+	box-sizing: content-box;
+	max-inline-size: var(--center-max-width);
+	margin-inline: auto;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--center-gap, 1lh);
+}
+
+[data-centered-text] * {
+	text-align: center;
+	text-wrap: balance;
+}
