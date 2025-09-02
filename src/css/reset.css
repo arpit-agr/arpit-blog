@@ -11,7 +11,7 @@
 html {
 	block-size: 100%;
 	text-size-adjust: none; /* Prevent font size inflation */
-	interpolate-size: allow-keywords;
+	interpolate-size: allow-keywords; /* enables animations & transitions between a length/percentage value and an intrinsic size value */
 
 	@media (prefers-reduced-motion: no-preference) {
 		scroll-behavior: smooth;
