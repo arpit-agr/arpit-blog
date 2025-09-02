@@ -1,0 +1,167 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:not(dialog) {
+	margin: 0;
+}
+
+html {
+	block-size: 100%;
+	text-size-adjust: none; /* Prevent font size inflation */
+
+	@media (prefers-reduced-motion: no-preference) {
+		scroll-behavior: smooth;
+	}
+}
+
+body {
+	min-block-size: 100%;
+	font-family: system-ui;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+	text-box: trim-both cap alphabetic;
+	text-wrap: balance;
+}
+
+p {
+	max-inline-size: var(--measure, 60ch);
+	text-wrap: pretty;
+}
+
+a {
+	color: currentColor;
+	text-underline-offset: 0.125lh;
+}
+
+button {
+	transition: scale 50ms ease-in;
+
+	&:active {
+		scale: 0.98;
+	}
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+}
+
+img,
+svg,
+video {
+	max-inline-size: 100%;
+	block-size: auto;
+}
+
+/* Remove list styles on ul, ol with a list role, which suggests default styling will be removed */
+ol[role="list"],
+ul[role="list"] {
+	list-style: none;
+	padding-inline-start: 0; /* Browsers apply a default padding-inline-start of 40px */
+}
+
+hr {
+	block-size: 0;
+	border-style: solid;
+	border-width: 1px 0 0;
+	color: inherit;
+	overflow: visible;
+}
+
+sup {
+	font-size: 0.5em;
+}
+
+input,
+button,
+textarea,
+select,
+input[type="file"]::-webkit-file-upload-button {
+	font: inherit;
+	font-size: inherit;
+	color: inherit;
+	letter-spacing: inherit;
+}
+
+::placeholder {
+	opacity: 0.75;
+}
+
+select {
+	padding-block: 0.25lh;
+	field-sizing: content;
+}
+
+textarea {
+	resize: block;
+	field-sizing: content;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+	min-block-size: 10lh;
+}
+
+a[href],
+area,
+button,
+input:not(
+	[type="text"],
+	[type="email"],
+	[type="number"],
+	[type="password"],
+	[type=""],
+	[type="tel"],
+	[type="url"]
+),
+label[for],
+select,
+summary,
+[tabindex]:not([tabindex*="-"], pre) {
+	cursor: pointer;
+}
+
+a[href],
+area,
+button,
+input,
+label[for],
+select,
+summary,
+textarea,
+[tabindex]:not([tabindex*="-"]) {
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+}
+
+:not(pre) > code,
+kbd {
+	white-space: nowrap;
+}
+
+pre {
+	tab-size: 2;
+	white-space: pre;
+	min-inline-size: 0;
+	max-inline-size: max-content;
+	overflow-x: auto;
+	writing-mode: lr;
+	direction: ltr;
+}
+
+:target {
+	scroll-margin-block: 1lh;
+}
