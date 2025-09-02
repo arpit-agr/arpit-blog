@@ -2,3 +2,4 @@
 
 @import url(/src/css/reset.css) layer(reset);
 @import url(/src/css/global.css) layer(global);
+@import url(/src/css/text-fit.css) layer(utilities);
