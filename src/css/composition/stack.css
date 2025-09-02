@@ -1,0 +1,7 @@
+.stack {
+	display: flex;
+	flex-direction: column;
+	gap: var(--stack-gap, 1lh);
+	justify-content: var(--stack-vertical-alignment, flex-start);
+	align-items: var(--stack-horizontal-alignment, flex-start);
+}
