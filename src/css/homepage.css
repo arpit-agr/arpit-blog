@@ -1,0 +1,8 @@
+.homepage {
+	h1 {
+		font-family: var(--font-display);
+		color: #feba21;
+		mix-blend-mode: multiply;
+		pointer-events: none;
+	}
+}
