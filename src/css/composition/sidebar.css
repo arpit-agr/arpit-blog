@@ -1,0 +1,22 @@
+:has(> .sidebar) {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--sidebar-gap, 1lh);
+}
+
+:has(> .sidebar) > :first-child {
+	flex-basis: var(--sidebar-min-width, 16rem);
+	flex-grow: 1;
+}
+
+:has(> .sidebar) > :last-child {
+	flex-basis: 0;
+	flex-grow: 999;
+	min-inline-size: 50%;
+}
+
+:has(> .sidebar) > :only-child,
+:has(> .sidebar) > :nth-child(3) {
+	--error: "Sidebar layouts must include exactly two child elements.";
+	outline: var(--error-outline);
+}
