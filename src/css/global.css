@@ -1,0 +1,13 @@
+a {
+	transition: text-underline-offset 50ms ease-in;
+	transition-delay: 50ms;
+
+	&:hover {
+		text-underline-offset: 0.0833333333lh;
+	}
+}
+
+pre,
+code {
+	font-family: var(--font-mono);
+}
