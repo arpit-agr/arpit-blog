@@ -2,6 +2,15 @@
 
 @import url(/src/css/reset.css) layer(reset);
 @import url(/src/css/global.css) layer(global);
+@import url(/src/css/composition/box.css) layer(composition);
+@import url(/src/css/composition/center.css) layer(composition);
+@import url(/src/css/composition/cluster.css) layer(composition);
+@import url(/src/css/composition/flow.css) layer(composition);
+@import url(/src/css/composition/grid.css) layer(composition);
+@import url(/src/css/composition/repel.css) layer(composition);
+@import url(/src/css/composition/sidebar.css) layer(composition);
+@import url(/src/css/composition/stack.css) layer(composition);
+@import url(/src/css/utilities/wrapper.css) layer(utilities);
+@import url(/src/css/utilities/region.css) layer(utilities);
 @import url(/src/css/utilities/visually-hidden.css) layer(utilities);
 @import url(/src/css/utilities/text-fit.css) layer(utilities);
-@import url(/src/css/exceptions/homepage.css) layer(exceptions);
