@@ -2,5 +2,6 @@
 
 @import url(/src/css/reset.css) layer(reset);
 @import url(/src/css/global.css) layer(global);
-@import url(/src/css/text-fit.css) layer(utilities);
-@import url(/src/css/homepage.css) layer(exceptions);
+@import url(/src/css/utilities/visually-hidden.css) layer(utilities);
+@import url(/src/css/utilities/text-fit.css) layer(utilities);
+@import url(/src/css/exceptions/homepage.css) layer(exceptions);
