@@ -1,0 +1,12 @@
+.grid {
+	display: grid;
+	gap: var(--grid-row-gap, var(--grid-gap, 1lh))
+		var(--grid-column-gap, var(--grid-gap, 1lh));
+}
+
+[data-grid="intrinsic"] {
+	grid-template-columns: repeat(
+		var(--grid-placement, auto-fill),
+		minmax(var(--grid-min-item-size, min(16rem, 100%)), 1fr)
+	);
+}
