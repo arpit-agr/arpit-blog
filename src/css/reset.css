@@ -11,6 +11,7 @@
 html {
 	block-size: 100%;
 	text-size-adjust: none; /* Prevent font size inflation */
+	interpolate-size: allow-keywords;
 
 	@media (prefers-reduced-motion: no-preference) {
 		scroll-behavior: smooth;
@@ -21,6 +22,9 @@ body {
 	min-block-size: 100%;
 	font-family: system-ui;
 	line-height: 1.5;
+	font-synthesis: none;
+	-webkit-font-smoothing: antialiased;
+	overflow-wrap: anywhere;
 }
 
 h1,
