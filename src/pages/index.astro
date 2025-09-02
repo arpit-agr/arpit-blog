@@ -55,9 +55,11 @@ const entries = await Promise.all(
 									</h2>
 								)}
 								<entry.Content />
-								<a href={`${basePath}/${entry.id}/`} rel="bookmark">
-									More about this
-								</a>
+								<p>
+									<a href={`${basePath}/${entry.id}/`} rel="bookmark">
+										More about this
+									</a>
+								</p>
 							</article>
 						</li>
 					);
