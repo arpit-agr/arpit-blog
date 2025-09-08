@@ -4,12 +4,12 @@
 	gap: var(--sidebar-gap, 1lh);
 }
 
-:has(> .sidebar) > :first-child {
+.sidebar {
 	flex-basis: var(--sidebar-min-width, 16rem);
 	flex-grow: 1;
 }
 
-:has(> .sidebar) > :last-child {
+:has(> .sidebar) > :not(.sidebar) {
 	flex-basis: 0;
 	flex-grow: 999;
 	min-inline-size: 50%;
