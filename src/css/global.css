@@ -1,3 +1,41 @@
+@view-transition {
+	navigation: auto;
+}
+
+/* 1st order variables */
+:root {
+	--wrapper-max-width: 55rem;
+
+	--color-text: black;
+	--color-bg: white;
+	--color-accent: oklch(0.8305 0.1975 80.76);
+
+	--border-thickness: 1px;
+}
+
+/* 2nd order variables */
+:root {
+	--color-border: oklch(from var(--color-text) l c h / 0.125);
+}
+
+:root {
+	color-scheme: light;
+}
+
+body {
+	font-size: 1.0625rem;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	line-height: 1.6;
+	font-size-adjust: from-font;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 600;
+}
+
 a {
 	transition: text-underline-offset 50ms ease-in;
 	transition-delay: 50ms;
