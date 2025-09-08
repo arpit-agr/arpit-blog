@@ -41,7 +41,8 @@ p {
 
 a {
 	color: currentColor;
-	text-underline-offset: 0.125lh;
+	text-decoration-thickness: clamp(1px, 0.066lh, 2px);
+	text-underline-offset: 0.1lh;
 }
 
 button {
