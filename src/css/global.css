@@ -2,19 +2,20 @@
 	navigation: auto;
 }
 
-/* 1st order variables */
 :root {
+	/* 1st order variables */
 	--wrapper-max-width: 56rem;
-
-	--color-text: black;
-	--color-bg: white;
-	--color-accent: oklch(0.8305 0.1975 80.76);
-
+	--color-black: #000;
+	--color-white: #fff;
+	--color-yellow: oklch(0.8305 0.1975 80.76);
 	--border-thickness: 1px;
-}
 
-/* 2nd order variables */
-:root {
+	/* 2nd order variables */
+	--color-text: var(--color-black);
+	--color-bg: var(--color-white);
+	--color-accent: var(--color-yellow);
+
+	/* 3rd order variables */
 	--color-border: oklch(from var(--color-text) l c h / 0.125);
 	--color-underline: oklch(from var(--color-accent) l c h / 0.33);
 }
