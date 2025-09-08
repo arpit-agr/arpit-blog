@@ -113,11 +113,11 @@ const entries = await Promise.all(
 				position: relative;
 				inset-block-start: 0.125lh;
 				mix-blend-mode: multiply;
-				overflow-x: clip;
+				/*overflow-x: clip;
 
 				.text-fit > :not([aria-hidden]) {
 					rotate: -2deg;
-				}
+				}*/
 
 				&,
 				span {
@@ -129,6 +129,8 @@ const entries = await Promise.all(
 				--sidebar-gap: 0lh;
 				max-inline-size: var(--wrapper-max-width);
 				margin-inline: auto;
+
+				flex-direction: row-reverse;
 			}
 
 			.sidebar {
@@ -161,13 +163,13 @@ const entries = await Promise.all(
 			li::before {
 				--_border: var(--color-border);
 				/* dashed border */
-				/*--_border: repeating-linear-gradient(
+				--_border: repeating-linear-gradient(
 					var(--_angle, 0deg),
 					transparent,
 					transparent 0.125lh,
 					var(--color-border) 0.125lh,
 					var(--color-border) 0.25lh
-				);*/
+				);
 
 				content: "";
 				position: absolute;
@@ -175,7 +177,7 @@ const entries = await Promise.all(
 			}
 
 			.sidebar > *::after {
-				inset-inline-end: 0;
+				inset-inline-start: 0;
 				inset-block-start: 0;
 				inline-size: var(--border-thickness);
 				block-size: 100%;
