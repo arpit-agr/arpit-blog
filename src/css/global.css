@@ -16,6 +16,7 @@
 /* 2nd order variables */
 :root {
 	--color-border: oklch(from var(--color-text) l c h / 0.125);
+	--color-underline: oklch(from var(--color-accent) l c h / 0.33);
 }
 
 :root {
@@ -38,10 +39,11 @@ h3 {
 
 a {
 	text-decoration-thickness: clamp(var(--border-thickness), 0.066lh, 2px);
-	text-decoration-color: oklch(from var(--color-accent) l c h / 0.33);
+	text-decoration-color: var(--color-underline);
+	transition: box-shadow 200ms ease-in-out;
 
 	&:hover {
-		text-decoration-color: var(--color-accent);
+		box-shadow: inset 0lh -0.3lh var(--color-underline);
 	}
 }
 
