@@ -7,7 +7,6 @@
  - [ ] Update meta theme color
  - [ ] Add favicon
  - [ ] Update social image URL
- - [ ] Configure syntax highlighting
 
 ## Someday/Maybe
 
