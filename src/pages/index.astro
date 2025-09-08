@@ -30,41 +30,206 @@ const entries = await Promise.all(
 			<span aria-hidden="true">{SITE_TITLE}</span>
 		</span>
 	</h1>
-	<main>
-		<ul role="list">
-			{
-				entries.map((entry) => {
-					const basePath =
-						entry.collection === "notes" ? "/notes" : "/articles";
-					return (
+	<div>
+		<div class="sidebar">
+			<div class="stack">
+				<p class="description">
+					The digital garden of Arpit Agrawal, a web designer-developer from
+					India.
+				</p>
+				<nav>
+					<ul>
 						<li>
-							<article>
-								<p>
-									Posted on
-									<time datetime={entry.data.pubDate.toISOString()}>
-										{entry.data.pubDate.toLocaleString("en-IN", {
-											year: "numeric",
-											month: "short",
-											day: "numeric",
-										})}
-									</time>
-								</p>
-								{entry.collection === "articles" && (
-									<h2>
-										<a href={`${basePath}/${entry.id}/`}>{entry.data.title}</a>
-									</h2>
-								)}
-								<entry.Content />
-								<p>
-									<a href={`${basePath}/${entry.id}/`} rel="bookmark">
-										More about this
-									</a>
-								</p>
-							</article>
+							<a href="/">Home</a>
 						</li>
-					);
-				})
-			}
-		</ul>
-	</main>
+						<li>
+							<a href="/notes/">Notes</a>
+						</li>
+						<li>
+							<a href="/articles/">Articles</a>
+						</li>
+						<li>
+							<a href="/links/">Links</a>
+						</li>
+						<li>
+							<a href="/books/">Books</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<main>
+			<ul role="list">
+				{
+					entries.map((entry) => {
+						const basePath =
+							entry.collection === "notes" ? "/notes" : "/articles";
+						return (
+							<li>
+								<article class="stack">
+									<p>
+										<span class="visually-hidden">Posted on</span>
+										<time datetime={entry.data.pubDate.toISOString()}>
+											{entry.data.pubDate.toLocaleString("en-IN", {
+												year: "numeric",
+												month: "short",
+												day: "numeric",
+											})}
+										</time>
+									</p>
+									{entry.collection === "articles" && (
+										<h2>
+											<a href={`${basePath}/${entry.id}/`}>
+												{entry.data.title}
+											</a>
+										</h2>
+									)}
+									<div class="content flow">
+										<entry.Content />
+									</div>
+									<footer class="repel">
+										<a href={`${basePath}/${entry.id}#comments`}>Reply</a>
+										<a href={`${basePath}/${entry.id}/`} rel="bookmark">
+											More about this
+										</a>
+									</footer>
+								</article>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</main>
+	</div>
 </BaseLayout>
+
+<style is:global>
+	@layer exceptions {
+		.homepage {
+			h1 {
+				font-family: var(--font-display);
+				color: var(--color-accent);
+
+				position: relative;
+				inset-block-start: 0.125lh;
+				mix-blend-mode: multiply;
+				overflow-x: clip;
+
+				.text-fit > :not([aria-hidden]) {
+					rotate: -2deg;
+				}
+
+				&,
+				span {
+					text-box: trim-both cap alphabetic;
+				}
+			}
+
+			:has(> .sidebar) {
+				--sidebar-gap: 0lh;
+				max-inline-size: var(--wrapper-max-width);
+				margin-inline: auto;
+			}
+
+			.sidebar {
+				position: relative;
+				container-type: inline-size;
+				padding: 1lh;
+
+				nav ul {
+					padding-inline-start: 1em;
+
+					@container (width > 50vi) {
+						padding-inline-start: 0;
+						list-style: none;
+
+						display: flex;
+						gap: 1lh;
+						overflow-x: auto;
+						overflow-y: hidden;
+						scrollbar-color: var(--color-text) var(--color-bg);
+						scrollbar-width: thin;
+
+						& > * {
+							flex: 0 0 auto;
+						}
+					}
+				}
+			}
+
+			.sidebar > *::after,
+			li::before {
+				--_border: var(--color-border);
+				/*--_border: repeating-linear-gradient(
+					var(--_angle, 0deg),
+					transparent,
+					transparent 0.125lh,
+					var(--color-border) 0.125lh,
+					var(--color-border) 0.25lh
+				);*/
+
+				content: "";
+				position: absolute;
+				background: var(--_border);
+			}
+
+			.sidebar > *::after {
+				inset-inline-end: 0;
+				inset-block-start: 0;
+				inline-size: var(--border-thickness);
+				block-size: 100%;
+
+				@container (width > 50vi) {
+					--_angle: 90deg;
+					inset-inline: 0;
+					inset-block-start: unset;
+					inset-block-end: 0;
+					inline-size: 100%;
+					block-size: var(--border-thickness);
+				}
+			}
+
+			.description {
+				text-wrap: balance;
+				text-box: trim-both cap alphabetic;
+			}
+
+			:has(> .sidebar) > :not(.sidebar) {
+				min-inline-size: 60%;
+			}
+
+			main li {
+				position: relative;
+				padding: 1lh;
+
+				+ li::before {
+					--_angle: 90deg;
+
+					inset-inline: 0;
+					inset-block-start: 0;
+					block-size: var(--border-thickness);
+				}
+
+				article {
+					> :where(:first-child, :last-child) {
+						font-size: 0.875em;
+						color: oklch(from var(--color-text) l c h / 0.625);
+
+						&,
+						* {
+							text-box: trim-both cap alphabetic;
+						}
+					}
+				}
+
+				footer {
+					align-self: stretch;
+				}
+
+				.content {
+					max-inline-size: 100%;
+				}
+			}
+		}
+	}
+</style>
