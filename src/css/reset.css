@@ -160,7 +160,7 @@ pre {
 	tab-size: 2;
 	white-space: pre;
 	min-inline-size: 0;
-	max-inline-size: fit-content;
+	max-inline-size: 100%;
 	overflow-x: auto;
 	writing-mode: lr;
 	direction: ltr;
