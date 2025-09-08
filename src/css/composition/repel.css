@@ -1,6 +1,6 @@
 .repel {
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: var(--repel-wrap, wrap);
 	gap: var(--repel-gap, 1lh);
 	justify-content: space-between;
 	align-items: var(--repel-vertical-alignment, center);
