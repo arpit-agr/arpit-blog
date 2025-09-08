@@ -29,7 +29,7 @@ export default defineMarkdocConfig({
 			// Choose from Shiki's built-in themes (or add your own)
 			// Default: 'github-dark'
 			// https://shiki.style/themes
-			theme: "slack-ochin",
+			theme: "light-plus",
 			// Enable word wrap to prevent horizontal scrolling
 			// Default: false
 			wrap: false,
