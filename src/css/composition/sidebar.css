@@ -11,8 +11,8 @@
 
 :has(> .sidebar) > :not(.sidebar) {
 	flex-basis: 0;
-	flex-grow: 999;
-	min-inline-size: 50%;
+	flex-grow: 99999;
+	min-inline-size: 60%;
 }
 
 :has(> .sidebar) > :only-child,
