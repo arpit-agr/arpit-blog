@@ -1,0 +1,19 @@
+.banner-text {
+	--wrapper-max-width: 90rem;
+	view-transition-name: site-banner;
+	position: relative;
+	inset-block-start: 0.25lh;
+	pointer-events: none;
+	/*mix-blend-mode: multiply;*/
+	z-index: 1;
+
+	> * {
+		font-family: var(--font-display);
+		color: var(--color-accent);
+
+		&,
+		span {
+			text-box: trim-both cap alphabetic;
+		}
+	}
+}
