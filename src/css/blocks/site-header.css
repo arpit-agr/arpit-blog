@@ -1,0 +1,45 @@
+.site-header {
+	view-transition-name: site-header;
+}
+
+.site-header.sidebar {
+	position: relative;
+	container-type: inline-size;
+	padding: 1lh;
+
+	nav ul {
+		@container (width > 50vi) {
+			display: flex;
+			gap: 1lh;
+			overflow-x: auto;
+			overflow-y: hidden;
+			scrollbar-color: var(--color-text) var(--color-bg);
+			scrollbar-width: thin;
+
+			& > * {
+				flex: 0 0 auto;
+			}
+		}
+	}
+}
+
+.site-header.sidebar > *::after {
+	inset-inline-start: 0;
+	inset-block-start: 0;
+	inline-size: var(--border-thickness);
+	block-size: 100%;
+
+	@container (width > 50vi) {
+		--_angle: 90deg;
+		inset-inline: 0;
+		inset-block-start: unset;
+		inset-block-end: 0;
+		inline-size: 100%;
+		block-size: var(--border-thickness);
+	}
+}
+
+.description {
+	text-wrap: balance;
+	text-box: trim-both cap alphabetic;
+}
