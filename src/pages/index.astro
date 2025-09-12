@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import BannerText from "@src/components/BannerText.astro";
+import SiteHeader from "@src/components/SiteHeader.astro";
 
 import { SITE_TITLE } from "@src/consts";
 import { getCollection, render } from "astro:content";
@@ -24,40 +26,9 @@ const entries = await Promise.all(
 	pageDesc="The digital garden of Arpit Agrawal, a web designer-developer from India."
 	ogType="website"
 >
-	<h1>
-		<span class="text-fit">
-			<span><span>{SITE_TITLE}</span></span>
-			<span aria-hidden="true">{SITE_TITLE}</span>
-		</span>
-	</h1>
+	<BannerText as="h1" />
 	<div>
-		<div class="sidebar">
-			<div class="stack">
-				<p class="description">
-					The digital garden of Arpit Agrawal, a web designer-developer from
-					India.
-				</p>
-				<nav>
-					<ul>
-						<li>
-							<a href="/">Home</a>
-						</li>
-						<li>
-							<a href="/notes/">Notes</a>
-						</li>
-						<li>
-							<a href="/articles/">Articles</a>
-						</li>
-						<li>
-							<a href="/links/">Links</a>
-						</li>
-						<li>
-							<a href="/books/">Books</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div>
+		<SiteHeader />
 		<main>
 			<ul role="list">
 				{
@@ -106,101 +77,6 @@ const entries = await Promise.all(
 <style is:global>
 	@layer exceptions {
 		.homepage {
-			h1 {
-				font-family: var(--font-display);
-				color: var(--color-accent);
-
-				position: relative;
-				/*inset-block-start: 0.125lh;*/
-				mix-blend-mode: multiply;
-				/*overflow-x: clip;
-
-				.text-fit > :not([aria-hidden]) {
-					rotate: -2deg;
-				}*/
-
-				&,
-				span {
-					text-box: trim-both cap alphabetic;
-				}
-			}
-
-			:has(> .sidebar) {
-				--sidebar-gap: 0lh;
-				max-inline-size: var(--wrapper-max-width);
-				margin-inline: auto;
-
-				flex-direction: row-reverse;
-			}
-
-			.sidebar {
-				position: relative;
-				container-type: inline-size;
-				padding: 1lh;
-
-				nav ul {
-					padding-inline-start: 1em;
-
-					@container (width > 50vi) {
-						padding-inline-start: 0;
-						list-style: none;
-
-						display: flex;
-						gap: 1lh;
-						overflow-x: auto;
-						overflow-y: hidden;
-						scrollbar-color: var(--color-text) var(--color-bg);
-						scrollbar-width: thin;
-
-						& > * {
-							flex: 0 0 auto;
-						}
-					}
-				}
-			}
-
-			.sidebar > *::after,
-			li::before {
-				--_border: var(--color-border);
-				/* dashed border */
-				--_border: repeating-linear-gradient(
-					var(--_angle, 0deg),
-					transparent,
-					transparent 0.125lh,
-					var(--color-border) 0.125lh,
-					var(--color-border) 0.25lh
-				);
-
-				content: "";
-				position: absolute;
-				background: var(--_border);
-			}
-
-			.sidebar > *::after {
-				inset-inline-start: 0;
-				inset-block-start: 0;
-				inline-size: var(--border-thickness);
-				block-size: 100%;
-
-				@container (width > 50vi) {
-					--_angle: 90deg;
-					inset-inline: 0;
-					inset-block-start: unset;
-					inset-block-end: 0;
-					inline-size: 100%;
-					block-size: var(--border-thickness);
-				}
-			}
-
-			.description {
-				text-wrap: balance;
-				text-box: trim-both cap alphabetic;
-			}
-
-			:has(> .sidebar) > :not(.sidebar) {
-				min-inline-size: 60%;
-			}
-
 			main li {
 				position: relative;
 				padding: 1lh;
