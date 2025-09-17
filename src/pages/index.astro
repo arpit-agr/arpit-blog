@@ -3,7 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import BannerText from "@src/components/BannerText.astro";
 import SiteHeader from "@src/components/SiteHeader.astro";
 
-import { SITE_TITLE } from "@src/consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
 import { getCollection, render } from "astro:content";
 
 const allNotes = await getCollection("notes");
@@ -23,7 +23,7 @@ const entries = await Promise.all(
 <BaseLayout
 	bodyClass="homepage"
 	pageTitle={SITE_TITLE}
-	pageDesc="The digital garden of Arpit Agrawal, a web designer-developer from India."
+	pageDesc={SITE_DESCRIPTION}
 	ogType="website"
 >
 	<BannerText as="h1" />
@@ -91,8 +91,8 @@ const entries = await Promise.all(
 
 				article {
 					> :where(:first-child, :last-child) {
-						font-size: 0.875em;
-						color: oklch(from var(--color-text) l c h / 0.625);
+						font-size: var(--step--1);
+						color: var(--color-text-secondary);
 
 						&,
 						* {
