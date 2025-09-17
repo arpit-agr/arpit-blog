@@ -12,4 +12,4 @@ and came across this snippet:
 <meta name="theme-color" content="var(--theme)" />
 ```
 
-I wish it was possible to access custom properties outside the `<style>` tag in the `<head>`. It would keep things {% idiomatic-text %}DRY{% /idiomatic-text %}.
+I wish it was possible to access custom properties outside the `<style>` tag in the `<head>`. It would keep things <i>DRY</i>.
