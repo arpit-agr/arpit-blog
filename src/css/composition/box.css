@@ -1,8 +1,9 @@
 .box {
 	padding: var(--box-padding, 1lh);
 	outline: var(--box-border-thickness, var(--border-thickness, 1px))
-		var(--box-border-style, solid) var(--color-box-border, var(--color-text));
-	color: var(--color-box-text, var(--color-text));
+		var(--box-border-style, solid)
+		var(--color-box-border, var(--color-text-primary));
+	color: var(--color-box-text, var(--color-text-primary));
 	background-color: var(--color-box-bg, var(--color-bg));
 }
 
