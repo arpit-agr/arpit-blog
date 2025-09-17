@@ -3,6 +3,7 @@
 }*/
 
 .site-header.sidebar {
+	--sidebar-min-width: 17rem;
 	position: relative;
 	container-type: inline-size;
 	padding: 1lh;
