@@ -14,7 +14,7 @@
 			gap: var(--space-s);
 			overflow-x: auto;
 			overflow-y: hidden;
-			scrollbar-color: var(--color-text) var(--color-bg);
+			scrollbar-color: var(--color-text-primary) var(--color-bg);
 			scrollbar-width: thin;
 
 			& > * {
