@@ -3,21 +3,47 @@
 }
 
 :root {
+	@utopia typeScale({
+    minFontSize: 16,
+    maxFontSize: 17,
+    minTypeScale: 1.2,
+    maxTypeScale: 1.25,
+    positiveSteps: 5,
+    negativeSteps: 2,
+    relativeTo: 'viewport',
+    prefix: 'step'
+  });
+	@utopia spaceScale({
+      minSize: 16,
+      maxSize: 17,
+      positiveSteps: [1.5, 2, 3],
+      negativeSteps: [0.75, 0.5, 0.25, 0.125],
+      customSizes: ['s-l'],
+      relativeTo: 'viewport',
+      prefix: 'space',
+      usePx: false,
+    });
+}
+
+:root {
 	/* 1st order variables */
 	--wrapper-max-width: 56rem;
 	--color-black: #000;
 	--color-white: #fff;
+	--color-gray: hsl(0 0 33%);
 	--color-yellow: oklch(0.8305 0.1975 80.76);
 	--border-thickness: 1px;
 
 	/* 2nd order variables */
-	--color-text: var(--color-black);
+	--color-text-primary: var(--color-black);
+	--color-text-secondary: var(--color-gray);
 	--color-bg: var(--color-white);
 	--color-accent: var(--color-yellow);
 
 	/* 3rd order variables */
-	--color-border: oklch(from var(--color-text) l c h / 0.125);
-	--color-underline: oklch(from var(--color-accent) l c h / 0.5);
+	--color-border-solid: oklch(from var(--color-text-primary) l c h / 0.15);
+	--color-border-dashed: oklch(from var(--color-text-primary) l c h / 0.25);
+	--color-bg-code: oklch(from var(--color-text-primary) l c h / 0.05);
 }
 
 :root {
@@ -26,11 +52,12 @@
 }
 
 body {
-	font-size: 1.0625rem;
-	color: var(--color-text);
+	font-size: var(--step-0);
+	color: var(--color-text-primary);
 	background-color: var(--color-bg);
-	line-height: 1.6;
+	font-family: ui-rounded, system-ui, sans-serif;
 	font-size-adjust: from-font;
+	line-height: 1.55;
 }
 
 h1,
@@ -40,7 +67,8 @@ h3 {
 }
 
 a {
-	text-decoration-thickness: calc(1.5 * var(--border-thickness));
+	--color-underline: oklch(from currentColor l c h / 0.33);
+	text-decoration-thickness: calc(1.25 * var(--border-thickness));
 	text-decoration-color: var(--color-underline);
 
 	&:hover {
@@ -50,44 +78,38 @@ a {
 }
 
 blockquote {
-	@supports not (hanging-punctuation: first last) {
-		padding-inline-start: 1ch;
-		border-inline-start: clamp(var(--border-thickness), 0.066lh, 2px) solid
-			var(--color-border);
-	}
+	position: relative;
+	padding-inline-start: var(--space-s);
 
-	@supports (hanging-punctuation: first last) {
-		hanging-punctuation: first last;
-
-		> :first-child::before {
-			content: open-quote;
-		}
-
-		> :last-child::after {
-			content: close-quote;
-		}
+	&::before {
+		content: "";
+		position: absolute;
+		inset-inline-start: 0;
+		inset-block: 0;
+		inline-size: var(--space-3xs);
+		border-radius: 0.25lh;
+		background-color: var(--color-accent);
 	}
 }
 
 pre,
 code {
 	font-family: var(--font-mono);
-	font-weight: 375;
 }
 
 pre {
-	padding: 0.5lh;
+	padding: 0.25lh 1ch;
 	max-inline-size: min(100%, var(--measure, 60ch));
-	outline: var(--border-thickness) dashed var(--color-border);
+	outline: var(--border-thickness) dashed var(--color-border-dashed);
 	border-radius: 0.25lh;
 }
 
-/*:not(pre) > code {
+:not(pre) > code {
 	padding-inline: 0.25ch;
 	border-radius: 0.125lh;
-	background-color: oklch(from var(--color-text) l c h / 0.03125);
-}*/
+	background-color: var(--color-bg-code);
+}
 
 hr {
-	color: var(--color-border);
+	color: var(--color-border-solid);
 }
