@@ -101,8 +101,7 @@ const {
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/my.webmanifest" /> -->
 
-<!-- <meta name="theme-color" content="white" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="black" media="(prefers-color-scheme: dark)" /> -->
+<meta name="theme-color" content="white" />
 
 <meta name="author" content="Arpit Agrawal" />
 <meta name="fediverse:creator" content="arpit@indieweb.social" />
@@ -111,3 +110,16 @@ const {
 
 <meta name="robots" content="index,follow" />
 <meta name="generator" content={Astro.generator} />
+
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title="Notes RSS"
+	href={new URL("/notes/rss.xml", Astro.site)}
+/>
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title="Articles RSS"
+	href={new URL("/articles/rss.xml", Astro.site)}
+/>
