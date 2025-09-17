@@ -1,6 +1,6 @@
-.site-header {
+/*.site-header {
 	view-transition-name: site-header;
-}
+}*/
 
 .site-header.sidebar {
 	position: relative;
@@ -10,7 +10,7 @@
 	nav ul {
 		@container (width > 50vi) {
 			display: flex;
-			gap: 1lh;
+			gap: var(--space-s);
 			overflow-x: auto;
 			overflow-y: hidden;
 			scrollbar-color: var(--color-text) var(--color-bg);
