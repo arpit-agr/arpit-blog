@@ -1,10 +1,9 @@
 .banner-text {
 	--wrapper-max-width: 90rem;
-	view-transition-name: site-banner;
+	/*view-transition-name: site-banner;*/
 	position: relative;
-	inset-block-start: 0.25lh;
+	/*translate: 0 0.25lh;*/
 	pointer-events: none;
-	/*mix-blend-mode: multiply;*/
 	z-index: 1;
 
 	> * {
