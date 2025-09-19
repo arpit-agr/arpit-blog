@@ -1,0 +1,4 @@
+.page {
+	outline: var(--border-width-normal) solid var(--color-border-light);
+	border-radius: var(--border-radius);
+}
