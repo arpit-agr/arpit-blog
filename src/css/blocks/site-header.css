@@ -25,7 +25,7 @@
 .site-header.sidebar > *::after {
 	inset-inline-start: 0;
 	inset-block-start: 0;
-	inline-size: var(--border-thickness);
+	inline-size: var(--border-width-normal);
 	block-size: 100%;
 
 	@container (width > 50vi) {
@@ -34,7 +34,7 @@
 		inset-block-start: unset;
 		inset-block-end: 0;
 		inline-size: 100%;
-		block-size: var(--border-thickness);
+		block-size: var(--border-width-normal);
 	}
 }
 
