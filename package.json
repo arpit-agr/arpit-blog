@@ -12,6 +12,7 @@
 		"@astrojs/markdoc": "^0.15.6",
 		"@astrojs/rss": "^4.0.12",
 		"astro": "^5.13.7",
+		"astro-expressive-code": "^0.41.3",
 		"astro-font": "^1.1.0",
 		"markdown-it": "^14.1.0",
 		"postcss-utopia": "^1.1.0",
