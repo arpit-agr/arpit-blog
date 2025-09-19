@@ -63,8 +63,8 @@
 	--color-accent: var(--color-yellow);
 
 	/* 3rd order variables */
-	--color-border-solid: oklch(from var(--color-text-primary) l c h / 0.15);
-	--color-border-dashed: oklch(from var(--color-text-primary) l c h / 0.25);
+	--color-border-light: oklch(from var(--color-text-primary) l c h / 0.15);
+	--color-border-dark: oklch(from var(--color-text-primary) l c h / 0.25);
 }
 
 :root {
@@ -137,7 +137,7 @@ code {
 
 pre {
 	padding: var(--code-padding-block) var(--code-padding-inline);
-	outline: var(--border-width-normal) solid var(--color-border-solid);
+	outline: var(--border-width-normal) solid var(--color-border-light);
 	border-radius: var(--code-border-radius);
 }
 
