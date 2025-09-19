@@ -1,0 +1,30 @@
+.expressive-code pre {
+	border: none;
+}
+
+.expressive-code .copy button {
+	block-size: var(--space-m-l);
+	inline-size: var(--space-m-l);
+	opacity: 1;
+	border-radius: var(--code-border-radius);
+
+	&:not(:focus-visible) {
+		outline: var(--border-width-normal) solid var(--color-border-dark);
+	}
+
+	&:where(:hover, :focus-visible) {
+		background: var(--color-bg-secondary);
+
+		> div {
+			opacity: 0;
+		}
+	}
+
+	&::before {
+		display: none;
+	}
+
+	&::after {
+		margin: 0.5em;
+	}
+}
