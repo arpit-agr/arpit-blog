@@ -1,0 +1,6 @@
+.link {
+	background: unset;
+	border: none;
+	text-decoration-line: underline;
+	text-underline-offset: min(0.125lh, 3px);
+}
