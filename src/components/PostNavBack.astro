@@ -1,0 +1,24 @@
+<div class="post-nav-back p-space-m">
+	<a
+		class="color-bg"
+		href="/"
+		onclick='return document.referrer?history.back():window.location.href="/",!1'
+	>
+		&larr; Back
+	</a>
+</div>
+
+<style is:global>
+	@layer blocks {
+		.post-nav-back {
+			position: relative;
+			border-block-end: var(--border-width-normal) solid
+				var(--color-border-light);
+			z-index: 1;
+
+			a {
+				display: inline-block;
+			}
+		}
+	}
+</style>
