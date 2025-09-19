@@ -5,7 +5,6 @@
 	-webkit-text-stroke: var(--space-4xs-3xs) var(--color-text-primary);
 	paint-order: stroke fill;
 	translate: -0.66ch 0;
-	mix-blend-mode: multiply;
 
 	a {
 		text-decoration-line: none;
