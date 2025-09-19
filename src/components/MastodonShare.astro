@@ -16,7 +16,7 @@
 <style is:global>
 	@layer blocks {
 		.mastodon-share-container {
-			--cluster-gap: var(--space-3xs);
+			--cluster-gap: var(--space-2xs);
 
 			.no-js & a {
 				cursor: not-allowed;
@@ -36,6 +36,10 @@
 					background: var(--color-bg-secondary);
 				}
 			}
+		}
+
+		.mastodon-edit {
+			padding: var(--space-5xs) 0.5ch;
 		}
 	}
 </style>
@@ -79,7 +83,6 @@
 			let editlink = document.createElement("button");
 			editlink.innerText = edittext;
 			editlink.classList.add("mastodon-edit");
-			editlink.classList.add("pb-space-3xs");
 			editlink.title = editlabel;
 			editlink.ariaLabel = editlabel;
 			editlink.addEventListener("click", (e) => {
