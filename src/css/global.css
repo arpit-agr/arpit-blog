@@ -43,6 +43,7 @@
 	--border-width-thick: calc(1.5 * var(--space-5xs));
 	--border-width-thicker: var(--space-4xs);
 	--border-width-thickest: var(--space-3xs);
+	--border-radius: 0.125lh;
 
 	--code-font-size: calc(0.9 * var(--step-0));
 	--code-border-radius: 0.25lh;
@@ -143,7 +144,7 @@ pre {
 
 :not(pre) > code {
 	padding-inline: 0.25ch;
-	border-radius: 0.125lh;
+	border-radius: var(--border-radius);
 	background-color: var(--color-bg-secondary);
 }
 
