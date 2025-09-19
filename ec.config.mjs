@@ -4,7 +4,7 @@ export default defineEcConfig({
 	cascadeLayer: "blocks",
 	themes: ["light-plus"],
 	styleOverrides: {
-		borderColor: "var(--color-border-solid)",
+		borderColor: "var(--color-border-light)",
 		borderRadius: "var(--code-border-radius)",
 		borderWidth: "var(--border-width-normal)",
 		codeFontFamily: "var(--font-mono)",
