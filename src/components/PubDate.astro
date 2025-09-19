@@ -1,0 +1,28 @@
+---
+interface Props {
+	date: Date;
+}
+
+const { date } = Astro.props;
+---
+
+<p class="pub-date color-bg">
+	Posted on
+	<time datetime={date.toISOString()}>
+		{
+			date.toLocaleString("en-IN", {
+				year: "numeric",
+				month: "short",
+				day: "numeric",
+			})
+		}
+	</time>
+</p>
+
+<style is:global>
+	@layer blocks {
+		.pub-date {
+			max-inline-size: fit-content;
+		}
+	}
+</style>
