@@ -16,3 +16,7 @@
 @import url(/src/css/utilities/region.css) layer(utilities);
 @import url(/src/css/utilities/visually-hidden.css) layer(utilities);
 @import url(/src/css/utilities/text-fit.css) layer(utilities);
+@import url(/src/css/utilities/link.css) layer(utilities);
+@import url(/src/css/utilities/color.css) layer(utilities);
+@import url(/src/css/utilities/padding.css) layer(utilities);
+@import url(/src/css/exceptions/expressive-code.css) layer(exceptions);
