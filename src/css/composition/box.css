@@ -4,7 +4,7 @@
 		var(--box-border-style, solid)
 		var(--color-box-border, var(--color-text-primary));
 	color: var(--color-box-text, var(--color-text-primary));
-	background-color: var(--color-box-bg, var(--color-bg));
+	background-color: var(--color-box-bg, var(--color-bg-primary));
 }
 
 .box * {
