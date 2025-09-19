@@ -53,7 +53,7 @@
 
 :root {
 	/* 1st order variables */
-	--wrapper-max-width: 56rem;
+	--wrapper-max-width: 57rem;
 	--font-sans-serif: ui-rounded, system-ui, sans-serif;
 
 	/* 2nd order variables */
