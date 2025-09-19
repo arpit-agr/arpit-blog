@@ -1,0 +1,112 @@
+<!-- https://github.com/codepo8/mastodon-share -->
+<div class="mastodon-share-container cluster">
+	<a
+		class="mastodon-share"
+		href="#"
+		rel="noreferrer noopener"
+		target="mastodon"
+		data-prompt="Please tell me your Mastodon instance"
+		data-edittext="Edit"
+		data-editlabel="Edit your Mastodon instance"
+	>
+		Mastodon
+	</a>
+</div>
+
+<style is:global>
+	@layer blocks {
+		.mastodon-share-container {
+			--cluster-gap: var(--space-3xs);
+
+			.no-js & a {
+				cursor: not-allowed;
+				opacity: 0.37;
+			}
+
+			button {
+				border: none;
+				border-radius: var(--border-radius);
+				background: var(--color-bg-primary);
+
+				&:not(:focus-visible) {
+					outline: var(--border-width-normal) solid var(--color-border-dark);
+				}
+
+				&:where(:hover, :focus-visible) {
+					background: var(--color-bg-secondary);
+				}
+			}
+		}
+	}
+</style>
+
+<script>
+	// @ts-nocheck
+	// I got the key, I got the secret…
+	let key = "mastodon-instance";
+	let instance = localStorage.getItem(key);
+
+	// get the link from the DOM
+	const button = document.querySelector(".mastodon-share");
+
+	// refresh the link with the instance name
+	const refreshlink = (instance) => {
+		button.href = `https://${instance}/share?text=${encodeURIComponent(document.title)}%0A${encodeURIComponent(location.href)}`;
+	};
+
+	// got it? Let's go!
+	if (button) {
+		// labels and texts from the link
+		let prompt =
+			button.dataset.prompt || "Please tell me your Mastodon instance";
+		let editlabel = button.dataset.editlabel || "Edit your Mastodon instance";
+		let edittext = button.dataset.edittext || "✏️";
+
+		// Ask the user for the instance name and set it…
+		const setinstance = (_) => {
+			instance = window.prompt(prompt, instance);
+			if (instance) {
+				localStorage.setItem(key, instance);
+				createeditbutton();
+				refreshlink(instance);
+				button.click();
+			}
+		};
+
+		// create and insert the edit link
+		const createeditbutton = (_) => {
+			if (document.querySelector("button.mastodon-edit")) return;
+			let editlink = document.createElement("button");
+			editlink.innerText = edittext;
+			editlink.classList.add("mastodon-edit");
+			editlink.classList.add("pb-space-3xs");
+			editlink.title = editlabel;
+			editlink.ariaLabel = editlabel;
+			editlink.addEventListener("click", (e) => {
+				e.preventDefault();
+				localStorage.removeItem(key);
+				setinstance();
+			});
+			button.insertAdjacentElement("afterend", editlink);
+		};
+
+		// if there is  a value in localstorage, create the edit link
+		if (localStorage.getItem(key)) {
+			createeditbutton();
+		}
+
+		// When a user clicks the link
+		button.addEventListener("click", (e) => {
+			// If the user has already entered their instance
+			// and it is in localstorage write out the link href
+			// with the instance and the current page title and URL
+			if (localStorage.getItem(key)) {
+				refreshlink(localStorage.getItem(key));
+				// otherwise, prompt the user for their instance and save it to localstorage
+			} else {
+				e.preventDefault();
+				setinstance();
+			}
+		});
+	}
+</script>
