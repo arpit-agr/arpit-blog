@@ -6,13 +6,15 @@ const { as: Tag = "div" } = Astro.props;
 import { SITE_TITLE } from "@src/consts";
 ---
 
-<div class="banner-text wrapper pbs-space-s">
-	<Tag>
-		<a href="/">
-			<span class="text-fit">
-				<span><span>{SITE_TITLE}</span></span>
-				<span aria-hidden="true">{SITE_TITLE}</span>
-			</span>
-		</a>
-	</Tag>
+<div class="banner-text-container">
+	<div class="banner-text wrapper pbs-space-s">
+		<Tag>
+			<a href="/">
+				<span class="text-fit">
+					<span><span>{SITE_TITLE}</span></span>
+					<span aria-hidden="true">{SITE_TITLE}</span>
+				</span>
+			</a>
+		</Tag>
+	</div>
 </div>
