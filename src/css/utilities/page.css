@@ -3,6 +3,10 @@
 	border-radius: var(--border-radius);
 }*/
 
+.page {
+	container-type: inline-size;
+}
+
 .page:has(> .sidebar) {
 	--sidebar-gap: 0lh;
 	max-inline-size: var(--wrapper-max-width);
