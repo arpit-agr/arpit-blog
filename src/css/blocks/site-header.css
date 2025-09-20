@@ -3,8 +3,14 @@
 }*/
 
 .site-header.sidebar {
-	position: relative;
+	align-self: start;
+	position: sticky;
+	inset-block-start: 0;
 	container-type: inline-size;
+
+	@container (width < 40rem ) {
+		position: relative;
+	}
 
 	nav ul {
 		@container (width > 50vi) {
@@ -36,9 +42,4 @@
 		inline-size: 100%;
 		block-size: var(--border-width-normal);
 	}
-}
-
-.description {
-	text-wrap: balance;
-	text-box: trim-both cap alphabetic;
 }
