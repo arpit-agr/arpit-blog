@@ -8,9 +8,12 @@ const { categories } = Astro.props;
 
 {
 	!!categories && (
-		<ul class="category-list cluster" role="list">
+		<ul
+			class="category-list cluster text-step--1 color-text-secondary"
+			role="list"
+		>
 			{categories?.map((category) => (
-				<li>{category}</li>
+				<li class="text-box-trim">{category}</li>
 			))}
 		</ul>
 	)
