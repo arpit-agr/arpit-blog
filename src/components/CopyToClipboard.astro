@@ -10,11 +10,12 @@ const { text, statusMsg, buttonLabel } = Astro.props;
 
 <!-- https://gomakethings.com/how-to-build-a-copy-to-clipboard-html-web-component/ -->
 <copy-to-clipboard
+	class="text-box-trim"
 	text={text}
 	status-msg={statusMsg}
 	copied-btn-label="Copied!"
 >
-	<button class="link">{buttonLabel}</button>
+	<button class="link text-box-trim">{buttonLabel}</button>
 </copy-to-clipboard>
 
 <style is:global>
