@@ -21,4 +21,5 @@
 @import url(/src/css/utilities/spacing.css) layer(utilities);
 @import url(/src/css/utilities/sizing.css) layer(utilities);
 @import url(/src/css/utilities/page.css) layer(utilities);
+@import url(/src/css/utilities/typography.css) layer(utilities);
 @import url(/src/css/exceptions/expressive-code.css) layer(exceptions);
