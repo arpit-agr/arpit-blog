@@ -1,3 +1,7 @@
+.banner-text-container {
+	border-block-end: var(--border-width-normal) solid var(--color-border-light);
+}
+
 .banner-text {
 	--wrapper-max-width: 90rem;
 	position: relative;
