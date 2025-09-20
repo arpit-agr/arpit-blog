@@ -1,7 +1,7 @@
 <!-- https://github.com/codepo8/mastodon-share -->
 <div class="mastodon-share-container cluster">
 	<a
-		class="mastodon-share"
+		class="mastodon-share text-box-trim"
 		href="#"
 		rel="noreferrer noopener"
 		target="mastodon"
@@ -39,7 +39,7 @@
 		}
 
 		.mastodon-edit {
-			padding: var(--space-5xs) 0.5ch;
+			padding: var(--space-3xs) 0.5ch;
 		}
 	}
 </style>
@@ -82,7 +82,7 @@
 			if (document.querySelector("button.mastodon-edit")) return;
 			let editlink = document.createElement("button");
 			editlink.innerText = edittext;
-			editlink.classList.add("mastodon-edit");
+			editlink.classList.add("mastodon-edit", "text-box-trim");
 			editlink.title = editlabel;
 			editlink.ariaLabel = editlabel;
 			editlink.addEventListener("click", (e) => {
