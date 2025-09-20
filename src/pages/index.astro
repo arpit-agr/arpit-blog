@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BannerText from "@src/components/BannerText.astro";
 import SiteHeader from "@src/components/SiteHeader.astro";
+import PubDate from "@src/components/PubDate.astro";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
 import { getCollection, render } from "astro:content";
@@ -27,7 +28,7 @@ const entries = await Promise.all(
 	ogType="website"
 >
 	<BannerText as="h1" />
-	<div>
+	<div class="page">
 		<SiteHeader />
 		<main>
 			<ul role="list">
@@ -37,34 +38,41 @@ const entries = await Promise.all(
 							entry.collection === "notes" ? "/notes" : "/articles";
 						return (
 							<li>
-								<article class="stack">
-									<p>
-										<span class="visually-hidden">Posted on</span>
-										<time datetime={entry.data.pubDate.toISOString()}>
-											{entry.data.pubDate.toLocaleString("en-IN", {
-												year: "numeric",
-												month: "short",
-												day: "numeric",
-											})}
-										</time>
-									</p>
-									{entry.collection === "articles" && (
-										<h2>
-											<a href={`${basePath}/${entry.id}/`}>
-												{entry.data.title}
+								<div
+									class="center p-space-m"
+									style="--center-max-width: 40rem;"
+								>
+									<article class="stack max-i-full">
+										<footer class="text-step--1 color-text-secondary">
+											<PubDate date={entry.data.pubDate} />
+										</footer>
+										{entry.collection === "articles" && (
+											<h2>
+												<a href={`${basePath}/${entry.id}/`}>
+													{entry.data.title}
+												</a>
+											</h2>
+										)}
+										<div class="content flow max-i-full">
+											<entry.Content />
+										</div>
+										<footer class="repel text-step--1 color-text-secondary text-box-trim">
+											<a
+												class="text-box-trim"
+												href={`${basePath}/${entry.id}#comments`}
+											>
+												Reply
 											</a>
-										</h2>
-									)}
-									<div class="content flow">
-										<entry.Content />
-									</div>
-									<footer class="repel">
-										<a href={`${basePath}/${entry.id}#comments`}>Reply</a>
-										<a href={`${basePath}/${entry.id}/`} rel="bookmark">
-											More about this
-										</a>
-									</footer>
-								</article>
+											<a
+												class="text-box-trim"
+												href={`${basePath}/${entry.id}/`}
+												rel="bookmark"
+											>
+												More about this
+											</a>
+										</footer>
+									</article>
+								</div>
 							</li>
 						);
 					})
@@ -78,35 +86,13 @@ const entries = await Promise.all(
 	@layer exceptions {
 		.homepage {
 			main li {
-				position: relative;
-				padding: 1lh;
-
-				+ li::before {
-					--_angle: 90deg;
-
-					inset-inline: 0;
-					inset-block-start: 0;
-					block-size: var(--border-thickness);
+				+ li {
+					border-block-start: var(--border-width-normal) solid
+						var(--color-border-light);
 				}
 
 				article {
-					> :where(:first-child, :last-child) {
-						font-size: var(--step--1);
-						color: var(--color-text-secondary);
-
-						&,
-						* {
-							text-box: trim-both cap alphabetic;
-						}
-					}
-				}
-
-				footer {
-					align-self: stretch;
-				}
-
-				.content {
-					max-inline-size: 100%;
+					--stack-horizontal-alignment: stretch;
 				}
 			}
 		}
