@@ -17,10 +17,5 @@
 	> * {
 		font-family: var(--font-display);
 		color: var(--color-accent);
-
-		&,
-		span {
-			text-box: trim-both cap alphabetic;
-		}
 	}
 }
