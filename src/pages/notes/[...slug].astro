@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import BannerText from "@src/components/BannerText.astro";
+import SiteHeader from "@src/components/SiteHeader.astro";
 import { SITE_TITLE } from "@src/consts";
+import PostNavback from "@components/PostNavBack.astro";
+import PubDate from "@components/PubDate.astro";
+import UpdatedDate from "@components/UpdatedDate.astro";
+import PostCategoryList from "@src/components/PostCategoryList.astro";
+import ShareIntent from "@components/ShareIntent.astro";
 
 import { type CollectionEntry, getCollection, render } from "astro:content";
 
@@ -26,22 +33,69 @@ const noteTitle = `Note dated ${post.data.pubDate.toLocaleString("en-IN", {
 })} | ${SITE_TITLE}`;
 ---
 
-<BaseLayout pageTitle={noteTitle}>
-	<main>
-		<p>
-			Posted on
-			<time datetime={post.data.pubDate.toISOString()}>
-				{
-					post.data.pubDate.toLocaleString("en-IN", {
-						year: "numeric",
-						month: "short",
-						day: "numeric",
-						dayPeriod: "long",
-					})
-				}
-			</time>
-		</p>
-		<Content />
-		<a href="/">Home</a>
-	</main>
+<BaseLayout bodyClass="notes-entry" pageTitle={noteTitle}>
+	<BannerText />
+	<div class="page">
+		<SiteHeader />
+		<div>
+			<PostNavback />
+			<div class="center pi-space-m" style="--center-max-width: 40rem;">
+				<div class="flow pb-space-m max-i-full">
+					<main>
+						<article class="flow">
+							<footer class="metadata flow text-step--1 color-text-secondary">
+								<PubDate date={post.data.pubDate} />
+								{
+									!!post.data.updatedDate && (
+										<UpdatedDate date={post.data.updatedDate} />
+									)
+								}
+							</footer>
+							<Content />
+							<PostCategoryList categories={post.data.categories} />
+						</article>
+					</main>
+					<aside class="text-step--1 color-text-secondary">
+						<ShareIntent />
+						<!-- TODO: Add comments -->
+						<details
+							id="comments"
+							class="flow pb-space-m text-step--1 color-text-secondary"
+						>
+							<summary class="text-box-trim">Comments</summary>
+							<p>Coming Soon</p>
+						</details>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
 </BaseLayout>
+
+<style is:global>
+	@layer blocks {
+		.metadata {
+			--flow-space: 1em;
+		}
+
+		#comments {
+			::marker {
+				color: var(--color-text-secondary);
+			}
+		}
+	}
+
+	@layer exceptions {
+		.notes-entry {
+			aside {
+				border-block-start: var(--border-width-normal) solid
+					var(--color-border-light);
+
+				> * {
+					border-block-end: var(--border-width-normal) solid
+						var(--color-border-light);
+				}
+			}
+		}
+	}
+</style>
