@@ -12,6 +12,10 @@
 		position: relative;
 	}
 
+	.description {
+		line-height: var(--leading-snug);
+	}
+
 	nav ul {
 		@container (width > 50vi) {
 			display: flex;
