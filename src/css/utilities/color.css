@@ -1,3 +1,7 @@
 .color-bg {
 	background: var(--color-bg-primary);
 }
+
+.color-text-secondary {
+	color: var(--color-text-secondary);
+}
