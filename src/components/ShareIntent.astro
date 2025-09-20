@@ -8,22 +8,22 @@ const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent("Re: "
 ---
 
 <div class="share-intent repel">
-	<p>Share:</p>
+	<p class="text-box-trim">Share:</p>
 	<div class="cluster">
 		<CopyToClipboard text={copyText} buttonLabel="Copy Link" />
-		<a href={blueskyLink} target="_blank">Bluesky</a>
+		<a class="text-box-trim" href={blueskyLink} target="_blank">Bluesky</a>
 		<MastodonShare />
 	</div>
 </div>
 <div class="repel pb-space-m">
-	<p>Found this useful?</p>
-	<a href={mailtoLink}>Let me know</a>
+	<p class="text-box-trim">Found this useful?</p>
+	<a class="text-box-trim" href={mailtoLink}>Let me know</a>
 </div>
 
 <style is:global>
 	@layer exceptions {
 		.share-intent {
-			padding-block: calc(var(--space-m) - var(--space-5xs));
+			padding-block: calc(var(--space-m) - var(--space-3xs));
 		}
 	}
 </style>
