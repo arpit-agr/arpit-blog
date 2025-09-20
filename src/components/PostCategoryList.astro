@@ -13,8 +13,21 @@ const { categories } = Astro.props;
 			role="list"
 		>
 			{categories?.map((category) => (
-				<li class="text-box-trim">{category}</li>
+				<li class="p-space-2xs text-box-trim">{category}</li>
 			))}
 		</ul>
 	)
 }
+
+<style is:global>
+	@layer blocks {
+		.category-list {
+			--cluster-gap: var(--space-2xs);
+
+			li {
+				outline: var(--border-width-normal) solid var(--color-border-light);
+				border-radius: var(--border-radius);
+			}
+		}
+	}
+</style>
