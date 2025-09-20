@@ -151,3 +151,7 @@ pre {
 hr {
 	color: var(--color-border-light);
 }
+
+::selection {
+	background-color: oklch(from var(--color-accent) l c h / calc(0.5 * alpha));
+}
