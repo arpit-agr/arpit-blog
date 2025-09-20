@@ -5,3 +5,7 @@
 .text-box-trim {
 	text-box: trim-both cap alphabetic;
 }
+
+.text-balance {
+	text-wrap: balance;
+}
