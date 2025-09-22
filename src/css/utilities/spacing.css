@@ -18,6 +18,18 @@
 	padding: var(--space-s-m);
 }
 
+.pi-space-3xs {
+	padding-inline: var(--space-3xs);
+}
+
+.pi-space-2xs {
+	padding-inline: var(--space-2xs);
+}
+
+.pi-space-xs {
+	padding-inline: var(--space-xs);
+}
+
 .pi-space-s {
 	padding-inline: var(--space-s);
 }
