@@ -39,8 +39,8 @@ const noteTitle = `Note dated ${post.data.pubDate.toLocaleString("en-IN", {
 		<SiteHeader />
 		<div>
 			<PostNavback />
-			<div class="center pi-space-m" style="--center-max-width: 40rem;">
-				<div class="flow pb-space-m max-i-full">
+			<div class="center pi-space-m">
+				<div class="flow pb-space-m i-full max-i-full">
 					<main>
 						<article class="flow">
 							<footer class="metadata flow text-step--1 color-text-secondary">
@@ -51,7 +51,17 @@ const noteTitle = `Note dated ${post.data.pubDate.toLocaleString("en-IN", {
 									)
 								}
 							</footer>
-							<Content />
+							<div class="entry-content flow" data-flow="recursive">
+								<Content />
+							</div>
+							{
+								!!post.data.source && (
+									<p class="text-step--1 color-text-secondary">
+										Source:{" "}
+										<a href={post.data.source.url}>{post.data.source.title}</a>
+									</p>
+								)
+							}
 							<PostCategoryList categories={post.data.categories} />
 						</article>
 					</main>
