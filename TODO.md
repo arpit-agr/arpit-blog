@@ -1,8 +1,9 @@
 # TODO
 
 ## Next Up
-- [ ] Update styles
+- [ ] Update article entry page layout
 - [ ] [Add Bluesky comments](https://brittanyellich.com/bluesky-comments-likes/)
+- [ ] Add links to tags (See the markup on Jeremy's website)
 
 ## Foreseeable Future
  - [ ] Update meta theme color
