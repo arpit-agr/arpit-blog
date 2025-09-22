@@ -1,0 +1,11 @@
+.flex {
+	display: flex;
+}
+
+.sticky {
+	position: sticky;
+}
+
+.inset-bs-0 {
+	inset-block-start: 0;
+}
