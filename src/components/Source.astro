@@ -1,0 +1,13 @@
+---
+interface Props {
+	url: string;
+	title: string;
+}
+
+const { url, title } = Astro.props;
+---
+
+<p class="text-step--1 color-text-secondary">
+	Source:
+	<a href={url}>{title}</a>
+</p>
