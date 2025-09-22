@@ -69,3 +69,7 @@
 .pbs-space-s {
 	padding-block-start: var(--space-s);
 }
+
+.flow-space-xs {
+	--flow-space: var(--space-xs);
+}
