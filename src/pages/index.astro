@@ -37,23 +37,23 @@ const entries = await Promise.all(
 						const basePath =
 							entry.collection === "notes" ? "/notes" : "/articles";
 						return (
-							<li>
-								<div
-									class="center p-space-m"
-									style="--center-max-width: 40rem;"
-								>
-									<article class="stack max-i-full">
+							<li class="entry">
+								<div class="center p-space-m">
+									<article class="stack i-full max-i-full">
 										<footer class="text-step--1 color-text-secondary">
 											<PubDate date={entry.data.pubDate} />
 										</footer>
-										{entry.collection === "articles" && (
-											<h2>
-												<a href={`${basePath}/${entry.id}/`}>
-													{entry.data.title}
-												</a>
-											</h2>
-										)}
-										<div class="content flow max-i-full">
+										<div
+											class="entry-content flow max-i-full"
+											data-flow="recursive"
+										>
+											{entry.collection === "articles" && (
+												<h2>
+													<a href={`${basePath}/${entry.id}/`}>
+														{entry.data.title}
+													</a>
+												</h2>
+											)}
 											<entry.Content />
 										</div>
 										<footer class="repel text-step--1 color-text-secondary text-box-trim">
@@ -85,8 +85,8 @@ const entries = await Promise.all(
 <style is:global>
 	@layer exceptions {
 		.homepage {
-			main li {
-				+ li {
+			main .entry {
+				+ .entry {
 					border-block-start: var(--border-width-normal) solid
 						var(--color-border-light);
 				}
