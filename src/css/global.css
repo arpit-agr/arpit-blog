@@ -32,8 +32,8 @@
 	--color-light-gray: #eee;
 	--color-yellow: oklch(0.8383 0.1982 80.76);
 
-	--leading-flat: 0.9;
-	--leading-tight: 1.1;
+	--leading-flat: 1;
+	--leading-tight: 1.2;
 	--leading-snug: 1.4;
 	--leading-normal: 1.6;
 	--leading-relaxed: 1.7;
@@ -90,10 +90,12 @@ h3 {
 
 h1 {
 	font-size: var(--step-3);
+	line-height: var(--leading-tight);
 }
 
 h2 {
 	font-size: var(--step-2);
+	line-height: var(--leading-snug);
 }
 
 h3 {
@@ -126,6 +128,10 @@ blockquote {
 		inline-size: var(--border-width-thicker);
 		border-radius: 0.25lh;
 		background-color: var(--color-accent);
+	}
+
+	> * + * {
+		margin-block-start: var(--flow-space, 1lh);
 	}
 }
 
