@@ -1,0 +1,79 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import BannerText from "@src/components/BannerText.astro";
+import SiteHeader from "@src/components/SiteHeader.astro";
+import PostNavback from "@components/PostNavBack.astro";
+import PubDate from "@components/PubDate.astro";
+import UpdatedDate from "@components/UpdatedDate.astro";
+import Source from "@src/components/Source.astro";
+import PostCategoryList from "@src/components/PostCategoryList.astro";
+import EntryShareAndFeedback from "@components/EntryShareAndFeedback.astro";
+
+const {
+	pageTitle, // string
+	bodyClass = "entry-page", // string
+	entry, // CollectionEntry
+	Content, // from render(entry)
+} = Astro.props;
+---
+
+<BaseLayout bodyClass={bodyClass} pageTitle={pageTitle}>
+	<BannerText />
+	<div class="page">
+		<SiteHeader />
+		<div>
+			<PostNavback />
+			<div class="center pi-space-m">
+				<div class="flow pb-space-m i-full max-i-full">
+					<main>
+						<article class="flow">
+							<footer
+								class="metadata flow flow-space-xs text-step--1 color-text-secondary"
+							>
+								<PubDate date={entry.data.pubDate} />
+								{
+									!!entry.data.updatedDate && (
+										<UpdatedDate date={entry.data.updatedDate} />
+									)
+								}
+							</footer>
+							<div class="entry-content flow" data-flow="recursive">
+								{!!entry.data.title && <h1>{entry.data.title}</h1>}
+								<Content />
+								{
+									!!entry.data.source && (
+										<Source
+											url={entry.data.source.url}
+											title={entry.data.source.title}
+										/>
+									)
+								}
+							</div>
+							<PostCategoryList categories={entry.data.categories} />
+						</article>
+					</main>
+					<aside class="entry-actions text-step--1 color-text-secondary">
+						<EntryShareAndFeedback />
+						<!-- TODO: Add comments -->
+						<details
+							id="comments"
+							class="flow pb-space-m text-step--1 color-text-secondary"
+						>
+							<summary class="text-box-trim">Comments</summary>
+							<p>Coming Soon</p>
+						</details>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<style is:global>
+	@layer blocks {
+		.entry-actions > * {
+			border-block-start: var(--border-width-normal) solid
+				var(--color-border-light);
+		}
+	}
+</style>
