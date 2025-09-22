@@ -1,7 +1,6 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-
 import { type CollectionEntry, getCollection, render } from "astro:content";
+import PostPage from "@layouts/PostPageLayout.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("articles");
@@ -12,27 +11,8 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<"articles">;
 
-const post = Astro.props;
-const { Content } = await render(post);
+const entry = Astro.props;
+const { Content } = await render(entry);
 ---
 
-<BaseLayout pageTitle={post.data.title} pageDesc={post.data.description}>
-	<main>
-		<p>
-			Posted on
-			<time datetime={post.data.pubDate.toISOString()}>
-				{
-					post.data.pubDate.toLocaleString("en-IN", {
-						year: "numeric",
-						month: "short",
-						day: "numeric",
-						dayPeriod: "long",
-					})
-				}
-			</time>
-		</p>
-		<h1>{post.data.title}</h1>
-		<Content />
-		<a href="/">Home</a>
-	</main>
-</BaseLayout>
+<PostPage pageTitle={entry.data.title} entry={entry} Content={Content} />
