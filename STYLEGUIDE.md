@@ -1,5 +1,7 @@
 # Style Guide
 
+- Add a period to the end of a bullet point if it contains a sentence
+
 ## Semantics
 
 - Use the <i> to mark text that is in an alternate tone or mood, such as foreign words, thoughts, technical terms, taxonomical designations.
