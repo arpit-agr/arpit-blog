@@ -3,6 +3,7 @@
 }*/
 
 .site-header.sidebar {
+	--stack-gap: var(--space-s-m);
 	position: relative;
 	container-type: inline-size;
 
