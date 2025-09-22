@@ -1,0 +1,6 @@
+.entry-content {
+	li {
+		--flow-space: 0.5lh;
+		text-wrap: pretty;
+	}
+}
