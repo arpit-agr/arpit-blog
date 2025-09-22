@@ -34,9 +34,13 @@ h3 {
 	text-wrap: balance;
 }
 
+p,
+li {
+	text-wrap: pretty;
+}
+
 p {
 	max-inline-size: var(--measure, 60ch);
-	text-wrap: pretty;
 }
 
 a {
