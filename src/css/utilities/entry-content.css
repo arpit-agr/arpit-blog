@@ -3,4 +3,8 @@
 		--flow-space: 0.5lh;
 		text-wrap: pretty;
 	}
+
+	code {
+		--flow-space: 0;
+	}
 }
