@@ -1,36 +1,22 @@
-/*.page {
-	outline: var(--border-width-normal) solid var(--color-border-light);
-	border-radius: var(--border-radius);
-}*/
-
-.page {
-	container-type: inline-size;
-}
-
 .page:has(> .sidebar) {
 	--sidebar-gap: 0lh;
 	max-inline-size: var(--wrapper-max-width);
 	margin-inline: auto;
 	flex-direction: row-reverse;
 
-	/*.sidebar > *::after {
+	.sidebar > *::after {
 		--_border: repeating-linear-gradient(
-		var(--_angle, 0deg),
-		transparent,
-		transparent 0.125lh,
-		var(--color-border-dark) 0.125lh,
-		var(--color-border-dark) 0.25lh
-	);
+			var(--_angle, 0deg),
+			transparent,
+			transparent 0.125lh,
+			var(--color-border-dark) 0.125lh,
+			var(--color-border-dark) 0.25lh
+		);
 		--_border: var(--color-border-light);
 
 		content: "";
 		position: absolute;
 		background: var(--_border);
 		z-index: -1;
-	}*/
-
-	> :not(.sidebar) {
-		outline: var(--border-width-normal) solid var(--color-border-light);
-		border-radius: 0 0 var(--border-radius) var(--border-radius);
 	}
 }
