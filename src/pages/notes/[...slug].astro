@@ -1,16 +1,7 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import BannerText from "@src/components/BannerText.astro";
-import SiteHeader from "@src/components/SiteHeader.astro";
-import { SITE_TITLE } from "@src/consts";
-import PostNavback from "@components/PostNavBack.astro";
-import PubDate from "@components/PubDate.astro";
-import UpdatedDate from "@components/UpdatedDate.astro";
-import Source from "@src/components/Source.astro";
-import PostCategoryList from "@src/components/PostCategoryList.astro";
-import ShareIntent from "@components/ShareIntent.astro";
-
 import { type CollectionEntry, getCollection, render } from "astro:content";
+import PostPage from "@layouts/PostPageLayout.astro";
+import { SITE_TITLE } from "@src/consts";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("notes");
@@ -21,92 +12,18 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<"notes">;
 
-const post = Astro.props;
-const { Content } = await render(post);
+const entry = Astro.props;
+const { Content } = await render(entry);
 
-const noteTitle = `Note dated ${post.data.pubDate.toLocaleString("en-IN", {
+const noteTitle = `Note from ${entry.data.pubDate.toLocaleString("en-IN", {
 	year: "numeric",
 	month: "short",
 	day: "numeric",
 	hour: "numeric",
 	minute: "numeric",
-	timeZoneName: "shortOffset",
+	timeZone: "Asia/Kolkata",
+	timeZoneName: "short",
 })} | ${SITE_TITLE}`;
 ---
 
-<BaseLayout bodyClass="notes-entry" pageTitle={noteTitle}>
-	<BannerText />
-	<div class="page">
-		<SiteHeader />
-		<div>
-			<PostNavback />
-			<div class="center pi-space-m">
-				<div class="flow pb-space-m i-full max-i-full">
-					<main>
-						<article class="flow">
-							<footer class="metadata flow text-step--1 color-text-secondary">
-								<PubDate date={post.data.pubDate} />
-								{
-									!!post.data.updatedDate && (
-										<UpdatedDate date={post.data.updatedDate} />
-									)
-								}
-							</footer>
-							<div class="entry-content flow" data-flow="recursive">
-								<Content />
-								{
-									!!post.data.source && (
-										<Source
-											url={post.data.source.url}
-											title={post.data.source.title}
-										/>
-									)
-								}
-							</div>
-							<PostCategoryList categories={post.data.categories} />
-						</article>
-					</main>
-					<aside class="text-step--1 color-text-secondary">
-						<ShareIntent />
-						<!-- TODO: Add comments -->
-						<!-- <details
-							id="comments"
-							class="flow pb-space-m text-step--1 color-text-secondary"
-						>
-							<summary class="text-box-trim">Comments</summary>
-							<p>Coming Soon</p>
-						</details> -->
-					</aside>
-				</div>
-			</div>
-		</div>
-	</div>
-</BaseLayout>
-
-<style is:global>
-	@layer blocks {
-		.metadata {
-			--flow-space: 1em;
-		}
-
-		#comments {
-			::marker {
-				color: var(--color-text-secondary);
-			}
-		}
-	}
-
-	@layer exceptions {
-		.notes-entry {
-			aside {
-				border-block-start: var(--border-width-normal) solid
-					var(--color-border-light);
-
-				> * {
-					border-block-end: var(--border-width-normal) solid
-						var(--color-border-light);
-				}
-			}
-		}
-	}
-</style>
+<PostPage pageTitle={noteTitle} entry={entry} Content={Content} />
