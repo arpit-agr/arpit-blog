@@ -7,7 +7,16 @@ interface Props {
 const { url, title } = Astro.props;
 ---
 
-<p class="text-step--1 color-text-secondary">
+<p class="source text-step--1 color-text-secondary">
 	Source:
 	<a href={url}>{title}</a>
 </p>
+
+<style is:global>
+	@layer blocks {
+		.source {
+			--measure: none;
+			text-align: end;
+		}
+	}
+</style>
