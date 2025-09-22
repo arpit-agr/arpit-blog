@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import BannerText from "@src/components/BannerText.astro";
 import SiteHeader from "@src/components/SiteHeader.astro";
 import PubDate from "@src/components/PubDate.astro";
+import Source from "@src/components/Source.astro";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
 import { getCollection, render } from "astro:content";
@@ -55,6 +56,12 @@ const entries = await Promise.all(
 												</h2>
 											)}
 											<entry.Content />
+											{!!entry.data.source && (
+												<Source
+													url={entry.data.source.url}
+													title={entry.data.source.title}
+												/>
+											)}
 										</div>
 										<footer class="repel text-step--1 color-text-secondary text-box-trim">
 											<a
