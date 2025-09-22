@@ -3,14 +3,8 @@
 }*/
 
 .site-header.sidebar {
-	align-self: start;
-	position: sticky;
-	inset-block-start: 0;
+	position: relative;
 	container-type: inline-size;
-
-	@container (width < 40rem ) {
-		position: relative;
-	}
 
 	.description {
 		line-height: var(--leading-snug);
