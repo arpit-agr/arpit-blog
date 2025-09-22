@@ -1,3 +1,7 @@
+.i-full {
+	inline-size: 100%;
+}
+
 .max-i-full {
 	max-inline-size: 100%;
 }
