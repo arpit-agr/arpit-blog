@@ -57,6 +57,7 @@
 	--center-max-width: 44.9375rem;
 
 	--font-sans-serif: ui-rounded, system-ui, sans-serif;
+	--font-mono: ui-monospace, monospace;
 
 	/* 2nd order variables */
 	--color-text-primary: var(--color-black);
