@@ -5,7 +5,7 @@
 :root {
 	@utopia typeScale({
     minFontSize: 16,
-    maxFontSize: 16,
+    maxFontSize: 17,
     minTypeScale: 1.2,
     maxTypeScale: 1.25,
     positiveSteps: 5,
@@ -15,8 +15,8 @@
   });
 	@utopia spaceScale({
       minSize: 16,
-      maxSize: 16,
-      positiveSteps: [1.5, 2, 3],
+      maxSize: 17,
+      positiveSteps: [1.5, 2, 3, 4],
       negativeSteps: [0.75, 0.5, 0.25, 0.125, 0.0625],
       customSizes: ['s-l'],
       relativeTo: 'viewport',
@@ -55,6 +55,7 @@
 	/* 1st order variables */
 	--wrapper-max-width: 57rem;
 	--center-max-width: 44.9375rem;
+	--page-gutter: var(--space-m);
 
 	--font-sans-serif: ui-rounded, system-ui, sans-serif;
 	--font-mono: ui-monospace, monospace;
@@ -119,22 +120,35 @@ a,
 	}
 }
 
-blockquote {
-	position: relative;
-	padding-inline-start: var(--space-s);
+:where(ol, ul):not([role="list"]) {
+	padding-inline-start: var(--page-gutter);
+}
 
-	&::before {
-		content: "";
-		position: absolute;
-		inset-inline-start: 0;
-		inset-block: 0;
-		inline-size: var(--border-width-thicker);
-		border-radius: 0.25lh;
-		background-color: var(--color-accent);
+blockquote {
+	> * {
+		--flow-space: 0.5lh;
 	}
 
-	> * + * {
-		margin-block-start: var(--flow-space, 1lh);
+	p::before {
+		content: open-quote;
+		margin-inline-end: 1rem;
+		float: inline-start;
+		shape-outside: ellipse(
+			calc(1.25 * var(--space-l)) var(--space-xs-s) at 20% 20%
+		);
+
+		font-family: var(--font-display);
+		font-size: var(--step-5);
+		color: var(--color-accent);
+		line-height: var(--leading-flat);
+		-webkit-text-stroke: var(--space-5xs-4xs) var(--color-text-primary);
+		text-shadow: var(--color-text-primary) 0 var(--space-5xs-4xs);
+		paint-order: stroke fill;
+	}
+
+	p::after {
+		content: close-quote;
+		opacity: 0;
 	}
 }
 
