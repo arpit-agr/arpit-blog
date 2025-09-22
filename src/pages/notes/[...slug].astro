@@ -6,6 +6,7 @@ import { SITE_TITLE } from "@src/consts";
 import PostNavback from "@components/PostNavBack.astro";
 import PubDate from "@components/PubDate.astro";
 import UpdatedDate from "@components/UpdatedDate.astro";
+import Source from "@src/components/Source.astro";
 import PostCategoryList from "@src/components/PostCategoryList.astro";
 import ShareIntent from "@components/ShareIntent.astro";
 
@@ -53,15 +54,15 @@ const noteTitle = `Note dated ${post.data.pubDate.toLocaleString("en-IN", {
 							</footer>
 							<div class="entry-content flow" data-flow="recursive">
 								<Content />
+								{
+									!!post.data.source && (
+										<Source
+											url={post.data.source.url}
+											title={post.data.source.title}
+										/>
+									)
+								}
 							</div>
-							{
-								!!post.data.source && (
-									<p class="text-step--1 color-text-secondary">
-										Source:{" "}
-										<a href={post.data.source.url}>{post.data.source.title}</a>
-									</p>
-								)
-							}
 							<PostCategoryList categories={post.data.categories} />
 						</article>
 					</main>
