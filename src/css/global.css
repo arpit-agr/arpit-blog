@@ -54,6 +54,8 @@
 :root {
 	/* 1st order variables */
 	--wrapper-max-width: 57rem;
+	--center-max-width: 44.9375rem;
+
 	--font-sans-serif: ui-rounded, system-ui, sans-serif;
 
 	/* 2nd order variables */
