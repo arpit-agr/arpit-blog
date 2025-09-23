@@ -5,7 +5,7 @@ import MarkdownIt from "markdown-it";
 import { transform, walk } from "ultrahtml";
 import sanitize from "ultrahtml/transformers/sanitize";
 
-const parser = new MarkdownIt();
+const parser = new MarkdownIt({ html: true });
 
 export async function GET(context) {
 	let baseUrl = context.site?.href || "https://blog.arpit.codes";
