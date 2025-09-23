@@ -4,7 +4,17 @@
 	margin-inline: auto;
 	flex-direction: row-reverse;
 
-	.sidebar > *::after {
+	> :not(.sidebar) {
+		position: relative;
+	}
+
+	.site-header {
+		position: relative;
+		container-type: inline-size;
+	}
+
+	> :not(.sidebar)::before,
+	.site-header > *::after {
 		--_border: repeating-linear-gradient(
 			var(--_angle, 0deg),
 			transparent,
@@ -18,5 +28,30 @@
 		position: absolute;
 		background: var(--_border);
 		z-index: -1;
+	}
+
+	.site-header > *::after {
+		inset-inline-start: 0;
+		inset-block-start: 0;
+		inline-size: var(--border-width-normal);
+		block-size: 100%;
+
+		@container (width > 50vi) {
+			--_angle: 90deg;
+			inset-inline: 0;
+			inset-block-start: unset;
+			inset-block-end: 0;
+			inline-size: 100%;
+			block-size: var(--border-width-normal);
+		}
+	}
+
+	> :not(.sidebar)::before {
+		@media (--wrapper-max-width) {
+			inset-inline-start: 0;
+			inset-block-start: 0;
+			inline-size: var(--border-width-normal);
+			block-size: 100%;
+		}
 	}
 }
