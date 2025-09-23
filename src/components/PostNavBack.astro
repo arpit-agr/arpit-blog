@@ -1,8 +1,8 @@
 <div
-	class="post-nav-back p-space-m text-step--1 color-text-secondary text-box-trim"
+	class="post-nav-back pb-space-m flow-space-0 text-step--1 color-text-secondary text-box-trim"
 >
 	<a
-		class="color-bg text-box-trim"
+		class="inline-block text-box-trim"
 		href="/"
 		onclick='return document.referrer?history.back():window.location.href="/",!1'
 	>
@@ -13,14 +13,8 @@
 <style is:global>
 	@layer blocks {
 		.post-nav-back {
-			position: relative;
-			border-block-end: var(--border-width-normal) solid
+			border-block-start: var(--border-width-normal) solid
 				var(--color-border-light);
-			z-index: 1;
-
-			a {
-				display: inline-block;
-			}
 		}
 	}
 </style>
