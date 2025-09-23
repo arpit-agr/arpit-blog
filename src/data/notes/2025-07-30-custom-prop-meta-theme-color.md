@@ -1,7 +1,7 @@
 ---
 pubDate: 2025-08-13T10:33+0530
 updatedDate: 2025-09-02T16:00+0530
-categories:
+tags:
 - "theme-color"
 - "html"
 - "css"
