@@ -11,16 +11,15 @@ function formatLinks(items: string[]) {
 	if (items.length === 2) return items.join(" and ");
 	return items.slice(0, -1).join(", ") + ", and " + items[items.length - 1];
 }
+
+import GithubSlugger, { slug } from "github-slugger";
 ---
 
 <p class="tag-list text-balance text-step--1 color-text-secondary">
 	Tagged with
 	<Fragment
 		set:html={formatLinks(
-			tags.map(
-				(tag) =>
-					`<a href="/tags/${encodeURIComponent(tag)}" rel="tag">${tag}</a>`,
-			),
+			tags.map((tag) => `<a href="/tags/${slug(tag)}/" rel="tag">${tag}</a>`),
 		)}
 	/>
 </p>
