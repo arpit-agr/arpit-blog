@@ -1,7 +1,7 @@
 ---
 pubDate: 2025-08-14T08:12+0530
 updatedDate: 2025-09-03T19:13+0530
-categories:
+tags:
 - "heydon-pickering"
 - "article-element"
 - "html"
