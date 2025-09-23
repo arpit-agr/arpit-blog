@@ -29,10 +29,10 @@
 				background: var(--color-bg-primary);
 
 				&:not(:focus-visible) {
-					outline: var(--border-width-normal) solid var(--color-border-dark);
+					outline: var(--border-width-thick) solid var(--color-border-dark);
 				}
 
-				&:where(:hover, :focus-visible) {
+				&:is(:hover, :focus-visible) {
 					background: var(--color-bg-secondary);
 				}
 			}
