@@ -70,6 +70,10 @@
 	padding-block-start: var(--space-s);
 }
 
+.flow-space-0 {
+	--flow-space: 0;
+}
+
 .flow-space-xs {
 	--flow-space: var(--space-xs);
 }
