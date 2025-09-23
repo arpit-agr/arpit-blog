@@ -10,7 +10,10 @@ const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent("Re: "
 <div class="share-intent repel">
 	<p class="text-box-trim">Share:</p>
 	<div class="cluster">
-		<CopyToClipboard text={copyText} buttonLabel="Copy Link" />
+		<CopyToClipboard text={copyText}>
+			Copy Link
+			<span class="visually-hidden">To This Entry</span>
+		</CopyToClipboard>
 		<a class="text-box-trim" href={blueskyLink} target="_blank">Bluesky</a>
 		<MastodonShare />
 	</div>
