@@ -3,7 +3,7 @@ pubDate: 2025-09-22T18:25+0530
 source:
   url: "https://www.youtube.com/watch?v=ohPToBog_-g"
   title: "Last Week Tonight with John Oliver"
-categories:
+tags:
 - "freedom-of-speech"
 - "censorship"
 - "john-oliver"
