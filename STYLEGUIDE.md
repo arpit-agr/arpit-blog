@@ -1,6 +1,7 @@
 # Style Guide
 
 - Add a period to the end of a bullet point if it contains a sentence
+- All tags in kebab case, for e.g. "example-variable-name"
 
 ## Semantics
 
