@@ -6,7 +6,7 @@ import PostNavback from "@components/PostNavBack.astro";
 import PubDate from "@components/PubDate.astro";
 import UpdatedDate from "@components/UpdatedDate.astro";
 import Source from "@src/components/Source.astro";
-import PostCategoryList from "@src/components/PostCategoryList.astro";
+import PostTagList from "@src/components/PostTagList.astro";
 import EntryShareAndFeedback from "@components/EntryShareAndFeedback.astro";
 
 const {
@@ -22,7 +22,6 @@ const {
 	<div class="page">
 		<SiteHeader />
 		<div>
-			<PostNavback />
 			<div class="center pi-space-m">
 				<div class="flow pb-space-m i-full max-i-full">
 					<main>
@@ -49,7 +48,7 @@ const {
 									)
 								}
 							</div>
-							<PostCategoryList categories={entry.data.categories} />
+							{!!entry.data.tags && <PostTagList tags={entry.data.tags} />}
 						</article>
 					</main>
 					<aside class="entry-actions text-step--1 color-text-secondary">
@@ -63,6 +62,7 @@ const {
 							<p>Coming Soon</p>
 						</details>
 					</aside>
+					<PostNavback />
 				</div>
 			</div>
 		</div>
