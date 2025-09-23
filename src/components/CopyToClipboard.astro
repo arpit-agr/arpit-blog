@@ -2,10 +2,9 @@
 interface Props {
 	text: string;
 	statusMsg?: string;
-	buttonLabel: string;
 }
 
-const { text, statusMsg, buttonLabel } = Astro.props;
+const { text, statusMsg } = Astro.props;
 ---
 
 <!-- https://gomakethings.com/how-to-build-a-copy-to-clipboard-html-web-component/ -->
@@ -15,7 +14,7 @@ const { text, statusMsg, buttonLabel } = Astro.props;
 	status-msg={statusMsg}
 	copied-btn-label="Copied!"
 >
-	<button class="link text-box-trim">{buttonLabel}</button>
+	<button class="link text-box-trim"><slot /></button>
 </copy-to-clipboard>
 
 <style is:global>
