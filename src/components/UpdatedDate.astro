@@ -11,6 +11,7 @@ const { date } = Astro.props;
 	<time datetime={date?.toISOString()}>
 		{
 			date?.toLocaleString("en-IN", {
+				weekday: "long",
 				year: "numeric",
 				month: "short",
 				day: "numeric",
