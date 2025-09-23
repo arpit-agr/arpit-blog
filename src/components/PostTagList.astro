@@ -1,0 +1,35 @@
+---
+interface Props {
+	tags: string[];
+}
+
+const { tags } = Astro.props;
+
+// helper to join links with commas + "and"
+function formatLinks(items: string[]) {
+	if (items.length === 1) return items[0];
+	if (items.length === 2) return items.join(" and ");
+	return items.slice(0, -1).join(", ") + ", and " + items[items.length - 1];
+}
+---
+
+<p class="tag-list text-balance text-step--1 color-text-secondary">
+	Tagged with
+	<Fragment
+		set:html={formatLinks(
+			tags.map(
+				(tag) =>
+					`<a href="/tags/${encodeURIComponent(tag)}" rel="tag">${tag}</a>`,
+			),
+		)}
+	/>
+</p>
+
+<style is:global>
+	@layer blocks {
+		.tag-list {
+			--measure: none;
+			text-align: end;
+		}
+	}
+</style>
