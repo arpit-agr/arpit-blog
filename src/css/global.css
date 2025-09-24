@@ -91,6 +91,7 @@ h1,
 h2,
 h3 {
 	font-weight: 600;
+	font-family: var(--font-display);
 }
 
 h1 {
@@ -126,6 +127,8 @@ a,
 }
 
 blockquote {
+	font-style: italic;
+
 	> * {
 		--flow-space: 0.5lh;
 	}
@@ -138,8 +141,9 @@ blockquote {
 			calc(1.25 * var(--space-l)) var(--space-xs-s) at 20% 20%
 		);
 
-		font-family: var(--font-display);
+		font-family: var(--font-cursive);
 		font-size: var(--step-5);
+		font-style: normal;
 		color: var(--color-accent);
 		line-height: var(--leading-flat);
 		-webkit-text-stroke: var(--space-5xs-4xs) var(--color-text-primary);
