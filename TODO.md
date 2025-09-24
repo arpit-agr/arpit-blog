@@ -1,6 +1,7 @@
 # TODO
 
 ## Next Up
+- [ ] Add skip to content link
 - [ ] Update article entry page layout
 - [ ] [Add Bluesky comments](https://brittanyellich.com/bluesky-comments-likes/)
 - [ ] Add links to tags (See the markup on Jeremy's website)
