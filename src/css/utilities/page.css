@@ -8,11 +8,6 @@
 		position: relative;
 	}
 
-	.site-header {
-		position: relative;
-		container-type: inline-size;
-	}
-
 	> :not(.sidebar)::before,
 	.site-header > *::after {
 		--_border: repeating-linear-gradient(
