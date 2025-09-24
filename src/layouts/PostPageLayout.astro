@@ -5,9 +5,10 @@ import SiteHeader from "@src/components/SiteHeader.astro";
 import PostNavback from "@components/PostNavBack.astro";
 import PubDate from "@components/PubDate.astro";
 import UpdatedDate from "@components/UpdatedDate.astro";
-import Source from "@src/components/Source.astro";
 import PostTagList from "@src/components/PostTagList.astro";
 import EntryShareAndFeedback from "@components/EntryShareAndFeedback.astro";
+
+import { SITE_DESCRIPTION } from "@src/consts";
 
 const {
 	pageTitle, // string
@@ -17,7 +18,11 @@ const {
 } = Astro.props;
 ---
 
-<BaseLayout bodyClass={bodyClass} pageTitle={pageTitle}>
+<BaseLayout
+	bodyClass={bodyClass}
+	pageTitle={pageTitle}
+	pageDesc={SITE_DESCRIPTION}
+>
 	<BannerText />
 	<div class="page">
 		<SiteHeader />
@@ -37,7 +42,19 @@ const {
 								}
 							</footer>
 							<div class="entry-content flow">
-								{!!entry.data.title && <h1>{entry.data.title}</h1>}
+								{
+									entry.data.title ? (
+										<h1>{entry.data.title}</h1>
+									) : (
+										<h1 class="visually-hidden">
+											{entry.data.pubDate.toLocaleString("en-IN", {
+												year: "numeric",
+												month: "short",
+												day: "numeric",
+											})}
+										</h1>
+									)
+								}
 								<Content />
 							</div>
 							{!!entry.data.tags && <PostTagList tags={entry.data.tags} />}
