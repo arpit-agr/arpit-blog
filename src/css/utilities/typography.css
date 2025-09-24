@@ -6,6 +6,18 @@
 	text-box: trim-both cap alphabetic;
 }
 
+.text-box-trim-end {
+	text-box: trim-end cap alphabetic;
+}
+
 .text-balance {
 	text-wrap: balance;
+}
+
+.leading-snug {
+	line-height: var(--leading-snug);
+}
+
+.leading-relaxed {
+	line-height: var(--leading-relaxed);
 }
