@@ -45,7 +45,7 @@ export async function GET(context) {
 	}
 
 	return rss({
-		title: SITE_TITLE,
+		title: `${SITE_TITLE}: Notes`,
 		description: SITE_DESCRIPTION,
 		site: baseUrl,
 		items,
