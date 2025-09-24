@@ -56,30 +56,80 @@ const {
 			],
 			preload: true,
 			display: "swap",
-			cssVariable: "font-display",
+			cssVariable: "font-cursive",
 			fallback: "sans-serif",
 			fallbackName: "Sarina Fallback",
 		},
-		// {
-		// 	name: "Google Sans Code",
-		// 	src: [
-		// 		{
-		// 			style: "normal",
-		// 			weight: "300 800",
-		// 			path: join(
-		// 				process.cwd(),
-		// 				"public",
-		// 				"fonts",
-		// 				"GoogleSansCode-VariableFont_wght-subset.woff2",
-		// 			),
-		// 		},
-		// 	],
-		// 	preload: true,
-		// 	display: "swap",
-		// 	cssVariable: "font-mono",
-		// 	fallback: "monospace",
-		// 	fallbackName: "Google Sans Code Fallback",
-		// },
+		{
+			name: "Inter Display",
+			src: [
+				{
+					style: "normal",
+					weight: "600",
+					path: join(
+						process.cwd(),
+						"public",
+						"fonts",
+						"InterDisplay-SemiBold-subset.woff2",
+					),
+				},
+			],
+			preload: true,
+			display: "swap",
+			cssVariable: "font-display",
+			fallback: "sans-serif",
+			fallbackName: "Inter Display Fallback",
+		},
+		{
+			name: "Inter",
+			src: [
+				{
+					style: "normal",
+					weight: "400",
+					path: join(
+						process.cwd(),
+						"public",
+						"fonts",
+						"Inter-Regular-subset.woff2",
+					),
+				},
+				{
+					style: "italic",
+					weight: "400",
+					path: join(
+						process.cwd(),
+						"public",
+						"fonts",
+						"Inter-Italic-subset.woff2",
+					),
+				},
+			],
+			preload: true,
+			display: "swap",
+			cssVariable: "font-sans-serif",
+			fallback: "sans-serif",
+			fallbackName: "Inter Fallback",
+		},
+		{
+			name: "Google Sans Code",
+			src: [
+				{
+					style: "normal",
+					weight: "300 800",
+					path: join(
+						process.cwd(),
+						"public",
+						"fonts",
+						"GoogleSansCode-VariableFont_wght-subset.woff2",
+					),
+				},
+			],
+			preload: true,
+			display: "swap",
+			cssVariable: "font-mono",
+			fallback: "monospace",
+			fallbackName: "Google Sans Code Fallback",
+		},
 	]}
 />
 
