@@ -1,4 +1,3 @@
-.flow > * + *,
-.flow[data-flow="recursive"] * + * {
+.flow > * + * {
 	margin-block-start: var(--flow-space, 1lh);
 }
