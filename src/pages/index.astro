@@ -31,7 +31,7 @@ const entries = await Promise.all(
 	<BannerText as="h1" />
 	<div class="page">
 		<SiteHeader />
-		<main>
+		<main id="main">
 			<ul role="list">
 				{
 					entries.map((entry) => {
@@ -44,10 +44,7 @@ const entries = await Promise.all(
 										<footer class="text-step--1 color-text-secondary">
 											<PubDate date={entry.data.pubDate} />
 										</footer>
-										<div
-											class="entry-content flow max-i-full"
-											data-flow="recursive"
-										>
+										<div class="entry-content flow max-i-full">
 											{entry.collection === "articles" && (
 												<h2>
 													<a href={`${basePath}/${entry.id}/`}>
@@ -56,12 +53,6 @@ const entries = await Promise.all(
 												</h2>
 											)}
 											<entry.Content />
-											{!!entry.data.source && (
-												<Source
-													url={entry.data.source.url}
-													title={entry.data.source.title}
-												/>
-											)}
 										</div>
 										<footer
 											class="cluster text-step--1 color-text-secondary text-box-trim"
