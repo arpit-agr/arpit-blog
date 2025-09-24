@@ -32,6 +32,17 @@ const {
 		/>
 	</head>
 	<body class={bodyClass}>
+		<a class="skip-to-content visually-hidden" href="#main">Skip to content</a>
 		<slot />
 	</body>
 </html>
+
+<style is:global>
+	@layer blocks {
+		.skip-to-content {
+			position: absolute;
+			inset-inline-start: 0;
+			inset-block-start: 0;
+		}
+	}
+</style>
