@@ -15,14 +15,16 @@ function formatLinks(items: string[]) {
 import GithubSlugger, { slug } from "github-slugger";
 ---
 
-<p class="tag-list text-balance text-step--1 color-text-secondary">
+<footer
+	class="tag-list text-balance text-step--1 color-text-secondary leading-relaxed"
+>
 	Tagged with
 	<Fragment
 		set:html={formatLinks(
 			tags.map((tag) => `<a href="/tags/${slug(tag)}/" rel="tag">${tag}</a>`),
 		)}
 	/>
-</p>
+</footer>
 
 <style is:global>
 	@layer blocks {
