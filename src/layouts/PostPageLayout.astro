@@ -24,7 +24,7 @@ const {
 		<div>
 			<div class="center pi-space-m">
 				<div class="flow pb-space-m i-full max-i-full">
-					<main>
+					<main id="main">
 						<article class="flow">
 							<footer
 								class="metadata flow flow-space-xs text-step--1 color-text-secondary"
@@ -36,17 +36,9 @@ const {
 									)
 								}
 							</footer>
-							<div class="entry-content flow" data-flow="recursive">
+							<div class="entry-content flow">
 								{!!entry.data.title && <h1>{entry.data.title}</h1>}
 								<Content />
-								{
-									!!entry.data.source && (
-										<Source
-											url={entry.data.source.url}
-											title={entry.data.source.title}
-										/>
-									)
-								}
 							</div>
 							{!!entry.data.tags && <PostTagList tags={entry.data.tags} />}
 						</article>
@@ -54,7 +46,7 @@ const {
 					<aside class="entry-actions text-step--1 color-text-secondary">
 						<EntryShareAndFeedback />
 						<!-- TODO: Add comments -->
-						<details
+						<!-- <details
 							id="comments"
 							class="flow pb-space-m text-step--1 color-text-secondary"
 						>
