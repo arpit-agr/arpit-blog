@@ -9,13 +9,14 @@
 	-webkit-text-stroke: var(--space-4xs-3xs) var(--color-text-primary);
 	paint-order: stroke fill;
 	translate: -0.66ch 0;
+	z-index: 1;
 
 	a {
 		text-decoration-line: none;
 	}
 
 	> * {
-		font-family: var(--font-display);
+		font-family: var(--font-cursive);
 		color: var(--color-accent);
 	}
 }
