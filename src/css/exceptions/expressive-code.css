@@ -2,29 +2,34 @@
 	border: none;
 }
 
-.expressive-code .copy button {
-	block-size: var(--space-m-l);
-	inline-size: var(--space-m-l);
-	opacity: 1;
-	border-radius: var(--code-border-radius);
+.expressive-code .copy {
+	inset-block-start: calc(var(--code-padding-block) / 1.5);
+	inset-inline-end: calc(var(--code-padding-block) / 1.5);
 
-	&:not(:focus-visible) {
-		outline: var(--border-width-normal) solid var(--color-border-dark);
-	}
+	button {
+		block-size: var(--space-m-l);
+		inline-size: var(--space-m-l);
+		opacity: 1;
+		border-radius: var(--code-border-radius);
 
-	&:where(:hover, :focus-visible) {
-		background: var(--color-bg-secondary);
-
-		> div {
-			opacity: 0;
+		&:not(:focus-visible) {
+			outline: var(--border-width-normal) solid var(--color-border-dark);
 		}
-	}
 
-	&::before {
-		display: none;
-	}
+		&:where(:hover, :focus-visible) {
+			background: var(--color-bg-secondary);
 
-	&::after {
-		margin: 0.5em;
+			> div {
+				opacity: 0;
+			}
+		}
+
+		&::before {
+			display: none;
+		}
+
+		&::after {
+			margin: 0.5em;
+		}
 	}
 }
