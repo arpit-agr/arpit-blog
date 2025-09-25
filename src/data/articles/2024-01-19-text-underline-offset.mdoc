@@ -32,14 +32,14 @@ a {
 
 Understanding this distinction will be beneficial because I often get confused while styling the underline offset. Since all other underline style properties are associated with the `text-decoration` property, I mistakenly end up applying the non-existent `text-decoration-offset` property.
 
-```css
+```css {% meta="del=/text-(decoration)-offset/ ins=/text-(underline)-offset/" %}
 a {
 	text-decoration-line: underline; /* Sets the kind of decoration that is used on text in an element */
 	text-decoration-thickness: 4px;
 	text-decoration-style: double; /* Sets the style of the lines specified by text-decoration-line */
 	text-decoration-color: red;
-	text-decoration-offset: 4px; /* ❌ */
-	text-underline-offset: 4px; /* ✅ */
+	text-decoration-offset: 4px; /* ❌ invalid */
+	text-underline-offset: 4px; /* ✅ valid */
 }
 ```
 
