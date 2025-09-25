@@ -7,11 +7,8 @@ const content = decode((await Astro.slots.render("default")).trim());
 
 <ExpressiveCode
 	code={content}
-	lang={Astro.props["data-language"] ?? undefined}
-	title={Astro.props.title ?? undefined}
-	frame={Astro.props.frame ?? "auto"}
-	mark={Astro.props.mark ?? undefined}
-	ins={Astro.props.ins ?? undefined}
-	del={Astro.props.del ?? undefined}
-	class={Astro.props.class ?? undefined}
+	lang={Astro.props["data-language"]}
+	title={Astro.props.title}
+	frame={Astro.props.frame}
+	meta={Astro.props.meta}
 />
