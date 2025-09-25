@@ -14,7 +14,7 @@ Ana is trying to use `calc(.5 * a)` as a part of the relative color syntax, pres
 
 ```css ins="calc(.5 * alpha)" del="calc(.5 * a)"
 .class {
-	outline-color: rgb(from currentcolor r g b / calc(.5 * a)); /* invalid */
-	outline-color: rgb(from currentcolor r g b / calc(.5 * alpha)); /* valid */
+	outline-color: rgb(from currentcolor r g b / calc(.5 * a)); /* ❌ invalid */
+	outline-color: rgb(from currentcolor r g b / calc(.5 * alpha)); /* ✅ valid */
 }
 ```
