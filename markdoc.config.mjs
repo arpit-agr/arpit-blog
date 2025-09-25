@@ -12,6 +12,18 @@ export default defineMarkdocConfig({
 			...nodes.heading, // Preserve default anchor link generation
 			render: component("@components/Heading.astro"),
 		},
+		fence: {
+			attributes: {
+				...nodes.fence.attributes,
+				title: { type: String, render: "title" },
+				frame: { type: String, render: "frame" },
+				mark: { type: String, render: "mark" },
+				ins: { type: String, render: "ins" },
+				del: { type: String, render: "del" },
+				class: { type: String, render: "class" },
+			},
+			render: component("@components/Code.astro"),
+		},
 	},
 	tags: {
 		"idiomatic-text": {
