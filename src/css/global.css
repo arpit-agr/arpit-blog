@@ -5,7 +5,7 @@
 :root {
 	@utopia typeScale({
     minFontSize: 16,
-    maxFontSize: 17,
+    maxFontSize: 18,
     minTypeScale: 1.2,
     maxTypeScale: 1.25,
     positiveSteps: 5,
@@ -15,7 +15,7 @@
   });
 	@utopia spaceScale({
     minSize: 16,
-    maxSize: 17,
+    maxSize: 18,
     positiveSteps: [1.5, 2, 3, 4],
     negativeSteps: [0.75, 0.5, 0.25, 0.125, 0.0625],
     customSizes: ['s-l'],
@@ -96,6 +96,7 @@ body {
 	font-family: var(--font-sans-serif);
 	font-size-adjust: from-font;
 	line-height: var(--leading-normal);
+	-webkit-font-smoothing: auto;
 }
 
 h1,
@@ -126,7 +127,7 @@ h3,
 
 a,
 .link {
-	--color-underline: oklch(from currentColor l c h / 0.5);
+	--color-underline: currentColor;
 	text-decoration-thickness: var(--border-width-thick);
 	text-decoration-style: dotted;
 	text-decoration-color: var(--color-underline);
@@ -149,7 +150,7 @@ blockquote {
 		--flow-space: 0.5lh;
 	}
 
-	p::before {
+	p:first-child::before {
 		content: open-quote;
 		margin-inline-end: 1rem;
 		float: inline-start;
@@ -167,7 +168,7 @@ blockquote {
 		paint-order: stroke fill;
 	}
 
-	p::after {
+	p:last-child::after {
 		content: close-quote;
 		opacity: 0;
 	}
