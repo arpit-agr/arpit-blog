@@ -1,6 +1,6 @@
-/*.site-header {
+.site-header {
 	view-transition-name: site-header;
-}*/
+}
 
 .site-header.sidebar {
 	--stack-gap: var(--space-s-m);
