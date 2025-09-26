@@ -1,20 +1,38 @@
-<div
+<back-link
 	class="post-nav-back pb-space-m flow-space-0 text-step--1 color-text-secondary text-box-trim"
 >
-	<a
-		class="inline-block text-box-trim"
-		href="/"
-		onclick='return document.referrer?history.back():window.location.href="/",!1'
-	>
+	<a href="/" class="inline-block text-box-trim">
 		&larr; Back <span class="visually-hidden">to the previous page</span>
 	</a>
-</div>
+</back-link>
 
 <style is:global>
 	@layer blocks {
 		.post-nav-back {
+			display: block;
 			border-block-start: var(--border-width-normal) solid
 				var(--color-border-light);
 		}
 	}
 </style>
+
+<script>
+	class BackLink extends HTMLElement {
+		connectedCallback() {
+			// Find the inner <a>
+			const link = this.querySelector("a");
+			if (!link) return; // fail gracefully if none
+
+			link.addEventListener("click", (e) => {
+				const ref = document.referrer;
+				if (ref && new URL(ref).origin === location.origin) {
+					e.preventDefault();
+					history.back();
+				} else {
+					location.href = "/";
+				}
+			});
+		}
+	}
+	customElements.define("back-link", BackLink);
+</script>
