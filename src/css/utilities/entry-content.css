@@ -1,8 +1,10 @@
 .entry-content {
+	blockquote > *,
 	li {
 		--flow-space: 0.5lh;
 	}
 
+	blockquote > * + *,
 	li + li {
 		margin-block-start: var(--flow-space, 1lh);
 	}
