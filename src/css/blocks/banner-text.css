@@ -1,13 +1,14 @@
 .banner-text {
 	--wrapper-max-width: 90rem;
+
 	position: relative;
 	border-block-end: var(--border-width-normal) solid var(--color-border-light);
-
 	text-shadow: var(--color-text-primary) 0 var(--space-4xs-3xs);
 	-webkit-text-stroke: var(--space-4xs-3xs) var(--color-text-primary);
 	paint-order: stroke fill;
 	translate: -0.66ch 0;
 	z-index: 1;
+	view-transition-name: site-banner;
 
 	a {
 		text-decoration-line: none;
