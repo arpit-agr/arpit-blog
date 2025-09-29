@@ -2,16 +2,16 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BannerText from "@src/components/BannerText.astro";
 import SiteHeader from "@src/components/SiteHeader.astro";
-import PubDate from "@src/components/PubDate.astro";
+import EntryList from "@components/EntryList.astro";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
 import { getCollection, render } from "astro:content";
 
 const allNotes = await getCollection("notes", ({ data }) => {
-  return import.meta.env.PROD ? data.draft !== true : true;
+	return import.meta.env.PROD ? data.draft !== true : true;
 });
 const allArticles = await getCollection("articles", ({ data }) => {
-  return import.meta.env.PROD ? data.draft !== true : true;
+	return import.meta.env.PROD ? data.draft !== true : true;
 });
 
 const allEntries = [...allNotes, ...allArticles];
@@ -35,84 +35,7 @@ const entries = await Promise.all(
 	<div class="page">
 		<SiteHeader />
 		<main id="main">
-			<ul role="list">
-				{
-					entries.map((entry) => {
-						const basePath =
-							entry.collection === "notes" ? "/notes" : "/articles";
-						return (
-							<li class="entry">
-								<div class="center p-space-m">
-									<article class="stack i-full max-i-full">
-										<footer class="text-step--1 color-text-secondary">
-											<PubDate date={entry.data.pubDate} />
-										</footer>
-										<div class="entry-content flow max-i-full">
-											{entry.collection === "articles" && (
-												<h2>
-													<a href={`${basePath}/${entry.id}/`}>
-														{entry.data.title}
-													</a>
-												</h2>
-											)}
-											<entry.Content />
-										</div>
-										<footer class="cluster text-step--1 color-text-secondary text-box-trim">
-											<!-- <a
-												class="text-box-trim"
-												href={`${basePath}/${entry.id}#comments`}
-											>
-												Reply
-											</a> -->
-											<a
-												class="text-box-trim"
-												href={`${basePath}/${entry.id}/`}
-												rel="bookmark"
-											>
-												More about this
-											</a>
-										</footer>
-									</article>
-								</div>
-							</li>
-						);
-					})
-				}
-			</ul>
+			<EntryList entries={entries} />
 		</main>
 	</div>
 </BaseLayout>
-
-<style is:global>
-	@layer exceptions {
-		.homepage {
-			main .entry {
-				+ .entry {
-					position: relative;
-
-						&::before {
-							--_border-angle: 90deg;
-
-							content: "";
-							position: absolute;
-							background: var(--_border);
-							z-index: -1;
-
-							inset-inline: 0;
-							inset-block-start: 0;
-							inline-size: 100%;
-							block-size: var(--border-thickness-s);
-						}
-				}
-
-				article {
-					--stack-horizontal-alignment: stretch;
-				}
-
-				[rel="bookmark"] {
-					margin-inline-start: auto;
-				}
-			}
-		}
-	}
-</style>
