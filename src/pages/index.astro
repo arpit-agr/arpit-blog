@@ -53,9 +53,7 @@ const entries = await Promise.all(
 											)}
 											<entry.Content />
 										</div>
-										<footer
-											class="cluster text-step--1 color-text-secondary text-box-trim"
-										>
+										<footer class="cluster text-step--1 color-text-secondary text-box-trim">
 											<!-- <a
 												class="text-box-trim"
 												href={`${basePath}/${entry.id}#comments`}
@@ -86,8 +84,21 @@ const entries = await Promise.all(
 		.homepage {
 			main .entry {
 				+ .entry {
-					border-block-start: var(--border-width-normal) solid
-						var(--color-border-light);
+					position: relative;
+
+						&::before {
+							--_border-angle: 90deg;
+
+							content: "";
+							position: absolute;
+							background: var(--_border);
+							z-index: -1;
+
+							inset-inline: 0;
+							inset-block-start: 0;
+							inline-size: 100%;
+							block-size: var(--border-thickness-s);
+						}
 				}
 
 				article {
