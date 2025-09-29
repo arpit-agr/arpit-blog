@@ -22,6 +22,10 @@
 	padding: var(--space-s-m);
 }
 
+.p-space-m-l {
+	padding: var(--space-m-l);
+}
+
 .pi-space-3xs {
 	padding-inline: var(--space-3xs);
 }
