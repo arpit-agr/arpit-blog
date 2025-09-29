@@ -1,6 +1,5 @@
 .banner-text {
-	--wrapper-max-width: 90rem;
-	position: relative;
+	--wrapper-max-width: 96rem;
 	/*text-shadow: var(--color-text-primary) 0 var(--space-4xs-3xs);
 	-webkit-text-stroke: var(--space-4xs-3xs) var(--color-text-primary);
 	paint-order: stroke fill;*/
