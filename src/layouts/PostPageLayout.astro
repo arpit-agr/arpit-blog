@@ -2,7 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BannerText from "@src/components/BannerText.astro";
 import SiteHeader from "@src/components/SiteHeader.astro";
-import PostNavback from "@components/PostNavBack.astro";
+import EntryNavback from "@components/EntryNavBack.astro";
 import PubDate from "@components/PubDate.astro";
 import UpdatedDate from "@components/UpdatedDate.astro";
 import PostTagList from "@src/components/PostTagList.astro";
@@ -12,7 +12,7 @@ import { SITE_DESCRIPTION } from "@src/consts";
 
 const {
 	pageTitle, // string
-	bodyClass = "entry-page", // string
+	bodyClass, // string
 	entry, // CollectionEntry
 	Content, // from render(entry)
 } = Astro.props;
@@ -71,7 +71,7 @@ const {
 							<p>Coming Soon</p>
 						</details> -->
 					</aside>
-					<PostNavback />
+					<EntryNavback />
 				</div>
 			</div>
 		</div>
