@@ -7,7 +7,7 @@
 
 .page:has(> .sidebar) > :not(.sidebar)::before,
 .site-header.sidebar > *::after,
-.homepage main .entry + .entry::before {
+.entry + .entry::before {
 	--_border: repeating-linear-gradient(
 		var(--_border-angle, 0deg),
 		transparent,
