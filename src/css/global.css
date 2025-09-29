@@ -90,9 +90,9 @@ blockquote {
 		font-style: normal;
 		color: var(--color-accent);
 		line-height: var(--leading-flat);
-		-webkit-text-stroke: var(--space-5xs-4xs) var(--color-text-primary);
+		/*-webkit-text-stroke: var(--space-5xs-4xs) var(--color-text-primary);
 		text-shadow: var(--color-text-primary) 0 var(--space-5xs-4xs);
-		paint-order: stroke fill;
+		paint-order: stroke fill;*/
 	}
 
 	p:last-child::after {
