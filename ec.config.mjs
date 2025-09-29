@@ -6,7 +6,7 @@ export default defineEcConfig({
 	styleOverrides: {
 		borderColor: "var(--color-border-light)",
 		borderRadius: "var(--code-border-radius)",
-		borderWidth: "var(--border-width-normal)",
+		borderWidth: "var(--border-thickness-s)",
 		codeFontFamily: "var(--font-mono)",
 		codeFontSize: "var(--code-font-size)",
 		codeLineHeight: "var(--leading-relaxed)",
