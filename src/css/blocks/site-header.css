@@ -1,12 +1,29 @@
 .site-header {
-	view-transition-name: site-header;
-}
-
-.site-header.sidebar {
 	--stack-gap: var(--space-s-m);
 	--sidebar-min-width: 25ch;
 
 	position: relative;
+
+	> *::after {
+		content: "";
+		position: absolute;
+		background: var(--_border);
+		z-index: -1;
+
+		inset-inline-start: 0;
+		inset-block-start: 0;
+		inline-size: var(--border-thickness-s);
+		block-size: 100%;
+
+		@container (width > 50vi) {
+			--_border-angle: 90deg;
+			inset-inline: 0;
+			inset-block-start: unset;
+			inset-block-end: 0;
+			inline-size: 100%;
+			block-size: var(--border-thickness-s);
+		}
+	}
 
 	nav {
 		ul {
