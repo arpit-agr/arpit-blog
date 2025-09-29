@@ -1,7 +1,7 @@
 :root {
 	@utopia typeScale({
     minFontSize: 16,
-    maxFontSize: 17,
+    maxFontSize: 18,
     minTypeScale: 1.2,
     maxTypeScale: 1.25,
     positiveSteps: 5,
@@ -11,7 +11,7 @@
   });
 	@utopia spaceScale({
     minSize: 16,
-    maxSize: 17,
+    maxSize: 18,
     positiveSteps: [1.5, 2, 3, 4],
     negativeSteps: [0.75, 0.5, 0.25, 0.125, 0.0625],
     customSizes: ['s-l'],
