@@ -1,0 +1,19 @@
+:root {
+	--border-thickness-s: var(--space-5xs);
+	--border-thickness-m: calc(1.5 * var(--space-5xs));
+	--border-thickness-l: var(--space-4xs);
+	--border-radius: 0.125lh;
+}
+
+.page:has(> .sidebar) > :not(.sidebar)::before,
+.site-header.sidebar > *::after,
+.homepage main .entry + .entry::before {
+	--_border: repeating-linear-gradient(
+		var(--_border-angle, 0deg),
+		transparent,
+		transparent 0.125lh,
+		var(--color-border-dark) 0.125lh,
+		var(--color-border-dark) 0.25lh
+	);
+	/*--_border: var(--color-border-light);*/
+}
