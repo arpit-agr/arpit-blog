@@ -1,0 +1,39 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import BannerText from "@src/components/BannerText.astro";
+import SiteHeader from "@src/components/SiteHeader.astro";
+import EntryList from "@components/EntryList.astro";
+
+import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
+import { getCollection, render } from "astro:content";
+
+const allNotes = await getCollection("notes", ({ data }) => {
+	return import.meta.env.PROD ? data.draft !== true : true;
+});
+
+const allEntries = [...allNotes];
+allEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const entries = await Promise.all(
+	allEntries.map(async (entry) => {
+		const { Content } = await render(entry);
+		return { ...entry, Content };
+	}),
+);
+---
+
+<BaseLayout
+	bodyClass="homepage"
+	pageTitle=`Notes - ${SITE_TITLE}`
+	pageDesc={SITE_DESCRIPTION}
+	ogType="website"
+>
+	<BannerText />
+	<div class="page">
+		<SiteHeader />
+		<main id="main">
+			<h1 class="visually-hidden">Notes</h1>
+			<EntryList entries={entries} />
+		</main>
+	</div>
+</BaseLayout>
