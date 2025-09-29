@@ -5,6 +5,7 @@
 @import url(/src/css/theme/color.css) layer(theme);
 @import url(/src/css/theme/leading.css) layer(theme);
 @import url(/src/css/theme/border.css) layer(theme);
+@import url(/src/css/theme/easings.css) layer(theme);
 @import url(/src/css/theme/code.css) layer(theme);
 @import url(/src/css/global.css) layer(global);
 @import url(/src/css/composition/box.css) layer(composition);
