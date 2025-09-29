@@ -2,7 +2,8 @@
 	class="post-nav-back pb-space-m flow-space-0 text-step--1 color-text-secondary text-box-trim"
 >
 	<a href="/" class="inline-block text-box-trim">
-		&larr; Back <span class="visually-hidden">to the previous page</span>
+		{"<-"} Back
+		<span class="visually-hidden">to the previous page</span>
 	</a>
 </back-link>
 
@@ -10,7 +11,7 @@
 	@layer blocks {
 		.post-nav-back {
 			display: block;
-			border-block-start: var(--border-width-normal) solid
+			border-block-start: var(--border-thickness-s) solid
 				var(--color-border-light);
 		}
 	}
