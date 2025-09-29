@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
-import PostPage from "@layouts/PostPageLayout.astro";
+import EntryPage from "@layouts/EntryPage.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("articles", ({ data }) => {
@@ -17,4 +17,4 @@ const entry = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<PostPage pageTitle={entry.data.title} entry={entry} Content={Content} />
+<EntryPage pageTitle={entry.data.title} entry={entry} Content={Content} />
