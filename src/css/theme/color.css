@@ -1,0 +1,19 @@
+:root {
+	/* 1st order variables */
+	--color-black: #000;
+	--color-white: #fff;
+	--color-gray: hsl(0 0 33%);
+	--color-light-gray: #eee;
+	--color-yellow: oklch(0.8383 0.1982 80.76);
+
+	/* 2nd order variables */
+	--color-text-primary: var(--color-black);
+	--color-text-secondary: var(--color-gray);
+	--color-bg-primary: var(--color-white);
+	--color-bg-secondary: var(--color-light-gray);
+	--color-accent: var(--color-yellow);
+
+	/* 3rd order variables */
+	--color-border-light: oklch(from var(--color-text-primary) l c h / 0.15);
+	--color-border-dark: oklch(from var(--color-text-primary) l c h / 0.25);
+}
