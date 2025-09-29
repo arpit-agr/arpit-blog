@@ -1,6 +1,11 @@
 @layer reset, theme, global, composition, blocks, utilities, exceptions;
 
 @import url(/src/css/reset.css) layer(reset);
+@import url(/src/css/theme/utopia.css) layer(theme);
+@import url(/src/css/theme/color.css) layer(theme);
+@import url(/src/css/theme/leading.css) layer(theme);
+@import url(/src/css/theme/border.css) layer(theme);
+@import url(/src/css/theme/code.css) layer(theme);
 @import url(/src/css/global.css) layer(global);
 @import url(/src/css/composition/box.css) layer(composition);
 @import url(/src/css/composition/center.css) layer(composition);
