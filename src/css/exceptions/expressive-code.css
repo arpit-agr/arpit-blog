@@ -1,4 +1,5 @@
 .expressive-code pre {
+	/*background: transparent;*/
 	border: none;
 }
 
@@ -13,7 +14,7 @@
 		border-radius: var(--code-border-radius);
 
 		&:not(:focus-visible) {
-			outline: var(--border-width-normal) solid var(--color-border-dark);
+			outline: var(--border-thickness-s) solid var(--color-border-dark);
 		}
 
 		&:where(:hover, :focus-visible) {
