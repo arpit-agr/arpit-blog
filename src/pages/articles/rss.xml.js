@@ -9,7 +9,9 @@ export async function GET(context) {
 	let baseUrl = context.site?.href || "https://blog.arpit.codes";
 	if (baseUrl.at(-1) === "/") baseUrl = baseUrl.slice(0, -1);
 
-	const allArticles = await getCollection("articles");
+	const allArticles = await getCollection("articles", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
 	const allEntries = allArticles.sort(
 		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	);

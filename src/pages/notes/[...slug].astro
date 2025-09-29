@@ -4,7 +4,9 @@ import PostPage from "@layouts/PostPageLayout.astro";
 import { SITE_TITLE } from "@src/consts";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("notes");
+	const posts = await getCollection("notes", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
 	return posts.map((post) => ({
 		params: { slug: post.id },
 		props: post,

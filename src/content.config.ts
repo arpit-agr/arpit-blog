@@ -14,6 +14,7 @@ const baseCollectionFields = {
 		.refine((value) => !isNaN(value.getTime()))
 		.optional(),
 	tags: z.array(z.string()).optional(),
+	draft: z.boolean().optional(),
 };
 
 const notes = defineCollection({

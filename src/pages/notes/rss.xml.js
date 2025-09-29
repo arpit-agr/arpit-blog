@@ -11,7 +11,9 @@ export async function GET(context) {
 	let baseUrl = context.site?.href || "https://blog.arpit.codes";
 	if (baseUrl.at(-1) === "/") baseUrl = baseUrl.slice(0, -1);
 
-	const allNotes = await getCollection("notes");
+	const allNotes = await getCollection("notes", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
 	const allEntries = allNotes.sort(
 		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	);

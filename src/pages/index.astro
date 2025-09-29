@@ -7,8 +7,12 @@ import PubDate from "@src/components/PubDate.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
 import { getCollection, render } from "astro:content";
 
-const allNotes = await getCollection("notes");
-const allArticles = await getCollection("articles");
+const allNotes = await getCollection("notes", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+const allArticles = await getCollection("articles", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
 
 const allEntries = [...allNotes, ...allArticles];
 allEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
