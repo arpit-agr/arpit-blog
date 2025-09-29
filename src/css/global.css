@@ -3,85 +3,12 @@
 }
 
 :root {
-	@utopia typeScale({
-    minFontSize: 16,
-    maxFontSize: 18,
-    minTypeScale: 1.2,
-    maxTypeScale: 1.25,
-    positiveSteps: 5,
-    negativeSteps: 2,
-    relativeTo: 'viewport',
-    prefix: 'step'
-  });
-	@utopia spaceScale({
-    minSize: 16,
-    maxSize: 18,
-    positiveSteps: [1.5, 2, 3, 4],
-    negativeSteps: [0.75, 0.5, 0.25, 0.125, 0.0625],
-    customSizes: ['s-l'],
-    relativeTo: 'viewport',
-    prefix: 'space',
-    usePx: false,
-  });
-	@utopia clamps({
-    minWidth: 320,
-    maxWidth: 1440,
-    pairs: [
-      [27, 126]
-    ],
-    relativeTo: 'viewport'
-    prefix: 'fluid',
-    usePx: false,
-  });
-}
+	--wrapper-max-width: 64rem;
+	@custom-media --wrapper-max-width (min-width: 64rem);
 
-:root {
-	--color-black: #000;
-	--color-white: #fff;
-	--color-gray: hsl(0 0 33%);
-	--color-light-gray: #eee;
-	--color-yellow: oklch(0.8383 0.1982 80.76);
-
-	--leading-flat: 1;
-	--leading-tight: 1.2;
-	--leading-snug: 1.4;
-	--leading-normal: 1.6;
-	--leading-relaxed: 1.8;
-	--leading-loose: 2;
-
-	--border-width-normal: var(--space-5xs);
-	--border-width-thick: calc(1.5 * var(--space-5xs));
-	--border-width-thicker: var(--space-4xs);
-	--border-width-thickest: var(--space-3xs);
-	--border-radius: 0.125lh;
-
-	--code-font-size: calc(0.9 * var(--step-0));
-	--code-border-radius: 0.25lh;
-	--code-padding-block: var(--space-2xs);
-	--code-padding-inline: var(--space-xs);
-}
-
-:root {
-	/* 1st order variables */
-	--wrapper-max-width: 57rem;
-	@custom-media --wrapper-max-width (min-width: 57rem);
+	--measure: 60ch;
 	--page-gutter: var(--space-m);
-	--center-max-width: 36.5075rem;
-	/* this is the width of the site description in the header when the vw is 794px wide */
-
-	--font-sans-serif: ui-rounded, system-ui, sans-serif;
-	--font-mono: ui-monospace, monospace;
-
-	/* 2nd order variables */
-	--color-text-primary: var(--color-black);
-	--color-text-secondary: var(--color-gray);
-	--color-bg-primary: var(--color-white);
-	--color-bg-secondary: var(--color-light-gray);
-	--color-accent: var(--color-yellow);
-
-	/* 3rd order variables */
-	--color-border-light: oklch(from var(--color-text-primary) l c h / 0.15);
-	--color-border-dark: oklch(from var(--color-text-primary) l c h / 0.25);
+	--center-max-width: var(--measure);
 }
 
 :root {
@@ -127,15 +54,15 @@ h3,
 
 a,
 .link {
-	--color-underline: currentColor;
-	text-decoration-thickness: var(--border-width-thick);
-	text-decoration-style: dotted;
+	--color-underline: oklch(from var(--color-accent) l c h / calc(0.5 * alpha));
+	text-decoration-thickness: var(--border-thickness-l);
 	text-decoration-color: var(--color-underline);
 
 	&:hover {
-		text-decoration-thickness: var(--border-width-thicker);
+		text-decoration-thickness: 0.125lh;
 		text-decoration-style: solid;
 		text-decoration-color: var(--color-accent);
+		text-decoration-skip-ink: none;
 	}
 }
 
@@ -183,7 +110,7 @@ code {
 
 pre {
 	padding: var(--code-padding-block) var(--code-padding-inline);
-	outline: var(--border-width-normal) solid var(--color-border-light);
+	outline: var(--border-thickness-s) solid var(--color-border-light);
 	border-radius: var(--code-border-radius);
 }
 
