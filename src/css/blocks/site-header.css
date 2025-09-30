@@ -3,6 +3,7 @@
 	--sidebar-min-width: 25ch;
 
 	position: relative;
+	view-transition-name: site-header;
 
 	> *::after {
 		content: "";
