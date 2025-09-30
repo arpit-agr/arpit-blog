@@ -1,5 +1,6 @@
 ---
 import { SITE_DESCRIPTION } from "@src/consts";
+import SiteNav from "@components/SiteNav.astro";
 ---
 
 <header class="site-header sidebar flex container-type-inline">
@@ -8,22 +9,7 @@ import { SITE_DESCRIPTION } from "@src/consts";
 			<p class="description text-balance text-box-trim">
 				{SITE_DESCRIPTION}
 			</p>
-			<nav>
-				<ul role="list">
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/notes/">Notes</a>
-					</li>
-					<li>
-						<a href="/articles/">Articles</a>
-					</li>
-					<!-- <li>
-						<a href="/tags/">Tags</a>
-					</li> -->
-				</ul>
-			</nav>
+			<SiteNav />
 		</div>
 	</div>
 </header>
