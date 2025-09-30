@@ -1,0 +1,31 @@
+---
+import EntryList from "@components/EntryList.astro";
+
+const { page, entries } = Astro.props;
+---
+
+{
+	page.url.prev && (
+		<div
+			class="pagination-control p-space-m text-box-trim"
+			data-direction="backwards"
+		>
+			<a href={page.url.prev} rel="prev" class="inline-block text-box-trim">
+				{"<-"} Newer Entries
+			</a>
+		</div>
+	)
+}
+<EntryList entries={entries} />
+{
+	page.url.next && (
+		<div
+			class="pagination-control p-space-m text-box-trim"
+			data-direction="forwards"
+		>
+			<a href={page.url.next} rel="next" class="inline-block text-box-trim">
+				Older Entries {"->"}
+			</a>
+		</div>
+	)
+}

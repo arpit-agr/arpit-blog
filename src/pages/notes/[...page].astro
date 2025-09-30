@@ -5,8 +5,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BannerText from "@src/components/BannerText.astro";
 import SiteHeader from "@src/components/SiteHeader.astro";
-import EntryList from "@components/EntryList.astro";
-
+import PaginatedEntries from "@src/components/PaginatedEntries.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -38,45 +37,18 @@ const entries = await Promise.all(
 	<BannerText />
 	<div class="page">
 		<SiteHeader />
-		<div>
-			{
-				page.url.prev && (
-					<div
-						class="pagination-control p-space-m text-box-trim"
-						data-direction="backwards"
-					>
-						<a
-							href={page.url.prev}
-							rel="prev"
-							class="inline-block text-box-trim"
-						>
-							{"<-"} Newer Entries
-						</a>
-					</div>
-				)
-			}
-			<main id="main">
-				<h1 class="visually-hidden">
-					Notes <span>Page {page.currentPage} of {page.lastPage}</span>
-				</h1>
-				<EntryList entries={entries} />
-			</main>
-			{
-				page.url.next && (
-					<div
-						class="pagination-control p-space-m text-box-trim"
-						data-direction="forwards"
-					>
-						<a
-							href={page.url.next}
-							rel="next"
-							class="inline-block text-box-trim"
-						>
-							Older Entries {"->"}
-						</a>
-					</div>
-				)
-			}
-		</div>
+		<main id="main">
+			<h1 class="visually-hidden">
+				Notes
+				{
+					page.lastPage > 1 && (
+						<Fragment>
+							- Page {page.currentPage} of {page.lastPage}
+						</Fragment>
+					)
+				}
+			</h1>
+			<PaginatedEntries page={page} entries={entries} />
+		</main>
 	</div>
 </BaseLayout>
