@@ -23,7 +23,7 @@ body {
 	font-family: var(--font-sans-serif);
 	font-size-adjust: from-font;
 	line-height: var(--leading-normal);
-	-webkit-font-smoothing: auto;
+	/*-webkit-font-smoothing: auto;*/
 }
 
 h1,
