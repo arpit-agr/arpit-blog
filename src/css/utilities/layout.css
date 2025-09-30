@@ -14,6 +14,10 @@
 	inset-block-start: 0;
 }
 
+.inset-bs-space-m {
+	inset-block-start: var(--space-m);
+}
+
 .container-type-inline {
 	container-type: inline-size;
 }
