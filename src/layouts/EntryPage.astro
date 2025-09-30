@@ -5,7 +5,7 @@ import SiteHeader from "@src/components/SiteHeader.astro";
 import EntryNavback from "@components/EntryNavBack.astro";
 import PubDate from "@components/PubDate.astro";
 import UpdatedDate from "@components/UpdatedDate.astro";
-import PostTagList from "@src/components/PostTagList.astro";
+import TagList from "@src/components/TagList.astro";
 import EntryShareAndFeedback from "@components/EntryShareAndFeedback.astro";
 
 import { SITE_DESCRIPTION } from "@src/consts";
@@ -57,7 +57,7 @@ const {
 								}
 								<Content />
 							</div>
-							{!!entry.data.tags && <PostTagList tags={entry.data.tags} />}
+							{!!entry.data.tags && <TagList tags={entry.data.tags} />}
 						</article>
 					</main>
 					<aside class="entry-actions text-step--1 color-text-secondary">
