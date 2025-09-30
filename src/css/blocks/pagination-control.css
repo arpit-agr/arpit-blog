@@ -1,0 +1,25 @@
+.pagination-control {
+	position: relative;
+
+	&[data-direction="backwards"]::after,
+	&[data-direction="forwards"]::before {
+		--_border-angle: 90deg;
+
+		content: "";
+		position: absolute;
+		background: var(--_border);
+		z-index: -1;
+
+		inset-inline: 0;
+		inline-size: 100%;
+		block-size: var(--border-thickness-s);
+	}
+
+	&[data-direction="backwards"]::after {
+		inset-block-end: 0;
+	}
+
+	&[data-direction="forwards"]::before {
+		inset-block-start: 0;
+	}
+}

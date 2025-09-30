@@ -1,0 +1,86 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, render } from "astro:content";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+import BannerText from "@src/components/BannerText.astro";
+import SiteHeader from "@src/components/SiteHeader.astro";
+import EntryList from "@components/EntryList.astro";
+
+import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const allNotes = await getCollection("notes", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+	const allArticles = await getCollection("articles", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+
+	const allEntries = [...allNotes, ...allArticles];
+	allEntries.sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+	return paginate(allEntries, { pageSize: 20 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const entries = await Promise.all(
+	page.data.map(async (entry) => {
+		const { Content } = await render(entry);
+		return { ...entry, Content };
+	}),
+);
+---
+
+<BaseLayout
+	bodyClass="homepage"
+	pageTitle={`Notes - ${SITE_TITLE}`}
+	pageDesc={SITE_DESCRIPTION}
+	ogType="website"
+>
+	<BannerText />
+	<div class="page">
+		<SiteHeader />
+		<div>
+			{
+				page.url.prev && (
+					<div
+						class="pagination-control p-space-m text-box-trim"
+						data-direction="backwards"
+					>
+						<a
+							href={page.url.prev}
+							rel="prev"
+							class="inline-block text-box-trim"
+						>
+							{"<-"} Newer Entries
+						</a>
+					</div>
+				)
+			}
+			<main id="main">
+				<h1 class="visually-hidden">
+					Notes <span>Page {page.currentPage} of {page.lastPage}</span>
+				</h1>
+				<EntryList entries={entries} />
+			</main>
+			{
+				page.url.next && (
+					<div
+						class="pagination-control p-space-m text-box-trim"
+						data-direction="forwards"
+					>
+						<a
+							href={page.url.next}
+							rel="next"
+							class="inline-block text-box-trim"
+						>
+							Older Entries {"->"}
+						</a>
+					</div>
+				)
+			}
+		</div>
+	</div>
+</BaseLayout>
