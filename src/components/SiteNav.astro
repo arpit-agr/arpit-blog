@@ -1,0 +1,55 @@
+---
+const navLinks = [
+	{
+		label: "Home",
+		href: "/",
+	},
+	{
+		label: "Articles",
+		href: "/articles/",
+	},
+	{
+		label: "Notes",
+		href: "/notes/",
+	},
+];
+
+const { pathname } = Astro.url;
+
+function getLinkState(href: string, pathname: string) {
+	const isCurrent = href === pathname;
+	const isActive = href.length > 1 && pathname.startsWith(href);
+	return { isCurrent, isActive };
+}
+---
+
+<nav>
+	<ul role="list">
+		{
+			navLinks.map((link) => {
+				const { isCurrent, isActive } = getLinkState(link.href, pathname);
+				return (
+					<li>
+						<a
+							href={link.href}
+							aria-current={isCurrent ? "page" : null}
+							data-state={isActive ? "active" : null}
+						>
+							{link.label}
+						</a>
+					</li>
+				);
+			})
+		}
+	</ul>
+</nav>
+
+<style is:global>
+	@layer blocks {
+		[aria-current="page"],
+		[data-state="active"] {
+			background: linear-gradient(#0000 60%, var(--color-underline) 0) 0/ 100%;
+			text-decoration-line: none;
+		}
+	}
+</style>
