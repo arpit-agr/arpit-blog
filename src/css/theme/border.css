@@ -2,6 +2,7 @@
 	--border-thickness-s: var(--space-5xs);
 	--border-thickness-m: calc(1.5 * var(--space-5xs));
 	--border-thickness-l: var(--space-4xs);
+	--border-thickness-xl: var(--space-3xs);
 	--border-radius: 0.125lh;
 }
 
