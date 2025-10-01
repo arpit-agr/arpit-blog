@@ -25,17 +25,4 @@
 			block-size: var(--border-thickness-s);
 		}
 	}
-
-	nav {
-		ul {
-			display: flex;
-			flex-direction: column;
-			gap: var(--space-3xs) var(--space-s);
-			flex-wrap: wrap;
-
-			@container (width > 50vi) {
-				flex-direction: row;
-			}
-		}
-	}
 }
