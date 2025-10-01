@@ -16,4 +16,5 @@
 	/* 3rd order variables */
 	--color-border-light: oklch(from var(--color-text-primary) l c h / 0.15);
 	--color-border-dark: oklch(from var(--color-text-primary) l c h / 0.25);
+	--color-underline: oklch(from var(--color-accent) l c h / calc(0.5 * alpha));
 }
