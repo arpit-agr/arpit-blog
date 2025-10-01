@@ -23,7 +23,7 @@ body {
 	font-family: system-ui;
 	line-height: 1.5;
 	font-synthesis-weight: none;
-	font-synthesis-style: none;
+	/*font-synthesis-style: none;*/
 	-webkit-font-smoothing: antialiased;
 	overflow-wrap: anywhere;
 }
