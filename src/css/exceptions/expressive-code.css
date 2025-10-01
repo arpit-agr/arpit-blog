@@ -4,14 +4,15 @@
 }
 
 .expressive-code .copy {
-	inset-block-start: calc(var(--code-padding-block) / 1.5);
-	inset-inline-end: calc(var(--code-padding-block) / 1.5);
+	--_inset: calc(var(--code-padding-block) / 1.66);
+	inset-block-start: var(--_inset);
+	inset-inline-end: var(--_inset);
 
 	button {
-		block-size: var(--space-m-l);
-		inline-size: var(--space-m-l);
+		block-size: var(--space-l);
+		inline-size: var(--space-l);
 		opacity: 1;
-		border-radius: var(--code-border-radius);
+		border-radius: calc(var(--code-border-radius) - var(--_inset));
 
 		&:not(:focus-visible) {
 			outline: var(--border-thickness-s) solid var(--color-border-dark);
