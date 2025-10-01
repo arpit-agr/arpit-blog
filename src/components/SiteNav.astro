@@ -23,7 +23,7 @@ function getLinkState(href: string, pathname: string) {
 }
 ---
 
-<nav>
+<nav class="site-nav">
 	<ul role="list">
 		{
 			navLinks.map((link) => {
@@ -46,6 +46,19 @@ function getLinkState(href: string, pathname: string) {
 
 <style is:global>
 	@layer blocks {
+		.site-nav {
+			ul {
+				display: flex;
+				flex-direction: column;
+				gap: var(--space-3xs) var(--space-s);
+				flex-wrap: wrap;
+
+				@container (width > 50vi) {
+					flex-direction: row;
+				}
+			}
+		}
+
 		[aria-current="page"],
 		[data-state="active"] {
 			background: linear-gradient(#0000 60%, var(--color-underline) 0) 0/ 100%;
