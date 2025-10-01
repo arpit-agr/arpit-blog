@@ -24,6 +24,8 @@ body {
 	font-size-adjust: from-font;
 	line-height: var(--leading-normal);
 	-webkit-font-smoothing: auto;
+	/* https://rsms.me/inter/lab/?feat-cv05=1&feat-cv08=1 */
+	font-feature-settings: "cv05", "cv08", "calt", "ccmp", "locl", "kern";
 }
 
 h1,
