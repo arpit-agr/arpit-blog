@@ -73,7 +73,7 @@ a,
 
 blockquote {
 	position: relative;
-	padding-inline-start: var(--space-s);
+	padding-inline-start: var(--space-m);
 	border-inline-start: var(--border-thickness-xl) solid transparent;
 	border-image: linear-gradient(
 			to bottom,
@@ -142,4 +142,14 @@ hr {
 
 ::selection {
 	background-color: oklch(from var(--color-accent) l c h / calc(0.5 * alpha));
+}
+
+:focus-visible {
+	outline: var(--border-thickness-focus) solid var(--color-focus);
+	outline-offset: var(--border-thickness-focus);
+	border-radius: var(--border-radius);
+}
+
+button:not(.link):focus-visible {
+	outline-offset: 0;
 }
