@@ -12,6 +12,7 @@ export default defineEcConfig({
 		codeLineHeight: "var(--leading-relaxed)",
 		codePaddingBlock: "var(--code-padding-block)",
 		codePaddingInline: "var(--code-padding-inline)",
+		focusBorder: "var(--color-focus)",
 		uiFontFamily: "var(--font-sans-serif)",
 		uiFontSize: "var(--step--1)",
 		uiLineHeight: "var(--leading-normal)",
