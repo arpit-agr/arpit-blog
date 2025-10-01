@@ -7,7 +7,7 @@
 	@custom-media --wrapper-max-width (min-width: 60rem);
 
 	--measure: 60ch;
-	--page-gutter: var(--space-m);
+	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 }
 
@@ -68,7 +68,7 @@ a,
 }
 
 :where(ol, ul):not([role="list"]) {
-	padding-inline-start: var(--page-gutter);
+	padding-inline-start: var(--gutter);
 }
 
 blockquote {
