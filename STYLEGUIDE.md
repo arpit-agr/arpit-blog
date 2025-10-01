@@ -1,7 +1,7 @@
 # Style Guide
 
 - Add a period to the end of a bullet point if it contains a sentence
-- All tags in lowercase with no spaces and with words separated by hyphens
+- All tags in quotes in lowercase with no spaces and with words separated by hyphens
 
 ## Semantics
 
