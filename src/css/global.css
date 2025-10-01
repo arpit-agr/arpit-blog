@@ -54,7 +54,6 @@ h3,
 
 a,
 .link {
-	--color-underline: oklch(from var(--color-accent) l c h / calc(0.5 * alpha));
 	text-decoration-thickness: var(--border-thickness-l);
 	text-decoration-color: var(--color-underline);
 
@@ -71,33 +70,48 @@ a,
 }
 
 blockquote {
-	font-style: italic;
+	position: relative;
+	padding-inline-start: var(--space-s);
+	border-inline-start: var(--border-thickness-xl) solid transparent;
+	border-image: linear-gradient(
+			to bottom,
+			transparent 0,
+			transparent 1lh,
+			oklch(from var(--color-underline) l c h / calc(0.75 * alpha)) 1lh,
+			oklch(from var(--color-underline) l c h / calc(0.75 * alpha))
+				calc(100% - 0.25lh),
+			transparent calc(100% - 0.25lh)
+		)
+		1;
 
 	> * {
 		--flow-space: 0.5lh;
 	}
 
-	p:first-child::before {
+	> *:first-child::before {
 		content: open-quote;
-		margin-inline-end: 1rem;
-		float: inline-start;
-		shape-outside: ellipse(
-			calc(1.25 * var(--space-m)) var(--space-xs-s) at 20% 20%
-		);
-
+		color: var(--color-underline);
 		font-family: var(--font-cursive);
-		font-size: var(--step-4);
-		font-style: normal;
-		color: var(--color-accent);
+		font-size: var(--step-3);
 		line-height: var(--leading-flat);
-		/*-webkit-text-stroke: var(--space-5xs-4xs) var(--color-text-primary);
-		text-shadow: var(--color-text-primary) 0 var(--space-5xs-4xs);
-		paint-order: stroke fill;*/
+
+		position: absolute;
+		inset-inline-start: calc(-1 * var(--border-thickness-xl));
+		inset-block-start: 0;
+		translate: -50% 0;
 	}
 
-	p:last-child::after {
+	> *:last-child::after {
 		content: close-quote;
-		opacity: 0;
+
+		/* visually hidden */
+		position: absolute;
+		block-size: 1px;
+		inline-size: 1px;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		overflow: hidden;
+		white-space: nowrap;
 	}
 }
 
