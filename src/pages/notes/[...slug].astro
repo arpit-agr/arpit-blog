@@ -17,7 +17,7 @@ type Props = CollectionEntry<"notes">;
 const entry = Astro.props;
 const { Content } = await render(entry);
 
-const noteTitle = `Note from ${entry.data.pubDate.toLocaleString("en-IN", {
+const noteTitle = `${entry.data.pubDate.toLocaleString("en-IN", {
 	year: "numeric",
 	month: "short",
 	day: "numeric",
@@ -25,7 +25,7 @@ const noteTitle = `Note from ${entry.data.pubDate.toLocaleString("en-IN", {
 	minute: "numeric",
 	timeZone: "Asia/Kolkata",
 	timeZoneName: "short",
-})} | ${SITE_TITLE}`;
+})} - Notes | ${SITE_TITLE}`;
 ---
 
 <EntryPage pageTitle={noteTitle} entry={entry} Content={Content} />
