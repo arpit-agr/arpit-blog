@@ -3,9 +3,9 @@
 }
 
 :root {
-	--wrapper-max-width: 96rem;
+	--wrapper-max-width: 83rem;
 	--measure: 60ch;
-	--sidebar-min-width: 21.4rem;
+	--sidebar-min-width: 20rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 }
@@ -71,8 +71,8 @@ a,
 
 blockquote {
 	position: relative;
-	padding-inline-start: var(--space-s-m);
-	border-inline-start: var(--border-thickness-l) solid transparent;
+	padding-inline-start: var(--space-m);
+	border-inline-start: var(--border-thickness-blockquote) solid transparent;
 	border-image: linear-gradient(
 			to bottom,
 			transparent 0,
@@ -96,7 +96,7 @@ blockquote {
 		line-height: var(--leading-flat);
 
 		position: absolute;
-		inset-inline-start: calc(-1 * var(--border-thickness-l));
+		inset-inline-start: calc(-1 * var(--border-thickness-blockquote));
 		inset-block-start: 0;
 		translate: -50% 0;
 	}
