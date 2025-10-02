@@ -6,6 +6,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import BannerText from "@src/components/BannerText.astro";
 import SiteHeader from "@src/components/SiteHeader.astro";
 import PaginatedEntries from "@components/PaginatedEntries.astro";
+import Aside from "@components/Aside.astro";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
 
@@ -57,10 +58,12 @@ const entries = await Promise.all(
 				<PaginatedEntries page={page} entries={entries} />
 			</main>
 		</div>
-		<aside class="sidebar container-type-inline">
+		<Aside>
 			<div class="center p-space-m">
-				<p class="i-full">Browse the <a href="/tags/">tags</a></p>
+				<div class="i-full">
+					<a class="inline-block" href="/contact/">Get in touch</a>
+				</div>
 			</div>
-		</aside>
+		</Aside>
 	</div>
 </BaseLayout>
