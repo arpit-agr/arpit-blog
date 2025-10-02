@@ -3,9 +3,9 @@
 }
 
 :root {
-	--wrapper-max-width: 83rem;
+	--wrapper-max-width: 84rem;
 	--measure: 60ch;
-	--sidebar-min-width: 20rem;
+	--sidebar-min-width: 18rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 }
