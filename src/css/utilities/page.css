@@ -1,23 +1,29 @@
-.page:has(> .sidebar) {
-	--sidebar-gap: 0lh;
+.page {
+	--sidebar-gap: 0;
+	--sidebar-min-width: 17.5rem;
 
-	flex-direction: row-reverse;
 	max-inline-size: var(--wrapper-max-width);
 	margin-inline: auto;
 
-	@media (--wrapper-max-width) {
-		> :not(.sidebar) {
-			position: relative;
+	> aside {
+		position: relative;
 
-			&::before {
-				content: "";
-				position: absolute;
-				background: var(--_border);
-				z-index: -1;
-				inset-inline-start: 0;
+		&::before {
+			content: "";
+			position: absolute;
+			background: var(--_border);
+			z-index: -1;
+			inset-inline-start: 0;
+			inset-block-start: 0;
+			inline-size: var(--border-thickness-s);
+			block-size: 100%;
+
+			@container (width > 50vi) {
+				--_border-angle: 90deg;
+				inset-inline: 0;
 				inset-block-start: 0;
-				inline-size: var(--border-thickness-s);
-				block-size: 100%;
+				inline-size: 100%;
+				block-size: var(--border-thickness-s);
 			}
 		}
 	}
