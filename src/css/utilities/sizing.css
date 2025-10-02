@@ -5,3 +5,7 @@
 .max-i-full {
 	max-inline-size: 100%;
 }
+
+.b-full {
+	block-size: 100%;
+}
