@@ -41,19 +41,26 @@ const entries = await Promise.all(
 >
 	<BannerText />
 	<div class="page">
-		<SiteHeader />
-		<main id="main">
-			<h1 class="visually-hidden">
-				Notes & Articles
-				{
-					page.lastPage > 1 && (
-						<Fragment>
-							- Page {page.currentPage} of {page.lastPage}
-						</Fragment>
-					)
-				}
-			</h1>
-			<PaginatedEntries page={page} entries={entries} />
-		</main>
+		<div>
+			<SiteHeader />
+			<main id="main">
+				<h1 class="visually-hidden">
+					Notes & Articles
+					{
+						page.lastPage > 1 && (
+							<Fragment>
+								- Page {page.currentPage} of {page.lastPage}
+							</Fragment>
+						)
+					}
+				</h1>
+				<PaginatedEntries page={page} entries={entries} />
+			</main>
+		</div>
+		<aside class="sidebar container-type-inline">
+			<div class="center p-space-m">
+				<p class="i-full">Browse the <a href="/tags/">tags</a></p>
+			</div>
+		</aside>
 	</div>
 </BaseLayout>
