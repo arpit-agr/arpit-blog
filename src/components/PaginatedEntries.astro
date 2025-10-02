@@ -6,26 +6,32 @@ const { page, entries } = Astro.props;
 
 {
 	page.url.prev && (
-		<div
-			class="pagination-control p-space-m text-box-trim"
-			data-direction="backwards"
-		>
-			<a href={page.url.prev} rel="prev" class="inline-block text-box-trim">
-				{"<-"} Newer Entries
-			</a>
+		<div class="pagination-control text-box-trim" data-direction="backwards">
+			<div class="center p-space-m">
+				<a
+					href={page.url.prev}
+					rel="prev"
+					class="align-self-start text-box-trim"
+				>
+					{"<-"} Newer Entries
+				</a>
+			</div>
 		</div>
 	)
 }
 <EntryList entries={entries} />
 {
 	page.url.next && (
-		<div
-			class="pagination-control p-space-m text-box-trim"
-			data-direction="forwards"
-		>
-			<a href={page.url.next} rel="next" class="inline-block text-box-trim">
-				Older Entries {"->"}
-			</a>
+		<div class="pagination-control text-box-trim" data-direction="forwards">
+			<div class="center p-space-m">
+				<a
+					href={page.url.next}
+					rel="next"
+					class="align-self-start text-box-trim"
+				>
+					Older Entries {"->"}
+				</a>
+			</div>
 		</div>
 	)
 }
