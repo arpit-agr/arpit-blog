@@ -1,7 +1,7 @@
 :has(> .sidebar) {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--sidebar-gap, 1lh);
+	gap: var(--sidebar-gap, var(--space-s-m));
 }
 
 .sidebar {
