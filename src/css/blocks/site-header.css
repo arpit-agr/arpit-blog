@@ -29,19 +29,19 @@
 		--measure: 45ch;
 	}
 
-	img {
+	/*img {
 		float: inline-start;
 		margin-inline-end: var(--space-xs);
 		border-radius: 100vmax;
 		shape-outside: circle(50%);
 		max-inline-size: 3rem;
-	}
+	}*/
 
-	/*@container (width <= 50vi) {
-		img {
+	@container (width <= 50vi) {
+		/*img {
 			float: inline-end;
 			margin-inline-start: var(--space-xs);
-		}
+		}*/
 
 		div:has(> .site-nav) {
 			align-items: end;
@@ -50,5 +50,5 @@
 				text-align: end;
 			}
 		}
-	}*/
+	}
 }
