@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import BannerText from "@src/components/BannerText.astro";
-import SiteHeader from "@src/components/SiteHeader.astro";
+import BannerText from "@components/BannerText.astro";
+import SiteHeader from "@components/SiteHeader.astro";
 import EntryNavback from "@components/EntryNavBack.astro";
 import PubDate from "@components/PubDate.astro";
 import UpdatedDate from "@components/UpdatedDate.astro";
-import TagList from "@src/components/TagList.astro";
+import TagList from "@components/TagList.astro";
 import EntryShareAndFeedback from "@components/EntryShareAndFeedback.astro";
+import Aside from "@components/Aside.astro";
 
 import { SITE_DESCRIPTION } from "@src/consts";
 
@@ -25,52 +26,55 @@ const {
 >
 	<BannerText />
 	<div class="page">
-		<SiteHeader />
 		<div>
-			<div class="center pi-space-m">
-				<div class="flow pb-space-m i-full max-i-full">
-					<main id="main">
-						<article class="flow">
-							<footer
-								class="metadata flow flow-space-xs text-step--1 color-text-secondary"
-							>
-								<PubDate date={entry.data.pubDate} />
-								{
-									!!entry.data.updatedDate && (
-										<UpdatedDate date={entry.data.updatedDate} />
-									)
-								}
-							</footer>
-							<div class="entry-content flow">
-								{
-									entry.data.title ? (
-										<h1>{entry.data.title}</h1>
-									) : (
-										<h1 class="visually-hidden">
-											{entry.data.pubDate.toLocaleString("en-IN", {
-												year: "numeric",
-												month: "short",
-												day: "numeric",
-											})}
-										</h1>
-									)
-								}
-								<Content />
-							</div>
-							{!!entry.data.tags && <TagList tags={entry.data.tags} />}
-						</article>
-					</main>
-					<aside class="entry-actions text-step--1 color-text-secondary">
-						<EntryShareAndFeedback />
-						<!-- <details class="flow pb-space-m text-step--1 color-text-secondary">
+			<SiteHeader />
+			<div>
+				<div class="center pi-space-m">
+					<div class="flow pb-space-m i-full max-i-full">
+						<main id="main">
+							<article class="flow">
+								<footer
+									class="metadata flow flow-space-xs text-step--1 color-text-secondary"
+								>
+									<PubDate date={entry.data.pubDate} />
+									{
+										!!entry.data.updatedDate && (
+											<UpdatedDate date={entry.data.updatedDate} />
+										)
+									}
+								</footer>
+								<div class="entry-content flow">
+									{
+										entry.data.title ? (
+											<h1>{entry.data.title}</h1>
+										) : (
+											<h1 class="visually-hidden">
+												{entry.data.pubDate.toLocaleString("en-IN", {
+													year: "numeric",
+													month: "short",
+													day: "numeric",
+												})}
+											</h1>
+										)
+									}
+									<Content />
+								</div>
+								{!!entry.data.tags && <TagList tags={entry.data.tags} />}
+							</article>
+						</main>
+						<aside class="entry-actions text-step--1 color-text-secondary">
+							<EntryShareAndFeedback />
+							<!-- <details class="flow pb-space-m text-step--1 color-text-secondary">
 							<summary class="text-box-trim" id="comments">Comments</summary>
 							<p>TODO: Add comments</p>
 						</details> -->
-					</aside>
-					<EntryNavback />
+						</aside>
+						<EntryNavback />
+					</div>
 				</div>
 			</div>
 		</div>
+		<Aside />
 	</div>
 </BaseLayout>
 
