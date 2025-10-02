@@ -22,5 +22,5 @@ aside.sidebar::before,
 		var(--color-border-dark) 0.125lh,
 		var(--color-border-dark) 0.25lh
 	);
-	--_border: var(--color-border-light);
+	/*--_border: var(--color-border-light);*/
 }
