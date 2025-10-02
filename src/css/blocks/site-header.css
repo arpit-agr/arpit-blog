@@ -1,5 +1,5 @@
 .site-header {
-	--stack-gap: var(--space-s-m);
+	--stack-gap: var(--space-s);
 
 	position: relative;
 	view-transition-name: site-header;
