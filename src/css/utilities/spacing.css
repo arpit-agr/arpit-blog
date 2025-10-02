@@ -50,6 +50,10 @@
 	padding-inline: var(--space-s-m);
 }
 
+.pi-space-gutter {
+	padding-inline: var(--gutter);
+}
+
 .pb-space-3xs {
 	padding-block: var(--space-3xs);
 }
