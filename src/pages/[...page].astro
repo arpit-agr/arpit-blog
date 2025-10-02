@@ -3,8 +3,8 @@ import type { GetStaticPaths } from "astro";
 import { getCollection, render } from "astro:content";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
-import BannerText from "@src/components/BannerText.astro";
-import SiteHeader from "@src/components/SiteHeader.astro";
+import BannerText from "@components/BannerText.astro";
+import SiteHeader from "@components/SiteHeader.astro";
 import PaginatedEntries from "@components/PaginatedEntries.astro";
 import Aside from "@components/Aside.astro";
 
@@ -58,12 +58,6 @@ const entries = await Promise.all(
 				<PaginatedEntries page={page} entries={entries} />
 			</main>
 		</div>
-		<Aside>
-			<div class="center p-space-m">
-				<div class="i-full text-box-trim">
-					<a class="inline-block" href="/contact/">Get in touch</a>
-				</div>
-			</div>
-		</Aside>
+		<Aside />
 	</div>
 </BaseLayout>
