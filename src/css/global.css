@@ -3,9 +3,7 @@
 }
 
 :root {
-	--wrapper-max-width: 60rem;
-	@custom-media --wrapper-max-width (min-width: 60rem);
-
+	--wrapper-max-width: 83rem;
 	--measure: 60ch;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
