@@ -8,8 +8,9 @@
 	--border-thickness-focus: calc(1.5 * var(--space-4xs));
 }
 
-.page:has(> .sidebar) > :not(.sidebar)::before,
+.banner-text::after,
 .site-header.sidebar > *::after,
+aside.sidebar::before,
 .entry + .entry::before,
 .pagination-control[data-direction="backwards"]::after,
 .pagination-control[data-direction="forwards"]::before {
@@ -20,5 +21,5 @@
 		var(--color-border-dark) 0.125lh,
 		var(--color-border-dark) 0.25lh
 	);
-	/*--_border: var(--color-border-light);*/
+	--_border: var(--color-border-light);
 }
