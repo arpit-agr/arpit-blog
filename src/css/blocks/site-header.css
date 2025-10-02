@@ -1,6 +1,5 @@
 .site-header {
 	--stack-gap: var(--space-s-m);
-	--sidebar-min-width: 25ch;
 
 	position: relative;
 	view-transition-name: site-header;
@@ -11,7 +10,7 @@
 		background: var(--_border);
 		z-index: -1;
 
-		inset-inline-start: 0;
+		inset-inline-end: 0;
 		inset-block-start: 0;
 		inline-size: var(--border-thickness-s);
 		block-size: 100%;
@@ -23,6 +22,17 @@
 			inset-block-end: 0;
 			inline-size: 100%;
 			block-size: var(--border-thickness-s);
+		}
+	}
+
+	@container (width <= 50vi) {
+		div:has(> .description) {
+			align-items: end;
+		}
+
+		.description,
+		.site-nav {
+			text-align: end;
 		}
 	}
 }
