@@ -5,6 +5,17 @@
 	transition: translate 500ms var(--ease-spring-3);
 	view-transition-name: site-banner;
 
+	/*&::after {
+		--_border-angle: 90deg;
+		content: "";
+		position: absolute;
+		inset-inline: 0;
+		inset-block-end: 0;
+		block-size: var(--border-thickness-s);
+		background: var(--_border);
+		z-index: -1;
+	}*/
+
 	&:where(:has(a:hover), :focus-within) {
 		z-index: 1;
 		translate: -0.66ch calc(-1 * var(--space-4xs-3xs));
