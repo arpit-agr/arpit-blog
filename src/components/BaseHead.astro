@@ -61,26 +61,6 @@ const {
 			fallbackName: "Sarina Fallback",
 		},
 		{
-			name: "Inter Display",
-			src: [
-				{
-					style: "normal",
-					weight: "600",
-					path: join(
-						process.cwd(),
-						"public",
-						"fonts",
-						"InterDisplay-SemiBold-subset.woff2",
-					),
-				},
-			],
-			preload: true,
-			display: "swap",
-			cssVariable: "font-display",
-			fallback: "sans-serif",
-			fallbackName: "Inter Display Fallback",
-		},
-		{
 			name: "Inter",
 			src: [
 				{
@@ -91,6 +71,16 @@ const {
 						"public",
 						"fonts",
 						"Inter-Regular-subset.woff2",
+					),
+				},
+				{
+					style: "normal",
+					weight: "600",
+					path: join(
+						process.cwd(),
+						"public",
+						"fonts",
+						"Inter-SemiBold-subset.woff2",
 					),
 				},
 			],
