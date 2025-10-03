@@ -3,7 +3,6 @@
 
 	position: relative;
 	translate: -0.66ch 0px;
-	view-transition-name: site-banner;
 
 	&:where(:has(a:hover), :focus-within) {
 		z-index: 1;
