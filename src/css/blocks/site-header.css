@@ -2,7 +2,6 @@
 	--stack-gap: var(--space-s-m);
 
 	position: relative;
-	view-transition-name: site-header;
 
 	> *::after {
 		content: "";
