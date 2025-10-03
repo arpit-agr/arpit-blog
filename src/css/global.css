@@ -57,10 +57,11 @@ a,
 	text-decoration-thickness: var(--border-thickness-l);
 	text-decoration-color: var(--color-underline);
 
-	&:hover {
-		text-decoration-thickness: 0.125lh;
-		text-decoration-style: solid;
-		text-decoration-color: var(--color-accent);
+	&:hover,
+	&[aria-current="page"],
+	&[data-state="active"] {
+		text-decoration-thickness: 0.3lh;
+		text-underline-offset: -0.15lh;
 		text-decoration-skip-ink: none;
 	}
 }
@@ -146,6 +147,7 @@ hr {
 	outline: var(--border-thickness-focus) solid var(--color-focus);
 	outline-offset: var(--border-thickness-focus);
 	border-radius: var(--border-radius);
+	text-decoration-line: none;
 }
 
 button:not(.link):focus-visible {
