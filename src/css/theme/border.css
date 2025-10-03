@@ -9,7 +9,7 @@
 	--border-thickness-focus: calc(1.5 * var(--space-4xs));
 }
 
-.banner-text::after,
+/*.banner-text::after,*/
 .site-header.sidebar > *::after,
 aside.sidebar::before,
 .entry + .entry::before,
