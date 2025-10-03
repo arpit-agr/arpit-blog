@@ -3,11 +3,12 @@
 }
 
 :root {
-	--wrapper-max-width: 84rem;
+	--wrapper-max-width: 88rem;
 	--measure: 60ch;
-	--sidebar-min-width: 18rem;
+	--sidebar-min-width: 19rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
+	--font-sans-serif: ui-rounded, "SF Pro Rounded", Calibri, sans-serif;
 }
 
 :root {
@@ -22,9 +23,7 @@ body {
 	font-family: var(--font-sans-serif);
 	font-size-adjust: from-font;
 	line-height: var(--leading-normal);
-	-webkit-font-smoothing: auto;
-	/* https://rsms.me/inter/lab/?feat-cv05=1&feat-cv08=1 */
-	font-feature-settings: "cv05", "cv08", "calt", "ccmp", "locl", "kern";
+	/*-webkit-font-smoothing: auto;*/
 }
 
 h1,
@@ -72,7 +71,7 @@ a,
 
 blockquote {
 	position: relative;
-	padding-inline-start: var(--space-m);
+	padding-inline-start: var(--space-m-s);
 	border-inline-start: var(--border-thickness-blockquote) solid transparent;
 	border-image: linear-gradient(
 			to bottom,
