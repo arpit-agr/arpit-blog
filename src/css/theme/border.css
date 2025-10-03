@@ -5,7 +5,7 @@
 	--border-thickness-xl: var(--space-3xs);
 	--border-radius: var(--space-5xs);
 
-	--border-thickness-blockquote: calc(1.5 * var(--space-4xs));
+	--border-thickness-blockquote: var(--space-2xs);
 	--border-thickness-focus: calc(1.5 * var(--space-4xs));
 }
 
