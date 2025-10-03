@@ -8,7 +8,13 @@
 	--sidebar-min-width: 19rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
+}
+
+:root {
 	--font-sans-serif: ui-rounded, "SF Pro Rounded", Calibri, sans-serif;
+	--font-mono:
+		ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo,
+		Consolas, "DejaVu Sans Mono", monospace;
 }
 
 :root {
