@@ -101,7 +101,9 @@ button,
 
 :where(ol, ul):not([role="list"]) {
 	padding-inline-start: var(--gutter);
+}
 
+:where(ul):not([role="list"]) {
 	::marker {
 		color: var(--color-accent);
 	}
