@@ -14,7 +14,7 @@ const { text, statusMsg } = Astro.props;
 	status-msg={statusMsg}
 	copied-btn-label="Copied!"
 >
-	<button class="link text-box-trim"><slot /></button>
+	<button class="text-box-trim"><slot /></button>
 </copy-to-clipboard>
 
 <style is:global>
@@ -22,6 +22,10 @@ const { text, statusMsg } = Astro.props;
 		copy-to-clipboard:not(:defined) button {
 			cursor: not-allowed;
 			opacity: 0.37;
+		}
+
+		copy-to-clipboard button {
+			min-inline-size: 8ch;
 		}
 	}
 </style>
