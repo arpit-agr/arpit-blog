@@ -4,10 +4,10 @@ import SiteNav from "@components/SiteNav.astro";
 ---
 
 <!-- we add a flex class to .site-header to make its direct child stretch in the block dir -->
-<header class="site-header sidebar flex container-type-inline">
-	<div class="center i-full p-space-m">
+<header class="site-header">
+	<div class="center p-space-m">
 		<!-- we add align-self-start to left align the header when it is stacked above main -->
-		<div class="stack sticky inset-bs-space-m align-self-start">
+		<div class="stack align-self-start">
 			<p class="text-balance text-box-trim">
 				{SITE_DESCRIPTION}
 			</p>
