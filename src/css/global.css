@@ -8,6 +8,10 @@
 	--sidebar-min-width: 18rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
+
+	--font-mono:
+		ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+		"DejaVu Sans Mono", monospace;
 }
 
 :root {
