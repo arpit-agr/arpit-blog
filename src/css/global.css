@@ -56,6 +56,12 @@ h3,
 	font-size: var(--step-0);
 }
 
+h4,
+.heading-4 {
+	font-size: var(--step--1);
+	text-transform: uppercase;
+}
+
 a {
 	text-decoration-thickness: var(--border-thickness-l);
 	text-decoration-color: var(--color-underline);
@@ -76,7 +82,7 @@ button {
 	border-radius: var(--border-radius);
 
 	&:not(:focus-visible) {
-		outline: var(--border-thickness-m) solid var(--color-underline);
+		outline: var(--border-thickness-l) solid var(--color-underline);
 		outline-offset: calc(-1 / 2 * var(--border-thickness-m));
 	}
 
@@ -85,7 +91,7 @@ button {
 	}
 
 	&:focus-visible {
-		outline-offset: calc(-1 / 2 * var(--border-thickness-m));
+		outline-offset: calc(-1 / 2 * var(--border-thickness-l));
 	}
 }
 
