@@ -78,8 +78,16 @@
 	padding-block: var(--space-s-m);
 }
 
+.pb-space-s-xs {
+	padding-block: var(--space-s-xs);
+}
+
 .pbs-space-s {
 	padding-block-start: var(--space-s);
+}
+
+.pbs-space-s-xs {
+	padding-block-start: var(--space-s-xs);
 }
 
 .flow-space-0 {
