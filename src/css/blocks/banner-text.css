@@ -3,12 +3,14 @@
 
 	position: relative;
 	translate: -0.66ch 0px;
+	transition: z-index 500ms;
+	transition-behavior: allow-discrete;
 
 	&:where(:has(a:hover), :focus-within) {
 		z-index: 1;
 	}
 
-	/*&::after {
+	&::after {
 		--_border-angle: 90deg;
 		content: "";
 		position: absolute;
@@ -17,14 +19,12 @@
 		block-size: var(--border-thickness-s);
 		background: var(--_border);
 		z-index: -1;
-
-		@media (orientation: portrait) {
-			opacity: 0;
-		}
-	}*/
+		translate: 0.66ch 0px;
+	}
 
 	> * {
 		transition: translate 500ms var(--ease-spring-3);
+		transition-delay: 100ms;
 
 		&:where(:has(a:hover), :focus-within) {
 			translate: 0ch calc(-1 * var(--space-4xs-3xs));
@@ -32,13 +32,16 @@
 	}
 
 	a {
-		text-decoration-line: none;
+		text-decoration: none;
+		text-shadow: #0000 0 var(--space-4xs-3xs);
+		-webkit-text-stroke: var(--space-4xs-3xs) #0000;
 		paint-order: stroke fill;
 		transition-property:
 			text-shadow,
 			-webkit-text-stroke;
 		transition-duration: 500ms;
 		transition-timing-function: var(--ease-spring-3);
+		transition-delay: 100ms;
 
 		&:where(:hover, :focus-visible) {
 			text-shadow: var(--color-text-primary) 0 var(--space-4xs-3xs);
