@@ -7,6 +7,7 @@ import BannerText from "@components/BannerText.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import PaginatedEntries from "@components/PaginatedEntries.astro";
 import Aside from "@components/Aside.astro";
+import Subscribe from "@components/Subscribe.astro";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
 
@@ -58,6 +59,8 @@ const entries = await Promise.all(
 				<PaginatedEntries page={page} entries={entries} />
 			</main>
 		</div>
-		<Aside />
+		<Aside>
+			<Subscribe />
+		</Aside>
 	</div>
 </BaseLayout>
