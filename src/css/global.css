@@ -99,6 +99,10 @@ button {
 
 :where(ol, ul):not([role="list"]) {
 	padding-inline-start: var(--gutter);
+
+	::marker {
+		color: var(--color-accent);
+	}
 }
 
 blockquote {
