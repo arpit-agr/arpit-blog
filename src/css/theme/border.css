@@ -10,7 +10,7 @@
 }
 
 .banner-text::after,
-.site-header-inner > *::after,
+.site-header-inner > *:first-child::after,
 aside.sidebar::before,
 .entry + .entry::before,
 .pagination-control[data-direction="backwards"]::after,
