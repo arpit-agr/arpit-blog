@@ -24,53 +24,50 @@ const {
 	pageTitle={pageTitle}
 	pageDesc={SITE_DESCRIPTION}
 >
-	<BannerText />
+	<SiteHeader />
 	<div class="page">
 		<div>
-			<SiteHeader />
-			<div>
-				<div class="center pi-space-m">
-					<div class="flow pb-space-m i-full max-i-full">
-						<main id="main">
-							<article class="flow">
-								<footer
-									class="metadata flow flow-space-xs text-step--1 color-text-secondary"
-								>
-									<PubDate date={entry.data.pubDate} />
-									{
-										!!entry.data.updatedDate && (
-											<UpdatedDate date={entry.data.updatedDate} />
-										)
-									}
-								</footer>
-								<div class="entry-content flow">
-									{
-										entry.data.title ? (
-											<h1>{entry.data.title}</h1>
-										) : (
-											<h1 class="visually-hidden">
-												{entry.data.pubDate.toLocaleString("en-IN", {
-													year: "numeric",
-													month: "short",
-													day: "numeric",
-												})}
-											</h1>
-										)
-									}
-									<Content />
-								</div>
-								{!!entry.data.tags && <TagList tags={entry.data.tags} />}
-							</article>
-						</main>
-						<aside class="entry-actions text-step--1 color-text-secondary">
-							<EntryShareAndFeedback />
-							<!-- <details class="flow pb-space-m text-step--1 color-text-secondary">
+			<div class="center pi-space-m">
+				<div class="flow pb-space-m i-full max-i-full">
+					<main id="main">
+						<article class="flow">
+							<footer
+								class="metadata flow flow-space-xs text-step--1 color-text-secondary"
+							>
+								<PubDate date={entry.data.pubDate} />
+								{
+									!!entry.data.updatedDate && (
+										<UpdatedDate date={entry.data.updatedDate} />
+									)
+								}
+							</footer>
+							<div class="entry-content flow">
+								{
+									entry.data.title ? (
+										<h1>{entry.data.title}</h1>
+									) : (
+										<h1 class="visually-hidden">
+											{entry.data.pubDate.toLocaleString("en-IN", {
+												year: "numeric",
+												month: "short",
+												day: "numeric",
+											})}
+										</h1>
+									)
+								}
+								<Content />
+							</div>
+							{!!entry.data.tags && <TagList tags={entry.data.tags} />}
+						</article>
+					</main>
+					<aside class="entry-actions text-step--1 color-text-secondary">
+						<EntryShareAndFeedback />
+						<!-- <details class="flow pb-space-m text-step--1 color-text-secondary">
 							<summary class="text-box-trim" id="comments">Comments</summary>
 							<p>TODO: Add comments</p>
 						</details> -->
-						</aside>
-						<EntryNavback />
-					</div>
+					</aside>
+					<EntryNavback />
 				</div>
 			</div>
 		</div>
