@@ -1,4 +1,4 @@
-.visually-hidden:not(:focus):not(:active) {
+.visually-hidden:not(:focus-visible):not(:active) {
 	position: absolute;
 	block-size: 1px;
 	inline-size: 1px;
