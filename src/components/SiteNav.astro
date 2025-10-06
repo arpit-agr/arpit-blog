@@ -24,7 +24,7 @@ function getLinkState(href: string, pathname: string) {
 ---
 
 <nav class="site-nav">
-	<ul role="list">
+	<ul class="cluster" role="list">
 		{
 			navLinks.map((link) => {
 				const { isCurrent, isActive } = getLinkState(link.href, pathname);
@@ -43,20 +43,3 @@ function getLinkState(href: string, pathname: string) {
 		}
 	</ul>
 </nav>
-
-<style is:global>
-	@layer blocks {
-		.site-nav {
-			ul {
-				display: flex;
-				flex-direction: column;
-				gap: var(--space-3xs) var(--space-s);
-				flex-wrap: wrap;
-
-				@container (width > 50vi) {
-					flex-direction: row;
-				}
-			}
-		}
-	}
-</style>
