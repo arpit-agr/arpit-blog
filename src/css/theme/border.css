@@ -9,8 +9,8 @@
 	--border-thickness-focus: calc(1.5 * var(--space-4xs));
 }
 
-/*.banner-text::after,*/
-.site-header > *::after,
+.banner-text::after,
+.site-header-inner > *::after,
 aside.sidebar::before,
 .entry + .entry::before,
 .pagination-control[data-direction="backwards"]::after,
@@ -18,9 +18,9 @@ aside.sidebar::before,
 	--_border: repeating-linear-gradient(
 		var(--_border-angle, 0deg),
 		transparent,
-		transparent 0.125lh,
-		var(--color-border-dark) 0.125lh,
-		var(--color-border-dark) 0.25lh
+		transparent 0.075lh,
+		var(--color-border-dark) 0.075lh,
+		var(--color-border-dark) 0.15lh
 	);
-	--_border: var(--color-border-light);
+	/*--_border: var(--color-border-light);*/
 }
