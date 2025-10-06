@@ -3,6 +3,28 @@
 	position: relative;
 	z-index: 2;
 
+	li:first-of-type {
+		/*https://codepen.io/thebabydino/pen/OPymPQP*/
+
+		/* line thickness */
+		--s: var(--border-thickness-l);
+		/*--s: 1lh;*/
+		/* line width */
+		--w: 100vw;
+		/* the gap */
+		--g: var(--space-m);
+		border-image: linear-gradient(
+				#0000 calc(50% - var(--s) / 2),
+				var(--color-underline) 0 calc(50% + var(--s) / 2),
+				#0000 0
+			)
+			0 1/ 0 0 0 var(--w) / 0 0 0 calc(var(--w) + var(--g));
+
+		/*@container scroll-state(stuck: block-start) {
+			border-image: none;
+		}*/
+	}
+
 	a {
 		position: relative;
 
