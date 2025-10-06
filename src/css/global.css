@@ -50,8 +50,7 @@ h3,
 	font-size: var(--step-0);
 }
 
-a,
-.link {
+a {
 	text-decoration-thickness: var(--border-thickness-l);
 	text-decoration-color: var(--color-underline);
 
@@ -61,6 +60,26 @@ a,
 		text-decoration-thickness: 0.3lh;
 		text-underline-offset: -0.15lh;
 		text-decoration-skip-ink: none;
+	}
+}
+
+button {
+	border: none;
+	background: none;
+	padding: calc(1.25 * var(--space-3xs)) 0.5ch;
+	border-radius: var(--border-radius);
+
+	&:not(:focus-visible) {
+		outline: var(--border-thickness-m) solid var(--color-underline);
+		outline-offset: calc(-1 / 2 * var(--border-thickness-m));
+	}
+
+	&:hover {
+		background-color: var(--color-underline);
+	}
+
+	&:focus-visible {
+		outline-offset: calc(-1 / 2 * var(--border-thickness-m));
 	}
 }
 
@@ -146,8 +165,4 @@ hr {
 	outline-offset: var(--border-thickness-focus);
 	border-radius: var(--border-radius);
 	text-decoration-line: none;
-}
-
-button:not(.link):focus-visible {
-	outline-offset: 0;
 }
