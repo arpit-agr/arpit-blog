@@ -5,6 +5,7 @@
 	margin-inline: auto;
 
 	> aside {
+		--flow-space: var(--space-m-l);
 		position: relative;
 
 		&::before {
@@ -24,6 +25,10 @@
 				inline-size: 100%;
 				block-size: var(--border-thickness-s);
 			}
+		}
+
+		h2 + * {
+			--flow-space: 0.5lh;
 		}
 	}
 }
