@@ -1,17 +1,20 @@
 ---
-import { SITE_DESCRIPTION } from "@src/consts";
 import SiteNav from "@components/SiteNav.astro";
+import BannerText from "@components/BannerText.astro";
 ---
 
-<!-- we add a flex class to .site-header to make its direct child stretch in the block dir -->
 <header class="site-header">
-	<div class="center p-space-m">
-		<!-- we add align-self-start to left align the header when it is stacked above main -->
-		<div class="stack align-self-start">
-			<p class="text-balance text-box-trim">
-				{SITE_DESCRIPTION}
-			</p>
-			<SiteNav />
+	<div class="site-header-inner pb-space-s sticky inset-bs-0">
+		<div>
+			<div class="center pi-space-m">
+				<div class="align-self-start">
+					<SiteNav />
+				</div>
+			</div>
+		</div>
+		<div class="sidebar" aria-hidden="true">
+			<!-- intentionally empty -->
 		</div>
 	</div>
+	<BannerText />
 </header>
