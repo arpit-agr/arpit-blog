@@ -16,30 +16,12 @@
 <style is:global>
 	@layer blocks {
 		.mastodon-share-container {
-			--cluster-gap: var(--space-2xs);
+			--cluster-gap: var(--space-3xs);
 
 			.no-js & a {
 				cursor: not-allowed;
 				opacity: 0.37;
 			}
-
-			button {
-				border: none;
-				border-radius: var(--border-radius);
-				background: var(--color-bg-primary);
-
-				&:not(:focus-visible) {
-					outline: var(--border-thickness-s) solid var(--color-border-dark);
-				}
-
-				&:is(:hover, :focus-visible) {
-					background: var(--color-bg-secondary);
-				}
-			}
-		}
-
-		.mastodon-edit {
-			padding: var(--space-3xs) 0.5ch;
 		}
 	}
 </style>
