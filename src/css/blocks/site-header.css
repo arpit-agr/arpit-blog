@@ -9,7 +9,7 @@
 	background-color: var(--color-bg-primary);
 	z-index: 1;
 
-	> *::after {
+	> *:first-child:after {
 		--_border-angle: 90deg;
 
 		content: "";
