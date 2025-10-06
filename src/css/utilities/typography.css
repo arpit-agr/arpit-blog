@@ -18,6 +18,10 @@
 	text-wrap: balance;
 }
 
+.leading-flat {
+	line-height: var(--leading-flat);
+}
+
 .leading-snug {
 	line-height: var(--leading-snug);
 }
