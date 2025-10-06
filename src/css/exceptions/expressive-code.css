@@ -12,6 +12,7 @@
 		block-size: var(--space-l);
 		inline-size: var(--space-l);
 		opacity: 1;
+		z-index: unset;
 
 		&:not(:focus-visible) {
 			outline: var(--border-thickness-s) solid var(--color-border-dark);
