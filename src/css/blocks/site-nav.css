@@ -1,0 +1,16 @@
+.site-nav {
+	--cluster-gap: var(--space-s);
+	position: relative;
+	z-index: 2;
+
+	a {
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset-block: calc(-1 * var(--space-s));
+			inset-inline: 0;
+		}
+	}
+}
