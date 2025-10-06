@@ -18,6 +18,7 @@
 @import url(/src/css/composition/stack.css) layer(composition);
 @import url(/src/css/blocks/banner-text.css) layer(blocks);
 @import url(/src/css/blocks/site-header.css) layer(blocks);
+@import url(/src/css/blocks/site-nav.css) layer(blocks);
 @import url(/src/css/blocks/pagination-control.css) layer(blocks);
 @import url(/src/css/utilities/wrapper.css) layer(utilities);
 @import url(/src/css/utilities/region.css) layer(utilities);
