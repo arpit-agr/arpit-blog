@@ -3,7 +3,6 @@ import type { GetStaticPaths } from "astro";
 import { getCollection, render } from "astro:content";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
-import BannerText from "@components/BannerText.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import PaginatedEntries from "@components/PaginatedEntries.astro";
 import Aside from "@components/Aside.astro";
@@ -35,24 +34,21 @@ const entries = await Promise.all(
 	pageDesc={SITE_DESCRIPTION}
 	ogType="website"
 >
-	<BannerText />
+	<SiteHeader />
 	<div class="page">
-		<div>
-			<SiteHeader />
-			<main id="main">
-				<h1 class="visually-hidden">
-					Articles
-					{
-						page.lastPage > 1 && (
-							<Fragment>
-								- Page {page.currentPage} of {page.lastPage}
-							</Fragment>
-						)
-					}
-				</h1>
-				<PaginatedEntries page={page} entries={entries} />
-			</main>
-		</div>
+		<main id="main">
+			<h1 class="visually-hidden">
+				Articles
+				{
+					page.lastPage > 1 && (
+						<Fragment>
+							- Page {page.currentPage} of {page.lastPage}
+						</Fragment>
+					)
+				}
+			</h1>
+			<PaginatedEntries page={page} entries={entries} />
+		</main>
 		<Aside />
 	</div>
 </BaseLayout>
