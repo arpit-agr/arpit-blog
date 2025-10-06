@@ -3,9 +3,9 @@
 }
 
 :root {
-	--wrapper-max-width: 90rem;
+	--wrapper-max-width: 108rem;
 	--measure: 60ch;
-	--sidebar-min-width: 18rem;
+	--sidebar-min-width: 24rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 	--button-padding-block: calc(1.25 * var(--space-3xs));
@@ -60,9 +60,9 @@ a {
 	text-decoration-thickness: var(--border-thickness-l);
 	text-decoration-color: var(--color-underline);
 
-	&:hover,
-	&[aria-current="page"],
-	&[data-state="active"] {
+	/*&[aria-current="page"],
+	&[data-state="active"],*/
+	&:hover {
 		text-decoration-thickness: 0.3lh;
 		text-underline-offset: -0.15lh;
 		text-decoration-skip-ink: none;
