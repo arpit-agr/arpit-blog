@@ -18,17 +18,24 @@ const rssLinks = [
 ];
 ---
 
-<h2 class="heading-4">
-	Subscribe in your <abbr title="Really Simple Syndication">RSS</abbr> reader
-</h2>
-<ul>
-	{
-		rssLinks.map((link) => (
-			<li>
-				<a href={link.href} type="application/rss+xml" title={link.title}>
-					{link.label}
-				</a>
-			</li>
-		))
-	}
-</ul>
+<div class="stack">
+	<h2 class="heading-4">Subscribe</h2>
+	<p>
+		By copying these URLs into your
+		<a href="https://aboutfeeds.com/">
+			<abbr title="Really Simple Syndication">RSS</abbr>
+		</a>
+		(Really Simple Syndication) reader.
+	</p>
+	<ul>
+		{
+			rssLinks.map((link) => (
+				<li>
+					<a href={link.href} type="application/rss+xml" title={link.title}>
+						{link.label}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</div>
