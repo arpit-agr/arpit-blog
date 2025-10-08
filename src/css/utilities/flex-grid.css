@@ -1,3 +1,7 @@
 .align-self-start {
 	align-self: start;
 }
+
+.gap-2xs {
+	gap: var(--space-2xs);
+}
