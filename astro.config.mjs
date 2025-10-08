@@ -5,7 +5,7 @@ import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://blog.arpit.codes",
+	site: "https://arpit.blog",
 	integrations: [markdoc(), expressiveCode()],
 	trailingSlash: "always",
 });

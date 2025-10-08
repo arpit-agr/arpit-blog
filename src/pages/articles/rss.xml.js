@@ -6,7 +6,7 @@ import { transform, walk } from "ultrahtml";
 import sanitize from "ultrahtml/transformers/sanitize";
 
 export async function GET(context) {
-	let baseUrl = context.site?.href || "https://blog.arpit.codes";
+	let baseUrl = context.site?.href || "https://arpit.blog";
 	if (baseUrl.at(-1) === "/") baseUrl = baseUrl.slice(0, -1);
 
 	const allArticles = await getCollection("articles", ({ data }) => {

@@ -8,7 +8,7 @@ import sanitize from "ultrahtml/transformers/sanitize";
 const parser = new MarkdownIt({ html: true });
 
 export async function GET(context) {
-	let baseUrl = context.site?.href || "https://blog.arpit.codes";
+	let baseUrl = context.site?.href || "https://arpit.blog";
 	if (baseUrl.at(-1) === "/") baseUrl = baseUrl.slice(0, -1);
 
 	const allLinks = await getCollection("links", ({ data }) => {
