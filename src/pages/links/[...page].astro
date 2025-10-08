@@ -1,0 +1,54 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, render } from "astro:content";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import PaginatedEntries from "@components/PaginatedEntries.astro";
+import Aside from "@components/Aside.astro";
+import { SITE_TITLE } from "@src/consts";
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const allLinks = await getCollection("links", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+	const allEntries = [...allLinks];
+	allEntries.sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+	return paginate(allEntries, { pageSize: 20 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const entries = await Promise.all(
+	page.data.map(async (entry) => {
+		const { Content } = await render(entry);
+		return { ...entry, Content };
+	}),
+);
+---
+
+<BaseLayout
+	bodyClass="homepage"
+	pageTitle={`${SITE_TITLE}: Links`}
+	pageDesc="Handpicked links from Arpit Agrawal."
+	ogType="website"
+>
+	<SiteHeader />
+	<div class="page">
+		<main id="main">
+			<h1 class="visually-hidden">
+				Links
+				{
+					page.lastPage > 1 && (
+						<Fragment>
+							- Page {page.currentPage} of {page.lastPage}
+						</Fragment>
+					)
+				}
+			</h1>
+			<PaginatedEntries page={page} entries={entries} />
+		</main>
+		<Aside />
+	</div>
+</BaseLayout>
