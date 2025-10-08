@@ -19,9 +19,9 @@ export async function GET(context) {
 	);
 
 	const items = [];
-	for (const post of allEntries) {
+	for (const entry of allEntries) {
 		// Render markdown → HTML string
-		const rawHtml = parser.render(post.body);
+		const rawHtml = parser.render(entry.body);
 
 		// Absolutify links + sanitize
 		const description = await transform(rawHtml, [
@@ -40,9 +40,9 @@ export async function GET(context) {
 		]);
 
 		items.push({
-			link: `/notes/${post.id}/`,
+			link: `/notes/${entry.id}/`,
 			description, // full sanitized HTML content
-			...post.data,
+			...entry.data,
 		});
 	}
 
