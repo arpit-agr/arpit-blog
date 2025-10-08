@@ -4,6 +4,7 @@ import SiteHeader from "@components/SiteHeader.astro";
 import EntryNavback from "@components/EntryNavBack.astro";
 import PubDate from "@components/PubDate.astro";
 import UpdatedDate from "@components/UpdatedDate.astro";
+import LinkVia from "@components/LinkVia.astro";
 import TagList from "@components/TagList.astro";
 import EntryShareAndFeedback from "@components/EntryShareAndFeedback.astro";
 import Aside from "@components/Aside.astro";
@@ -30,27 +31,41 @@ const {
 				<div class="flow pb-space-m i-full max-i-full">
 					<main id="main">
 						<article class="flow">
-							<footer
-								class="metadata flow flow-space-xs text-step--1 color-text-secondary"
-							>
-								<PubDate date={entry.data.pubDate} />
+							<footer class="cluster gap-2xs text-step--1 color-text-secondary">
+								<div class="flow flow-space-xs">
+									<PubDate date={entry.data.pubDate} />
+									{
+										!!entry.data.updatedDate && (
+											<UpdatedDate date={entry.data.updatedDate} />
+										)
+									}
+								</div>
 								{
-									!!entry.data.updatedDate && (
-										<UpdatedDate date={entry.data.updatedDate} />
+									!!entry.data.via && (
+										<LinkVia
+											url={entry.data.via.url}
+											label={entry.data.via.label}
+										/>
 									)
 								}
 							</footer>
 							<div class="entry-content flow">
 								{
-									entry.data.title ? (
-										<h1>{entry.data.title}</h1>
-									) : (
+									entry.collection === "notes" && (
 										<h1 class="visually-hidden">
 											{entry.data.pubDate.toLocaleString("en-IN", {
 												year: "numeric",
 												month: "short",
 												day: "numeric",
 											})}
+										</h1>
+									)
+								}
+								{entry.collection === "articles" && <h1>{entry.data.title}</h1>}
+								{
+									entry.collection === "links" && (
+										<h1 class="link-entry-title heading-3">
+											<a href={entry.data.link}>{entry.data.title}</a>
 										</h1>
 									)
 								}
