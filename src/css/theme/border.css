@@ -3,14 +3,14 @@
 	--border-thickness-m: calc(1.5 * var(--space-5xs));
 	--border-thickness-l: var(--space-4xs);
 	--border-thickness-xl: var(--space-3xs);
-	--border-radius: var(--space-4xs);
+	--border-radius: var(--space-3xs);
 
-	--border-thickness-blockquote: var(--space-2xs);
-	--border-thickness-focus: calc(1.5 * var(--space-4xs));
+	--border-thickness-blockquote: var(--space-3xs);
+	--border-thickness-focus: calc(1.25 * var(--space-4xs));
 }
 
+/*.site-nav > ul::after,*/
 .banner-text::after,
-.site-header-inner > *:first-child::after,
 aside.sidebar::before,
 .entry + .entry::before,
 .pagination-control[data-direction="backwards"]::after,
