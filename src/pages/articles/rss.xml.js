@@ -17,9 +17,9 @@ export async function GET(context) {
 	);
 
 	const items = [];
-	for (const post of allEntries) {
+	for (const entry of allEntries) {
 		// Parse + transform Markdoc AST
-		const ast = Markdoc.parse(post.body);
+		const ast = Markdoc.parse(entry.body);
 		const transformed = Markdoc.transform(ast, {
 			nodes: {
 				document: { render: null }, // strip <article>
@@ -56,8 +56,8 @@ export async function GET(context) {
 		]);
 
 		items.push({
-			...post.data,
-			link: `/articles/${post.id}/`,
+			...entry.data,
+			link: `/articles/${entry.id}/`,
 			content,
 		});
 	}
