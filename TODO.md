@@ -10,6 +10,7 @@
  - [ ] Update meta theme color
  - [ ] Add favicon
  - [ ] Update social image URL
+ - [ ] Fix `og:type`
 
 ## Someday/Maybe
 
