@@ -1,0 +1,14 @@
+---
+interface Props {
+	url: string;
+	label: string;
+}
+
+const { url, label } = Astro.props;
+---
+
+<span class="text-box-trim">•</span>
+<p class="text-box-trim">
+	Discovered via
+	<a class="text-box-trim" href={url}>{label}</a>
+</p>
