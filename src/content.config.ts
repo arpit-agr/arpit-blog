@@ -44,7 +44,7 @@ const links = defineCollection({
 		.extend({
 			...baseCollectionFields,
 			title: z.string(),
-			bookmark: z.string(),
+			link: z.string(),
 			via: z.object({ url: z.string().url(), label: z.string() }).optional(),
 		})
 		.transform((entry) => ({
