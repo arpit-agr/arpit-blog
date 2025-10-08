@@ -13,10 +13,8 @@
 		inline-size: var(--space-l);
 		opacity: 1;
 		z-index: unset;
-
-		&:not(:focus-visible) {
-			outline: var(--border-thickness-s) solid var(--color-border-dark);
-		}
+		outline: var(--border-thickness-s) solid var(--color-border-dark);
+		outline-offset: 0;
 
 		&:where(:hover, :focus-visible) {
 			background: var(--color-bg-secondary);
@@ -24,6 +22,10 @@
 			> div {
 				opacity: 0;
 			}
+		}
+
+		&:focus-visible {
+			outline: var(--border-thickness-focus) solid var(--color-focus);
 		}
 
 		&::before {
