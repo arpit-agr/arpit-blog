@@ -8,11 +8,6 @@ const baseCollectionFields = {
 		.union([z.string(), z.number(), z.date()])
 		.transform((value) => new Date(value))
 		.refine((value) => !isNaN(value.getTime())),
-	updatedDate: z
-		.union([z.string(), z.number(), z.date()])
-		.transform((value) => new Date(value))
-		.refine((value) => !isNaN(value.getTime()))
-		.optional(),
 	tags: z.array(z.string()).optional(),
 	draft: z.boolean().optional(),
 };
@@ -31,6 +26,11 @@ const articles = defineCollection({
 		.extend({
 			...baseCollectionFields,
 			title: z.string(),
+			updatedDate: z
+				.union([z.string(), z.number(), z.date()])
+				.transform((value) => new Date(value))
+				.refine((value) => !isNaN(value.getTime()))
+				.optional(),
 		})
 		.transform((entry) => ({
 			...entry,
@@ -38,4 +38,19 @@ const articles = defineCollection({
 		})),
 });
 
-export const collections = { notes, articles };
+const links = defineCollection({
+	loader: glob({ base: "./src/data/links", pattern: "**/*.{md,mdoc}" }),
+	schema: rssSchema
+		.extend({
+			...baseCollectionFields,
+			title: z.string(),
+			bookmark: z.string(),
+			via: z.object({ url: z.string().url(), label: z.string() }).optional(),
+		})
+		.transform((entry) => ({
+			...entry,
+			categories: entry.tags ?? [],
+		})),
+});
+
+export const collections = { notes, articles, links };
