@@ -1,0 +1,25 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import EntryPage from "@layouts/EntryPage.astro";
+import { SITE_TITLE } from "@src/consts";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("links", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<"links">;
+
+const entry = Astro.props;
+const { Content } = await render(entry);
+---
+
+<EntryPage
+	pageTitle=`${SITE_TITLE}: Links - ${entry.data.title}`
+	entry={entry}
+	Content={Content}
+/>
