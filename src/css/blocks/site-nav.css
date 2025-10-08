@@ -5,7 +5,6 @@
 .site-nav {
 	--cluster-gap: var(--space-s);
 	position: relative;
-	/*container-type: scroll-state;*/
 	z-index: 2;
 
 	background: var(--color-bg-primary);
@@ -17,36 +16,22 @@
 		);
 		margin-inline-end: var(--gutter);
 
-		/*https://codepen.io/thebabydino/pen/OPymPQP*/
-		--s: var(--border-thickness-l);
-		--w: 100vw;
-		--g: var(--space-m);
-		border-image: linear-gradient(
-				#0000 calc(50% - var(--s) / 2),
-				var(--color-underline) 0 calc(50% + var(--s) / 2),
-				#0000 0
-			)
-			0 1/ 0 0 0 var(--w) / 0 0 0 calc(var(--w) + var(--g));
-
 		@media (--layout-with-sidebar) {
 			--sidebar-min-width: 0px;
 		}
 
-		/*&:after {
-			--_border-angle: 90deg;
-
-			content: "";
-			position: absolute;
-			z-index: -1;
-			inset-inline: 0;
-			inset-block-end: 0;
-			inline-size: 100%;
-			block-size: var(--border-thickness-s);
-
-			@container scroll-state(stuck: block-start) {
-				background: var(--_border);
-			}
-		}*/
+		> li:first-child {
+			/*https://codepen.io/thebabydino/pen/OPymPQP*/
+			--s: var(--border-thickness-l);
+			--w: 100vw;
+			--g: var(--space-m);
+			border-image: linear-gradient(
+					#0000 calc(50% - var(--s) / 2),
+					var(--color-underline) 0 calc(50% + var(--s) / 2),
+					#0000 0
+				)
+				0 1/ 0 0 0 var(--w) / 0 0 0 calc(var(--w) + var(--g));
+		}
 	}
 
 	a {
