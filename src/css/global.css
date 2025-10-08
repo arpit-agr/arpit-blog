@@ -8,8 +8,11 @@
 	--sidebar-min-width: 24rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
-	--button-padding-block: calc(1.25 * var(--space-3xs));
-	--button-padding-inline: 0.5ch;
+	@custom-media --layout-with-sidebar (width < 68.625rem);
+	/* the vw size at which the page layout switches to two columns */
+
+	--button-padding-block: calc(1.5 * var(--space-3xs));
+	--button-padding-inline: 1ch;
 
 	--font-mono:
 		ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
@@ -68,9 +71,8 @@ a {
 	text-decoration-thickness: var(--border-thickness-l);
 	text-decoration-color: var(--color-underline);
 
-	/*&[aria-current="page"],
-	&[data-state="active"],*/
-	&:hover {
+	&:hover,
+	&:focus-visible {
 		text-decoration-thickness: 0.3lh;
 		text-underline-offset: -0.15lh;
 		text-decoration-skip-ink: none;
@@ -79,23 +81,34 @@ a {
 
 button,
 .btn {
+	position: relative;
 	border: none;
 	background: none;
 	padding: var(--button-padding-block) var(--button-padding-inline);
 	border-radius: var(--border-radius);
 
-	&:not(:focus-visible) {
-		outline: var(--border-thickness-l) solid var(--color-underline);
-		outline-offset: calc(-1 / 2 * var(--border-thickness-m));
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border: var(--border-thickness-s) solid var(--color-underline);
+		border-radius: var(--border-radius);
+		box-shadow: 0 var(--space-4xs) 0 var(--color-underline);
+		z-index: -1;
 	}
 
-	&:hover {
-		background-color: var(--color-underline);
-	}
-
+	&:hover,
 	&:focus-visible {
-		background-color: var(--color-accent);
-		outline-offset: calc(-1 / 2 * var(--border-thickness-l));
+		outline: none;
+		background: oklch(from var(--color-underline) l c h / calc(0.5 * alpha));
+	}
+
+	&:active {
+		translate: 0 var(--space-4xs);
+
+		&::before {
+			box-shadow: none;
+		}
 	}
 }
 
@@ -184,7 +197,6 @@ hr {
 
 :focus-visible {
 	outline: var(--border-thickness-focus) solid var(--color-focus);
-	outline-offset: var(--border-thickness-focus);
+	outline-offset: calc(1.125 * var(--border-thickness-focus));
 	border-radius: var(--border-radius);
-	text-decoration-line: none;
 }
