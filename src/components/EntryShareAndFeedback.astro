@@ -20,12 +20,13 @@ const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent("Re: "
 </div>
 <div class="repel pb-space-m">
 	<p class="text-box-trim">Found this useful?</p>
-	<a class="text-box-trim" href={mailtoLink}>Let me know</a>
+	<a class="text-box-trim" href={mailtoLink}>Let Me Know</a>
 </div>
 
 <style is:global>
 	@layer exceptions {
 		.share-feedback {
+			--cluster-gap: var(--space-s);
 			padding-block: calc(var(--space-m) - var(--button-padding-block));
 		}
 	}
