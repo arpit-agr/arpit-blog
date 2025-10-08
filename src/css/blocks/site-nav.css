@@ -5,7 +5,7 @@
 .site-nav {
 	--cluster-gap: var(--space-s);
 	position: relative;
-	container-type: scroll-state;
+	/*container-type: scroll-state;*/
 	z-index: 2;
 
 	background: var(--color-bg-primary);
@@ -32,7 +32,7 @@
 			--sidebar-min-width: 0px;
 		}
 
-		&:after {
+		/*&:after {
 			--_border-angle: 90deg;
 
 			content: "";
@@ -46,7 +46,7 @@
 			@container scroll-state(stuck: block-start) {
 				background: var(--_border);
 			}
-		}
+		}*/
 	}
 
 	a {
