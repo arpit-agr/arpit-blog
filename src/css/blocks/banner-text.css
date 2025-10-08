@@ -1,4 +1,5 @@
 .banner-text {
+	--wrapper-max-width: 96rem;
 	position: relative;
 	margin-block-start: var(--space-3xs-2xs);
 
@@ -7,6 +8,7 @@
 	paint-order: stroke fill;
 	z-index: 1;
 	/*mix-blend-mode: multiply;*/
+	pointer-events: none;
 
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
