@@ -4,7 +4,7 @@ module.exports = {
 	plugins: [
 		require("postcss-utopia")({
 			minWidth: 320, // 20rem
-			maxWidth: 1152, // 72rem
+			maxWidth: 1200, // 75rem
 		}),
 		postcssPresetEnv({
 			features: {},
