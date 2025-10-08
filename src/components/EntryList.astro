@@ -2,24 +2,42 @@
 import PubDate from "@components/PubDate.astro";
 
 const { entries } = Astro.props;
+
+const basePathMap = {
+  notes: "/notes",
+  articles: "/articles",
+  links: "/links",
+};
 ---
 
 <ul role="list">
 	{
 		//@ts-ignore
 		entries.map((entry) => {
-			const basePath = entry.collection === "notes" ? "/notes" : "/articles";
+		//@ts-ignore
+		const basePath = basePathMap[entry.collection];
 			return (
 				<li class="entry">
 					<div class="center p-space-m">
 						<article class="stack i-full max-i-full">
-							<footer class="text-step--1 color-text-secondary">
+							<footer class="cluster gap-2xs text-step--1 color-text-secondary">
 								<PubDate date={entry.data.pubDate} />
+								{!!entry.data.via && (
+									<span aria-hidden="true">•</span>
+									<p>via
+										<a href={entry.data.via.url}>{entry.data.via.label}</a>
+									</p>
+								)}
 							</footer>
 							<div class="entry-content flow max-i-full">
 								{entry.collection === "articles" && (
 									<h2>
 										<a href={`${basePath}/${entry.id}/`}>{entry.data.title}</a>
+									</h2>
+								)}
+								{entry.collection === "links" && (
+									<h2 class="link-entry-title heading-3">
+										<a href={entry.data.bookmark }>{entry.data.title}</a>
 									</h2>
 								)}
 								<entry.Content />
