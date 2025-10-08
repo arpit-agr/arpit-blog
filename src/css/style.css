@@ -21,6 +21,7 @@
 @import url(/src/css/blocks/banner-text.css) layer(blocks);
 @import url(/src/css/blocks/site-nav.css) layer(blocks);
 @import url(/src/css/blocks/pagination-control.css) layer(blocks);
+@import url(/src/css/blocks/link-entry-title.css) layer(blocks);
 @import url(/src/css/utilities/region.css) layer(utilities);
 @import url(/src/css/utilities/visually-hidden.css) layer(utilities);
 @import url(/src/css/utilities/text-fit.css) layer(utilities);
