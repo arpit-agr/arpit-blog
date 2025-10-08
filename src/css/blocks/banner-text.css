@@ -1,14 +1,15 @@
 .banner-text {
-	--wrapper-max-width: 96rem;
-
 	position: relative;
-	translate: -0.66ch 0px;
-	transition: z-index 500ms;
-	transition-behavior: allow-discrete;
+	margin-block-start: var(--space-3xs-2xs);
 
-	&:where(:has(a:hover), :focus-within) {
-		z-index: 1;
-	}
+	text-shadow: var(--color-text-primary) 0 var(--space-4xs-3xs);
+	-webkit-text-stroke: var(--space-4xs-3xs) var(--color-text-primary);
+	paint-order: stroke fill;
+	z-index: 1;
+	/*mix-blend-mode: multiply;*/
+
+	font-family: var(--font-cursive);
+	color: var(--color-accent);
 
 	&::after {
 		--_border-angle: 90deg;
@@ -19,38 +20,9 @@
 		block-size: var(--border-thickness-s);
 		background: var(--_border);
 		z-index: -1;
-		translate: 0.66ch 0px;
 	}
 
 	> * {
-		transition: translate 500ms var(--ease-spring-3);
-		transition-delay: 100ms;
-
-		&:where(:has(a:hover), :focus-within) {
-			translate: 0ch calc(-1 * var(--space-4xs-3xs));
-		}
-	}
-
-	a {
-		text-decoration: none;
-		text-shadow: #0000 0 var(--space-4xs-3xs);
-		-webkit-text-stroke: var(--space-4xs-3xs) #0000;
-		paint-order: stroke fill;
-		transition-property:
-			text-shadow,
-			-webkit-text-stroke;
-		transition-duration: 500ms;
-		transition-timing-function: var(--ease-spring-3);
-		transition-delay: 100ms;
-
-		&:where(:hover, :focus-visible) {
-			text-shadow: var(--color-text-primary) 0 var(--space-4xs-3xs);
-			-webkit-text-stroke: var(--space-4xs-3xs) var(--color-text-primary);
-		}
-	}
-
-	> * {
-		font-family: var(--font-cursive);
-		color: var(--color-accent);
+		translate: -0.66ch 0px;
 	}
 }
