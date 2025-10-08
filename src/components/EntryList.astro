@@ -1,5 +1,6 @@
 ---
 import PubDate from "@components/PubDate.astro";
+import LinkVia from "@components/LinkVia.astro";
 
 const { entries } = Astro.props;
 
@@ -22,12 +23,14 @@ const basePathMap = {
 						<article class="stack i-full max-i-full">
 							<footer class="cluster gap-2xs text-step--1 color-text-secondary">
 								<PubDate date={entry.data.pubDate} />
-								{!!entry.data.via && (
-									<span aria-hidden="true">•</span>
-									<p>via
-										<a href={entry.data.via.url}>{entry.data.via.label}</a>
-									</p>
-								)}
+								{
+									!!entry.data.via && (
+										<LinkVia
+											url={entry.data.via.url}
+											label={entry.data.via.label}
+										/>
+									)
+								}
 							</footer>
 							<div class="entry-content flow max-i-full">
 								{entry.collection === "articles" && (
@@ -37,7 +40,7 @@ const basePathMap = {
 								)}
 								{entry.collection === "links" && (
 									<h2 class="link-entry-title heading-3">
-										<a href={entry.data.bookmark }>{entry.data.title}</a>
+										<a href={entry.data.link }>{entry.data.title}</a>
 									</h2>
 								)}
 								<entry.Content />
