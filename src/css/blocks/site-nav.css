@@ -1,17 +1,25 @@
+.site-header {
+	display: contents;
+}
+
 .site-nav {
 	--cluster-gap: var(--space-s);
 	position: relative;
+	container-type: scroll-state;
 	z-index: 2;
 
-	li:first-of-type {
-		/*https://codepen.io/thebabydino/pen/OPymPQP*/
+	background: var(--color-bg-primary);
 
-		/* line thickness */
+	> ul {
+		margin-inline-start: max(
+			var(--gutter),
+			calc((100vw - var(--sidebar-min-width) - var(--center-max-width)) / 2)
+		);
+		margin-inline-end: var(--gutter);
+
+		/*https://codepen.io/thebabydino/pen/OPymPQP*/
 		--s: var(--border-thickness-l);
-		/*--s: 1lh;*/
-		/* line width */
 		--w: 100vw;
-		/* the gap */
 		--g: var(--space-m);
 		border-image: linear-gradient(
 				#0000 calc(50% - var(--s) / 2),
@@ -20,18 +28,35 @@
 			)
 			0 1/ 0 0 0 var(--w) / 0 0 0 calc(var(--w) + var(--g));
 
-		/*@container scroll-state(stuck: block-start) {
-			border-image: none;
-		}*/
+		@media (--layout-with-sidebar) {
+			--sidebar-min-width: 0px;
+		}
+
+		&:after {
+			--_border-angle: 90deg;
+
+			content: "";
+			position: absolute;
+			z-index: -1;
+			inset-inline: 0;
+			inset-block-end: 0;
+			inline-size: 100%;
+			block-size: var(--border-thickness-s);
+
+			@container scroll-state(stuck: block-start) {
+				background: var(--_border);
+			}
+		}
 	}
 
 	a {
 		position: relative;
+		display: block;
 
 		&::after {
 			content: "";
 			position: absolute;
-			inset-block: calc(-1 * var(--space-s));
+			inset-block: calc(-1 * var(--space-m));
 			inset-inline: 0;
 		}
 	}
