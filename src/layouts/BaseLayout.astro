@@ -32,7 +32,9 @@ const {
 		/>
 	</head>
 	<body class={bodyClass}>
-		<a class="skip-to-content visually-hidden" href="#main">Skip to content</a>
+		<a class="skip-to-content text-box-trim visually-hidden" href="#main">
+			Skip to content
+		</a>
 		<slot />
 	</body>
 </html>
@@ -42,8 +44,7 @@ const {
 		.skip-to-content {
 			position: absolute;
 			inset-inline-start: var(--space-m);
-			inset-block-start: var(--space-s);
-			background: var(--color-bg-primary);
+			inset-block-start: var(--space-m);
 			z-index: 3;
 
 			&::before {
