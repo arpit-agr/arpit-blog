@@ -1,9 +1,9 @@
 ---
 const navLinks = [
-	// {
-	// 	label: "Home",
-	// 	href: "/",
-	// },
+	{
+		label: "Home",
+		href: "/",
+	},
 	{
 		label: "Notes",
 		href: "/notes/",
@@ -27,14 +27,15 @@ function getLinkState(href: string, pathname: string) {
 }
 ---
 
-<nav class="site-nav">
-	<ul class="cluster" role="list">
+<nav class="site-nav sticky inset-bs-0">
+	<ul class="cluster pb-space-m" role="list">
 		{
 			navLinks.map((link) => {
 				const { isCurrent, isActive } = getLinkState(link.href, pathname);
 				return (
 					<li>
 						<a
+							class="text-box-trim"
 							href={link.href}
 							aria-current={isCurrent ? "page" : null}
 							data-state={isActive ? "active" : null}
