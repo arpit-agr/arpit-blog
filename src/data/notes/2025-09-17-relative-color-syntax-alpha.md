@@ -1,6 +1,5 @@
 ---
 pubDate: 2025-09-17T08:31+0530
-updatedDate: 2025-09-22T10:07+0530
 tags:
 - "color"
 - "css"
