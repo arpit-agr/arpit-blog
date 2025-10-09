@@ -100,7 +100,7 @@ button,
 	&:hover,
 	&:focus-visible {
 		outline: none;
-		background: oklch(from var(--color-underline) l c h / calc(0.5 * alpha));
+		background: oklch(from var(--color-underline) l c h / calc(0.25 * alpha));
 	}
 
 	&:active {
@@ -124,15 +124,14 @@ button,
 
 blockquote {
 	position: relative;
-	padding-inline-start: var(--space-m-s);
+	padding-inline-start: var(--space-s);
 	border-inline-start: var(--border-thickness-blockquote) solid transparent;
 	border-image: linear-gradient(
 			to bottom,
 			transparent 0,
-			transparent 0.8lh,
-			oklch(from var(--color-underline) l c h / calc(0.75 * alpha)) 0.8lh,
-			oklch(from var(--color-underline) l c h / calc(0.75 * alpha))
-				calc(100% - 0.25lh),
+			transparent 0.75lh,
+			var(--color-underline) 0.75lh,
+			var(--color-underline) calc(100% - 0.25lh),
 			transparent calc(100% - 0.25lh)
 		)
 		1;
@@ -143,7 +142,7 @@ blockquote {
 
 	> *:first-child::before {
 		content: open-quote;
-		color: var(--color-underline);
+		color: var(--color-accent);
 		font-family: var(--font-cursive);
 		font-size: var(--step-3);
 		line-height: var(--leading-flat);
