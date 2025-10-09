@@ -3,11 +3,11 @@
 	position: relative;
 	margin-block-start: var(--space-3xs-2xs);
 
-	text-shadow: var(--color-text-primary) 0 var(--space-4xs-3xs);
-	-webkit-text-stroke: var(--space-4xs-3xs) var(--color-text-primary);
-	paint-order: stroke fill;
-	z-index: 1;
-	/*mix-blend-mode: multiply;*/
+	/*text-shadow: var(--color-text-primary) 0 var(--space-4xs-3xs);*/
+	/*-webkit-text-stroke: var(--space-4xs-3xs) var(--color-text-primary);*/
+	/*paint-order: stroke fill;*/
+	/*z-index: 1;*/
+	mix-blend-mode: multiply;
 	pointer-events: none;
 
 	font-family: var(--font-cursive);
