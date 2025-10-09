@@ -40,7 +40,11 @@ function getLinkState(href: string, pathname: string) {
 							aria-current={isCurrent ? "page" : null}
 							data-state={isActive ? "active" : null}
 						>
-							{link.label}
+							{link.href === "/" ? (
+								<span class="profile">
+									<img src="/images/arpit-96w.png" alt="" />
+								</span><span>{link.label}</span>
+							) : <Fragment>{link.label}</Fragment>}
 						</a>
 					</li>
 				);
