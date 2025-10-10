@@ -20,7 +20,7 @@ const basePathMap = {
 			return (
 				<li class="entry">
 					<div class="center p-space-m">
-						<article class="stack i-full max-i-full">
+						<article class="stack align-self-stretch">
 							<footer class="cluster gap-2xs text-step--1 color-text-secondary">
 								<PubDate date={entry.data.pubDate} />
 								{
@@ -32,7 +32,7 @@ const basePathMap = {
 									)
 								}
 							</footer>
-							<div class="entry-content flow max-i-full">
+							<div class="entry-content flow">
 								{entry.collection === "articles" && (
 									<h2>
 										<a href={`${basePath}/${entry.id}/`}>{entry.data.title}</a>
