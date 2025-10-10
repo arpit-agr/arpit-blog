@@ -2,6 +2,10 @@
 	align-self: start;
 }
 
+.align-self-stretch {
+	align-self: stretch;
+}
+
 .gap-2xs {
 	gap: var(--space-2xs);
 }
