@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss";
-import { SITE_DESCRIPTION, SITE_TITLE } from "@src/consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "/src/consts";
 import { getCollection } from "astro:content";
 import MarkdownIt from "markdown-it";
 import { transform, walk } from "ultrahtml";

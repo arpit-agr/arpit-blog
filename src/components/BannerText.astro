@@ -3,7 +3,7 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
 const { as: Tag = "div" } = Astro.props;
 
-import { SITE_TITLE } from "@src/consts";
+import { SITE_TITLE } from "/src/consts";
 ---
 
 <div class="banner-text">
