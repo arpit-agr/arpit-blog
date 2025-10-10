@@ -1,9 +1,9 @@
 ---
 pubDate: 2025-08-14T08:12+0530
 tags:
-- "heydon-pickering"
-- "article-element"
-- "html"
+  - "heydon-pickering"
+  - "article-element"
+  - "html"
 ---
 
 I re-read [Heydon Pickering's post on the HTML article element](https://heydonworks.com/article/the-article-element/) in the middle of writing the markup for a new website.
