@@ -2,6 +2,8 @@
 
 - Add a period to the end of a bullet point if it contains a sentence
 - All tags in quotes in lowercase with no spaces and with words separated by hyphens
+- Grab the title for each link entry from the head. If the link breaks in the future, at least someone can search using the title.
+- Apostrophe’s should be trimmed from file names. (for eg. input: "apostrophe’s should be trimmed", output: "apostrophes-should-be-trimmed")
 
 ## Semantics
 
