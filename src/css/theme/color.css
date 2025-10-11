@@ -5,13 +5,17 @@
 	--color-gray: hsl(0 0 33%);
 	--color-light-gray: #eee;
 	--color-yellow: oklch(0.8383 0.1982 80.76);
+	--color-yellow-shade: oklch(0.6782 0.163 76.95);
 
 	/* 2nd order variables */
-	--color-text-primary: var(--color-black);
-	--color-text-secondary: var(--color-gray);
-	--color-bg-primary: var(--color-white);
-	--color-bg-secondary: var(--color-light-gray);
-	--color-accent: var(--color-yellow);
+	--color-text-primary: light-dark(var(--color-black), var(--color-white));
+	--color-text-secondary: light-dark(
+		var(--color-gray),
+		var(--color-light-gray)
+	);
+	--color-bg-primary: light-dark(var(--color-white), var(--color-black));
+	--color-bg-secondary: light-dark(var(--color-light-gray), var(--color-gray));
+	--color-accent: light-dark(var(--color-yellow), var(--color-yellow-shade));
 
 	/* 3rd order variables */
 	--color-border-light: oklch(from var(--color-text-primary) l c h / 0.15);
