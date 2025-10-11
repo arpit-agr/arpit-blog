@@ -20,7 +20,7 @@
 }
 
 :root {
-	color-scheme: light;
+	color-scheme: light dark;
 	scrollbar-gutter: stable;
 }
 
@@ -70,6 +70,7 @@ h4,
 a {
 	text-decoration-thickness: var(--border-thickness-l);
 	text-decoration-color: var(--color-underline);
+	text-shadow: var(--color-bg-primary) 0 var(--space-5xs);
 
 	&:hover,
 	&:focus-visible {
