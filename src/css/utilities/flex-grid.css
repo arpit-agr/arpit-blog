@@ -9,3 +9,7 @@
 .gap-2xs {
 	gap: var(--space-2xs);
 }
+
+.gap-s {
+	gap: var(--space-s);
+}
