@@ -10,7 +10,7 @@ I was reading [Manuel Matuzovic's article on meta theme
 color](https://css-tricks.com/meta-theme-color-and-trickery/#aa-custom-properties)
 and came across this snippet:
 
-```html 'content="var(--theme)"'
+```html title="index.html" 'content="var(--theme)"'
 <style>
 	:root {
 		--theme: blue;
