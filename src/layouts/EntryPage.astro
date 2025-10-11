@@ -32,14 +32,20 @@ const {
 					<main id="main">
 						<article class="flow">
 							<footer class="cluster gap-2xs text-step--1 color-text-secondary">
-								<div class="flow flow-space-xs">
-									<PubDate date={entry.data.pubDate} />
-									{
-										!!entry.data.updatedDate && (
-											<UpdatedDate date={entry.data.updatedDate} />
-										)
-									}
-								</div>
+								{
+									entry.data.updatedDate ? (
+										<details class="flow flow-space-xs">
+											<summary class="text-box-trim">
+												<PubDate date={entry.data.pubDate} />
+											</summary>
+											{!!entry.data.updatedDate && (
+												<UpdatedDate date={entry.data.updatedDate} />
+											)}
+										</details>
+									) : (
+										<PubDate date={entry.data.pubDate} />
+									)
+								}
 								{
 									!!entry.data.via && (
 										<LinkVia
@@ -94,6 +100,12 @@ const {
 		.entry-actions > * {
 			border-block-start: var(--border-thickness-s) solid
 				var(--color-border-light);
+		}
+	}
+
+	@layer exceptions {
+		summary .pub-date {
+			display: contents;
 		}
 	}
 </style>
