@@ -37,6 +37,7 @@
 		position: relative;
 		display: inline-block;
 		vertical-align: bottom;
+		margin-inline-end: 0.5ch;
 
 		&::after {
 			content: "";
