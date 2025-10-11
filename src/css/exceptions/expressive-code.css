@@ -1,5 +1,5 @@
 .expressive-code {
-	--_copy-btn-inset-block: calc(var(--code-padding-block) / 2);
+	--_copy-btn-inset-block: calc(var(--code-padding-block) / 1.66);
 	--_copy-btn-inset-inline: calc(var(--code-padding-block) / 1.66);
 
 	.frame.has-title:not(.is-terminal) .header {
@@ -23,29 +23,29 @@
 			block-size: var(--space-l);
 			inline-size: var(--space-l);
 			opacity: 1;
-			outline: var(--border-thickness-s) solid var(--color-border-light);
+			outline: var(--border-thickness-l) solid var(--color-underline);
 
-			&:where(:hover, :focus-visible) {
-				background: oklch(
-					from var(--color-underline) l c h / calc(0.25 * alpha)
-				);
-
-				> div {
-					opacity: 0;
-				}
-			}
-
-			&:focus-visible {
-				outline: var(--border-thickness-focus) solid var(--color-focus);
+			> div {
+				transition: none;
 			}
 
 			&::before {
-				border: none;
-				opacity: 1;
+				display: none;
 			}
 
 			&::after {
 				margin: 0.65em;
+			}
+
+			&:where(:hover, :focus-visible) {
+				outline-offset: 0;
+
+				> div {
+					background: oklch(
+						from var(--color-underline) l c h / calc(0.25 * alpha)
+					);
+					opacity: 1;
+				}
 			}
 		}
 	}
