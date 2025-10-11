@@ -86,30 +86,13 @@ button,
 	border: none;
 	background: none;
 	padding: var(--button-padding-block) var(--button-padding-inline);
+	outline: var(--border-thickness-l) solid var(--color-underline);
 	border-radius: var(--border-radius);
-
-	&::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		border: var(--border-thickness-s) solid var(--color-underline);
-		border-radius: var(--border-radius);
-		box-shadow: 0 var(--space-4xs) 0 var(--color-underline);
-		z-index: -1;
-	}
 
 	&:hover,
 	&:focus-visible {
-		outline: none;
 		background: oklch(from var(--color-underline) l c h / calc(0.25 * alpha));
-	}
-
-	&:active {
-		translate: 0 var(--space-4xs);
-
-		&::before {
-			box-shadow: none;
-		}
+		outline-offset: 0;
 	}
 }
 
@@ -182,7 +165,7 @@ pre {
 }
 
 :not(pre) > code {
-	padding-inline: 0.25ch;
+	padding: var(--space-4xs);
 	border-radius: var(--border-radius);
 	outline: var(--border-thickness-s) solid var(--color-border-light);
 }
