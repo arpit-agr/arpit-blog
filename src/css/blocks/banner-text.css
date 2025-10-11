@@ -13,6 +13,10 @@
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
 
+	@media (prefers-color-scheme: dark) {
+		mix-blend-mode: lighten;
+	}
+
 	&::after {
 		--_border-angle: 90deg;
 		content: "";
