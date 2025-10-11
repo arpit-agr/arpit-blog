@@ -184,7 +184,7 @@ pre {
 :not(pre) > code {
 	padding-inline: 0.25ch;
 	border-radius: var(--border-radius);
-	background-color: var(--color-bg-secondary);
+	outline: var(--border-thickness-s) solid var(--color-border-light);
 }
 
 hr {
