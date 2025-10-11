@@ -15,7 +15,8 @@ export default defineEcConfig({
 		focusBorder: "var(--color-focus)",
 		uiFontFamily: "var(--font-sans-serif)",
 		uiFontSize: "var(--step--1)",
-		uiLineHeight: "var(--leading-normal)",
+		uiLineHeight: "var(--leading-relaxed)",
+		uiPaddingBlock: "var(--space-4xs)",
 		frames: {
 			frameBoxShadowCssValue: "none",
 		},
