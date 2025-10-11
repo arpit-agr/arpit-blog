@@ -114,8 +114,8 @@ blockquote {
 			to bottom,
 			transparent 0,
 			transparent 0.75lh,
-			var(--color-underline) 0.75lh,
-			var(--color-underline) calc(100% - 0.25lh),
+			var(--color-bg-secondary) 0.75lh,
+			var(--color-bg-secondary) calc(100% - 0.25lh),
 			transparent calc(100% - 0.25lh)
 		)
 		1;
@@ -126,7 +126,7 @@ blockquote {
 
 	> *:first-child::before {
 		content: open-quote;
-		color: var(--color-accent);
+		color: var(--color-bg-secondary);
 		font-family: var(--font-cursive);
 		font-size: var(--step-3);
 		line-height: var(--leading-flat);
