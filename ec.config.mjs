@@ -2,7 +2,7 @@ import { defineEcConfig } from "astro-expressive-code";
 
 export default defineEcConfig({
 	cascadeLayer: "blocks",
-	themes: ["light-plus"],
+	themes: ["min-light", "vesper"],
 	styleOverrides: {
 		borderColor: "var(--color-border-light)",
 		borderRadius: "var(--code-border-radius)",
