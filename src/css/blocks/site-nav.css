@@ -16,7 +16,7 @@
 		);
 		margin-inline-end: var(--gutter);
 
-		@media (--layout-with-sidebar) {
+		@media (--layout-without-sidebar) {
 			--sidebar-min-width: 0px;
 		}
 	}
