@@ -1,7 +1,7 @@
 .banner-text {
 	--wrapper-max-width: 96rem;
 	position: relative;
-	margin-block-start: var(--space-3xs-2xs);
+	/*margin-block-start: var(--space-3xs-2xs);*/
 
 	/*text-shadow: var(--color-text-primary) 0 var(--space-4xs-3xs);*/
 	/*-webkit-text-stroke: var(--space-4xs-3xs) var(--color-text-primary);*/
