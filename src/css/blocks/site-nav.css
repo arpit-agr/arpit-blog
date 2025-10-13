@@ -10,14 +10,16 @@
 	background: var(--color-bg-primary);
 
 	> ul {
-		margin-inline-start: max(
+		margin-inline: max(
 			var(--gutter),
-			calc((100vw - var(--sidebar-min-width) - var(--center-max-width)) / 2)
+			calc((100vw - var(--center-max-width)) / 2)
 		);
-		margin-inline-end: var(--gutter);
 
-		@media (--layout-without-sidebar) {
-			--sidebar-min-width: 0px;
+		@media (--layout-with-sidebar) {
+			margin-inline: max(
+				var(--gutter),
+				calc((100vw - var(--sidebar-min-width) - var(--center-max-width)) / 2)
+			);
 		}
 	}
 
