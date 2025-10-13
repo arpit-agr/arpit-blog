@@ -5,13 +5,13 @@
 	--border-thickness-xl: var(--space-3xs);
 	--border-radius: var(--space-4xs);
 
-	--border-thickness-blockquote: var(--space-3xs);
 	--border-thickness-blockquote: 1ex;
 	--border-thickness-focus: calc(1.25 * var(--space-4xs));
 }
 
 .banner-text::after,
 aside.sidebar::before,
+aside.sidebar hr::before,
 .entry + .entry::before,
 .pagination-control[data-direction="backwards"]::after,
 .pagination-control[data-direction="forwards"]::before {
