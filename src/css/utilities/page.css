@@ -5,7 +5,7 @@
 	margin-inline: auto;
 
 	> aside {
-		--flow-space: var(--space-l);
+		--flow-space: var(--space-m);
 		--stack-gap: var(--space-xs);
 		position: relative;
 
@@ -24,6 +24,22 @@
 				inset-inline: 0;
 				inset-block-start: 0;
 				inline-size: 100%;
+				block-size: var(--border-thickness-s);
+			}
+		}
+
+		hr {
+			position: relative;
+			border-color: #0000;
+
+			&::before {
+				--_border-angle: 90deg;
+				content: "";
+				position: absolute;
+				inset-inline: calc(-1 * var(--space-m));
+				inset-block-start: 0;
+				background: var(--_border);
+				inline-size: calc(100% + (2 * var(--space-m)));
 				block-size: var(--border-thickness-s);
 			}
 		}
