@@ -8,7 +8,7 @@ import PaginatedEntries from "@components/PaginatedEntries.astro";
 import Aside from "@components/Aside.astro";
 import Subscribe from "@components/Subscribe.astro";
 
-import { SITE_DESCRIPTION, SITE_TITLE } from "/src/consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allNotes = await getCollection("notes", ({ data }) => {
