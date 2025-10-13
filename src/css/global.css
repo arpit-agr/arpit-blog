@@ -11,7 +11,7 @@
 	@custom-media --layout-without-sidebar (width < 68.625rem);
 	/* the vw size at which the page layout switches to two columns */
 
-	--button-padding-block: calc(1.5 * var(--space-3xs));
+	--button-padding-block: var(--space-2xs);
 	--button-padding-inline: 1ch;
 
 	--font-mono:
@@ -90,12 +90,13 @@ button,
 	background: none;
 	padding: var(--button-padding-block) var(--button-padding-inline);
 	outline: var(--border-thickness-l) solid var(--color-underline);
+	outline-offset: calc(-1 * var(--border-thickness-l));
 	border-radius: var(--border-radius);
 
 	&:hover,
 	&:focus-visible {
 		background: oklch(from var(--color-underline) l c h / calc(0.25 * alpha));
-		outline-offset: 0;
+		outline-offset: calc(-1 * var(--border-thickness-l));
 	}
 }
 
@@ -184,5 +185,4 @@ hr {
 :focus-visible {
 	outline: var(--border-thickness-focus) solid var(--color-focus);
 	outline-offset: calc(1.125 * var(--border-thickness-focus));
-	border-radius: var(--border-radius);
 }
