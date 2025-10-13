@@ -118,8 +118,9 @@ blockquote {
 			to bottom,
 			transparent 0,
 			transparent 0.75lh,
-			var(--color-bg-secondary) 0.75lh,
-			var(--color-bg-secondary) calc(100% - 0.25lh),
+			oklch(from var(--color-bg-secondary) l c h / calc(0.75 * alpha)) 0.75lh,
+			oklch(from var(--color-bg-secondary) l c h / calc(0.75 * alpha))
+				calc(100% - 0.25lh),
 			transparent calc(100% - 0.25lh)
 		)
 		1;
@@ -138,7 +139,7 @@ blockquote {
 		position: absolute;
 		inset-inline-start: calc(-1 * var(--border-thickness-blockquote));
 		inset-block-start: 0;
-		translate: -44% 0;
+		translate: -12.5% 0;
 	}
 
 	> *:last-child::after {
