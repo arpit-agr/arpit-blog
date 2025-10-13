@@ -22,3 +22,11 @@ const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent("Re: "
 	<p class="text-box-trim">Found this useful?</p>
 	<a class="text-box-trim" href={mailtoLink}>Let Me Know</a>
 </div>
+
+<style is:global>
+	@layer exceptions {
+		.share-feedback:has(.mastodon-edit) {
+			padding-block: calc(var(--space-m) - var(--button-padding-block));
+		}
+	}
+</style>
