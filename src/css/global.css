@@ -8,7 +8,7 @@
 	--sidebar-min-width: 24rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
-	@custom-media --layout-without-sidebar (width < 68.625rem);
+	@custom-media --layout-with-sidebar (width > 69.5rem);
 	/* the vw size at which the page layout switches to two columns */
 
 	--button-padding-block: var(--space-2xs);
