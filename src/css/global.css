@@ -89,14 +89,14 @@ button,
 	border: none;
 	background: none;
 	padding: var(--button-padding-block) var(--button-padding-inline);
-	outline: var(--border-thickness-l) solid var(--color-underline);
-	outline-offset: calc(-1 * var(--border-thickness-l));
+	outline: var(--border-thickness-m) solid var(--color-underline);
+	outline-offset: calc(-1 / 2 * var(--border-thickness-l));
 	border-radius: var(--border-radius);
 
 	&:hover,
 	&:focus-visible {
 		background: oklch(from var(--color-underline) l c h / calc(0.25 * alpha));
-		outline-offset: calc(-1 * var(--border-thickness-l));
+		outline-offset: calc(-1 / 2 * var(--border-thickness-l));
 	}
 }
 
@@ -171,7 +171,7 @@ pre {
 
 :not(pre) > code {
 	padding: var(--space-5xs) var(--space-4xs);
-	border-radius: var(--border-radius);
+	border-radius: var(--code-border-radius);
 	outline: var(--border-thickness-s) solid var(--color-border-light);
 }
 
