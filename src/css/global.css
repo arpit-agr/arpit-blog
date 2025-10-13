@@ -170,7 +170,7 @@ pre {
 }
 
 :not(pre) > code {
-	padding: var(--space-4xs);
+	padding: var(--space-5xs) var(--space-4xs);
 	border-radius: var(--border-radius);
 	outline: var(--border-thickness-s) solid var(--color-border-light);
 }
