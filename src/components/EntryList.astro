@@ -21,7 +21,7 @@ const basePathMap = {
 				<li class="entry">
 					<div class="center p-space-m">
 						<article class="stack align-self-stretch">
-							<footer class="cluster gap-2xs text-step--1 color-text-secondary">
+							<footer class="cluster gap-2xs text-step--1">
 								<PubDate date={entry.data.pubDate} />
 								{
 									!!entry.data.via && (
@@ -45,7 +45,7 @@ const basePathMap = {
 								)}
 								<entry.Content />
 							</div>
-							<footer class="cluster text-step--1 color-text-secondary text-box-trim">
+							<footer class="cluster text-step--1 text-box-trim">
 								<!-- <a
 									class="text-box-trim"
 									href={`${basePath}/${entry.id}/#comments`}
@@ -74,10 +74,10 @@ const basePathMap = {
 			position: relative;
 
 			&::before {
-				--_border-angle: 90deg;
+				--separator-angle: 90deg;
 				content: "";
 				position: absolute;
-				background: var(--_border);
+				background: var(--separator);
 				z-index: -1;
 				inset-inline: 0;
 				inset-block-start: 0;
