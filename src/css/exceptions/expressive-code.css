@@ -1,19 +1,20 @@
 .expressive-code {
-	--_copy-btn-inset-block: calc(var(--code-padding-block) / 1.66);
-	--_copy-btn-inset-inline: calc(var(--code-padding-block) / 1.66);
+	--_copy-btn-inset-block: calc(
+		(var(--code-padding-block) / 1.66) + var(--border-thickness-s)
+	);
+	--_copy-btn-inset-inline: calc(
+		(var(--code-padding-block) / 1.66) + var(--border-thickness-s)
+	);
 
-	.frame.has-title:not(.is-terminal) .header {
-		/*background: var(--ec-frm-edActTabBg);*/
+	/*.frame.has-title:not(.is-terminal) .header {
+		background: var(--ec-frm-edActTabBg);
 
-		&::before {
-			border: none;
-			outline: var(--border-thickness-s) solid var(--color-border-light);
+		.title {
+			&::after {
+				border-block: none;
+			}
 		}
-	}
-
-	pre {
-		border: none;
-	}
+	}*/
 
 	.copy {
 		inset-block-start: var(--_copy-btn-inset-block);
@@ -41,9 +42,7 @@
 				outline-offset: 0;
 
 				> div {
-					background: oklch(
-						from var(--color-underline) l c h / calc(0.25 * alpha)
-					);
+					background: var(--color-bg-button-hover);
 					opacity: 1;
 				}
 			}
