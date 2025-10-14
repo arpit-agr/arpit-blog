@@ -1,5 +1,5 @@
 <back-link
-	class="entry-nav-back pb-space-m flow-space-0 text-step--1 color-text-secondary text-box-trim"
+	class="entry-nav-back pb-space-m flow-space-0 text-step--1 text-box-trim"
 >
 	<a href="/" class="inline-block text-box-trim">
 		&larr; Back
@@ -10,9 +10,18 @@
 <style is:global>
 	@layer blocks {
 		.entry-nav-back {
+			position: relative;
 			display: block;
-			border-block-start: var(--border-thickness-s) solid
-				var(--color-border-light);
+
+			&::before {
+				--separator-angle: 90deg;
+				content: "";
+				position: absolute;
+				inset-inline: 0;
+				inset-block-start: 0;
+				block-size: var(--border-thickness-s);
+				background: var(--separator);
+			}
 		}
 	}
 </style>
