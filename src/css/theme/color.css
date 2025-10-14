@@ -1,25 +1,39 @@
 :root {
 	/* 1st order variables */
-	--color-black: #000;
-	--color-white: #fff;
-	--color-gray: hsl(0 0 33%);
-	--color-light-gray: #ddd;
-	--color-yellow: oklch(0.8383 0.1982 80.76);
-	--color-yellow-shade: oklch(0.6782 0.163 76.95);
+	/*--color-dark: light-dark(rgb(44, 75, 133), hsl(219.1deg 50.28% 24.71%));*/
+	--color-dark: light-dark(rgb(44, 75, 133), hsl(219.1deg 20.28% 8.71%));
+	--color-light: #fefbf9;
+	--color-brand: oklch(0.8383 0.1982 80.76);
+	--color-brand-shade: oklch(0.6782 0.163 76.95);
 
 	/* 2nd order variables */
-	--color-text-primary: light-dark(var(--color-black), var(--color-white));
-	--color-text-secondary: light-dark(
-		var(--color-gray),
-		var(--color-light-gray)
-	);
-	--color-bg-primary: light-dark(var(--color-white), var(--color-black));
-	--color-bg-secondary: light-dark(var(--color-light-gray), var(--color-gray));
-	--color-accent: light-dark(var(--color-yellow), var(--color-yellow-shade));
+	--color-dark-shade: oklch(from var(--color-dark) calc(l * 133.33%) c h);
+	--color-light-shade: oklch(from var(--color-light) calc(l * 91.67%) c h);
+	--color-text-primary: light-dark(var(--color-dark), var(--color-light));
+	--color-bg-primary: light-dark(var(--color-light), var(--color-dark));
+	--color-accent: light-dark(var(--color-brand), var(--color-brand-shade));
 
 	/* 3rd order variables */
-	--color-border-light: oklch(from var(--color-text-primary) l c h / 0.15);
-	--color-border-dark: oklch(from var(--color-text-primary) l c h / 0.3);
+	--color-text-secondary: light-dark(
+		var(--color-dark-shade),
+		var(--color-light-shade)
+	);
+	--color-bg-secondary: light-dark(
+		var(--color-light-shade),
+		var(--color-dark-shade)
+	);
+	--color-border: light-dark(var(--color-light-shade), var(--color-dark-shade));
 	--color-underline: oklch(from var(--color-accent) l c h / calc(0.75 * alpha));
 	--color-focus: var(--color-accent);
+
+	/* 4th order variables */
+	--color-bg-button-hover: oklch(
+		from var(--color-underline) l c h / calc(0.25 * alpha)
+	);
+	--color-border-blockquote: oklch(
+		from var(--color-bg-secondary) l c h / calc(0.75 * alpha)
+	);
+	--color-bg-selection: oklch(
+		from var(--color-accent) l c h / calc(0.5 * alpha)
+	);
 }
