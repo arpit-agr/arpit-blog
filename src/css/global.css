@@ -127,7 +127,7 @@ blockquote {
 
 	> *:first-child::before {
 		content: open-quote;
-		color: var(--color-bg-secondary);
+		color: var(--color-border-blockquote);
 		font-family: var(--font-cursive);
 		font-size: var(--step-3);
 		line-height: var(--leading-flat);
