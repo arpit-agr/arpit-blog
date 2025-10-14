@@ -15,9 +15,7 @@ function formatLinks(items: string[]) {
 import GithubSlugger, { slug } from "github-slugger";
 ---
 
-<footer
-	class="tag-list text-balance text-step--1 color-text-secondary leading-relaxed"
->
+<footer class="tag-list text-balance text-step--1 leading-relaxed">
 	Tagged with
 	<Fragment
 		set:html={formatLinks(
