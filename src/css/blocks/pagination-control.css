@@ -3,11 +3,11 @@
 
 	&[data-direction="backwards"]::after,
 	&[data-direction="forwards"]::before {
-		--_border-angle: 90deg;
+		--separator-angle: 90deg;
 
 		content: "";
 		position: absolute;
-		background: var(--_border);
+		background: var(--separator);
 		z-index: -1;
 
 		inset-inline: 0;
