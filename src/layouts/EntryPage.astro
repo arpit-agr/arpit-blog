@@ -31,7 +31,7 @@ const {
 				<div class="flow pb-space-m align-self-stretch">
 					<main id="main">
 						<article class="flow">
-							<footer class="cluster gap-2xs text-step--1 color-text-secondary">
+							<footer class="cluster gap-2xs text-step--1">
 								{
 									entry.data.updatedDate ? (
 										<details class="flow flow-space-xs">
@@ -80,9 +80,9 @@ const {
 							{!!entry.data.tags && <TagList tags={entry.data.tags} />}
 						</article>
 					</main>
-					<div class="entry-actions text-step--1 color-text-secondary">
+					<div class="entry-actions text-step--1">
 						<EntryShareAndFeedback />
-						<!-- <details class="flow pb-space-m text-step--1 color-text-secondary">
+						<!-- <details class="flow pb-space-m text-step--1">
 							<summary class="text-box-trim" id="comments">Comments</summary>
 							<p>TODO: Add comments</p>
 						</details> -->
@@ -98,8 +98,17 @@ const {
 <style is:global>
 	@layer blocks {
 		.entry-actions > * {
-			border-block-start: var(--border-thickness-s) solid
-				var(--color-border-light);
+			position: relative;
+
+			&::before {
+				--separator-angle: 90deg;
+				content: "";
+				position: absolute;
+				inset-inline: 0;
+				inset-block-start: 0;
+				block-size: var(--border-thickness-s);
+				background: var(--separator);
+			}
 		}
 	}
 
