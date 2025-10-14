@@ -155,7 +155,7 @@ pre,
 code {
 	font-family: var(--font-mono);
 	font-size: var(--code-font-size);
-	font-weight: var(--font-light);
+	font-weight: var(--code-font-weight);
 	line-height: var(--leading-relaxed);
 }
 
