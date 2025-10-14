@@ -31,7 +31,7 @@
 		from var(--color-underline) l c h / calc(0.25 * alpha)
 	);
 	--color-border-blockquote: oklch(
-		from var(--color-bg-secondary) l c h / calc(0.75 * alpha)
+		from var(--color-text-secondary) l c h / calc(0.5 * alpha)
 	);
 	--color-bg-selection: oklch(
 		from var(--color-accent) l c h / calc(0.5 * alpha)
