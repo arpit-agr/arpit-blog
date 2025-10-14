@@ -4,11 +4,12 @@ export default defineEcConfig({
 	cascadeLayer: "blocks",
 	themes: ["min-light", "vesper"],
 	styleOverrides: {
-		borderColor: "var(--color-border-light)",
+		borderColor: "var(--color-border)",
 		borderRadius: "var(--code-border-radius)",
 		borderWidth: "var(--border-thickness-s)",
 		codeFontFamily: "var(--font-mono)",
 		codeFontSize: "var(--code-font-size)",
+		codeFontWeight: "var(--font-light)",
 		codeLineHeight: "var(--leading-relaxed)",
 		codePaddingBlock: "var(--code-padding-block)",
 		codePaddingInline: "var(--code-padding-inline)",
@@ -18,6 +19,10 @@ export default defineEcConfig({
 		uiLineHeight: "var(--leading-relaxed)",
 		uiPaddingBlock: "var(--space-4xs)",
 		frames: {
+			editorActiveTabBackground: "var(--color-bg-secondary)",
+			editorBackground: "var(--color-bg-primary)",
+			editorTabBarBackground: "var(--color-bg-secondary)",
+			editorTabBarBorderColor: "var(--color-border)",
 			frameBoxShadowCssValue: "none",
 		},
 		textMarkers: {
