@@ -3,6 +3,7 @@
 @import url(/src/css/reset.css) layer(reset);
 @import url(/src/css/theme/utopia.css) layer(theme);
 @import url(/src/css/theme/color.css) layer(theme);
+@import url(/src/css/theme/text-weights.css) layer(theme);
 @import url(/src/css/theme/leading.css) layer(theme);
 @import url(/src/css/theme/border.css) layer(theme);
 @import url(/src/css/theme/shadows.css) layer(theme);
@@ -25,7 +26,6 @@
 @import url(/src/css/utilities/region.css) layer(utilities);
 @import url(/src/css/utilities/visually-hidden.css) layer(utilities);
 @import url(/src/css/utilities/text-fit.css) layer(utilities);
-@import url(/src/css/utilities/color.css) layer(utilities);
 @import url(/src/css/utilities/spacing.css) layer(utilities);
 @import url(/src/css/utilities/sizing.css) layer(utilities);
 @import url(/src/css/utilities/page.css) layer(utilities);
