@@ -11,12 +11,8 @@
 	@custom-media --layout-with-sidebar (width > 69.5rem);
 	/* the vw size at which the page layout switches to two columns */
 
-	--button-padding-block: var(--space-2xs);
+	--button-padding-block: calc(1.5 * var(--space-3xs));
 	--button-padding-inline: 1ch;
-
-	--font-mono:
-		ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
-		"DejaVu Sans Mono", monospace;
 }
 
 :root {
@@ -29,9 +25,9 @@ body {
 	color: var(--color-text-primary);
 	background-color: var(--color-bg-primary);
 	font-family: var(--font-sans-serif);
+	font-weight: var(--font-regular);
 	font-size-adjust: from-font;
 	line-height: var(--leading-normal);
-	-webkit-font-smoothing: auto;
 }
 
 h1,
@@ -42,7 +38,7 @@ h3,
 .heading-3,
 h4,
 .heading-4 {
-	font-weight: 600;
+	font-weight: var(--font-bold);
 }
 
 h1,
@@ -73,7 +69,7 @@ h4,
 a {
 	text-decoration-thickness: var(--border-thickness-l);
 	text-decoration-color: var(--color-underline);
-	text-shadow: var(--color-bg-primary) 0 var(--space-5xs);
+	/*text-shadow: var(--color-bg-primary) 0 var(--space-5xs);*/
 
 	&:hover,
 	&:focus-visible {
@@ -95,7 +91,7 @@ button,
 
 	&:hover,
 	&:focus-visible {
-		background: oklch(from var(--color-underline) l c h / calc(0.25 * alpha));
+		background: var(--color-bg-button-hover);
 		outline-offset: calc(-1 / 2 * var(--border-thickness-l));
 	}
 }
@@ -118,9 +114,8 @@ blockquote {
 			to bottom,
 			transparent 0,
 			transparent 0.75lh,
-			oklch(from var(--color-bg-secondary) l c h / calc(0.75 * alpha)) 0.75lh,
-			oklch(from var(--color-bg-secondary) l c h / calc(0.75 * alpha))
-				calc(100% - 0.25lh),
+			var(--color-border-blockquote) 0.75lh,
+			var(--color-border-blockquote) calc(100% - 0.25lh),
 			transparent calc(100% - 0.25lh)
 		)
 		1;
@@ -160,27 +155,28 @@ pre,
 code {
 	font-family: var(--font-mono);
 	font-size: var(--code-font-size);
+	font-weight: var(--font-light);
 	line-height: var(--leading-relaxed);
 }
 
 pre {
 	padding: var(--code-padding-block) var(--code-padding-inline);
-	outline: var(--border-thickness-s) solid var(--color-border-light);
+	border: var(--border-thickness-s) solid var(--color-border);
 	border-radius: var(--code-border-radius);
 }
 
 :not(pre) > code {
 	padding: var(--space-5xs) var(--space-4xs);
 	border-radius: var(--code-border-radius);
-	outline: var(--border-thickness-s) solid var(--color-border-light);
+	outline: var(--border-thickness-s) solid var(--color-border);
 }
 
 hr {
-	color: var(--color-border-light);
+	color: var(--color-border);
 }
 
 ::selection {
-	background-color: oklch(from var(--color-accent) l c h / calc(0.5 * alpha));
+	background-color: var(--color-bg-selection);
 }
 
 :focus-visible {
