@@ -1,23 +1,16 @@
 .banner-text {
 	--wrapper-max-width: 96rem;
-	position: relative;
 
 	/* this is to avoid the little bit of the text gets cutoff */
 	margin-block-start: var(--space-3xs-2xs);
 
-	/*text-shadow: var(--color-text-primary) 0 var(--space-4xs-3xs);*/
-	/*-webkit-text-stroke: var(--space-4xs-3xs) var(--color-text-primary);*/
-	/*paint-order: stroke fill;*/
-	/*z-index: 1;*/
-
+	position: relative;
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
-
 	mix-blend-mode: multiply;
-	pointer-events: none;
 
 	@media (prefers-color-scheme: dark) {
-		mix-blend-mode: unset;
+		mix-blend-mode: lighten;
 	}
 
 	&::after {
