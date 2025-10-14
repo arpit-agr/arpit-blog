@@ -1,48 +1,49 @@
 import rss from "@astrojs/rss";
-import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
-import { getCollection } from "astro:content";
-import MarkdownIt from "markdown-it";
-import { transform, walk } from "ultrahtml";
-import sanitize from "ultrahtml/transformers/sanitize";
+import { getCollection, render } from "astro:content";
+import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { loadRenderers } from "astro:container";
 
-const parser = new MarkdownIt({ html: true });
+const images = import.meta.glob(
+	"/src/data/notes/**/*.{png,jpg,jpeg,webp,gif,svg}",
+	{
+		eager: true,
+		query: "?url",
+		import: "default",
+	},
+);
 
 export async function GET(context) {
 	let baseUrl = context.site?.href || "https://arpit.blog";
 	if (baseUrl.at(-1) === "/") baseUrl = baseUrl.slice(0, -1);
 
-	const allNotes = await getCollection("notes", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
-	});
+	const renderers = await loadRenderers([]);
+	const container = await AstroContainer.create({ renderers });
+
+	const allNotes = await getCollection("notes", ({ data }) =>
+		import.meta.env.PROD ? data.draft !== true : true,
+	);
+
 	const allEntries = allNotes.sort(
 		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	);
 
 	const items = [];
-	for (const entry of allEntries) {
-		// Render markdown → HTML string
-		const rawHtml = parser.render(entry.body);
 
-		// Absolutify links + sanitize
-		const description = await transform(rawHtml, [
-			async (node) => {
-				await walk(node, (node) => {
-					if (node.name === "a" && node.attributes.href?.startsWith("/")) {
-						node.attributes.href = baseUrl + node.attributes.href;
-					}
-					if (node.name === "img" && node.attributes.src?.startsWith("/")) {
-						node.attributes.src = baseUrl + node.attributes.src;
-					}
-				});
-				return node;
-			},
-			sanitize({ dropElements: ["script", "style"] }),
-		]);
+	for (const entry of allEntries) {
+		const { Content } = await render(entry);
+		const html = await container.renderToString(Content);
+
+		// Absolutify image + link paths
+		const absolutified = html.replace(
+			/(?:src|href)="(\/[^"]+)"/g,
+			(match, path) => `${match.split("=")[0]}="${baseUrl}${path}"`,
+		);
 
 		items.push({
-			link: `/notes/${entry.id}/`,
-			description, // full sanitized HTML content
 			...entry.data,
+			link: `/notes/${entry.id}/`,
+			description: absolutified,
 		});
 	}
 
