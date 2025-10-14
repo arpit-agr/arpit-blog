@@ -9,7 +9,7 @@ export default defineEcConfig({
 		borderWidth: "var(--border-thickness-s)",
 		codeFontFamily: "var(--font-mono)",
 		codeFontSize: "var(--code-font-size)",
-		codeFontWeight: "var(--font-light)",
+		codeFontWeight: "var(--code-font-weight)",
 		codeLineHeight: "var(--leading-relaxed)",
 		codePaddingBlock: "var(--code-padding-block)",
 		codePaddingInline: "var(--code-padding-inline)",
