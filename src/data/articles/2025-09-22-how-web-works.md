@@ -2,9 +2,8 @@
 title: How the web works, explained simply
 pubDate: 2025-09-22T11:35+0530
 tags:
-- "web"
+  - "web"
 ---
-
 
 What happens in between the user entering a web page address into a browser and the browser displaying the web page:
 
