@@ -28,6 +28,7 @@ body {
 	font-weight: var(--font-regular);
 	font-size-adjust: from-font;
 	line-height: var(--leading-normal);
+	-webkit-font-smoothing: auto;
 }
 
 h1,

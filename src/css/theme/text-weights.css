@@ -1,15 +1,7 @@
 :root {
-	--font-ultra-light: 300;
-	--font-light: 400;
-	--font-regular: 475;
-	--font-medium: 550;
-	--font-bold: 650;
-
-	@media (prefers-color-scheme: dark) {
-		--font-ultra-light: 200;
-		--font-light: 300;
-		--font-regular: 400;
-		--font-medium: 500;
-		--font-bold: 600;
-	}
+	--font-ultra-light: 200;
+	--font-light: 300;
+	--font-regular: 400;
+	--font-medium: 500;
+	--font-bold: 600;
 }
