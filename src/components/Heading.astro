@@ -5,19 +5,30 @@ interface Props {
 }
 
 const { level, id } = Astro.props;
+const pathname = Astro.url.pathname;
 
-// Detect if we're on the home page
-// If home page, shift heading levels by 1 (h1 -> h2, h2 -> h3, etc.)
-const isFeed =
-	Astro.url.pathname === "/" ||
-	Astro.url.pathname === "/articles/" ||
-	Astro.url.pathname === "/notes/";
-const adjustedLevel = isFeed ? Math.min(level + 1, 6) : level;
+// Define the exact root paths for my feeds
+const feedRoots = ["/", "/articles/", "/notes/", "/links/"];
+
+// 1. Check if the current pathname is an exact match for a root feed page.
+const isRootFeed = feedRoots.includes(pathname);
+
+// 2. Check if the current pathname is a paginated page.
+// This regex checks for paths ending with a number followed by a slash (e.g., /2/, /articles/3/)
+const isPaginated = /\/\d+\/$/.test(pathname);
+
+// The heading shift should only happen on the feed display pages:
+// - The root pages (e.g., '/', '/articles/')
+// - The paginated pages (e.g., '/2/', '/articles/3/')
+// It must be false for canonical pages (e.g., '/articles/cool-fonts/').
+const isFeedView = isRootFeed || isPaginated;
+
+// Shift heading level by 1 only on the feed display pages
+const adjustedLevel = isFeedView ? Math.min(level + 1, 6) : level;
 const Tag = `h${adjustedLevel}` as keyof HTMLElementTagNameMap;
 
-/* Only assign id if not home
-Trade-off: You lose anchor functionality on the homepage. But that’s almost never needed, since the homepage is just a feed, not the canonical location of the content. */
-const uniqueID = isFeed ? undefined : id;
+/* Only assign id if not a "feed view" page. */
+const uniqueID = isFeedView ? undefined : id;
 ---
 
 <Tag id={uniqueID}>
