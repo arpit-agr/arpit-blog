@@ -3,6 +3,7 @@
 
 	max-inline-size: var(--wrapper-max-width);
 	margin-inline: auto;
+	padding-block: var(--space-s-5xs);
 
 	> aside {
 		--flow-space: var(--space-m);
