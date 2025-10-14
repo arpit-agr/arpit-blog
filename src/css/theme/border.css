@@ -13,14 +13,16 @@
 aside.sidebar::before,
 aside.sidebar hr::before,
 .entry + .entry::before,
+.entry-actions > *::before,
+.entry-nav-back::before,
 .pagination-control[data-direction="backwards"]::after,
 .pagination-control[data-direction="forwards"]::before {
-	--_border: repeating-linear-gradient(
-		var(--_border-angle, 0deg),
+	--separator: repeating-linear-gradient(
+		var(--separator-angle, 0deg),
 		transparent,
 		transparent 0.075lh,
-		var(--color-border-dark) 0.075lh,
-		var(--color-border-dark) 0.15lh
+		oklch(from var(--color-text-primary) l c h / 0.3) 0.075lh,
+		oklch(from var(--color-text-primary) l c h / 0.3) 0.15lh
 	);
-	/*--_border: var(--color-border-light);*/
+	/*--separator: var(--color-border);*/
 }
