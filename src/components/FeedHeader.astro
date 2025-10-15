@@ -1,0 +1,25 @@
+---
+interface Props {
+	sectionTitle?: string;
+	sectionDesc: string;
+}
+
+const { sectionTitle, sectionDesc } = Astro.props;
+---
+
+<div class="visually-hidden">
+	<div class="center p-space-m">
+		{
+			!!sectionTitle ? (
+				<hgroup class="flow align-self-stretch">
+					<h1>{sectionTitle}</h1>
+					<p>{sectionDesc}</p>
+				</hgroup>
+			) : (
+				<div class="align-self-stretch">
+					<p>{sectionDesc}</p>
+				</div>
+			)
+		}
+	</div>
+</div>
