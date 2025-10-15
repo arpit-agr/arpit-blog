@@ -16,8 +16,7 @@ aside.sidebar hr::before,
 .entry + .entry::before,
 .entry-actions > *::before,
 .entry-nav-back::before,
-.pagination-control[data-direction="backwards"]::after,
-.pagination-control[data-direction="forwards"]::before {
+.pagination-control::before {
 	--separator: repeating-linear-gradient(
 		var(--separator-angle, 0deg),
 		transparent,
