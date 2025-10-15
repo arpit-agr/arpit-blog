@@ -6,6 +6,7 @@ tags:
   - "connections"
   - "ai"
   - "llm"
+  - "jim-nielsen"
 ---
 
 Jim Nielsen on the personal connections formed on the internet.
