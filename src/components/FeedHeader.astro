@@ -1,24 +1,25 @@
 ---
 interface Props {
+	isVisuallyHidden: boolean;
 	sectionTitle?: string;
-	sectionDesc: string;
+	sectionDesc?: string;
 }
 
-const { sectionTitle, sectionDesc } = Astro.props;
+const { isVisuallyHidden, sectionTitle, sectionDesc } = Astro.props;
 ---
 
-<div class="visually-hidden">
+<div class:list={["feed-header", { "visually-hidden": isVisuallyHidden }]}>
 	<div class="center p-space-m">
 		{
-			!!sectionTitle ? (
+			!!sectionTitle && !!sectionDesc ? (
 				<hgroup class="flow align-self-stretch">
 					<h1>{sectionTitle}</h1>
 					<p>{sectionDesc}</p>
 				</hgroup>
+			) : !!sectionTitle ? (
+				<h1 class="align-self-stretch">{sectionTitle}</h1>
 			) : (
-				<div class="align-self-stretch">
-					<p>{sectionDesc}</p>
-				</div>
+				<p class="align-self-stretch">{sectionDesc}</p>
 			)
 		}
 	</div>
