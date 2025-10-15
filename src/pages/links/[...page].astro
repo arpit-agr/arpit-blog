@@ -37,17 +37,12 @@ const entries = await Promise.all(
 	<SiteHeader />
 	<div class="page">
 		<main id="main">
-			<h1 class="visually-hidden">
-				Links
-				{
-					page.lastPage > 1 && (
-						<Fragment>
-							- Page {page.currentPage} of {page.lastPage}
-						</Fragment>
-					)
-				}
-			</h1>
-			<PaginatedEntries page={page} entries={entries} />
+			<PaginatedEntries
+				sectionTitle="Links"
+				sectionDesc={LINKS_DESCRIPTION}
+				page={page}
+				entries={entries}
+			/>
 		</main>
 		<Aside />
 	</div>
