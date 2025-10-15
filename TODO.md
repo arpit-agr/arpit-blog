@@ -1,16 +1,18 @@
 # TODO
 
 ## Next Up
-- [x] Add skip to content link
-- [ ] Update article entry page layout
+
 - [ ] [Add Bluesky comments](https://brittanyellich.com/bluesky-comments-likes/)
 - [ ] Add links to tags (See the markup on Jeremy's website)
+- [x] Add skip to content link
+- [x] Update article entry page layout
+- [x] Update meta theme color
+- [x] Add favicon
 
 ## Foreseeable Future
- - [ ] Update meta theme color
- - [ ] Add favicon
- - [ ] Update social image URL
- - [ ] Fix `og:type`
+
+- [ ] Update social image URL
+- [ ] Fix `og:type`
 
 ## Someday/Maybe
 
