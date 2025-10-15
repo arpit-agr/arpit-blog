@@ -6,7 +6,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import PaginatedEntries from "@components/PaginatedEntries.astro";
 import Aside from "@components/Aside.astro";
-import { SITE_TITLE } from "src/consts";
+import { LINKS_TITLE, LINKS_DESCRIPTION } from "src/consts";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allLinks = await getCollection("links", ({ data }) => {
@@ -30,8 +30,8 @@ const entries = await Promise.all(
 
 <BaseLayout
 	bodyClass="homepage"
-	pageTitle={`${SITE_TITLE}: Links`}
-	pageDesc="Hand-picked links by Arpit Agrawal to articles, videos and whatnot from the depths of the interweb."
+	pageTitle={LINKS_TITLE}
+	pageDesc={LINKS_DESCRIPTION}
 	ogType="website"
 >
 	<SiteHeader />

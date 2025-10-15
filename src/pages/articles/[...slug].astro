@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import EntryPage from "@layouts/EntryPage.astro";
-import { SITE_TITLE } from "src/consts";
+import { ARTICLES_TITLE } from "src/consts";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("articles", ({ data }) => {
@@ -19,7 +19,7 @@ const { Content } = await render(entry);
 ---
 
 <EntryPage
-	pageTitle=`${SITE_TITLE}: Articles - ${entry.data.title}`
+	pageTitle=`${entry.data.title} - ${ARTICLES_TITLE}`
 	entry={entry}
 	Content={Content}
 />

@@ -7,8 +7,7 @@ import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx";
 import { loadRenderers } from "astro:container";
 
 export async function GET(context) {
-	let baseUrl = context.site?.href || "https://arpit.blog";
-	if (baseUrl.at(-1) === "/") baseUrl = baseUrl.slice(0, -1);
+	let baseUrl = context.site.origin;
 
 	const renderers = await loadRenderers([getMDXRenderer()]);
 	const container = await AstroContainer.create({ renderers });

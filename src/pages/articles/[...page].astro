@@ -6,7 +6,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import PaginatedEntries from "@components/PaginatedEntries.astro";
 import Aside from "@components/Aside.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
+import { ARTICLES_TITLE, ARTICLES_DESCRIPTION } from "src/consts";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allArticles = await getCollection("articles", ({ data }) => {
@@ -30,8 +30,8 @@ const entries = await Promise.all(
 
 <BaseLayout
 	bodyClass="homepage"
-	pageTitle={`${SITE_TITLE}: Articles`}
-	pageDesc="Long form articles from Arpit Agrawal, a web designer-developer from India."
+	pageTitle={ARTICLES_TITLE}
+	pageDesc={ARTICLES_DESCRIPTION}
 	ogType="website"
 >
 	<SiteHeader />

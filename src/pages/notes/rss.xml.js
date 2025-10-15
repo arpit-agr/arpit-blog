@@ -1,14 +1,13 @@
 // https://blog.damato.design/posts/astro-rss-mdx/
 import rss from "@astrojs/rss";
 import { getCollection, render } from "astro:content";
-import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
+import { NOTES_TITLE, NOTES_DESCRIPTION } from "src/consts";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx";
 import { loadRenderers } from "astro:container";
 
 export async function GET(context) {
-	let baseUrl = context.site?.href || "https://arpit.blog";
-	if (baseUrl.at(-1) === "/") baseUrl = baseUrl.slice(0, -1);
+	let baseUrl = context.site.origin;
 
 	const renderers = await loadRenderers([getMDXRenderer()]);
 	const container = await AstroContainer.create({ renderers });
@@ -41,8 +40,8 @@ export async function GET(context) {
 	}
 
 	return rss({
-		title: `${SITE_TITLE}: Notes`,
-		description: SITE_DESCRIPTION,
+		title: NOTES_TITLE,
+		description: NOTES_DESCRIPTION,
 		site: baseUrl,
 		items,
 	});

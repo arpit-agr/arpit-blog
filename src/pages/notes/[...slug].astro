@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import EntryPage from "@layouts/EntryPage.astro";
-import { SITE_TITLE } from "src/consts";
+import { NOTES_TITLE } from "src/consts";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("notes", ({ data }) => {
@@ -17,18 +17,15 @@ type Props = CollectionEntry<"notes">;
 const entry = Astro.props;
 const { Content } = await render(entry);
 
-const noteTitle = `${SITE_TITLE}: Notes - ${entry.data.pubDate.toLocaleString(
-	"en-IN",
-	{
-		year: "numeric",
-		month: "short",
-		day: "numeric",
-		hour: "numeric",
-		minute: "numeric",
-		timeZone: "Asia/Kolkata",
-		timeZoneName: "short",
-	},
-)}`;
+const noteTitle = `${entry.data.pubDate.toLocaleString("en-IN", {
+	year: "numeric",
+	month: "short",
+	day: "numeric",
+	hour: "numeric",
+	minute: "numeric",
+	timeZone: "Asia/Kolkata",
+	timeZoneName: "short",
+})} - ${NOTES_TITLE}`;
 ---
 
 <EntryPage pageTitle={noteTitle} entry={entry} Content={Content} />
