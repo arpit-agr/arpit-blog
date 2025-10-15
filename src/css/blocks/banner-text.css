@@ -23,8 +23,4 @@
 		background: var(--separator);
 		z-index: -1;
 	}
-
-	> * {
-		translate: -0.66ch 0px;
-	}
 }
