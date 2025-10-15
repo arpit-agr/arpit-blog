@@ -4,6 +4,7 @@ import { getCollection, render } from "astro:content";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SiteHeader from "@components/SiteHeader.astro";
+import FeedHeader from "@components/FeedHeader.astro";
 import PaginatedEntries from "@components/PaginatedEntries.astro";
 import Aside from "@components/Aside.astro";
 import { NOTES_TITLE, NOTES_DESCRIPTION } from "src/consts";
@@ -37,12 +38,12 @@ const entries = await Promise.all(
 	<SiteHeader />
 	<div class="page">
 		<main id="main">
-			<PaginatedEntries
+			<FeedHeader
+				isVisuallyHidden={true}
 				sectionTitle="Notes"
 				sectionDesc={NOTES_DESCRIPTION}
-				page={page}
-				entries={entries}
 			/>
+			<PaginatedEntries page={page} entries={entries} />
 		</main>
 		<Aside />
 	</div>
