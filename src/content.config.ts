@@ -13,7 +13,7 @@ const baseCollectionFields = {
 };
 
 const notes = defineCollection({
-	loader: glob({ base: "./src/data/notes", pattern: "**/*.{md,mdoc}" }),
+	loader: glob({ base: "./src/data/notes", pattern: "**/*.{md,mdx}" }),
 	schema: rssSchema.extend(baseCollectionFields).transform((entry) => ({
 		...entry,
 		categories: entry.tags ?? [],
@@ -21,7 +21,7 @@ const notes = defineCollection({
 });
 
 const articles = defineCollection({
-	loader: glob({ base: "./src/data/articles", pattern: "**/*.{md,mdoc}" }),
+	loader: glob({ base: "./src/data/articles", pattern: "**/*.{md,mdx}" }),
 	schema: rssSchema
 		.extend({
 			...baseCollectionFields,
@@ -39,7 +39,7 @@ const articles = defineCollection({
 });
 
 const links = defineCollection({
-	loader: glob({ base: "./src/data/links", pattern: "**/*.{md,mdoc}" }),
+	loader: glob({ base: "./src/data/links", pattern: "**/*.{md,mdx}" }),
 	schema: rssSchema
 		.extend({
 			...baseCollectionFields,

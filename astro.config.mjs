@@ -1,11 +1,11 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import markdoc from "@astrojs/markdoc";
 import expressiveCode from "astro-expressive-code";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
 	site: "https://arpit.blog",
-	integrations: [markdoc(), expressiveCode()],
+	integrations: [expressiveCode(), mdx()],
 	trailingSlash: "always",
 });

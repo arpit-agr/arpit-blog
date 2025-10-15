@@ -1,20 +1,16 @@
+// https://blog.damato.design/posts/astro-rss-mdx/
 import rss from "@astrojs/rss";
 import { getCollection, render } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx";
 import { loadRenderers } from "astro:container";
-
-const images = import.meta.glob("/src/data/**/*.{png,jpg,jpeg,webp,gif,svg}", {
-	eager: true,
-	query: "?url",
-	import: "default",
-});
 
 export async function GET(context) {
 	let baseUrl = context.site?.href || "https://arpit.blog";
 	if (baseUrl.at(-1) === "/") baseUrl = baseUrl.slice(0, -1);
 
-	const renderers = await loadRenderers([]);
+	const renderers = await loadRenderers([getMDXRenderer()]);
 	const container = await AstroContainer.create({ renderers });
 
 	const allNotes = await getCollection("notes", ({ data }) =>
@@ -39,7 +35,7 @@ export async function GET(context) {
 		const html = await container.renderToString(Content);
 
 		// Absolutify image + link paths
-		let contentHtml = html.replace(
+		const contentHtml = html.replace(
 			/(?:src|href)="(\/[^"]+)"/g,
 			(match, path) => `${match.split("=")[0]}="${baseUrl}${path}"`,
 		);
@@ -56,13 +52,6 @@ export async function GET(context) {
 				content: contentHtml,
 			});
 		} else {
-			contentHtml = contentHtml
-				.replace(/<h3/g, "<h2")
-				.replace(/<\/h3>/g, "<\/h2>")
-				.replace(/<h4/g, "<h3")
-				.replace(/<\/h4>/g, "<\/h3>")
-				.replace(/<h5/g, "<h4")
-				.replace(/<\/h5>/g, "<\/h4>");
 			items.push({
 				...entry.data,
 				link: `/articles/${entry.id}/`,

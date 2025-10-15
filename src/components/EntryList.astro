@@ -1,13 +1,27 @@
 ---
 import PubDate from "@components/PubDate.astro";
 import LinkVia from "@components/LinkVia.astro";
+import H2 from "@components/H2.astro";
+import H3 from "@components/H3.astro";
+import H4 from "@components/H4.astro";
+import H5 from "@components/H5.astro";
+import H6 from "@components/H6.astro";
 
 const { entries } = Astro.props;
 
 const basePathMap = {
-  notes: "/notes",
-  articles: "/articles",
-  links: "/links",
+	notes: "/notes",
+	articles: "/articles",
+	links: "/links",
+};
+
+// Custom heading components for offset
+const headingComponents = {
+	h2: H2,
+	h3: H3,
+	h4: H4,
+	h5: H5,
+	h6: H6,
 };
 ---
 
@@ -15,22 +29,20 @@ const basePathMap = {
 	{
 		//@ts-ignore
 		entries.map((entry) => {
-		//@ts-ignore
-		const basePath = basePathMap[entry.collection];
+			//@ts-ignore
+			const basePath = basePathMap[entry.collection];
 			return (
 				<li class="entry">
 					<div class="center p-space-m">
 						<article class="stack align-self-stretch">
 							<footer class="cluster gap-2xs text-step--1">
 								<PubDate date={entry.data.pubDate} />
-								{
-									!!entry.data.via && (
-										<LinkVia
-											url={entry.data.via.url}
-											label={entry.data.via.label}
-										/>
-									)
-								}
+								{!!entry.data.via && (
+									<LinkVia
+										url={entry.data.via.url}
+										label={entry.data.via.label}
+									/>
+								)}
 							</footer>
 							<div class="entry-content flow">
 								{entry.collection === "articles" && (
@@ -40,10 +52,10 @@ const basePathMap = {
 								)}
 								{entry.collection === "links" && (
 									<h2 class="link-entry-title heading-3">
-										<a href={entry.data.link }>{entry.data.title}</a>
+										<a href={entry.data.link}>{entry.data.title}</a>
 									</h2>
 								)}
-								<entry.Content />
+								<entry.Content components={headingComponents} />
 							</div>
 							<footer class="cluster text-step--1 text-box-trim">
 								<!-- <a
