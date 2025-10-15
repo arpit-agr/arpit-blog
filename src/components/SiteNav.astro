@@ -20,10 +20,28 @@ const navLinks = [
 
 const { pathname } = Astro.url;
 
+// Root pages get aria-current; paginated and entry pages get data-state="active"
 function getLinkState(href: string, pathname: string) {
-	const isCurrent = href === pathname;
-	const isActive = href.length > 1 && pathname.startsWith(href);
-	return { isCurrent, isActive };
+  const normalize = (path: string) =>
+    path.endsWith("/") ? path : path + "/";
+
+  href = normalize(href);
+  pathname = normalize(pathname);
+
+  const isRoot = href === "/";
+  const isCurrent = href === pathname;
+
+  let isActive = false;
+
+  if (isRoot) {
+    // e.g. /2/, /3/
+    isActive = /^\/\d+\/$/.test(pathname);
+  } else {
+    // e.g. /notes/2/, /notes/post-slug/
+    isActive = pathname.startsWith(href) && pathname !== href;
+  }
+
+  return { isCurrent, isActive };
 }
 ---
 
