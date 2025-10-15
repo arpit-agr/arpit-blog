@@ -1,0 +1,65 @@
+---
+import { getCollection, render } from "astro:content";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import FeedHeader from "@components/FeedHeader.astro";
+import EntryList from "@components/EntryList.astro";
+import Aside from "@components/Aside.astro";
+import { SITE_TITLE } from "src/consts";
+
+export async function getStaticPaths() {
+	const allNotes = await getCollection("notes", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+	const allArticles = await getCollection("articles", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+	const allLinks = await getCollection("links", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	});
+	const allEntries = [...allNotes, ...allArticles, ...allLinks];
+	allEntries.sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+
+	// Render all entries
+	const renderedEntries = await Promise.all(
+		allEntries.map(async (entry) => {
+			const { Content } = await render(entry);
+			return { ...entry, Content };
+		}),
+	);
+
+	const uniqueTags = [
+		...new Set(renderedEntries.map((entry: any) => entry.data.tags).flat()),
+	];
+
+	return uniqueTags.map((tag) => {
+		const filteredEntries = renderedEntries.filter((entry: any) =>
+			entry.data.tags.includes(tag),
+		);
+		return {
+			params: { tag },
+			props: { entries: filteredEntries },
+		};
+	});
+}
+
+const { tag } = Astro.params;
+const { entries } = Astro.props;
+
+const sectionTitle = `Tagged: ${tag}`;
+const pageTitle = `Tagged: ${tag} - ${SITE_TITLE}`;
+---
+
+<BaseLayout {pageTitle}>
+	<SiteHeader />
+	<div class="page">
+		<main id="main">
+			<FeedHeader isVisuallyHidden={false} {sectionTitle} />
+			<EntryList entries={entries} />
+		</main>
+		<Aside />
+	</div>
+</BaseLayout>
