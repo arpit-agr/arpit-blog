@@ -45,18 +45,8 @@ const entries = await Promise.all(
 	<SiteHeader bannerTextAs="h1" />
 	<div class="page">
 		<main id="main">
-			<PaginatedEntries
-				sectionDesc="The online home of Arpit Agrawal, a web designer-developer from India."
-				page={page}
-				entries={entries}
-			/>
+			<PaginatedEntries page={page} entries={entries} />
 		</main>
-		<Aside>
-			<!-- <div class="stack">
-				<h2 class="heading-3">About this site</h2>
-				<p>{SITE_DESCRIPTION}</p>
-			</div>
-			<hr /> -->
-		</Aside>
+		<Aside />
 	</div>
 </BaseLayout>
