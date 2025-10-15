@@ -9,4 +9,4 @@ tags:
   - "resource"
 ---
 
-I love Astro. But for the life of me, I couldn't figure out how to render full content in my RSS feeds correctly. This article by [Donnie D'Amato](https://donnie.damato.design/) has been a lifesaver.
+I love Astro. But for the life of me, I couldn't figure out how to render the entire post content in my RSS feeds correctly. This article by [Donnie D'Amato](https://donnie.damato.design/) has been a lifesaver in this regard.
