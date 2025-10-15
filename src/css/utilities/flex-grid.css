@@ -2,6 +2,10 @@
 	align-self: start;
 }
 
+.align-self-end {
+	align-self: end;
+}
+
 .align-self-stretch {
 	align-self: stretch;
 }
