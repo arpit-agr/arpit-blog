@@ -10,6 +10,7 @@
 }
 
 .banner-text::after,
+.feed-header::after,
 aside.sidebar::before,
 aside.sidebar hr::before,
 .entry + .entry::before,
