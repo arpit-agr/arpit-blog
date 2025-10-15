@@ -6,6 +6,7 @@ tags:
   - "mindset"
   - "discussion"
   - "debate"
+  - "jeremy-keith"
 ---
 
 Ah! Good old Jeremy Keith, insightful and funny.
