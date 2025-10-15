@@ -23,6 +23,7 @@ export default defineEcConfig({
 			editorBackground: "var(--color-bg-primary)",
 			editorTabBarBackground: "var(--color-bg-secondary)",
 			editorTabBarBorderColor: "var(--color-border)",
+			editorActiveTabIndicatorBottomColor: "var(--color-bg-secondary)",
 			frameBoxShadowCssValue: "none",
 		},
 		textMarkers: {
