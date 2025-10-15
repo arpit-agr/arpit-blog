@@ -43,24 +43,21 @@ const entries = await Promise.all(
 	pageDesc={SITE_DESCRIPTION}
 	ogType="website"
 >
-	<SiteHeader />
+	<SiteHeader bannerTextAs="h1" />
 	<div class="page">
 		<main id="main">
-			<h1 class="visually-hidden">
-				Notes & Articles
-				{
-					page.lastPage > 1 && (
-						<Fragment>
-							- Page {page.currentPage} of {page.lastPage}
-						</Fragment>
-					)
-				}
-			</h1>
-			<PaginatedEntries page={page} entries={entries} />
+			<PaginatedEntries
+				sectionDesc="The online home of Arpit Agrawal, a web designer-developer from India."
+				page={page}
+				entries={entries}
+			/>
 		</main>
 		<Aside>
-			<hr />
-			<Subscribe />
+			<!-- <div class="stack">
+				<h2 class="heading-3">About this site</h2>
+				<p>{SITE_DESCRIPTION}</p>
+			</div>
+			<hr /> -->
 		</Aside>
 	</div>
 </BaseLayout>
