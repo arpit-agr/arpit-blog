@@ -12,4 +12,4 @@ export const ARTICLES_DESCRIPTION =
 
 export const LINKS_TITLE = "Links | Arpit Agrawal";
 export const LINKS_DESCRIPTION =
-	"Hand-picked links by Arpit Agrawal to articles, videos and whatnot from the depths of the interweb.";
+	"Hand-picked links from the depths of the interweb by Arpit Agrawal.";
