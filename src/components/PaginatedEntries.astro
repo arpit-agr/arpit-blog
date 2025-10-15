@@ -1,8 +1,25 @@
 ---
 import EntryList from "@components/EntryList.astro";
 
-const { page, entries } = Astro.props;
+const { sectionTitle, sectionDesc, page, entries } = Astro.props;
 ---
+
+<div class:list={["feed-header", { "visually-hidden": page.currentPage > 1 }]}>
+	<div class="center p-space-m">
+		{
+			!!sectionTitle ? (
+				<hgroup class="align-self-stretch">
+					<h1 class="visually-hidden">{sectionTitle}</h1>
+					<p>{sectionDesc}</p>
+				</hgroup>
+			) : (
+				<div class="align-self-stretch">
+					<p>{sectionDesc}</p>
+				</div>
+			)
+		}
+	</div>
+</div>
 
 {
 	page.url.prev && (
@@ -11,7 +28,7 @@ const { page, entries } = Astro.props;
 				<a
 					href={page.url.prev}
 					rel="prev"
-					class="heading-3 align-self-start text-box-trim"
+					class="align-self-start text-box-trim"
 				>
 					&larr; Newer Entries
 				</a>
@@ -27,7 +44,7 @@ const { page, entries } = Astro.props;
 				<a
 					href={page.url.next}
 					rel="next"
-					class="heading-3 align-self-start text-box-trim"
+					class="align-self-start text-box-trim"
 				>
 					Older Entries &rarr;
 				</a>
