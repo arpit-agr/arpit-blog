@@ -21,6 +21,7 @@
 @import url(/src/css/composition/wrapper.css) layer(composition);
 @import url(/src/css/blocks/banner-text.css) layer(blocks);
 @import url(/src/css/blocks/site-nav.css) layer(blocks);
+@import url(/src/css/blocks/feed-header.css) layer(blocks);
 @import url(/src/css/blocks/pagination-control.css) layer(blocks);
 @import url(/src/css/blocks/link-entry-title.css) layer(blocks);
 @import url(/src/css/utilities/region.css) layer(utilities);
