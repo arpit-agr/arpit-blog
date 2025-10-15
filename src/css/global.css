@@ -29,6 +29,10 @@ body {
 	font-size-adjust: from-font;
 	line-height: var(--leading-normal);
 	-webkit-font-smoothing: auto;
+
+	@media (prefers-color-scheme: dark) {
+		-webkit-font-smoothing: antialiased;
+	}
 }
 
 h1,
@@ -72,11 +76,25 @@ a {
 	text-decoration-color: var(--color-underline);
 	/*text-shadow: var(--color-bg-primary) 0 var(--space-5xs);*/
 
+	&[aria-current="page"],
+	&[data-state="active"],
 	&:hover,
 	&:focus-visible {
 		text-decoration-thickness: 0.3lh;
 		text-underline-offset: -0.15lh;
 		text-decoration-skip-ink: none;
+	}
+
+	&[aria-current="page"],
+	&[data-state="active"] {
+		text-decoration-color: oklch(
+			from var(--color-underline) l c h / calc(0.5 * alpha)
+		);
+	}
+
+	&:hover,
+	&:focus-visible {
+		text-decoration-color: var(--color-underline);
 	}
 }
 
