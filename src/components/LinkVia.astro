@@ -9,6 +9,7 @@ const { url, label } = Astro.props;
 
 <span class="text-box-trim">•</span>
 <p class="text-box-trim">
-	Discovered via
-	<a class="text-box-trim" href={url}>{label}</a>
+	<span class="visually-hidden">Discovered</span>
+	via
+	<a class="inline-block text-box-trim" href={url}>{label}</a>
 </p>
