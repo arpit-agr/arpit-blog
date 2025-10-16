@@ -8,6 +8,8 @@
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
 	mix-blend-mode: multiply;
+	pointer-events: none;
+	overflow-x: clip;
 
 	@media (prefers-color-scheme: dark) {
 		mix-blend-mode: lighten;
