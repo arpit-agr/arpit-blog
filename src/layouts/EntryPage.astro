@@ -113,8 +113,14 @@ const {
 	}
 
 	@layer exceptions {
-		summary .pub-date {
-			display: contents;
+		summary {
+			.pub-date {
+				display: contents;
+			}
+
+			+ * {
+				margin-inline-start: 1em;
+			}
 		}
 	}
 </style>
