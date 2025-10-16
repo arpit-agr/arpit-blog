@@ -203,3 +203,7 @@ hr {
 	outline: var(--border-thickness-focus) solid var(--color-focus);
 	outline-offset: calc(1.125 * var(--border-thickness-focus));
 }
+
+:target {
+	scroll-margin-block-start: calc(var(--space-m) + 1lh + var(--space-m));
+}
