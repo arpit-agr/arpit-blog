@@ -127,7 +127,7 @@ button,
 
 blockquote {
 	position: relative;
-	margin-inline-start: var(--space-xs);
+	margin-inline-start: 1ch;
 	padding-inline-start: var(--space-s);
 	border-inline-start: var(--border-thickness-blockquote) solid transparent;
 	border-image: linear-gradient(
@@ -148,8 +148,9 @@ blockquote {
 		content: open-quote;
 		color: var(--color-border-blockquote);
 		font-family: var(--font-cursive);
-		font-size: var(--step-3);
+		font-size: var(--step-2);
 		line-height: var(--leading-flat);
+		opacity: 0.9;
 
 		position: absolute;
 		inset-inline-start: calc(-1 * var(--border-thickness-blockquote));
