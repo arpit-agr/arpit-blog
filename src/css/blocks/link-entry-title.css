@@ -6,7 +6,7 @@
 		position: absolute;
 		inset-inline-end: 100%;
 		inset-block-start: 0;
-		margin-inline-end: 0.5ch;
+		margin-inline-end: 0.75ch;
 		translate: 0 -12.5%;
 		font-size: var(--step--2);
 	}
