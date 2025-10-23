@@ -193,7 +193,19 @@ pre {
 }
 
 hr {
-	color: var(--color-border);
+	position: relative;
+	border-color: #0000;
+
+	&::before {
+		--separator-angle: 90deg;
+		content: "";
+		position: absolute;
+		inset-inline: 0;
+		inset-block-start: 0;
+		background: var(--separator);
+		inline-size: 100%;
+		block-size: var(--border-thickness-s);
+	}
 }
 
 ::selection {
