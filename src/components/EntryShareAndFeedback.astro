@@ -7,7 +7,7 @@ const blueskyLink = `https://bsky.app/intent/compose?text=${encodeURIComponent(`
 const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent("Re: " + Astro.url.pathname)}`;
 ---
 
-<div class="share-feedback repel gap-s pb-space-m">
+<div class="share-feedback repel pb-space-m">
 	<p class="text-box-trim">Share:</p>
 	<div class="cluster gap-s">
 		<a class="text-box-trim" href={blueskyLink} target="_blank">Bluesky</a>
@@ -25,6 +25,10 @@ const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent("Re: "
 
 <style is:global>
 	@layer exceptions {
+		.share-feedback {
+			--repel-gap: var(--space-s) var(--space-2xs);
+		}
+
 		.share-feedback:has(.mastodon-edit) {
 			padding-block: calc(var(--space-m) - var(--button-padding-block));
 		}
