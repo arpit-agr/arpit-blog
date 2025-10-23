@@ -9,10 +9,10 @@
 	--border-thickness-focus: calc(1.25 * var(--space-4xs));
 }
 
+hr::before,
 .banner-text::after,
 .feed-header::after,
 aside.sidebar::before,
-aside.sidebar hr::before,
 .entry + .entry::before,
 .entry-actions > *::before,
 .entry-nav-back::before,
