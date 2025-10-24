@@ -2,25 +2,58 @@
 	display: contents;
 }
 
-.site-nav {
-	--cluster-gap: var(--space-s);
+.site-nav-container {
 	position: relative;
 	z-index: 2;
-
 	background: var(--color-bg-primary);
 
-	> ul {
-		margin-inline: max(
-			var(--gutter),
-			calc((100vw - var(--center-max-width)) / 2)
-		);
+	> div {
+		margin-inline: max(0px, calc((100vw - var(--center-max-width)) / 2));
+		padding-inline: var(--gutter);
+		/*outline: 1px solid red;*/
 
 		@media (--layout-with-sidebar) {
-			margin-inline: max(
-				var(--gutter),
-				calc((100vw - var(--sidebar-min-width) - var(--center-max-width)) / 2)
-			);
+			margin-inline: max(0px, calc((100vw - var(--wrapper-max-width)) / 2));
 		}
+	}
+}
+
+.profile {
+	position: relative;
+	/*outline: 1px solid red;*/
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset-inline-end: 0%;
+		inset-block: 0;
+		inline-size: 0px;
+		block-size: 100%;
+		z-index: -1;
+
+		/*https://codepen.io/thebabydino/pen/OPymPQP*/
+		--s: 1ex;
+		--w: 100vw;
+		--g: var(--space-4xs);
+		border-image: linear-gradient(
+				#0000 calc(50% - var(--s) / 2),
+				var(--color-accent) 0 calc(50% + var(--s) / 2),
+				#0000 0
+			)
+			0 1/ 0 0 0 var(--w) / 0 0 0 calc(var(--w) + var(--g));
+	}
+
+	img {
+		block-size: 1lh;
+		aspect-ratio: 1;
+		object-fit: contain;
+		object-position: left;
+	}
+}
+
+.site-nav {
+	> ul {
+		--cluster-gap: var(--space-s) 0;
 	}
 
 	a {
@@ -33,40 +66,34 @@
 			inset-block: calc(-1 * var(--space-m));
 			inset-inline: 0;
 		}
+
+		svg {
+			position: absolute;
+			inset-block-start: 50%;
+			inset-inline-start: 50%;
+			transform: translate(-50%, -50%);
+			inline-size: 100%;
+			block-size: 300%;
+			fill: none;
+			stroke-linecap: round;
+			stroke-dasharray: var(--offset, 69px) 278px;
+			stroke-dashoffset: 361px;
+			stroke-width: var(--border-thickness-l);
+			/*view-transition-name: circle;*/
+		}
 	}
 
-	.profile {
-		position: relative;
-		display: inline-block;
-		vertical-align: bottom;
-		margin-inline-end: 0.5ch;
+	li:first-child a::after {
+		inset-inline-start: -1lh;
+	}
 
-		&::after {
-			content: "";
-			position: absolute;
-			inset-inline-end: 0%;
-			inset-block: 0;
-			inline-size: 0px;
-			block-size: 100%;
-			z-index: -1;
+	[aria-current="page"],
+	[data-state="active"] {
+		--offset: 180px;
 
-			/*https://codepen.io/thebabydino/pen/OPymPQP*/
-			--s: 1ex;
-			--w: 100vw;
-			--g: var(--space-3xs);
-			border-image: linear-gradient(
-					#0000 calc(50% - var(--s) / 2),
-					var(--color-accent) 0 calc(50% + var(--s) / 2),
-					#0000 0
-				)
-				0 1/ 0 0 0 var(--w) / 0 0 0 calc(var(--w) + var(--g));
-		}
-
-		img {
-			block-size: 1lh;
-			aspect-ratio: 1;
-			object-fit: contain;
-			object-position: left;
+		path {
+			/*stroke: currentColor;*/
+			stroke: var(--color-border);
 		}
 	}
 }

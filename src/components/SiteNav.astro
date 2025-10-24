@@ -1,4 +1,6 @@
 ---
+import Circle from "src/images/circle.svg";
+
 const navLinks = [
 	{
 		label: "Home",
@@ -22,30 +24,29 @@ const { pathname } = Astro.url;
 
 // Root pages get aria-current; paginated and entry pages get data-state="active"
 function getLinkState(href: string, pathname: string) {
-  const normalize = (path: string) =>
-    path.endsWith("/") ? path : path + "/";
+	const normalize = (path: string) => (path.endsWith("/") ? path : path + "/");
 
-  href = normalize(href);
-  pathname = normalize(pathname);
+	href = normalize(href);
+	pathname = normalize(pathname);
 
-  const isRoot = href === "/";
-  const isCurrent = href === pathname;
+	const isRoot = href === "/";
+	const isCurrent = href === pathname;
 
-  let isActive = false;
+	let isActive = false;
 
-  if (isRoot) {
-    // e.g. /2/, /3/
-    isActive = /^\/\d+\/$/.test(pathname);
-  } else {
-    // e.g. /notes/2/, /notes/post-slug/
-    isActive = pathname.startsWith(href) && pathname !== href;
-  }
+	if (isRoot) {
+		// e.g. /2/, /3/
+		isActive = /^\/\d+\/$/.test(pathname);
+	} else {
+		// e.g. /notes/2/, /notes/post-slug/
+		isActive = pathname.startsWith(href) && pathname !== href;
+	}
 
-  return { isCurrent, isActive };
+	return { isCurrent, isActive };
 }
 ---
 
-<nav class="site-nav sticky inset-bs-0">
+<nav class="site-nav">
 	<ul class="cluster pb-space-m" role="list">
 		{
 			navLinks.map((link) => {
@@ -53,16 +54,13 @@ function getLinkState(href: string, pathname: string) {
 				return (
 					<li>
 						<a
-							class="heading-3 text-box-trim"
+							class="heading-3 text-box-trim pi-space-2xs"
 							href={link.href}
 							aria-current={isCurrent ? "page" : null}
 							data-state={isActive ? "active" : null}
 						>
-							{link.href === "/" ? (
-								<span class="profile">
-									<img src="/images/arpit-96w.png" alt="" />
-								</span><span>{link.label}</span>
-							) : <Fragment>{link.label}</Fragment>}
+							{link.label}
+							<Circle />
 						</a>
 					</li>
 				);

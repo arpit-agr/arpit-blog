@@ -6,6 +6,13 @@ const { bannerTextAs } = Astro.props;
 ---
 
 <header class="site-header">
-	<SiteNav />
+	<div class="site-nav-container sticky inset-bs-0">
+		<div class="cluster gap-0">
+			<div class="profile">
+				<img src="/images/arpit-96w.png" alt="" />
+			</div>
+			<SiteNav />
+		</div>
+	</div>
 	<BannerText as={bannerTextAs} />
 </header>
