@@ -7,7 +7,7 @@ const { date } = Astro.props;
 ---
 
 <p class="text-box-trim">
-	Last updated on
+	Last Updated on
 	<time datetime={date?.toISOString()}>
 		{
 			date?.toLocaleString("en-IN", {
@@ -15,6 +15,7 @@ const { date } = Astro.props;
 				year: "numeric",
 				month: "short",
 				day: "numeric",
+				timeZone: "Asia/Kolkata",
 			})
 		}
 	</time>
