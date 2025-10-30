@@ -10,8 +10,6 @@
 	pointer-events: none;
 	overflow-x: clip;
 
-	view-transition-name: banner;
-
 	@media (prefers-color-scheme: dark) {
 		mix-blend-mode: lighten;
 	}
