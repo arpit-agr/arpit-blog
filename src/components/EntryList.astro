@@ -1,6 +1,7 @@
 ---
 import PubDate from "@components/PubDate.astro";
 import LinkVia from "@components/LinkVia.astro";
+import ExternalLinkIcon from "src/images/external-link.svg";
 import H2 from "@components/H2.astro";
 import H3 from "@components/H3.astro";
 import H4 from "@components/H4.astro";
@@ -53,17 +54,12 @@ const headingComponents = {
 								{entry.collection === "links" && (
 									<h2 class="link-entry-title heading-3">
 										<a href={entry.data.link}>{entry.data.title}</a>
+										<ExternalLinkIcon aria-hidden="true" />
 									</h2>
 								)}
 								<entry.Content components={headingComponents} />
 							</div>
 							<footer class="cluster text-step--1 text-box-trim">
-								<!-- <a
-									class="text-box-trim"
-									href={`${basePath}/${entry.id}/#comments`}
-								>
-									Reply
-								</a> -->
 								<a
 									class="text-box-trim"
 									href={`${basePath}/${entry.id}/`}
