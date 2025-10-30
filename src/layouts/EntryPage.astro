@@ -5,6 +5,7 @@ import EntryNavback from "@components/EntryNavBack.astro";
 import PubDate from "@components/PubDate.astro";
 import UpdatedDate from "@components/UpdatedDate.astro";
 import LinkVia from "@components/LinkVia.astro";
+import ExternalLinkIcon from "src/images/external-link.svg";
 import TagList from "@components/TagList.astro";
 import EntryShareAndFeedback from "@components/EntryShareAndFeedback.astro";
 import Aside from "@components/Aside.astro";
@@ -72,6 +73,7 @@ const {
 									entry.collection === "links" && (
 										<h1 class="link-entry-title heading-3">
 											<a href={entry.data.link}>{entry.data.title}</a>
+											<ExternalLinkIcon aria-hidden="true" />
 										</h1>
 									)
 								}
