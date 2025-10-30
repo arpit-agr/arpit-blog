@@ -16,7 +16,7 @@
 			z-index: -1;
 			inset-inline-start: 0;
 			inset-block-start: 0;
-			inline-size: var(--border-thickness-s);
+			inline-size: var(--border-thickness-separator);
 			block-size: 100%;
 
 			@container (width > 50vi) {
@@ -24,7 +24,7 @@
 				inset-inline: 0;
 				inset-block-start: 0;
 				inline-size: 100%;
-				block-size: var(--border-thickness-s);
+				block-size: var(--border-thickness-separator);
 			}
 		}
 
@@ -40,7 +40,7 @@
 				inset-block-start: 0;
 				background: var(--separator);
 				inline-size: calc(100% + (2 * var(--space-m)));
-				block-size: var(--border-thickness-s);
+				block-size: var(--border-thickness-separator);
 			}
 		}
 	}

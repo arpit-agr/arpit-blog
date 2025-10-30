@@ -190,7 +190,7 @@ hr {
 		inset-block-start: 0;
 		background: var(--separator);
 		inline-size: 100%;
-		block-size: var(--border-thickness-s);
+		block-size: var(--border-thickness-separator);
 	}
 }
 

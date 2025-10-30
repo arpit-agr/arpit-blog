@@ -20,7 +20,7 @@
 		position: absolute;
 		inset-inline: 0;
 		inset-block-end: 0;
-		block-size: var(--border-thickness-s);
+		block-size: var(--border-thickness-separator);
 		background: var(--separator);
 		z-index: -1;
 	}

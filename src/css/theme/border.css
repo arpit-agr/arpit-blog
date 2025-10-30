@@ -5,13 +5,14 @@
 	--border-thickness-xl: var(--space-3xs);
 	--border-radius: calc(1.5 * var(--space-3xs));
 
+	--border-thickness-separator: var(--border-thickness-m);
 	--border-thickness-blockquote: var(--border-thickness-l);
 	--border-thickness-focus: calc(1.25 * var(--space-4xs));
 }
 
 hr::before,
 .banner-text::after,
-.feed-header::after,
+/*.feed-header::after,*/
 aside.sidebar::before,
 .entry + .entry::before,
 .entry-actions > *::before,
@@ -24,5 +25,5 @@ aside.sidebar::before,
 		oklch(from var(--color-text-primary) l c h / 0.3) var(--space-4xs),
 		oklch(from var(--color-text-primary) l c h / 0.3) var(--space-3xs)
 	);
-	/*--separator: var(--color-border);*/
+	--separator: var(--color-border);
 }
