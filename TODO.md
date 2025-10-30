@@ -2,8 +2,9 @@
 
 ## Next Up
 
+- [ ] Add [microdata](https://schema.org/docs/gs.html)
 - [ ] [Add Bluesky comments](https://brittanyellich.com/bluesky-comments-likes/)
-- [ ] Add links to tags (See the markup on Jeremy's website)
+- [x] Add links to tags (See the markup on Jeremy's website)
 - [x] Add skip to content link
 - [x] Update article entry page layout
 - [x] Update meta theme color
@@ -23,4 +24,3 @@
 - [ ] Post from mobile editors
 - [ ] Show preview cards for external links
 - [ ] Add print stylesheet
-- [ ] Add [microdata](https://schema.org/docs/gs.html)
