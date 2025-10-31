@@ -6,25 +6,46 @@
 		(var(--code-padding-block) / 1.66) + var(--border-thickness-s)
 	);
 
-	/*.frame.has-title:not(.is-terminal) .header {
-		background: var(--ec-frm-edActTabBg);
+	@media (prefers-color-scheme: light) {
+		--ec-frm-edBg: var(--color-bg-primary); /* sets the bg of the editor */
+		--ec-frm-trmBg: var(--color-bg-primary); /* sets the bg of the terminal */
+	}
 
-		.title {
-			&::after {
-				border-block: none;
-			}
+	[data-language]::before {
+		inset-block-start: var(--ec-codePadBlk);
+		inset-inline-end: var(--ec-codePadBlk);
+
+		padding-block: calc(
+			var(--ec-uiPadBlk) + var(--ec-frm-edActTabIndHt) +
+				var(--border-thickness-l)
+		);
+		padding-inline: var(--ec-uiPadInl);
+
+		background-color: var(--color-bg-secondary);
+		color: var(--color-text-primary);
+		font-family: var(--ec-codeFontFml);
+		font-size: var(--step--2);
+		font-weight: var(--font-medium);
+		letter-spacing: 0.05em;
+
+		@media (hover: none) {
+			margin-inline-end: unset;
+			display: none;
 		}
-	}*/
+	}
+
+	&:has(.copy button:where(:hover, :focus-visible)) [data-language]::before {
+		opacity: 0;
+	}
 
 	.copy {
-		inset-block-start: var(--_copy-btn-inset-block);
-		inset-inline-end: var(--_copy-btn-inset-inline);
+		inset-block-start: calc(var(--ec-codePadBlk) + var(--border-thickness-l));
+		inset-inline-end: var(--ec-codePadBlk);
 
 		button {
-			block-size: var(--space-l);
-			inline-size: var(--space-l);
+			block-size: calc(var(--code-font-size) * var(--leading-relaxed));
+			inline-size: calc(var(--code-font-size) * var(--leading-relaxed));
 			opacity: 1;
-			outline: var(--border-thickness-l) solid var(--color-underline);
 			border-radius: calc(
 				var(--ec-frm-edTabBrdRad) - var(--_copy-btn-inset-inline)
 			);
@@ -38,11 +59,11 @@
 			}
 
 			&::after {
-				margin: 0.65em;
+				margin: 0.5em;
 			}
 
 			&:where(:hover, :focus-visible) {
-				outline-offset: 0;
+				/*outline-offset: 0;*/
 
 				> div {
 					background: var(--color-bg-button-hover);
@@ -51,11 +72,49 @@
 			}
 		}
 	}
-}
 
-.expressive-code .frame.has-title:not(.is-terminal) {
-	--_copy-btn-inset-block: calc(
-		(var(--ec-uiFontSize) * var(--ec-uiLineHt)) + 2 * (var(--ec-uiPadBlk)) +
-			var(--ec-codePadBlk) - var(--border-thickness-l)
-	);
+	@media (hover: hover) {
+		.copy button {
+			opacity: 0;
+			transition: opacity 0.3s;
+		}
+
+		pre:where(:hover, :focus-visible) + .copy button,
+		.copy button:where(:hover, :focus-visible) {
+			opacity: 1;
+		}
+	}
+
+	.frame:where(.has-title, .is-terminal) {
+		[data-language]::before {
+			inset-block-start: var(--ec-uiPadBlk);
+			inset-inline-end: 0;
+			opacity: 1;
+
+			background-color: #0000;
+			outline-color: #0000;
+		}
+
+		.copy {
+			inset-block-start: calc(
+				(var(--ec-uiFontSize) * var(--ec-uiLineHt)) + 2 * (var(--ec-uiPadBlk)) +
+					var(--ec-codePadBlk) + var(--border-thickness-l) +
+					var(--border-thickness-l)
+			);
+		}
+
+		@media (hover: hover) {
+			[data-language]::before {
+				display: unset;
+			}
+
+			.copy button {
+				opacity: 1;
+			}
+		}
+
+		&:has(.copy button:where(:hover, :focus-visible)) [data-language]::before {
+			opacity: 1;
+		}
+	}
 }

@@ -6,7 +6,7 @@ export default defineEcConfig({
 	styleOverrides: {
 		borderColor: "var(--color-border)",
 		borderRadius: "var(--code-border-radius)",
-		borderWidth: "var(--border-thickness-s)",
+		borderWidth: "var(--border-thickness-code)",
 		codeFontFamily: "var(--font-mono)",
 		codeFontSize: "var(--code-font-size)",
 		codeFontWeight: "var(--code-font-weight)",
@@ -18,12 +18,13 @@ export default defineEcConfig({
 		uiFontSize: "var(--step--1)",
 		uiLineHeight: "var(--leading-relaxed)",
 		uiPaddingBlock: "var(--space-5xs)",
+		uiPaddingInline: "var(--code-padding-inline)",
 		frames: {
-			editorActiveTabBackground: "var(--color-bg-secondary)",
-			editorBackground: "var(--color-bg-primary)",
-			editorTabBarBackground: "var(--color-bg-secondary)",
+			editorActiveTabBackground: "var(--ec-frm-trmTtbBg)",
+			// editorBackground: "var(--color-bg-primary)",
+			// editorTabBarBackground: "var(--color-bg-secondary)",
 			editorTabBarBorderColor: "var(--color-border)",
-			editorActiveTabIndicatorBottomColor: "var(--color-bg-primary)",
+			editorActiveTabIndicatorBottomColor: "var(--ec-frm-trmTtbBg)",
 			frameBoxShadowCssValue: "none",
 		},
 		textMarkers: {

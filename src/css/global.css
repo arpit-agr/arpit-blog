@@ -99,7 +99,6 @@ button,
 	&:hover,
 	&:focus-visible {
 		background: var(--color-bg-button-hover);
-		outline-offset: calc(-1 / 2 * var(--border-thickness-l));
 	}
 }
 
