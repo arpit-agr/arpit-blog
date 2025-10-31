@@ -2,6 +2,10 @@
 	margin-inline: auto;
 }
 
+.mb-space-xl-m {
+	margin-block: var(--space-xl-m);
+}
+
 .p-space-2xs {
 	padding: var(--space-2xs);
 }
@@ -80,6 +84,18 @@
 
 .pb-space-s-xs {
 	padding-block: var(--space-s-xs);
+}
+
+.pb-space-l-5xs {
+	padding-block: var(--space-l-5xs);
+}
+
+.pb-space-l-m {
+	padding-block: var(--space-l-m);
+}
+
+.pb-space-xl-m {
+	padding-block: var(--space-xl-m);
 }
 
 .pbs-space-s {

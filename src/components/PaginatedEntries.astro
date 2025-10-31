@@ -4,7 +4,9 @@ import EntryList from "@components/EntryList.astro";
 const { page, entries } = Astro.props;
 ---
 
-<EntryList entries={entries} />
+<div class="entry-list-container">
+	<EntryList entries={entries} />
+</div>
 {
 	page.lastPage > 1 && (
 		<div class="pagination-control text-box-trim">
@@ -25,3 +27,11 @@ const { page, entries } = Astro.props;
 		</div>
 	)
 }
+
+<style is:global>
+	@layer blocks {
+		.entry-list-container {
+			margin-block: calc(var(--space-xl-m) - var(--space-m));
+		}
+	}
+</style>

@@ -9,7 +9,7 @@ const { isVisuallyHidden, sectionTitle, sectionDesc } = Astro.props;
 ---
 
 <div class:list={["feed-header", { "visually-hidden": isVisuallyHidden }]}>
-	<div class="center p-space-m">
+	<div class="center pi-space-m">
 		{
 			!!sectionTitle && !!sectionDesc ? (
 				<hgroup class="flow align-self-stretch">
