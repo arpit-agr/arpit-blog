@@ -5,6 +5,7 @@
 	--_copy-btn-inset-inline: calc(
 		(var(--code-padding-block) / 1.66) + var(--border-thickness-s)
 	);
+	isolation: isolate;
 
 	@media (prefers-color-scheme: light) {
 		--ec-frm-edBg: var(--color-bg-primary); /* sets the bg of the editor */
