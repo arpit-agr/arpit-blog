@@ -108,6 +108,8 @@ button,
 }
 
 :where(ul):not([role="list"]) {
+	list-style: disc;
+
 	::marker {
 		color: var(--color-accent);
 	}
