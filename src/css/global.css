@@ -172,14 +172,14 @@ code {
 
 pre {
 	padding: var(--code-padding-block) var(--code-padding-inline);
-	border: var(--border-thickness-s) solid var(--color-border);
+	/*border: var(--border-thickness-code) solid var(--color-border);*/
 	border-radius: var(--code-border-radius);
 }
 
 :not(pre) > code {
 	padding: var(--space-5xs) var(--space-3xs);
-	border-radius: var(--code-border-radius);
-	outline: var(--border-thickness-s) solid var(--color-border);
+	border-radius: var(--space-3xs);
+	outline: var(--border-thickness-code) solid var(--color-border);
 }
 
 hr {
