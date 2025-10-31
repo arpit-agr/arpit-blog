@@ -1,5 +1,5 @@
 :root {
-	--code-font-size: calc(0.9 * var(--step-0));
+	--code-font-size: 1rem;
 	--code-font-weight: var(--font-regular);
 	--code-border-radius: var(--space-3xs);
 	--code-padding-block: var(--space-2xs);
