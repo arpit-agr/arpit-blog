@@ -25,6 +25,9 @@
 			inline-size: var(--space-l);
 			opacity: 1;
 			outline: var(--border-thickness-l) solid var(--color-underline);
+			border-radius: calc(
+				var(--ec-frm-edTabBrdRad) - var(--_copy-btn-inset-inline)
+			);
 
 			> div {
 				transition: none;
@@ -53,6 +56,6 @@
 .expressive-code .frame.has-title:not(.is-terminal) {
 	--_copy-btn-inset-block: calc(
 		(var(--ec-uiFontSize) * var(--ec-uiLineHt)) + 2 * (var(--ec-uiPadBlk)) +
-			var(--ec-codePadBlk)
+			var(--ec-codePadBlk) - var(--border-thickness-l)
 	);
 }

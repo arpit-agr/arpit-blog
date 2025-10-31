@@ -17,7 +17,7 @@ export default defineEcConfig({
 		uiFontFamily: "var(--font-sans-serif)",
 		uiFontSize: "var(--step--1)",
 		uiLineHeight: "var(--leading-relaxed)",
-		uiPaddingBlock: "var(--space-4xs)",
+		uiPaddingBlock: "var(--space-5xs)",
 		frames: {
 			editorActiveTabBackground: "var(--color-bg-secondary)",
 			editorBackground: "var(--color-bg-primary)",
