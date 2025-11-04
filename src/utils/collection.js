@@ -1,3 +1,5 @@
+// https://www.rick.me.uk/posts/2024/03/custom-url-formats-in-astro/
+
 import { getCollection } from "astro:content";
 
 export async function loadAndFormatCollection(name, withDate = true) {
