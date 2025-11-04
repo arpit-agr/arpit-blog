@@ -48,7 +48,7 @@ const headingComponents = {
 							<div class="entry-content flow">
 								{entry.collection === "articles" && (
 									<h2>
-										<a href={`${basePath}/${entry.id}/`}>{entry.data.title}</a>
+										<a href={entry.absoluteURL}>{entry.data.title}</a>
 									</h2>
 								)}
 								{entry.collection === "links" && (
@@ -62,7 +62,7 @@ const headingComponents = {
 							<footer class="cluster text-step--1 text-box-trim">
 								<a
 									class="text-box-trim"
-									href={`${basePath}/${entry.id}/`}
+									href={entry.absoluteURL}
 									rel="bookmark"
 								>
 									More about this

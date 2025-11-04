@@ -1,6 +1,7 @@
 // https://blog.damato.design/posts/astro-rss-mdx/
 import rss from "@astrojs/rss";
-import { getCollection, render } from "astro:content";
+import { loadAllEntries } from "@utils/loadAllEntries";
+import { render } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx";
@@ -12,20 +13,7 @@ export async function GET(context) {
 	const renderers = await loadRenderers([getMDXRenderer()]);
 	const container = await AstroContainer.create({ renderers });
 
-	const allNotes = await getCollection("notes", ({ data }) =>
-		import.meta.env.PROD ? data.draft !== true : true,
-	);
-	const allArticles = await getCollection("articles", ({ data }) =>
-		import.meta.env.PROD ? data.draft !== true : true,
-	);
-	const allLinks = await getCollection("links", ({ data }) =>
-		import.meta.env.PROD ? data.draft !== true : true,
-	);
-
-	const allEntries = [...allNotes, ...allArticles, ...allLinks];
-	allEntries.sort(
-		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-	);
+	const allEntries = await loadAllEntries();
 
 	const items = [];
 
@@ -42,7 +30,7 @@ export async function GET(context) {
 		if (entry.collection === "notes") {
 			items.push({
 				...entry.data,
-				link: `/notes/${entry.id}/`,
+				link: entry.absoluteURL,
 				description: contentHtml,
 			});
 		} else if (entry.collection === "links") {
@@ -53,7 +41,7 @@ export async function GET(context) {
 		} else {
 			items.push({
 				...entry.data,
-				link: `/articles/${entry.id}/`,
+				link: entry.absoluteURL,
 				content: contentHtml,
 			});
 		}

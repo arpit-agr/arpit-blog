@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { getCollection, render } from "astro:content";
+import { loadAllEntries } from "@utils/loadAllEntries";
+import { render } from "astro:content";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SiteHeader from "@components/SiteHeader.astro";
@@ -10,20 +11,7 @@ import Aside from "@components/Aside.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allNotes = await getCollection("notes", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
-	});
-	const allArticles = await getCollection("articles", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
-	});
-	const allLinks = await getCollection("links", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
-	});
-
-	const allEntries = [...allNotes, ...allArticles, ...allLinks];
-	allEntries.sort(
-		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-	);
+	const allEntries = await loadAllEntries();
 	return paginate(allEntries, { pageSize: 20 });
 }) satisfies GetStaticPaths;
 

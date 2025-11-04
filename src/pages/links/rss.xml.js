@@ -1,6 +1,7 @@
 // https://blog.damato.design/posts/astro-rss-mdx/
 import rss from "@astrojs/rss";
-import { getCollection, render } from "astro:content";
+import { loadAndFormatCollection } from "@utils/collection";
+import { render } from "astro:content";
 import { LINKS_TITLE, LINKS_DESCRIPTION } from "src/consts";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx";
@@ -12,13 +13,7 @@ export async function GET(context) {
 	const renderers = await loadRenderers([getMDXRenderer()]);
 	const container = await AstroContainer.create({ renderers });
 
-	const allLinks = await getCollection("links", ({ data }) =>
-		import.meta.env.PROD ? data.draft !== true : true,
-	);
-
-	const allEntries = allLinks.sort(
-		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-	);
+	const allEntries = await loadAndFormatCollection("links");
 
 	const items = [];
 

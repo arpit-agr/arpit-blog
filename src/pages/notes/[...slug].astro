@@ -1,14 +1,13 @@
 ---
-import { type CollectionEntry, getCollection, render } from "astro:content";
+import { loadAndFormatCollection } from "@utils/collection";
+import { type CollectionEntry, render } from "astro:content";
 import EntryPage from "@layouts/EntryPage.astro";
 import { NOTES_TITLE } from "src/consts";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("notes", ({ data }) => {
-		return import.meta.env.PROD ? data.draft !== true : true;
-	});
-	return posts.map((post) => ({
-		params: { slug: post.id },
+	const posts = await loadAndFormatCollection("notes");
+	return posts.map((post: any) => ({
+		params: { slug: post.relativeURL },
 		props: post,
 	}));
 }
