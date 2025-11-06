@@ -1,6 +1,6 @@
 :root {
 	/* 1st order variables */
-	--color-dark: light-dark(rgb(44, 75, 133), hsl(219.1deg 20.28% 8.71%));
+	--color-dark: light-dark(rgb(44, 75, 133), #111111);
 	--color-light: #fefbf9;
 	--color-brand: oklch(0.8383 0.1982 80.76);
 	--color-brand-shade: oklch(0.6782 0.163 76.95);
