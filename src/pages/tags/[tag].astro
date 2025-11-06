@@ -46,10 +46,8 @@ const pageTitle = `Tagged: ${tag} - ${SITE_TITLE}`;
 	<SiteHeader />
 	<div class="page">
 		<main id="main">
-			<div class="mb-space-xl-m flow">
-				<FeedHeader isVisuallyHidden={false} {sectionTitle} />
-				<EntryList entries={entries} />
-			</div>
+			<FeedHeader isVisuallyHidden={false} {sectionTitle} />
+			<EntryList entries={entries} />
 		</main>
 		<Aside />
 	</div>

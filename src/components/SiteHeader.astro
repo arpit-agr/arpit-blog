@@ -6,6 +6,7 @@ const { bannerTextAs } = Astro.props;
 ---
 
 <header class="site-header">
+	<BannerText as={bannerTextAs} />
 	<div class="site-nav-container sticky inset-bs-0">
 		<div class="cluster gap-0">
 			<div class="profile">
@@ -14,5 +15,4 @@ const { bannerTextAs } = Astro.props;
 			<SiteNav />
 		</div>
 	</div>
-	<BannerText as={bannerTextAs} />
 </header>

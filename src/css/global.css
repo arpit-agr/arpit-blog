@@ -4,12 +4,11 @@
 
 :root {
 	--wrapper-max-width: 72rem;
+	@custom-media --wrapper-max-width (width > 72rem);
 	--measure: 60ch;
 	--sidebar-min-width: 24rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
-	@custom-media --layout-with-sidebar (width > 68.5625rem);
-	/* the vw size at which the page layout switches to two columns */
 
 	--button-padding-block: calc(1.5 * var(--space-3xs));
 	--button-padding-inline: 1ch;
@@ -21,6 +20,15 @@
 }
 
 body {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0;
+
+	position: relative;
+	max-inline-size: var(--wrapper-max-width);
+	margin-inline: auto;
+
 	background-color: var(--color-bg-primary);
 	color: var(--color-text-primary);
 	font-size: var(--step-0);
@@ -32,6 +40,30 @@ body {
 
 	@media (prefers-color-scheme: dark) {
 		-webkit-font-smoothing: antialiased;
+	}
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		inline-size: var(--border-thickness-separator);
+		block-size: 100%;
+		background: var(--separator);
+		inset-block-start: 0;
+		z-index: 3;
+		display: none;
+
+		@media (--wrapper-max-width) {
+			display: unset;
+		}
+	}
+
+	&::before {
+		inset-inline-start: 0;
+	}
+
+	&::after {
+		inset-inline-end: 0;
 	}
 }
 

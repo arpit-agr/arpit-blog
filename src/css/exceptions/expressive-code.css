@@ -40,7 +40,7 @@
 	}
 
 	.copy {
-		inset-block-start: calc(var(--ec-codePadBlk) + var(--border-thickness-l));
+		inset-block-start: var(--ec-codePadBlk);
 		inset-inline-end: var(--ec-codePadBlk);
 
 		button {
@@ -99,8 +99,7 @@
 		.copy {
 			inset-block-start: calc(
 				(var(--ec-uiFontSize) * var(--ec-uiLineHt)) + 2 * (var(--ec-uiPadBlk)) +
-					var(--ec-codePadBlk) + var(--border-thickness-l) +
-					var(--border-thickness-l)
+					var(--ec-codePadBlk)
 			);
 		}
 

@@ -11,10 +11,12 @@
 	--border-thickness-focus: calc(1.25 * var(--space-4xs));
 }
 
+body::before,
+body::after,
 hr::before,
 .banner-text::after,
 .site-nav-container > div::after,
-/*.feed-header::after,*/
+.feed-header::after,
 aside.sidebar::before,
 .entry + .entry::before,
 .entry-actions > *::before,

@@ -6,6 +6,10 @@
 	margin-block: var(--space-xl-m);
 }
 
+.mbs-space-m {
+	margin-block-start: var(--space-m);
+}
+
 .mbs-space-xl-m {
 	margin-block-start: var(--space-xl-m);
 }

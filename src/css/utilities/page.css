@@ -1,8 +1,6 @@
 .page {
 	--sidebar-gap: 0;
-
-	max-inline-size: var(--wrapper-max-width);
-	margin-inline: auto;
+	flex-grow: 999;
 
 	> aside {
 		--flow-space: var(--space-m);

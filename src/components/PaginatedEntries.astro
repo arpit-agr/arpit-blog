@@ -4,7 +4,7 @@ import EntryList from "@components/EntryList.astro";
 const { page, entries } = Astro.props;
 ---
 
-<div class="entry-list-container">
+<div>
 	<EntryList entries={entries} />
 </div>
 {
@@ -27,11 +27,3 @@ const { page, entries } = Astro.props;
 		</div>
 	)
 }
-
-<style is:global>
-	@layer blocks {
-		.entry-list-container {
-			margin-block-start: calc(var(--space-xl-m) - var(--space-m));
-		}
-	}
-</style>
