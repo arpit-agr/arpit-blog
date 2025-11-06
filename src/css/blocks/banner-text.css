@@ -1,7 +1,7 @@
 .banner-text {
 	/* this is to avoid the little bit of the text gets cutoff */
 	margin-block-start: var(--space-3xs-2xs);
-	padding-inline: var(--gutter);
+	/*padding-inline: var(--gutter);*/
 
 	position: relative;
 	font-family: var(--font-cursive);

@@ -144,7 +144,7 @@ blockquote {
 		position: absolute;
 		inset-inline-start: calc(-1 * var(--border-thickness-blockquote));
 		inset-block-start: 0;
-		translate: -50% 0;
+		translate: -50% 10%;
 	}
 
 	> *:last-child::after {

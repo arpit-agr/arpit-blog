@@ -13,6 +13,7 @@
 
 hr::before,
 .banner-text::after,
+.site-nav-container > div::after,
 /*.feed-header::after,*/
 aside.sidebar::before,
 .entry + .entry::before,
