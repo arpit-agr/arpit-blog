@@ -79,27 +79,13 @@ const headingComponents = {
 <style is:global>
 	@layer blocks {
 		.entry + .entry {
-			position: relative;
-
-			&::before {
-				--separator-angle: 90deg;
-				content: "";
-				position: absolute;
-				background: var(--separator);
-				z-index: -1;
-				inset-inline: 0;
-				inset-block-start: 0;
-				inline-size: 100%;
-				block-size: var(--border-thickness-separator);
-			}
+			border-block-start: var(--border-thickness-separator) solid
+				var(--color-border);
 		}
 
 		.entry {
-			/*outline: 1px solid red;*/
-
 			article {
 				--stack-horizontal-alignment: stretch;
-				/*outline: 1px solid red;*/
 			}
 
 			[rel="bookmark"] {

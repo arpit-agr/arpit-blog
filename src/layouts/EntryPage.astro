@@ -25,92 +25,89 @@ const {
 	pageTitle={pageTitle}
 	pageDesc={SITE_DESCRIPTION}
 >
-	<SiteHeader />
 	<div class="page">
-		<div>
-			<div class="center pi-space-m">
-				<div class="align-self-stretch">
-					<main id="main" class="pb-space-m">
-						<article class="flow">
-							<footer class="cluster gap-2xs text-step--1">
-								{
-									entry.data.updatedDate ? (
-										<details class="flow flow-space-xs">
-											<summary class="text-box-trim">
-												<PubDate date={entry.data.pubDate} />
-											</summary>
-											{!!entry.data.updatedDate && (
-												<UpdatedDate date={entry.data.updatedDate} />
-											)}
-										</details>
-									) : (
-										<PubDate date={entry.data.pubDate} />
-									)
-								}
-								{
-									!!entry.data.via && (
-										<LinkVia
-											url={entry.data.via.url}
-											label={entry.data.via.label}
-										/>
-									)
-								}
-							</footer>
-							<div class="entry-content flow">
-								{
-									entry.collection === "notes" && (
-										<h1 class="visually-hidden">
-											{entry.data.pubDate.toLocaleString("en-IN", {
-												year: "numeric",
-												month: "short",
-												day: "numeric",
-											})}
-										</h1>
-									)
-								}
-								{entry.collection === "articles" && <h1>{entry.data.title}</h1>}
-								{
-									entry.collection === "links" && (
-										<h1 class="link-entry-title heading-3">
-											<a href={entry.data.link}>{entry.data.title}</a>
-											<ExternalLinkIcon aria-hidden="true" />
-										</h1>
-									)
-								}
-								<Content />
-							</div>
-							{!!entry.data.tags && <TagList tags={entry.data.tags} />}
-						</article>
-					</main>
-					<div class="entry-actions text-step--1">
-						<EntryShareAndFeedback />
-						<!-- <details class="flow pb-space-m text-step--1">
+		<SiteHeader />
+		<div class="page-inner">
+			<div>
+				<div class="center pi-space-m">
+					<div class="align-self-stretch">
+						<main id="main" class="pb-space-m">
+							<article class="flow">
+								<footer class="cluster gap-2xs text-step--1">
+									{
+										entry.data.updatedDate ? (
+											<details class="flow flow-space-xs">
+												<summary class="text-box-trim">
+													<PubDate date={entry.data.pubDate} />
+												</summary>
+												{!!entry.data.updatedDate && (
+													<UpdatedDate date={entry.data.updatedDate} />
+												)}
+											</details>
+										) : (
+											<PubDate date={entry.data.pubDate} />
+										)
+									}
+									{
+										!!entry.data.via && (
+											<LinkVia
+												url={entry.data.via.url}
+												label={entry.data.via.label}
+											/>
+										)
+									}
+								</footer>
+								<div class="entry-content flow">
+									{
+										entry.collection === "notes" && (
+											<h1 class="visually-hidden">
+												{entry.data.pubDate.toLocaleString("en-IN", {
+													year: "numeric",
+													month: "short",
+													day: "numeric",
+												})}
+											</h1>
+										)
+									}
+									{
+										entry.collection === "articles" && (
+											<h1>{entry.data.title}</h1>
+										)
+									}
+									{
+										entry.collection === "links" && (
+											<h1 class="link-entry-title heading-3">
+												<a href={entry.data.link}>{entry.data.title}</a>
+												<ExternalLinkIcon aria-hidden="true" />
+											</h1>
+										)
+									}
+									<Content />
+								</div>
+								{!!entry.data.tags && <TagList tags={entry.data.tags} />}
+							</article>
+						</main>
+						<div class="entry-actions text-step--1">
+							<EntryShareAndFeedback />
+							<!-- <details class="flow pb-space-m text-step--1">
 							<summary class="text-box-trim" id="comments">Comments</summary>
 							<p>TODO: Add comments</p>
 						</details> -->
+						</div>
+						<EntryNavback />
 					</div>
-					<EntryNavback />
 				</div>
 			</div>
+			<Aside />
 		</div>
-		<Aside />
 	</div>
 </BaseLayout>
 
 <style is:global>
 	@layer blocks {
 		.entry-actions > * {
-			position: relative;
-
-			&::before {
-				--separator-angle: 90deg;
-				content: "";
-				position: absolute;
-				inset-inline: 0;
-				inset-block-start: 0;
-				block-size: var(--border-thickness-separator);
-				background: var(--separator);
-			}
+			border-block-start: var(--border-thickness-separator) solid
+				var(--color-border);
 		}
 	}
 

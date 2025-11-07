@@ -1,9 +1,11 @@
 ---
 import type { ComponentProps } from "astro/types";
 import BaseHead from "@components/BaseHead.astro";
+import BannerText from "@components/BannerText.astro";
 
 type Props = ComponentProps<typeof BaseHead> & {
 	bodyClass?: string;
+	bannerTextAs?: "h1" | "div";
 };
 
 const {
@@ -15,6 +17,7 @@ const {
 	socialImageAlt,
 	canonicalURL,
 	bodyClass,
+	bannerTextAs,
 } = Astro.props;
 ---
 
@@ -38,6 +41,7 @@ const {
 		>
 			Skip to content
 		</a>
+		<BannerText as={bannerTextAs} />
 		<slot />
 	</body>
 </html>

@@ -1,18 +1,12 @@
 ---
 import SiteNav from "@components/SiteNav.astro";
-import BannerText from "@components/BannerText.astro";
-
-const { bannerTextAs } = Astro.props;
 ---
 
-<header class="site-header">
-	<BannerText as={bannerTextAs} />
-	<div class="site-nav-container sticky inset-bs-0">
-		<div class="cluster gap-0">
-			<div class="profile">
-				<img src="/images/arpit-96w.png" alt="" />
-			</div>
-			<SiteNav />
+<header class="site-header sticky inset-bs-0">
+	<div class="cluster gap-0">
+		<div class="profile">
+			<img src="/images/arpit-96w.png" alt="" />
 		</div>
+		<SiteNav />
 	</div>
 </header>

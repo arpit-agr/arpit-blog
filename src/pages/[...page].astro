@@ -29,12 +29,15 @@ const entries = await Promise.all(
 	pageTitle={SITE_TITLE}
 	pageDesc={SITE_DESCRIPTION}
 	ogType="website"
+	bannerTextAs="h1"
 >
-	<SiteHeader bannerTextAs="h1" />
 	<div class="page">
-		<main id="main">
-			<PaginatedEntries page={page} entries={entries} />
-		</main>
-		<Aside />
+		<SiteHeader />
+		<div class="page-inner">
+			<main id="main">
+				<PaginatedEntries page={page} entries={entries} />
+			</main>
+			<Aside />
+		</div>
 	</div>
 </BaseLayout>

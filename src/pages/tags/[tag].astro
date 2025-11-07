@@ -43,12 +43,14 @@ const pageTitle = `Tagged: ${tag} - ${SITE_TITLE}`;
 ---
 
 <BaseLayout {pageTitle}>
-	<SiteHeader />
 	<div class="page">
-		<main id="main">
-			<FeedHeader isVisuallyHidden={false} {sectionTitle} />
-			<EntryList entries={entries} />
-		</main>
-		<Aside />
+		<SiteHeader />
+		<div class="page-inner">
+			<main id="main">
+				<FeedHeader isVisuallyHidden={false} {sectionTitle} />
+				<EntryList entries={entries} />
+			</main>
+			<Aside />
+		</div>
 	</div>
 </BaseLayout>

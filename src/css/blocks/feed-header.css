@@ -1,15 +1,3 @@
 .feed-header {
-	position: relative;
-
-	&::after {
-		--separator-angle: 90deg;
-		content: "";
-		position: absolute;
-		background: var(--separator);
-		z-index: -1;
-		inset-inline: 0;
-		inset-block-end: 0;
-		inline-size: 100%;
-		block-size: var(--border-thickness-separator);
-	}
+	border-block-end: var(--border-thickness-separator) solid var(--color-border);
 }

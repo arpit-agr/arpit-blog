@@ -1,28 +1,11 @@
 .banner-text {
-	/* this is to avoid the little bit of the text gets cutoff */
-	padding-block-start: var(--space-3xs-2xs);
+	padding-block-start: var(--space-m);
 	padding-inline: var(--gutter);
 
 	position: relative;
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
-	mix-blend-mode: multiply;
 	pointer-events: none;
 	overflow-x: clip;
 	z-index: 3;
-
-	@media (prefers-color-scheme: dark) {
-		mix-blend-mode: lighten;
-	}
-
-	&::after {
-		--separator-angle: 90deg;
-		content: "";
-		position: absolute;
-		inset-inline: 0;
-		inset-block-end: 0;
-		block-size: var(--border-thickness-separator);
-		background: var(--separator);
-		z-index: -1;
-	}
 }

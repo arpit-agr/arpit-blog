@@ -30,16 +30,18 @@ const entries = await Promise.all(
 	pageDesc={NOTES_DESCRIPTION}
 	ogType="website"
 >
-	<SiteHeader />
 	<div class="page">
-		<main id="main">
-			<FeedHeader
-				isVisuallyHidden={true}
-				sectionTitle="Notes"
-				sectionDesc={NOTES_DESCRIPTION}
-			/>
-			<PaginatedEntries page={page} entries={entries} />
-		</main>
-		<Aside />
+		<SiteHeader />
+		<div class="page-inner">
+			<main id="main">
+				<FeedHeader
+					isVisuallyHidden={true}
+					sectionTitle="Notes"
+					sectionDesc={NOTES_DESCRIPTION}
+				/>
+				<PaginatedEntries page={page} entries={entries} />
+			</main>
+			<Aside />
+		</div>
 	</div>
 </BaseLayout>
