@@ -8,15 +8,4 @@
 	li + li {
 		margin-block-start: var(--flow-space, 1lh);
 	}
-
-	img:not([class]) {
-		@media (prefers-color-scheme: dark) {
-			filter: brightness(0.75);
-			transition: filter 0.3s ease-out;
-
-			&:hover {
-				filter: brightness(1);
-			}
-		}
-	}
 }
