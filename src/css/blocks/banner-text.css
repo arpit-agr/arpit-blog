@@ -1,8 +1,7 @@
 .banner-text {
+	position: relative;
 	padding-block-start: var(--space-m);
 	padding-inline: var(--gutter);
-
-	position: relative;
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
 	pointer-events: none;

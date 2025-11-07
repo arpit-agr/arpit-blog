@@ -25,7 +25,6 @@
 body {
 	max-inline-size: var(--wrapper-max-width);
 	margin-inline: auto;
-
 	background-color: var(--color-bg-primary);
 	color: var(--color-text-primary);
 	font-size: var(--step-0);

@@ -17,10 +17,7 @@
 		var(--color-light-shade),
 		var(--color-dark-shade)
 	);
-	--color-border: light-dark(
-		var(--color-light-shade),
-		oklch(from var(--color-dark) calc(l * 150%) c h)
-	);
+	--color-border: oklch(from currentColor l c h / calc(0.2 * alpha));
 	--color-underline: oklch(from var(--color-accent) l c h / calc(0.75 * alpha));
 	--color-focus: var(--color-accent);
 	--color-border-blockquote: light-dark(

@@ -1,10 +1,5 @@
 .page {
 	outline: var(--border-thickness-separator) solid var(--color-border);
-	overflow: clip;
-
-	@media (--wrapper-max-width) {
-		border-radius: var(--border-radius);
-	}
 }
 
 .page-inner {
