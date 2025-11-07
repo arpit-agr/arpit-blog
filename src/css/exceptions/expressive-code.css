@@ -47,9 +47,10 @@
 			block-size: calc(var(--code-font-size) * var(--leading-relaxed));
 			inline-size: calc(var(--code-font-size) * var(--leading-relaxed));
 			opacity: 1;
-			border-radius: calc(
+			/*border-radius: calc(
 				var(--ec-frm-edTabBrdRad) - var(--_copy-btn-inset-inline)
-			);
+			);*/
+			border-radius: var(--ec-frm-edTabBrdRad);
 
 			> div {
 				transition: none;

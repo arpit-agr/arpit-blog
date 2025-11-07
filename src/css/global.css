@@ -15,6 +15,7 @@
 
 	--button-padding-block: calc(1.5 * var(--space-3xs));
 	--button-padding-inline: 1ch;
+	--btn-border-radius: 100vmax;
 }
 
 :root {
@@ -98,7 +99,7 @@ button,
 	padding: var(--button-padding-block) var(--button-padding-inline);
 	outline: var(--border-thickness-m) solid var(--color-underline);
 	outline-offset: calc(-1 / 2 * var(--border-thickness-l));
-	border-radius: var(--border-radius);
+	border-radius: var(--btn-border-radius);
 
 	&:hover,
 	&:focus-visible {

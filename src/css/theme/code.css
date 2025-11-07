@@ -1,7 +1,7 @@
 :root {
 	--code-font-size: 1rem;
 	--code-font-weight: var(--font-regular);
-	--code-border-radius: var(--space-2xs);
+	--code-border-radius: var(--space-4xs);
 	--code-padding-block: var(--space-2xs);
 	--code-padding-inline: var(--space-2xs);
 }
