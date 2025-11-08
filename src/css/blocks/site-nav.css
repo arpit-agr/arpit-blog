@@ -29,6 +29,7 @@
 .site-nav {
 	> ul {
 		--cluster-gap: var(--space-s) 0;
+		padding-block: 0.75lh;
 	}
 
 	a {
@@ -38,7 +39,7 @@
 		&::after {
 			content: "";
 			position: absolute;
-			inset-block: calc(-1 * var(--space-m));
+			inset-block: calc(-1 * 0.75lh);
 			inset-inline: 0;
 		}
 

@@ -47,7 +47,7 @@ function getLinkState(href: string, pathname: string) {
 ---
 
 <nav class="site-nav">
-	<ul class="cluster pb-space-m" role="list">
+	<ul class="cluster" role="list">
 		{
 			navLinks.map((link) => {
 				const { isCurrent, isActive } = getLinkState(link.href, pathname);
