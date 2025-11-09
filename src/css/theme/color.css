@@ -2,6 +2,8 @@
 	/* 1st order variables */
 	--color-dark: light-dark(rgb(44, 75, 133), #111111);
 	--color-light: #fefbf9;
+	/*--color-dark-shade: #40403f;*/
+	/*--color-light-shade: #d4d8e2;*/
 	--color-brand: oklch(0.8383 0.1982 80.76);
 	--color-brand-shade: oklch(0.6782 0.163 76.95);
 
@@ -11,23 +13,26 @@
 	--color-text-primary: light-dark(var(--color-dark), var(--color-light));
 	--color-bg-primary: light-dark(var(--color-light), var(--color-dark));
 	--color-accent: light-dark(var(--color-brand), var(--color-brand-shade));
+	/*--color-border: light-dark(var(--color-light-shade), var(--color-dark-shade));*/
 
 	/* 3rd order variables */
 	--color-bg-secondary: light-dark(
 		var(--color-light-shade),
 		var(--color-dark-shade)
 	);
-	--color-border: oklch(from currentColor l c h / calc(0.2 * alpha));
+	--color-border: oklch(
+		from var(--color-text-primary) l c h / calc(0.33 * alpha)
+	);
 	--color-underline: oklch(from var(--color-accent) l c h / calc(0.75 * alpha));
 	--color-focus: var(--color-accent);
-	--color-border-blockquote: light-dark(
-		oklch(from var(--color-dark) calc(l * 133.33%) c h / 0.5),
-		oklch(from var(--color-light) calc(l * 75%) c h / 0.5)
-	);
 
 	/* 4th order variables */
+	--color-bg-button: light-dark(
+		oklch(from var(--color-text-primary) l c h / calc(0.0625 * alpha)),
+		oklch(from var(--color-text-primary) l c h / calc(0.125 * alpha))
+	);
 	--color-bg-button-hover: oklch(
-		from var(--color-underline) l c h / calc(0.25 * alpha)
+		from var(--color-accent) l c h / calc(0.33 * alpha)
 	);
 	--color-bg-selection: oklch(
 		from var(--color-accent) l c h / calc(0.5 * alpha)

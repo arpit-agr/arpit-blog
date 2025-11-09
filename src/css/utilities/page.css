@@ -47,6 +47,11 @@
 			}
 		}
 
+		> * + * {
+			border-block-start: var(--border-thickness-separator) solid
+				var(--color-border);
+		}
+
 		hr {
 			position: relative;
 			border-color: #0000;

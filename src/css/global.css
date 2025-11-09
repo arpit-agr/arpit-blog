@@ -13,9 +13,9 @@
 	/* the vw size at which the page layout switches to two columns */
 	@custom-media --layout-with-sidebar (width > 68.5625rem);
 
-	--button-padding-block: calc(1.75 * var(--space-3xs));
+	--button-padding-block: 0.5em;
 	--button-padding-inline: 1ch;
-	--btn-border-radius: 100vmax;
+	--btn-border-radius: var(--space-3xs);
 }
 
 :root {
@@ -28,10 +28,10 @@ body {
 	margin-inline: auto;
 	background-color: var(--color-bg-primary);
 	color: var(--color-text-primary);
-	font-size: var(--step-0);
 	font-family: var(--font-sans-serif);
-	font-weight: var(--font-regular);
+	font-size: var(--step-0);
 	font-size-adjust: from-font;
+	font-weight: var(--font-regular);
 	line-height: var(--leading-normal);
 	-webkit-font-smoothing: auto;
 
@@ -92,32 +92,42 @@ a {
 }
 
 button,
-.btn {
-	position: relative;
+.btn,
+input {
 	border: none;
-	background: none;
 	padding: var(--button-padding-block) var(--button-padding-inline);
-	outline: var(--border-thickness-m) solid var(--color-underline);
-	outline-offset: calc(-1 / 2 * var(--border-thickness-l));
+	outline: var(--border-thickness-m) solid var(--color-border);
 	border-radius: var(--btn-border-radius);
 
-	&:hover,
 	&:focus-visible {
 		background: var(--color-bg-button-hover);
-		outline-offset: calc(-1 / 4 * var(--border-thickness-focus));
 	}
+}
+
+button,
+.btn {
+	background: var(--color-bg-button);
+
+	&:hover {
+		background: var(--color-bg-button-hover);
+		outline-color: var(--color-focus);
+	}
+}
+
+input {
+	background: var(--color-bg-primary);
 }
 
 :where(ol, ul):not([role="list"]) {
 	padding-inline-start: var(--gutter);
-
-	::marker {
-		color: var(--color-accent);
-	}
 }
 
 :where(ul):not([role="list"]) {
 	list-style: disc;
+
+	::marker {
+		color: var(--color-accent);
+	}
 }
 
 blockquote {
@@ -128,9 +138,9 @@ blockquote {
 	border-image: linear-gradient(
 			to bottom,
 			transparent 0,
-			transparent 0.7lh,
-			var(--color-border-blockquote) 0.7lh,
-			var(--color-border-blockquote) calc(100% - 0.3lh),
+			transparent 1lh,
+			oklch(from currentColor l c h / calc(0.75 * alpha)) 1lh,
+			oklch(from currentColor l c h / calc(0.75 * alpha)) calc(100% - 0.3lh),
 			transparent calc(100% - 0.3lh)
 		)
 		1;
@@ -141,16 +151,14 @@ blockquote {
 
 	> *:first-child::before {
 		content: open-quote;
-		color: var(--color-border-blockquote);
-		/*font-family: var(--font-cursive);*/
-		font-size: var(--step-3);
+		font-size: var(--step-4);
 		line-height: var(--leading-flat);
-		/*opacity: 0.9;*/
+		color: oklch(from currentColor l c h / calc(0.875 * alpha));
 
 		position: absolute;
 		inset-inline-start: calc(-1 * var(--border-thickness-blockquote));
 		inset-block-start: 0;
-		translate: -33% 0%;
+		translate: -35% 0%;
 	}
 
 	> *:last-child::after {
@@ -177,14 +185,13 @@ code {
 
 pre {
 	padding: var(--code-padding-block) var(--code-padding-inline);
-	/*border: var(--border-thickness-code) solid var(--color-border);*/
 	border-radius: var(--code-border-radius);
 }
 
 :not(pre) > code {
-	padding: var(--space-5xs) var(--space-3xs);
-	border-radius: var(--space-3xs);
-	outline: var(--border-thickness-code) solid var(--color-border);
+	padding: 0px var(--space-3xs);
+	border-radius: var(--code-border-radius);
+	outline: var(--code-border-thickness) solid var(--color-border);
 }
 
 hr {
@@ -209,7 +216,6 @@ hr {
 
 :focus-visible {
 	outline: var(--border-thickness-focus) solid var(--color-focus);
-	outline-offset: calc(1.125 * var(--border-thickness-focus));
 }
 
 :target {

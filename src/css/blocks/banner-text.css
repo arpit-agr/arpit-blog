@@ -1,6 +1,6 @@
 .banner-text {
 	position: relative;
-	padding-block-start: var(--space-m);
+	padding-block-start: var(--space-s-l);
 	padding-inline: var(--gutter);
 	font-family: var(--font-cursive);
 	color: var(--color-accent);

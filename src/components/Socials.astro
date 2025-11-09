@@ -1,0 +1,39 @@
+---
+const socialLinks = [
+	{
+		label: "Bluesky",
+		href: "https://bsky.app/profile/arpit.codes",
+	},
+	{
+		label: "Mastodon",
+		href: "https://indieweb.social/@arpit",
+	},
+	{
+		label: "GitHub",
+		href: "https://github.com/arpit-agr",
+	},
+	{
+		label: "CodePen",
+		href: "https://codepen.io/arpit-codes",
+	},
+	{
+		label: "LinkedIn",
+		href: "https://www.linkedin.com/in/arpit-codes/",
+	},
+];
+---
+
+<div class="center p-space-m">
+	<div class="stack align-self-start">
+		<h2 class="heading-3">Elsewhere on the Web</h2>
+		<ul>
+			{
+				socialLinks.map((link) => (
+					<li>
+						<a href={link.href}>{link.label}</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</div>
