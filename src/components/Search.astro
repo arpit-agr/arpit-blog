@@ -1,0 +1,48 @@
+<!-- 🚨 not ready for production -->
+<div class="center p-space-m">
+	<div class="stack align-self-stretch">
+		<search class="align-self-stretch">
+			<form class="stack text-step--1" action="./search/">
+				<label class="heading-3 text-box-trim" for="movie">Search</label>
+				<div class="align-self-stretch">
+					<input class="text-box-trim" type="search" id="movie" name="q" />
+					<button class="text-box-trim align-self-stretch" type="submit">
+						Search
+					</button>
+				</div>
+			</form>
+		</search>
+		<ul>
+			<li>
+				Read the <a href="#">Archive</a>
+			</li>
+			<li>
+				Browse the <a href="#">Tags</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<style is:global>
+	@layer exceptions {
+		search {
+			label + div {
+				display: flex;
+				gap: var(--border-thickness-s);
+				/*outline: var(--border-thickness-s) solid var(--color-border);*/
+				border-radius: var(--btn-border-radius);
+			}
+
+			input {
+				flex-grow: 99;
+				border-radius: var(--btn-border-radius) 0 0 var(--btn-border-radius);
+			}
+
+			button {
+				flex-shrink: 0;
+				min-inline-size: 9ch;
+				border-radius: 0 var(--btn-border-radius) var(--btn-border-radius) 0;
+			}
+		}
+	}
+</style>
