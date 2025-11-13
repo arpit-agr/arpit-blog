@@ -23,19 +23,21 @@ const rssLinks = [
 ];
 ---
 
-<div class="center p-space-m">
-	<div class="stack">
-		<h2 class="heading-3">Subscribe via RSS</h2>
-		<ul>
-			{
-				rssLinks.map((link) => (
-					<li class="text-balance">
-						<a href={link.href} type="application/rss+xml" title={link.title}>
-							{link.label}
-						</a>
-					</li>
-				))
-			}
-		</ul>
+<div>
+	<div class="center p-space-m">
+		<div class="stack align-self-start">
+			<h2 class="heading-3">Subscribe via RSS</h2>
+			<ul class="text-step-cq-17-19">
+				{
+					rssLinks.map((link) => (
+						<li class="text-balance">
+							<a href={link.href} type="application/rss+xml" title={link.title}>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
 	</div>
 </div>
