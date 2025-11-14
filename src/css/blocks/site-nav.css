@@ -1,75 +1,59 @@
 .site-header {
-	position: relative;
-	z-index: 2;
-	background: var(--color-bg-primary);
-	border-block-end: var(--border-thickness-separator) solid var(--color-border);
-
-	> div {
-		margin-inline: max(
-			0px,
-			calc((100vw - var(--center-max-width)) / 2) - var(--gutter)
-		);
-		padding-inline: var(--gutter);
-
-		@media (--layout-with-sidebar) {
-			margin-inline: 0px;
-		}
-	}
-}
-
-.profile {
-	img {
-		block-size: 1lh;
-		aspect-ratio: 1;
-		object-fit: contain;
-		object-position: left;
-	}
+  position: relative;
+  z-index: 2;
+  background: var(--color-bg-primary);
+  border-block-end: var(--border-thickness-separator) solid var(--color-border);
 }
 
 .site-nav {
-	> ul {
-		--cluster-gap: var(--space-s) 0;
-		padding-block: 0.75lh;
-	}
+  padding-inline: var(--gutter);
 
-	a {
-		position: relative;
-		display: block;
+  > ul {
+    --cluster-gap: 0px;
+  }
 
-		&::after {
-			content: "";
-			position: absolute;
-			inset-block: calc(-1 * 0.75lh);
-			inset-inline: 0;
-		}
+  li:not(.home-nav-item) a {
+    display: block;
+  }
+}
 
-		svg {
-			position: absolute;
-			inset-block-start: 50%;
-			inset-inline-start: 50%;
-			transform: translate(-50%, -50%);
-			inline-size: 100%;
-			block-size: 300%;
-			fill: none;
-			stroke-linecap: round;
-			stroke-dasharray: var(--offset, 69px) 278px;
-			stroke-dashoffset: 361px;
-			stroke-width: var(--border-thickness-l);
-			/*view-transition-name: circle;*/
-		}
-	}
+.nav-item {
+  a {
+    position: relative;
+    padding: var(--space-m) var(--space-2xs);
 
-	li:first-child a::after {
-		inset-inline-start: -1lh;
-	}
+    svg {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+      inline-size: 100%;
+      block-size: 75%;
+      fill: none;
+      stroke-linecap: round;
+      stroke-dasharray: var(--offset, 69px) 278px;
+      stroke-dashoffset: 361px;
+      stroke-width: var(--border-thickness-l);
+      /*view-transition-name: circle;*/
+    }
+  }
 
-	[aria-current="page"],
-	[data-state="active"] {
-		--offset: 180px;
+  [aria-current="page"],
+  [data-state="active"] {
+    --offset: 180px;
 
-		path {
-			stroke: currentColor;
-			/*stroke: var(--color-border);*/
-		}
-	}
+    path {
+      stroke: currentColor;
+      /*stroke: var(--color-border);*/
+    }
+  }
+}
+
+.home-nav-item a::after {
+  /* 19/27 is the rendered aspect-ratio of the avatar */
+  inset-inline-start: calc(-1lh * 19 / 27);
+}
+
+.avatar {
+  block-size: 1lh;
 }
