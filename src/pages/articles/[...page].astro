@@ -4,6 +4,7 @@ import { loadAndFormatCollection } from "@utils/collection";
 import { render } from "astro:content";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
+import BannerText from "@components/BannerText.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import FeedHeader from "@components/FeedHeader.astro";
 import PaginatedEntries from "@components/PaginatedEntries.astro";
@@ -17,7 +18,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 const { page } = Astro.props;
 const entries = await Promise.all(
-	page.data.map(async (entry) => {
+	page.data.map(async (entry: any) => {
 		const { Content } = await render(entry);
 		return { ...entry, Content };
 	}),
@@ -30,6 +31,7 @@ const entries = await Promise.all(
 	pageDesc={ARTICLES_DESCRIPTION}
 	ogType="website"
 >
+	<BannerText />
 	<div class="page">
 		<SiteHeader />
 		<div class="page-inner">

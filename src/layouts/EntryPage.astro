@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import BannerText from "@components/BannerText.astro";
 import SiteHeader from "@components/SiteHeader.astro";
-import EntryNavback from "@components/EntryNavBack.astro";
+import BackLink from "@components/BackLink.astro";
 import PubDate from "@components/PubDate.astro";
 import UpdatedDate from "@components/UpdatedDate.astro";
 import LinkVia from "@components/LinkVia.astro";
@@ -25,6 +26,7 @@ const {
 	pageTitle={pageTitle}
 	pageDesc={SITE_DESCRIPTION}
 >
+	<BannerText />
 	<div class="page">
 		<SiteHeader />
 		<div class="page-inner">
@@ -94,7 +96,7 @@ const {
 							<p>TODO: Add comments</p>
 						</details> -->
 						</div>
-						<EntryNavback />
+						<BackLink />
 					</div>
 				</div>
 			</div>

@@ -4,6 +4,7 @@ import { loadAllEntries } from "@utils/loadAllEntries";
 import { render } from "astro:content";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
+import BannerText from "@components/BannerText.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import PaginatedEntries from "@components/PaginatedEntries.astro";
 import Aside from "@components/Aside.astro";
@@ -29,8 +30,8 @@ const entries = await Promise.all(
 	pageTitle={SITE_TITLE}
 	pageDesc={SITE_DESCRIPTION}
 	ogType="website"
-	bannerTextAs="h1"
 >
+	<BannerText as="h1" />
 	<div class="page">
 		<SiteHeader />
 		<div class="page-inner">
