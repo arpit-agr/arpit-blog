@@ -1,0 +1,30 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { SITE_TITLE } from "src/consts";
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	label?: string;
+	"aria-current"?: string | null;
+	"data-state"?: string | null;
+}>;
+const {
+	as: Tag = "div",
+	label = SITE_TITLE,
+	"aria-current": ariaCurrent,
+	"data-state": dataState,
+	...rest
+} = Astro.props;
+---
+
+<Tag class="home-nav-item nav-item heading-3 cluster gap-0" {...rest}>
+	<img class="avatar" src="/images/arpit-96w.png" alt="" />
+	<a
+		class="text-box-trim"
+		href="/"
+		aria-current={ariaCurrent}
+		data-state={dataState}
+	>
+		<span>{label}</span>
+		<slot />
+	</a>
+</Tag>
