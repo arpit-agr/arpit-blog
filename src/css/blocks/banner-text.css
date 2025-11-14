@@ -1,10 +1,22 @@
 .banner-text {
-	position: relative;
-	padding-block-start: var(--space-s-l);
-	padding-inline: var(--gutter);
-	font-family: var(--font-cursive);
-	color: var(--color-accent);
-	pointer-events: none;
-	overflow-x: clip;
-	z-index: 3;
+  position: relative;
+  padding-block-start: var(--space-s-l);
+  padding-inline: var(--gutter);
+  font-family: var(--font-cursive);
+  color: var(--color-accent);
+  overflow-x: clip;
+  z-index: 3;
+
+  a {
+    position: absolute;
+    inset: 0;
+
+    &:focus-visible {
+      outline-offset: calc(-1 * var(--border-thickness-focus));
+    }
+  }
+
+  .text-fit > span:first-child {
+    pointer-events: none;
+  }
 }
