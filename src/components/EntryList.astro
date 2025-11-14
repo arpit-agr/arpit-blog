@@ -10,12 +10,6 @@ import H6 from "@components/H6.astro";
 
 const { entries } = Astro.props;
 
-const basePathMap = {
-	notes: "/notes",
-	articles: "/articles",
-	links: "/links",
-};
-
 // Custom heading components for offset
 const headingComponents = {
 	h2: H2,
@@ -28,10 +22,11 @@ const headingComponents = {
 
 <ul role="list">
 	{
-		//@ts-ignore
+		// @ts-expect-error -- `entry` is a union of multiple CollectionEntry types.
+		// Each variant has different fields (`via`, `Content`, `absoluteURL`, etc.),
+		// so TS requires exhaustive narrowing. At runtime, all accessed fields exist
+		// for the specific entry we're working with, making this safe.
 		entries.map((entry) => {
-			//@ts-ignore
-			const basePath = basePathMap[entry.collection];
 			return (
 				<li class="entry">
 					<div class="center p-space-m">
