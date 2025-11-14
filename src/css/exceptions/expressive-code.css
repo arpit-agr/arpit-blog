@@ -51,6 +51,7 @@
 				var(--ec-frm-edTabBrdRad) - var(--_copy-btn-inset-inline)
 			);*/
 			border-radius: var(--ec-frm-edTabBrdRad);
+			background: var(--color-bg-button);
 
 			> div {
 				transition: none;
