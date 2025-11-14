@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { glob, file } from "astro/loaders";
 import { rssSchema } from "@astrojs/rss";
 /* https://github.com/withastro/astro/blob/main/packages/astro-rss/src/schema.ts */
 
@@ -53,4 +53,17 @@ const links = defineCollection({
 		})),
 });
 
-export const collections = { notes, articles, links };
+const books = defineCollection({
+	loader: file("src/data/books.json"),
+	schema: z.object({
+		id: z.string(),
+		title: z.string(),
+		subtitle: z.string().optional(),
+		author: z.string(),
+		cover: z.string(),
+		tags: z.array(z.string()),
+		status: z.enum(["unread", "read", "reading"]).default("unread"),
+	}),
+});
+
+export const collections = { notes, articles, links, books };
