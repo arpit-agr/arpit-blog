@@ -1,0 +1,5 @@
+.back-link {
+  display: block;
+  border-block-start: var(--border-thickness-separator) solid
+    var(--color-border);
+}
