@@ -15,7 +15,7 @@ While exploring the [source code](https://github.com/WebOrigami/pondlife-zero-de
 ```js
 // For sorting in natural order
 const naturalOrder = new Intl.Collator(undefined, {
-  numeric: true,
+	numeric: true,
 }).compare;
 ```
 
@@ -79,7 +79,7 @@ However, the simple `(a - b)` approach works reliably only for pure numbers. Wha
 
 ```js
 const naturalOrder = new Intl.Collator(undefined, {
-  numeric: true,
+	numeric: true,
 }).compare;
 
 // Note: Passing `undefined` as the locale uses the default locale of the browser's runtime.

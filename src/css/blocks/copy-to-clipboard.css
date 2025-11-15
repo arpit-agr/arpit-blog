@@ -1,8 +1,8 @@
 copy-to-clipboard:not(:defined) button {
-  cursor: not-allowed;
-  opacity: 0.37;
+	cursor: not-allowed;
+	opacity: 0.37;
 }
 
 copy-to-clipboard button {
-  min-inline-size: 9ch;
+	min-inline-size: 9ch;
 }

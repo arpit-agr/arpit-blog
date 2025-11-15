@@ -1,0 +1,6 @@
+.astro
+.netlify
+.vscode
+dist
+node_modules
+public

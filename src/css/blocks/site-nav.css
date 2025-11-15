@@ -1,59 +1,59 @@
 .site-header {
-  position: relative;
-  z-index: 2;
-  background: var(--color-bg-primary);
-  border-block-end: var(--border-thickness-separator) solid var(--color-border);
+	position: relative;
+	z-index: 2;
+	background: var(--color-bg-primary);
+	border-block-end: var(--border-thickness-separator) solid var(--color-border);
 }
 
 .site-nav {
-  padding-inline: var(--gutter);
+	padding-inline: var(--gutter);
 
-  > ul {
-    --cluster-gap: 0px;
-  }
+	> ul {
+		--cluster-gap: 0px;
+	}
 
-  li:not(.home-nav-item) a {
-    display: block;
-  }
+	li:not(.home-nav-item) a {
+		display: block;
+	}
 }
 
 .nav-item {
-  a {
-    position: relative;
-    padding: var(--space-m) var(--space-2xs);
+	a {
+		position: relative;
+		padding: var(--space-m) var(--space-2xs);
 
-    svg {
-      position: absolute;
-      inset-block-start: 50%;
-      inset-inline-start: 50%;
-      transform: translate(-50%, -50%);
-      inline-size: 100%;
-      block-size: 75%;
-      fill: none;
-      stroke-linecap: round;
-      stroke-dasharray: var(--offset, 69px) 278px;
-      stroke-dashoffset: 361px;
-      stroke-width: var(--border-thickness-l);
-      /*view-transition-name: circle;*/
-    }
-  }
+		svg {
+			position: absolute;
+			inset-block-start: 50%;
+			inset-inline-start: 50%;
+			transform: translate(-50%, -50%);
+			inline-size: 100%;
+			block-size: 75%;
+			fill: none;
+			stroke-linecap: round;
+			stroke-dasharray: var(--offset, 69px) 278px;
+			stroke-dashoffset: 361px;
+			stroke-width: var(--border-thickness-l);
+			/*view-transition-name: circle;*/
+		}
+	}
 
-  [aria-current="page"],
-  [data-state="active"] {
-    --offset: 180px;
+	[aria-current="page"],
+	[data-state="active"] {
+		--offset: 180px;
 
-    path {
-      stroke: currentColor;
-      /*stroke: var(--color-border);*/
-    }
-  }
+		path {
+			/* stroke: currentColor; */
+			stroke: var(--color-border);
+		}
+	}
 }
 
 .home-nav-item a::after {
-  /* 19/27 is the rendered aspect-ratio of the avatar */
-  inset-inline-start: calc(-1lh * 19 / 27);
+	/* 19/27 is the rendered aspect-ratio of the avatar */
+	inset-inline-start: calc(-1lh * 19 / 27);
 }
 
 .avatar {
-  block-size: 1lh;
+	block-size: 1lh;
 }

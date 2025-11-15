@@ -14,7 +14,7 @@ Thanks to [Kevin Powell](https://youtube.com/watch?v=x3MTfp3HDLc&t=506), today I
 
 ```css
 a {
-  text-decoration-line: underline overline; /* We can set multiple line-decoration properties at once */
-  text-underline-offset: 16px; /* Only impacts underline */
+	text-decoration-line: underline overline; /* We can set multiple line-decoration properties at once */
+	text-underline-offset: 16px; /* Only impacts underline */
 }
 ```
