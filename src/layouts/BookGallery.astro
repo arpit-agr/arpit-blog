@@ -1,0 +1,117 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HomeNavItem from "@components/HomeNavItem.astro";
+import Circle from "@images/circle.svg";
+import BookCover from "@components/BookCover.astro";
+
+import { getCollection } from "astro:content";
+import { slug } from "github-slugger";
+
+type Props = {
+	pageTitle: string;
+	pageDesc: string;
+	sectionDesc: string;
+	filterStatuses: string[];
+};
+
+const { pageTitle, pageDesc, sectionDesc, filterStatuses } = Astro.props;
+
+// Determine which page we're on
+const path = Astro.url.pathname;
+const isLibraryPage = path.includes("/library/");
+
+// Fetch and filter books
+const books = await getCollection("books", ({ data }) =>
+	filterStatuses.includes(data.status)
+);
+
+const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
+---
+
+<BaseLayout bodyClass="book-gallery" pageTitle={pageTitle} pageDesc={pageDesc}>
+	<div class="flow p-space-m">
+		<header>
+			<nav class="sidebar">
+				<HomeNavItem />
+			</nav>
+			<div class="flow">
+				<div class="heading-group cluster gap-xs">
+					{
+						isLibraryPage ? (
+							<Fragment>
+								<h1>
+									<span>Library</span>
+									<Circle />
+								</h1>
+								<div class="separator" aria-hidden="true" />
+								<a class="heading-1 text-box-trim" href="/antilibrary/">
+									Antilibrary
+								</a>
+							</Fragment>
+						) : (
+							<Fragment>
+								<a class="heading-1 text-box-trim" href="/library/">
+									Library
+								</a>
+								<div class="separator" aria-hidden="true" />
+								<h1>
+									<span>Antilibrary</span>
+									<Circle />
+								</h1>
+							</Fragment>
+						)
+					}
+				</div>
+				<p class="text-step-1 text-box-trim">
+					{sectionDesc}
+				</p>
+			</div>
+		</header>
+		<main class="flow" id="main">
+			<fieldset class="book-filters flow text-step--1" disabled>
+				<legend>Filter:</legend>
+				<div class="cluster">
+					<div class="btn cluster gap-0">
+						<input name="filter" id="all" type="radio" value="all" checked="" />
+						<label class="text-box-trim" for="all">All</label>
+					</div>
+					{
+						uniqueTags.map((tag) => {
+							const tagID = `tag-${slug(tag)}`;
+							return (
+								<div class="btn cluster gap-0">
+									<input name="filter" id={tagID} type="radio" value={tag} />
+									<label class="text-box-trim" for={tagID}>
+										{tag}
+									</label>
+								</div>
+							);
+						})
+					}
+				</div>
+			</fieldset>
+			<ul class="book-list grid" role="list">
+				{
+					books.map((item, index) => {
+						const loadingValue = index < 10 ? "eager" : "lazy";
+						const viewTransitionName = `book-${item.id}`;
+						return (
+							<li
+								data-tags={item.data.tags}
+								style={{ "view-transition-name": viewTransitionName }}
+							>
+								<BookCover imagePath={item.data.cover} loading={loadingValue} />
+								<div class="stack gap-2xs">
+									<h2 class="heading-3">{item.data.title}</h2>
+									<p class="text-step--1">{item.data.author}</p>
+								</div>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</main>
+	</div>
+</BaseLayout>
+
+<script src="/src/scripts/book-filters.js"></script>

@@ -1,0 +1,11 @@
+---
+import BookGallery from "@layouts/BookGallery.astro";
+import { ANTILIBRARY_TITLE, ANTILIBRARY_DESCRIPTION } from "src/consts";
+---
+
+<BookGallery
+	pageTitle={ANTILIBRARY_TITLE}
+	pageDesc={ANTILIBRARY_DESCRIPTION}
+	sectionDesc="Books I own but haven’t yet read"
+	filterStatuses={["unread"]}
+/>

@@ -1,0 +1,55 @@
+.book-gallery {
+	header {
+		--sidebar-min-width: auto;
+		--sidebar-gap: var(--space-l) var(--space-4xl);
+		flex-direction: row-reverse;
+		align-items: first baseline;
+
+		h1 {
+			position: relative;
+
+			svg {
+				--offset: 180px;
+				position: absolute;
+				inset-block-start: 50%;
+				inset-inline-start: 50%;
+				transform: translate(-50%, -50%);
+				inline-size: 100%;
+				block-size: 200%;
+				fill: none;
+				stroke-linecap: round;
+				stroke-dasharray: var(--offset, 69px) 278px;
+				stroke-dashoffset: 361px;
+				stroke-width: var(--border-thickness-l);
+				z-index: -1;
+			}
+
+			path {
+				stroke: var(--color-border);
+			}
+		}
+
+		p {
+			--flow-space: var(--space-xs);
+		}
+	}
+
+	.home-nav-item a {
+		padding-block: 0px;
+		padding-inline-end: 0px;
+	}
+
+	.heading-group a:not(:hover, :focus-visible) {
+		opacity: 0.6;
+	}
+
+	.separator {
+		inline-size: var(--border-thickness-l);
+		block-size: var(--space-xl);
+		background-color: var(--color-border);
+	}
+
+	main {
+		--flow-space: var(--space-xl);
+	}
+}
