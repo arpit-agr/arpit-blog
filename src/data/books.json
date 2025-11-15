@@ -21,7 +21,7 @@
 		"id": "a-short-history-of-nearly-everything",
 		"title": "A Short History of Nearly Everything",
 		"author": "Bill Bryson",
-		"tags": ["Popular Science", "Non-fiction"],
+		"tags": ["Popular science", "Non-fiction"],
 		"cover": "/src/images/book-covers/a-short-history-of-nearly-everything.jpeg",
 		"spineColor": "hsl(230deg 55% 31%)"
 	},
@@ -73,7 +73,7 @@
 		"id": "bad-science",
 		"title": "Bad Science",
 		"author": "Ben Goldacre",
-		"tags": ["Popular Science", "Non-fiction"],
+		"tags": ["Popular science", "Non-fiction"],
 		"cover": "/src/images/book-covers/bad-science.jpg",
 		"spineColor": "hsl(353deg 95% 46%)"
 	},
@@ -445,7 +445,7 @@
 		"title": "What If",
 		"subtitle": "Serious Scientific Answers to Absurd Hypothetical Questions",
 		"author": "Randall Munroe",
-		"tags": ["Popular Science", "Non-fiction"],
+		"tags": ["Popular science", "Non-fiction"],
 		"cover": "/src/images/book-covers/what-if.jpeg",
 		"spineColor": "hsl(354deg 99% 38%)"
 	},

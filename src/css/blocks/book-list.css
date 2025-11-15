@@ -76,4 +76,9 @@
 		block-size: auto;
 		border-radius: var(--_book-cover-radius);
 	}
+
+	.cover + * {
+		position: relative;
+		z-index: 1;
+	}
 }
