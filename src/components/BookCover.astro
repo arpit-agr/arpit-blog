@@ -22,6 +22,8 @@ if (!images[imagePath])
 		src={images[imagePath]()}
 		alt=""
 		formats={["avif", "webp"]}
+		widths={[300, 600]}
+		sizes={`(max-width: 22.9375rem) 100vw, (max-width: 34.75rem) 50vw, (max-width: 47.1875rem) 33vw, (max-width: 60.3125rem) 25vw, 20vw`}
 		loading={loading}
 	/>
 </div>
