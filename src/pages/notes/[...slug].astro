@@ -4,14 +4,16 @@ import { type CollectionEntry, render } from "astro:content";
 import EntryPage from "@layouts/EntryPage.astro";
 import { NOTES_TITLE } from "src/consts";
 
+type NotesEntry = CollectionEntry<"notes">;
+
 export async function getStaticPaths() {
-	const posts = await loadAndFormatCollection("notes");
-	return posts.map((post: any) => ({
+	const posts = await loadAndFormatCollection("notes") as NotesEntry[];
+	return posts.map((post) => ({
+		// @ts-expect-error
 		params: { slug: post.relativeURL },
 		props: post,
 	}));
 }
-type Props = CollectionEntry<"notes">;
 
 const entry = Astro.props;
 const { Content } = await render(entry);

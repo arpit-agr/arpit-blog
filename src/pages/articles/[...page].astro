@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
 import { loadAndFormatCollection } from "@utils/collection";
 import { render } from "astro:content";
 
@@ -11,14 +12,16 @@ import PaginatedEntries from "@components/PaginatedEntries.astro";
 import Aside from "@components/Aside.astro";
 import { ARTICLES_TITLE, ARTICLES_DESCRIPTION } from "src/consts";
 
+type ArticleEntry = CollectionEntry<"articles">;
+
 export const getStaticPaths = (async ({ paginate }) => {
-	const allEntries = await loadAndFormatCollection("articles");
+	const allEntries = await loadAndFormatCollection("articles") as ArticleEntry[];
 	return paginate(allEntries, { pageSize: 20 });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
 const entries = await Promise.all(
-	page.data.map(async (entry: any) => {
+	page.data.map(async (entry) => {
 		const { Content } = await render(entry);
 		return { ...entry, Content };
 	}),

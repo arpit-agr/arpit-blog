@@ -4,14 +4,16 @@ import { type CollectionEntry, render } from "astro:content";
 import EntryPage from "@layouts/EntryPage.astro";
 import { LINKS_TITLE } from "src/consts";
 
+type LinksEntry = CollectionEntry<"links">;
+
 export async function getStaticPaths() {
-	const posts = await loadAndFormatCollection("links");
-	return posts.map((post: any) => ({
+	const posts = await loadAndFormatCollection("links") as LinksEntry[];
+	return posts.map((post) => ({
+		// @ts-expect-error
 		params: { slug: post.relativeURL },
 		props: post,
 	}));
 }
-type Props = CollectionEntry<"links">;
 
 const entry = Astro.props;
 const { Content } = await render(entry);

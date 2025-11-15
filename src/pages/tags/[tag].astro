@@ -22,11 +22,11 @@ export async function getStaticPaths() {
 	);
 
 	const uniqueTags = [
-		...new Set(renderedEntries.map((entry: any) => entry.data.tags).flat()),
+		...new Set(renderedEntries.map((entry) => entry.data.tags).flat()),
 	];
 
 	return uniqueTags.map((tag) => {
-		const filteredEntries = renderedEntries.filter((entry: any) =>
+		const filteredEntries = renderedEntries.filter((entry) =>
 			entry.data.tags.includes(tag),
 		);
 		return {
