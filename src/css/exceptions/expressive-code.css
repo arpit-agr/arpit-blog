@@ -42,6 +42,7 @@
 	.copy {
 		inset-block-start: var(--ec-codePadBlk);
 		inset-inline-end: var(--ec-codePadBlk);
+		box-shadow: inset 1lh 1lh var(--color-bg-primary);
 
 		button {
 			block-size: calc(var(--code-font-size) * var(--leading-relaxed));
