@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import BookCover from "@components/BookCover.astro";
+
+// Fetch and filter books
+const books = await getCollection("books", (entry) => {
+	return entry.data.status === "reading";
+});
+---
+
+{
+	!!books.length && (
+		<div class="currently-reading">
+			<div class="center p-space-m">
+				<div class="stack align-self-stretch">
+					<header class="repel align-self-stretch">
+						<h2 class="heading-3">Currently Reading</h2>
+						<a class="text-step--1 text-box-trim-start" href="/library/">
+							View Library
+						</a>
+					</header>
+					<ul class="books-container grid align-self-stretch" role="list">
+						{books.map((item) => {
+							return (
+								<li class="book box">
+									<div class="stack gap-xs">
+										<h3 class="aside-text-step-1 font-medium">
+											{item.data.title}
+										</h3>
+										<p class="text-step--1 text-box-trim">{item.data.author}</p>
+									</div>
+									<BookCover
+										imagePath={item.data.cover}
+										widths={[128, 256]}
+										sizes="128px"
+										priority={true}
+									/>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
+			</div>
+		</div>
+	)
+}

@@ -43,17 +43,7 @@
 		--offset: 180px;
 
 		path {
-			/* stroke: currentColor; */
-			stroke: var(--color-border);
+			stroke: currentColor;
 		}
 	}
-}
-
-.home-nav-item a::after {
-	/* 19/27 is the rendered aspect-ratio of the avatar */
-	inset-inline-start: calc(-1lh * 19 / 27);
-}
-
-.avatar {
-	block-size: 1lh;
 }

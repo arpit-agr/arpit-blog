@@ -1,6 +1,10 @@
 ---
 import type { HTMLTag, Polymorphic } from "astro/types";
+import { Picture } from "astro:assets";
+
 import { SITE_TITLE } from "src/consts";
+import myImage from "@images/arpit-96w.png"; // Image is 1600x900
+
 type Props<Tag extends HTMLTag> = Polymorphic<{
 	as: Tag;
 	label?: string;
@@ -17,7 +21,14 @@ const {
 ---
 
 <Tag class="home-nav-item nav-item heading-3 cluster gap-0" {...rest}>
-	<img class="avatar" src="/images/arpit-96w.png" alt="" />
+	<Picture
+		src={myImage}
+		alt=""
+		widths={[24, 48, myImage.width]}
+		sizes="24px"
+		pictureAttributes={{ class: "avatar" }}
+		priority={true}
+	/>
 	<a
 		class="text-box-trim"
 		href="/"

@@ -16,69 +16,70 @@
 	}
 
 	.cover {
-		--_book-cover-radius: 3px 4px 4px 3px;
-		--_shadow-strength: 15%;
-		--_box-shadow:
-			0 -1px 2px 0 hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 2%)),
-			0 3px 2px -2px
-				hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 3%)),
-			0 7px 5px -2px
-				hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 3%)),
-			0 12px 10px -2px
-				hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 4%)),
-			0 22px 18px -2px
-				hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 5%)),
-			0 41px 33px -2px
-				hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 6%)),
-			0 100px 80px -2px
-				hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 7%));
-
-		position: relative;
 		align-self: end;
-		border-radius: var(--_book-cover-radius);
-		box-shadow: var(--_box-shadow);
-
-		/*@media (prefers-color-scheme: dark) {
-			box-shadow: none;
-		}*/
-
-		&:before,
-		&:after {
-			content: "";
-			position: absolute;
-			border-radius: var(--_book-cover-radius);
-			pointer-events: none;
-		}
-
-		/* inset shadow over the book cover */
-		&:before {
-			inset: 0;
-			box-shadow: inset var(--space-4xs) calc(-1 * var(--space-5xs))
-				var(--space-3xs) rgb(0 0 0 / 0.25);
-			background-image: linear-gradient(to top, rgb(0 0 0 / 0.1), white);
-			mix-blend-mode: multiply;
-		}
-
-		/* spine */
-		&:after {
-			inset-block-start: 0;
-			inset-inline-start: 4%;
-			inline-size: var(--space-4xs);
-			block-size: 100%;
-			background: rgba(0, 0, 0, 0.06);
-			box-shadow: var(--space-5xs) 0 var(--space-4xs) rgba(255, 255, 255, 0.25);
-		}
-	}
-
-	.cover,
-	.cover :where(picture, img) {
-		inline-size: 100%;
-		block-size: auto;
-		border-radius: var(--_book-cover-radius);
 	}
 
 	.cover + * {
 		position: relative;
 		z-index: 1;
 	}
+}
+
+.cover {
+	--_book-cover-radius: 3px 4px 4px 3px;
+	--_shadow-strength: 15%;
+	--_box-shadow:
+		0 -1px 2px 0 hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 2%)),
+		0 3px 2px -2px hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 3%)),
+		0 7px 5px -2px hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 3%)),
+		0 12px 10px -2px
+			hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 4%)),
+		0 22px 18px -2px
+			hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 5%)),
+		0 41px 33px -2px
+			hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 6%)),
+		0 100px 80px -2px
+			hsl(var(--shadow-color) / calc(var(--_shadow-strength) + 7%));
+
+	position: relative;
+	border-radius: var(--_book-cover-radius);
+	box-shadow: var(--_box-shadow);
+
+	/*@media (prefers-color-scheme: dark) {
+			box-shadow: none;
+		}*/
+
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		border-radius: var(--_book-cover-radius);
+		pointer-events: none;
+	}
+
+	/* inset shadow over the book cover */
+	&:before {
+		inset: 0;
+		box-shadow: inset var(--space-4xs) calc(-1 * var(--space-5xs))
+			var(--space-3xs) rgb(0 0 0 / 0.25);
+		background-image: linear-gradient(to top, rgb(0 0 0 / 0.1), white);
+		mix-blend-mode: multiply;
+	}
+
+	/* spine */
+	&:after {
+		inset-block-start: 0;
+		inset-inline-start: 4%;
+		inline-size: var(--space-4xs);
+		block-size: 100%;
+		background: rgba(0, 0, 0, 0.06);
+		box-shadow: var(--space-5xs) 0 var(--space-4xs) rgba(255, 255, 255, 0.25);
+	}
+}
+
+.cover,
+.cover :where(picture, img) {
+	inline-size: 100%;
+	block-size: auto;
+	border-radius: var(--_book-cover-radius);
 }

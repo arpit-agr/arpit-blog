@@ -210,7 +210,12 @@ pre {
 	outline: var(--code-border-thickness) solid var(--color-border);
 }
 
-hr {
+/* hr {
+	inline-size: 100%;
+	color: var(--color-border);
+} */
+
+/* hr {
 	position: relative;
 	border-color: #0000;
 
@@ -224,7 +229,7 @@ hr {
 		inline-size: 100%;
 		block-size: var(--border-thickness-separator);
 	}
-}
+} */
 
 ::selection {
 	background-color: var(--color-bg-selection);
@@ -235,5 +240,5 @@ hr {
 }
 
 :target {
-	scroll-margin-block-start: calc(var(--space-m) + 1lh + var(--space-m));
+	scroll-margin-block-start: calc(var(--space-m) + 1ex + var(--space-m));
 }

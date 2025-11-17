@@ -1,10 +1,5 @@
 .book-gallery {
 	header {
-		--sidebar-min-width: auto;
-		--sidebar-gap: var(--space-l) var(--space-4xl);
-		flex-direction: row-reverse;
-		align-items: first baseline;
-
 		h1 {
 			position: relative;
 
@@ -14,8 +9,9 @@
 				inset-block-start: 50%;
 				inset-inline-start: 50%;
 				transform: translate(-50%, -50%);
-				inline-size: 100%;
-				block-size: 200%;
+				max-inline-size: unset;
+				inline-size: 112.5%;
+				block-size: 250%;
 				fill: none;
 				stroke-linecap: round;
 				stroke-dasharray: var(--offset, 69px) 278px;
@@ -25,27 +21,44 @@
 			}
 
 			path {
-				stroke: var(--color-border);
+				stroke: currentColor;
 			}
 		}
 
 		p {
-			--flow-space: var(--space-xs);
+			--flow-space: var(--space-m);
 		}
 	}
 
-	.home-nav-item a {
-		padding-block: 0px;
-		padding-inline-end: 0px;
-	}
+	.heading-group {
+		position: relative;
 
-	.heading-group a:not(:hover, :focus-visible) {
-		opacity: 0.6;
+		> * {
+			flex-shrink: 0;
+		}
+
+		&::after {
+			content: "";
+			flex-grow: 999;
+			flex-shrink: 1;
+			block-size: var(--border-thickness-separator);
+			background: var(--color-border);
+			z-index: -1;
+		}
+
+		a:not(:hover, :focus-visible) {
+			opacity: 0.6;
+		}
+
+		h1 span {
+			-webkit-text-stroke: var(--space-3xs) var(--color-bg-primary);
+			paint-order: stroke fill;
+		}
 	}
 
 	.separator {
 		inline-size: var(--border-thickness-l);
-		block-size: var(--space-xl);
+		block-size: var(--space-l);
 		background-color: var(--color-border);
 	}
 

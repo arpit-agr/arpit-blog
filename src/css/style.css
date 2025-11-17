@@ -22,6 +22,7 @@
 @import url(/src/css/blocks/skip-to-content.css) layer(blocks);
 @import url(/src/css/blocks/banner-text.css) layer(blocks);
 @import url(/src/css/blocks/site-nav.css) layer(blocks);
+@import url(/src/css/blocks/home-nav-item.css) layer(blocks);
 @import url(/src/css/blocks/feed-header.css) layer(blocks);
 @import url(/src/css/blocks/pagination-control.css) layer(blocks);
 @import url(/src/css/blocks/link-entry-title.css) layer(blocks);
@@ -30,6 +31,7 @@
 @import url(/src/css/blocks/back-link.css) layer(blocks);
 @import url(/src/css/blocks/book-list.css) layer(blocks);
 @import url(/src/css/blocks/book-filters.css) layer(blocks);
+@import url(/src/css/blocks/currently-reading.css) layer(blocks);
 @import url(/src/css/utilities/region.css) layer(utilities);
 @import url(/src/css/utilities/visually-hidden.css) layer(utilities);
 @import url(/src/css/utilities/text-fit.css) layer(utilities);

@@ -1,0 +1,15 @@
+.home-nav-item a::after {
+	--_inline-size: calc(1lh * 19 / 27);
+
+	content: "";
+	position: absolute;
+	inset-block: 0;
+	/* 19/27 is the rendered aspect-ratio of the avatar */
+	inset-inline-start: calc(-1 * var(--_inline-size));
+	inline-size: var(--_inline-size);
+}
+
+.avatar img {
+	block-size: 1lh;
+	inline-size: auto;
+}

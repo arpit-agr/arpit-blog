@@ -1,0 +1,32 @@
+.currently-reading {
+	header {
+		--repel-vertical-alignment: baseline;
+	}
+
+	.books-container {
+		--grid-min-item-size: 16.2rem;
+		--grid-row-gap: var(--space-s);
+		--grid-column-gap: var(--space-m);
+	}
+
+	.book {
+		--box-padding: var(--space-xs);
+		display: grid;
+		grid-template-columns: 1fr min(33cqi, var(--space-5xl));
+		gap: var(--space-xs);
+		border-radius: var(--border-radius);
+		overflow-y: clip;
+	}
+
+	.cover {
+		position: relative;
+		translate: 0 var(--space-3xs);
+		rotate: 4deg;
+
+		> * {
+			position: absolute;
+			inset-inline-start: 0;
+			inset-block-start: 0;
+		}
+	}
+}
