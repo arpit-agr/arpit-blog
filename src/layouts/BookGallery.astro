@@ -93,8 +93,9 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 			<ul class="book-list grid" role="list">
 				{
 					books.map((item, index) => {
-						const priority = index < 10 ? true : false;
 						const viewTransitionName = `book-${item.id}`;
+						const priority = index < 10 ? true : false;
+						const rotationAngle = Math.round(Math.random() * (2 - -2) - 2);
 						return (
 							<li
 								data-tags={item.data.tags}
@@ -103,8 +104,9 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 								<BookCover
 									imagePath={item.data.cover}
 									widths={[315, 630]}
-									sizes="(width < 23rem) 100vw, (width <= 34.75rem) 50vw, (width < 47.25rem) 33vw, (width < 60.375rem) 25vw, 20vw"
 									{priority}
+									sizes="(width < 23rem) 100vw, (width <= 34.75rem) 50vw, (width < 47.25rem) 33vw, (width < 60.375rem) 25vw, 20vw"
+									style=`rotate: calc(${rotationAngle} * 1deg);`
 								/>
 								<div class="stack gap-2xs">
 									<h2 class="heading-3">{item.data.title}</h2>
