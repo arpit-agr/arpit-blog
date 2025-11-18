@@ -18,6 +18,10 @@
 	display: flex;
 }
 
+.inline-flex {
+	display: inline-flex;
+}
+
 .sticky {
 	position: sticky;
 }
