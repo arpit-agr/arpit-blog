@@ -22,8 +22,8 @@ const books = await getCollection("books", (entry) => {
 					<ul class="books-container grid align-self-stretch" role="list">
 						{books.map((item) => {
 							return (
-								<li class="book box">
-									<div class="stack gap-xs">
+								<li class="book">
+									<div class="stack gap-xs p-space-xs">
 										<h3 class="aside-text-step-1 leading-snug">
 											{item.data.title}
 										</h3>

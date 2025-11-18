@@ -22,6 +22,10 @@
 	display: inline-flex;
 }
 
+.relative {
+	position: relative;
+}
+
 .sticky {
 	position: sticky;
 }

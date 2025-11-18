@@ -243,5 +243,5 @@ pre {
 }
 
 :target {
-	scroll-margin-block-start: calc(var(--space-m) + 1ex + var(--space-m));
+	scroll-margin-block-start: calc(calc(2 * (1.25 * var(--space-s))) + 1ex);
 }

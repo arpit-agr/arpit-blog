@@ -20,7 +20,7 @@
 .nav-item {
 	a {
 		position: relative;
-		padding: var(--space-m) var(--space-2xs);
+		padding: calc(1.25 * var(--space-s)) var(--space-2xs);
 
 		svg {
 			position: absolute;

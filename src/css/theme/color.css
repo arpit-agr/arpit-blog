@@ -6,8 +6,8 @@
 	--color-brand-shade: oklch(0.6782 0.163 76.95);
 
 	/* 2nd order variables */
-	--color-dark-shade: oklch(from var(--color-dark) calc(l * 175%) c h);
-	--color-light-shade: oklch(from var(--color-light) calc(l * 95%) c h);
+	--color-dark-shade: oklch(from var(--color-dark) calc(l * 150%) c h);
+	--color-light-shade: oklch(from var(--color-light) calc(l * 90%) c h);
 	--color-text-primary: light-dark(var(--color-dark), var(--color-light));
 	--color-bg-primary: light-dark(var(--color-light), var(--color-dark));
 	--color-accent: light-dark(var(--color-brand), var(--color-brand-shade));

@@ -10,23 +10,136 @@
 	}
 
 	.book {
-		--box-padding: var(--space-xs);
+		/* --radial-gradient:
+			radial-gradient(
+				circle at 100%,
+				transparent 35%,
+				transparent 35%,
+				var(--color-bg-primary) 75%
+			),
+			radial-gradient(
+					circle at 100%,
+					var(--color-bg-secondary) 1.25px,
+					var(--color-bg-primary) 1px,
+					var(--color-bg-primary) 5px
+				)
+				50% 50% / var(--space-2xs) var(--space-2xs) repeat;
+
+		background: var(--box-bg, var(--radial-gradient)); */
 		display: grid;
-		grid-template-columns: 1fr min(33cqi, var(--space-5xl));
-		gap: var(--space-xs);
+		grid-template-columns: minmax(18ch, 1fr) min(33cqi, var(--space-5xl));
+		outline: var(--border-thickness-separator) solid var(--color-border);
 		border-radius: var(--border-radius);
-		overflow-y: clip;
+		overflow: clip;
 	}
 
-	.cover {
+	/* https://codepen.io/lynnandtonic/pen/JjGmrBz */
+	picture {
 		position: relative;
-		translate: 0 var(--space-3xs);
-		rotate: 4deg;
+		transform: perspective(60em) rotateX(58deg) rotateZ(-34deg) skewY(-7deg);
+		box-shadow:
+			-1.4em 1.7em 0.3em -0.3em rgba(0, 0, 0, 0.8),
+			-1.6em 1.8em 0.9em -0.2em rgba(0, 0, 0, 0.5),
+			0.3em 1.9em 1.3em rgba(0, 0, 0, 0.3);
+		border-top-right-radius: 4px;
 
-		> * {
+		img {
 			position: absolute;
-			inset-inline-start: 0;
+			inset: 0;
+			outline: var(--border-thickness-s) solid var(--color-border);
+			outline-offset: calc(-1 * var(--border-thickness-s));
+			border-top-right-radius: 4px;
+		}
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
 			inset-block-start: 0;
+			border-top-right-radius: 4px;
+		}
+
+		&::before {
+			inline-size: 105%;
+			block-size: 125%;
+			inset-inline-end: 0%;
+			z-index: -1;
+			background-repeat: no-repeat;
+			background-image:
+				linear-gradient(
+					115deg,
+					transparent 2.8%,
+					#3f3f3f 3%,
+					#3f3f3f 16%,
+					transparent 16%
+				),
+				linear-gradient(
+					125deg,
+					transparent 10%,
+					#3f3f3f 10%,
+					#3f3f3f 17%,
+					#222 46.8%,
+					transparent 47%
+				),
+				linear-gradient(
+					125deg,
+					transparent 46%,
+					rgba(0, 0, 0, 0.5) 46.5%,
+					rgba(0, 0, 0, 0.25) 49%,
+					transparent 53%
+				),
+				linear-gradient(to right, #444, #666), linear-gradient(#444, #444),
+				linear-gradient(
+					140deg,
+					transparent 45%,
+					#eee 45%,
+					#ccc 96.8%,
+					rgba(170, 170, 170, 0) 97%
+				);
+			background-size:
+				100% 100%,
+				100% 100%,
+				100% 100%,
+				100% 4px,
+				94% 2px,
+				100% 100%;
+			background-position:
+				0 0,
+				0 0,
+				0 0,
+				0 95.8%,
+				0 100%,
+				0 0;
+		}
+
+		&::after {
+			inline-size: 100%;
+			block-size: 100%;
+			background-repeat: no-repeat;
+			background-image:
+				linear-gradient(
+					to right,
+					transparent 2%,
+					rgba(0, 0, 0, 0.1) 3%,
+					rgba(0, 0, 0, 0.1) 4%,
+					transparent 5%
+				),
+				linear-gradient(-50deg, rgba(0, 0, 0, 0.1) 20%, transparent 100%),
+				linear-gradient(-50deg, rgba(0, 0, 0, 0.2) 20%, transparent 100%),
+				linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 20%, transparent 100%),
+				linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 20%, transparent 100%);
+			background-size:
+				100% 100%,
+				2% 20%,
+				1% 20%,
+				2% 20%,
+				1% 20%;
+			background-position:
+				0 0,
+				2.2% 100%,
+				3% 100%,
+				2.2% 0,
+				3% 0;
 		}
 	}
 }

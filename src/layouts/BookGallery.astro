@@ -96,18 +96,20 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 						const viewTransitionName = `book-${item.id}`;
 						const priority = index < 10 ? true : false;
 						const rotationAngle = Math.round(Math.random() * (2 - -2) - 2);
+						const coverStyle = `rotate: calc(${rotationAngle} * 1deg);`;
 						return (
 							<li
 								data-tags={item.data.tags}
 								style={{ "view-transition-name": viewTransitionName }}
 							>
-								<BookCover
-									imagePath={item.data.cover}
-									widths={[315, 630]}
-									{priority}
-									sizes="(width < 23rem) 100vw, (width <= 34.75rem) 50vw, (width < 47.25rem) 33vw, (width < 60.375rem) 25vw, 20vw"
-									style=`rotate: calc(${rotationAngle} * 1deg);`
-								/>
+								<div class="cover" style={coverStyle}>
+									<BookCover
+										imagePath={item.data.cover}
+										widths={[315, 630]}
+										{priority}
+										sizes="(width < 23rem) 100vw, (width <= 34.75rem) 50vw, (width < 47.25rem) 33vw, (width < 60.375rem) 25vw, 20vw"
+									/>
+								</div>
 								<div class="stack gap-2xs">
 									<h2 class="heading-3 leading-snug">{item.data.title}</h2>
 									<p class="text-step--1">{item.data.author}</p>

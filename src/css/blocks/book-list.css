@@ -12,7 +12,7 @@
 
 		display: grid;
 		grid-template-rows: subgrid;
-		gap: var(--space-m-s);
+		gap: var(--space-s);
 	}
 
 	.cover {
