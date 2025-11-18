@@ -1,4 +1,6 @@
 .book-gallery {
+	--flow-space: var(--space-xl);
+
 	header {
 		h1 {
 			position: relative;
@@ -11,7 +13,7 @@
 				transform: translate(-50%, -50%);
 				max-inline-size: unset;
 				inline-size: 112.5%;
-				block-size: 250%;
+				block-size: 212.5%;
 				fill: none;
 				stroke-linecap: round;
 				stroke-dasharray: var(--offset, 69px) 278px;
@@ -26,8 +28,12 @@
 		}
 
 		p {
-			--flow-space: var(--space-m);
+			--flow-space: var(--space-s);
 		}
+	}
+
+	.home-nav-item a {
+		padding-block: 0px;
 	}
 
 	.heading-group {
@@ -60,9 +66,5 @@
 		inline-size: var(--border-thickness-l);
 		block-size: var(--space-l);
 		background-color: var(--color-border);
-	}
-
-	main {
-		--flow-space: var(--space-xl);
 	}
 }

@@ -10,12 +10,13 @@ import SiteHeader from "@components/SiteHeader.astro";
 import FeedHeader from "@components/FeedHeader.astro";
 import PaginatedEntries from "@components/PaginatedEntries.astro";
 import Aside from "@components/Aside.astro";
+import CurrentlyReading from "@components/CurrentlyReading.astro";
 import { NOTES_TITLE, NOTES_DESCRIPTION } from "src/consts";
 
 type NotesEntry = CollectionEntry<"notes">;
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allEntries = await loadAndFormatCollection("notes") as NotesEntry[];
+	const allEntries = (await loadAndFormatCollection("notes")) as NotesEntry[];
 	return paginate(allEntries, { pageSize: 20 });
 }) satisfies GetStaticPaths;
 
@@ -24,7 +25,7 @@ const entries = await Promise.all(
 	page.data.map(async (entry) => {
 		const { Content } = await render(entry);
 		return { ...entry, Content };
-	}),
+	})
 );
 ---
 
@@ -46,7 +47,9 @@ const entries = await Promise.all(
 				/>
 				<PaginatedEntries page={page} entries={entries} />
 			</main>
-			<Aside />
+			<Aside>
+				<CurrentlyReading />
+			</Aside>
 		</div>
 	</div>
 </BaseLayout>

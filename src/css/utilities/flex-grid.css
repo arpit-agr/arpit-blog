@@ -41,3 +41,11 @@
 .gap-m-s {
 	gap: var(--space-m-s);
 }
+
+.gap-xl {
+	gap: var(--space-xl);
+}
+
+.gap-5xl {
+	gap: var(--space-5xl);
+}
