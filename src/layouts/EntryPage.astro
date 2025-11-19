@@ -50,14 +50,6 @@ const {
 											<PubDate date={entry.data.pubDate} />
 										)
 									}
-									{
-										!!entry.data.via && (
-											<LinkVia
-												url={entry.data.via.url}
-												label={entry.data.via.label}
-											/>
-										)
-									}
 								</footer>
 								<div class="entry-content flow">
 									{
@@ -85,6 +77,14 @@ const {
 										)
 									}
 									<Content />
+									{
+										!!entry.data.via && (
+											<LinkVia
+												url={entry.data.via.url}
+												label={entry.data.via.label}
+											/>
+										)
+									}
 								</div>
 								{!!entry.data.tags && <TagList tags={entry.data.tags} />}
 							</article>
