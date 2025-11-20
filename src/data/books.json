@@ -6,7 +6,7 @@
 		"tags": ["Classics", "Dystopia", "Politics", "Fiction"],
 		"status": "read",
 		"cover": "/src/images/book-covers/1984.jpg",
-		"spineColor": "hsl(21deg 100% 51%)"
+		"dominantColor": "#f85808"
 	},
 	{
 		"id": "a-life-in-words",
@@ -15,7 +15,7 @@
 		"author": "Ismat Chughtai (Tr. Asaduddin)",
 		"tags": ["Biography", "Autobiography", "India", "Non-fiction"],
 		"cover": "/src/images/book-covers/a-life-in-words.jpg",
-		"spineColor": "hsl(357deg 28% 32%)"
+		"dominantColor": "#583838"
 	},
 	{
 		"id": "a-short-history-of-nearly-everything",
@@ -23,7 +23,7 @@
 		"author": "Bill Bryson",
 		"tags": ["Popular science", "Non-fiction"],
 		"cover": "/src/images/book-covers/a-short-history-of-nearly-everything.jpeg",
-		"spineColor": "hsl(230deg 55% 31%)"
+		"dominantColor": "#283878"
 	},
 	{
 		"id": "animal-farm",
@@ -31,7 +31,7 @@
 		"author": "George Orwell",
 		"tags": ["Politics", "Fiction"],
 		"cover": "/src/images/book-covers/animal-farm.jpg",
-		"spineColor": "hsl(44deg 20% 82%)"
+		"dominantColor": "#a81818"
 	},
 	{
 		"id": "annihilation-of-caste",
@@ -41,7 +41,7 @@
 		"tags": ["Sociology", "India", "Non-fiction"],
 		"status": "read",
 		"cover": "/src/images/book-covers/annihilation-of-caste.jpg",
-		"spineColor": "hsl(197deg 99% 47%)"
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "ants-among-elephants",
@@ -49,7 +49,8 @@
 		"subtitle": "An Untouchable Family and the Making of Modern India",
 		"author": "Sujatha Gidla",
 		"tags": ["Autobiography", "Biography", "India", "Non-fiction"],
-		"cover": "/src/images/book-covers/ants-among-elephants.jpg"
+		"cover": "/src/images/book-covers/ants-among-elephants.jpg",
+		"dominantColor": "#c8c8c8"
 	},
 	{
 		"id": "anxious-people",
@@ -57,7 +58,7 @@
 		"author": "Fredrik Backman",
 		"tags": ["Humour", "Fiction"],
 		"cover": "/src/images/book-covers/anxious-people.jpeg",
-		"spineColor": "hsl(2deg 64% 50%)"
+		"dominantColor": "#d83828"
 	},
 	{
 		"id": "atomic-habits",
@@ -67,7 +68,7 @@
 		"tags": ["Self Help", "Non-fiction"],
 		"status": "read",
 		"cover": "/src/images/book-covers/atomic-habits.jpg",
-		"spineColor": "hsl(44deg 20% 82%)"
+		"dominantColor": "#f8f8f8"
 	},
 	{
 		"id": "bad-science",
@@ -75,7 +76,7 @@
 		"author": "Ben Goldacre",
 		"tags": ["Popular science", "Non-fiction"],
 		"cover": "/src/images/book-covers/bad-science.jpg",
-		"spineColor": "hsl(353deg 95% 46%)"
+		"dominantColor": "#e80828"
 	},
 	{
 		"id": "behind-the-beautiful-forevers",
@@ -83,7 +84,8 @@
 		"subtitle": "Life, Death, and Hope in a Mumbai Undercity",
 		"author": "Katherine Boo",
 		"tags": ["Biography", "India", "Non-fiction"],
-		"cover": "/src/images/book-covers/behind-the-beautiful-forevers.jpg"
+		"cover": "/src/images/book-covers/behind-the-beautiful-forevers.jpg",
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "bhimayana",
@@ -92,14 +94,15 @@
 		"author": "Subhash Vyam, S. Anand, Durga Bai Vyam, Srividya Natarajan",
 		"tags": ["Graphic novel", "Biography", "India", "Non-fiction"],
 		"cover": "/src/images/book-covers/bhimayana.jpeg",
-		"spineColor": "hsl(225deg 59% 31%)"
+		"dominantColor": "#183878"
 	},
 	{
 		"id": "black-leopard-red-wolf",
 		"title": "Black Leopard, Red Wolf",
 		"author": "Marlon James",
 		"tags": ["Fantasy", "Fiction"],
-		"cover": "/src/images/book-covers/black-leopard-red-wolf.jpeg"
+		"cover": "/src/images/book-covers/black-leopard-red-wolf.jpeg",
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "born-a-crime",
@@ -109,7 +112,7 @@
 		"tags": ["Humour", "Biography", "Autobiography"],
 		"status": "read",
 		"cover": "/src/images/book-covers/born-a-crime.jpg",
-		"spineColor": "hsl(216deg 50% 40%)"
+		"dominantColor": "#4868a8"
 	},
 	{
 		"id": "brave-new-world",
@@ -117,7 +120,7 @@
 		"author": "Aldous Huxley",
 		"tags": ["Classics", "Dystopia", "Politics", "Fiction"],
 		"cover": "/src/images/book-covers/brave-new-world.jpeg",
-		"spineColor": "hsl(354deg 38% 35%)"
+		"dominantColor": "#282828"
 	},
 	{
 		"id": "educated",
@@ -125,14 +128,15 @@
 		"author": "Tara Westover",
 		"tags": ["Biography", "Autobiography", "Non-fiction"],
 		"cover": "/src/images/book-covers/educated.jpeg",
-		"spineColor": "hsl(28deg 56% 41%)"
+		"dominantColor": "#985828"
 	},
 	{
 		"id": "footnotes-in-gaza",
 		"title": "Footnotes in Gaza",
 		"author": "Joe Sacco",
 		"tags": ["Graphic novel", "Journalism", "Non-fiction"],
-		"cover": "/src/images/book-covers/footnotes-in-gaza.jpg"
+		"cover": "/src/images/book-covers/footnotes-in-gaza.jpg",
+		"dominantColor": "#c8c8c8"
 	},
 	{
 		"id": "h-pop",
@@ -140,7 +144,8 @@
 		"subtitle": "The Secretive World of Hindutva Pop Stars",
 		"author": "Kunal Purohit",
 		"tags": ["Politics", "Art", "Music", "India", "Non-fiction"],
-		"cover": "/src/images/book-covers/h-pop.jpg"
+		"cover": "/src/images/book-covers/h-pop.jpg",
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "halla-bol",
@@ -148,7 +153,8 @@
 		"subtitle": "The Death and Life of Safdar Hashmi",
 		"author": "Sudhanva Deshpande",
 		"tags": ["Biography", "Politics", "Theatre", "India", "Non-fiction"],
-		"cover": "/src/images/book-covers/halla-bol.jpeg"
+		"cover": "/src/images/book-covers/halla-bol.jpeg",
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "how-democracies-die",
@@ -158,7 +164,7 @@
 		"tags": ["Politics", "Non-fiction"],
 		"status": "read",
 		"cover": "/src/images/book-covers/how-democracies-die.jpg",
-		"spineColor": "hsl(0deg 75% 42%)"
+		"dominantColor": "#f8f8e8"
 	},
 	{
 		"id": "how-fascism-works",
@@ -168,7 +174,7 @@
 		"tags": ["Politics", "Non-fiction"],
 		"status": "read",
 		"cover": "/src/images/book-covers/how-fascism-works.jpg",
-		"spineColor": "hsl(8deg 69% 50%)"
+		"dominantColor": "#f8f8e8"
 	},
 	{
 		"id": "india-after-gandhi",
@@ -177,7 +183,8 @@
 		"author": "Ramachandra Guha",
 		"tags": ["History", "Politics", "India", "Non-fiction"],
 		"status": "read",
-		"cover": "/src/images/book-covers/india-after-gandhi.jpeg"
+		"cover": "/src/images/book-covers/india-after-gandhi.jpeg",
+		"dominantColor": "#181818"
 	},
 	{
 		"id": "interrogating-my-chandal-life",
@@ -187,7 +194,7 @@
 		"tags": ["Biography", "Autobiography", "India", "Non-fiction"],
 		"status": "read",
 		"cover": "/src/images/book-covers/interrogating-my-chandal-life.jpg",
-		"spineColor": "hsl(300deg 5% 19%)"
+		"dominantColor": "#f8f8f8"
 	},
 	{
 		"id": "jadunama",
@@ -195,7 +202,8 @@
 		"subtitle": "Javed Akhtar - Ek Safar",
 		"author": "Arvind Mandloi",
 		"tags": ["Biography", "India", "Non-fiction"],
-		"cover": "/src/images/book-covers/jadunama.jpg"
+		"cover": "/src/images/book-covers/jadunama.jpg",
+		"dominantColor": "#b8a868"
 	},
 	{
 		"id": "jaya",
@@ -205,14 +213,15 @@
 		"tags": ["Classics", "Mythology", "India", "Fiction"],
 		"status": "read",
 		"cover": "/src/images/book-covers/jaya.jpeg",
-		"spineColor": "hsl(28deg 91% 54%)"
+		"dominantColor": "#f8c808"
 	},
 	{
 		"id": "journalism",
 		"title": "Journalism",
 		"author": "Joe Sacco",
 		"tags": ["Journalism", "Graphic novel", "Non-fiction"],
-		"cover": "/src/images/book-covers/journalism.jpg"
+		"cover": "/src/images/book-covers/journalism.jpg",
+		"dominantColor": "#f8f8f8"
 	},
 	{
 		"id": "masala-lab",
@@ -221,14 +230,15 @@
 		"author": "Krish Ashok",
 		"tags": ["Food", "Cooking", "Science", "India", "Non-fiction"],
 		"cover": "/src/images/book-covers/masala-lab.jpg",
-		"spineColor": "hsl(44deg 20% 82%)"
+		"dominantColor": "#f8f8f8"
 	},
 	{
 		"id": "maus",
 		"title": "The Complete Maus",
 		"author": "Art Spiegelman",
 		"tags": ["Graphic novel", "Non-fiction"],
-		"cover": "/src/images/book-covers/maus.jpg"
+		"cover": "/src/images/book-covers/maus.jpg",
+		"dominantColor": "#f8f8f8"
 	},
 	{
 		"id": "note-by-note",
@@ -236,7 +246,8 @@
 		"subtitle": "The India Story 1947-2017",
 		"author": "Ankur Bhardwaj, Seema Chisti, Sushant Singh",
 		"tags": ["Music", "History", "India", "Non-fiction"],
-		"cover": "/src/images/book-covers/note-by-note.jpg"
+		"cover": "/src/images/book-covers/note-by-note.jpg",
+		"dominantColor": "#e8e8e8"
 	},
 	{
 		"id": "palestine",
@@ -244,7 +255,7 @@
 		"author": "Joe Sacco",
 		"tags": ["Graphic novel", "History", "Politics", "Non-fiction"],
 		"cover": "/src/images/book-covers/palestine.jpeg",
-		"spineColor": "hsl(202deg 11% 52%)"
+		"dominantColor": "#c8e8f8"
 	},
 	{
 		"id": "persepolis",
@@ -252,7 +263,8 @@
 		"subtitle": "The Story of a Childhood and The Story of a Return",
 		"author": "Marjane Satrapi",
 		"tags": ["Graphic novel", "Biography", "Non-fiction"],
-		"cover": "/src/images/book-covers/persepolis.jpg"
+		"cover": "/src/images/book-covers/persepolis.jpg",
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "pricing-design",
@@ -261,7 +273,7 @@
 		"tags": ["Design", "Business", "Non-fiction"],
 		"status": "read",
 		"cover": "/src/images/book-covers/pricing-design.jpg",
-		"spineColor": "hsl(44deg 20% 82%)"
+		"dominantColor": "#688858"
 	},
 	{
 		"id": "rebel-sultans",
@@ -270,7 +282,7 @@
 		"author": "Manu S. Pillai",
 		"tags": ["History", "India", "Non-fiction"],
 		"cover": "/src/images/book-covers/rebel-sultans.jpeg",
-		"spineColor": "hsl(195deg 30% 37%)"
+		"dominantColor": "#486878"
 	},
 	{
 		"id": "steve-jobs",
@@ -278,14 +290,16 @@
 		"author": "Walter Isaacson",
 		"tags": ["Biography", "Non-fiction"],
 		"status": "read",
-		"cover": "/src/images/book-covers/steve-jobs.jpg"
+		"cover": "/src/images/book-covers/steve-jobs.jpg",
+		"dominantColor": "#f8f8f8"
 	},
 	{
 		"id": "tarkash",
 		"title": "Tarkash",
 		"author": "Javed Akhtar",
 		"tags": ["Poetry"],
-		"cover": "/src/images/book-covers/tarkash.jpg"
+		"cover": "/src/images/book-covers/tarkash.jpg",
+		"dominantColor": "#282828"
 	},
 	{
 		"id": "the-brothers-karamazov",
@@ -293,7 +307,7 @@
 		"author": "Fyodor Dostoevsky",
 		"tags": ["Classics", "Fiction"],
 		"cover": "/src/images/book-covers/the-brothers-karamazov.jpeg",
-		"spineColor": "hsl(56deg 35% 10%)"
+		"dominantColor": "#181808"
 	},
 	{
 		"id": "the-curious-incident-of-the-dog-in-the-night-time",
@@ -301,7 +315,7 @@
 		"author": "Mark Haddon",
 		"tags": ["Mystery", "Fiction"],
 		"cover": "/src/images/book-covers/the-curious-incident-of-the-dog-in-the-night-time.jpeg",
-		"spineColor": "hsl(194deg 93% 22%)"
+		"dominantColor": "#087898"
 	},
 	{
 		"id": "the-far-field",
@@ -309,7 +323,7 @@
 		"author": "Madhuri Vijay",
 		"tags": ["Fiction", "India"],
 		"cover": "/src/images/book-covers/the-far-field.jpeg",
-		"spineColor": "hsl(44deg 20% 82%)"
+		"dominantColor": "#f8f8e8"
 	},
 	{
 		"id": "the-free-voice",
@@ -318,7 +332,8 @@
 		"author": "Ravish Kumar",
 		"tags": ["Politics", "India", "Non-fiction"],
 		"status": "read",
-		"cover": "/src/images/book-covers/the-free-voice.jpg"
+		"cover": "/src/images/book-covers/the-free-voice.jpg",
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "the-god-of-small-things",
@@ -326,14 +341,15 @@
 		"author": "Arundhati Roy",
 		"tags": ["India", "Fiction"],
 		"cover": "/src/images/book-covers/the-god-of-small-things.jpeg",
-		"spineColor": "hsl(188deg 17% 33%)"
+		"dominantColor": "#284848"
 	},
 	{
 		"id": "the-hitch-hikers-guide-to-the-galaxy",
 		"title": "The Hitch Hiker's Guide To The Galaxy",
 		"author": "Douglas Adams",
 		"tags": ["Sci-Fi", "Humour", "Fiction"],
-		"cover": "/src/images/book-covers/the-hitch-hikers-guide-to-the-galaxy.jpg"
+		"cover": "/src/images/book-covers/the-hitch-hikers-guide-to-the-galaxy.jpg",
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "the-ivory-throne",
@@ -342,7 +358,7 @@
 		"author": "Manu S. Pillai",
 		"tags": ["History", "India", "Non-fiction"],
 		"cover": "/src/images/book-covers/the-ivory-throne.jpeg",
-		"spineColor": "hsl(69deg 5% 74%)"
+		"dominantColor": "#b8b8b8"
 	},
 	{
 		"id": "the-life-and-times-of-the-thunderbolt-kid",
@@ -350,7 +366,7 @@
 		"author": "Bill Bryson",
 		"tags": ["Biography", "Autobiography", "Non-fiction"],
 		"cover": "/src/images/book-covers/the-life-and-times-of-the-thunderbolt-kid.jpeg",
-		"spineColor": "hsl(226deg 31% 62%)"
+		"dominantColor": "#586898"
 	},
 	{
 		"id": "the-speaking-constitution",
@@ -358,7 +374,8 @@
 		"subtitle": "A Sisyphean Life in Law",
 		"author": "K.G. Kannabiran (Tr. Kalpana Kannabiran)",
 		"tags": ["Law", "India", "Non-fiction"],
-		"cover": "/src/images/book-covers/the-speaking-constitution.jpg"
+		"cover": "/src/images/book-covers/the-speaking-constitution.jpg",
+		"dominantColor": "#f8c808"
 	},
 	{
 		"id": "the-transformative-constitution",
@@ -368,7 +385,7 @@
 		"tags": ["Law", "India", "Non-fiction"],
 		"status": "read",
 		"cover": "/src/images/book-covers/the-transformative-constitution.jpeg",
-		"spineColor": "hsl(44deg 20% 82%)"
+		"dominantColor": "#f8f8f8"
 	},
 	{
 		"id": "the-wall",
@@ -376,14 +393,15 @@
 		"author": "Gautam Bhatia",
 		"tags": ["Sci-Fi", "Dystopia", "India", "Fiction"],
 		"cover": "/src/images/book-covers/the-wall.jpg",
-		"spineColor": "hsl(279deg 14% 25%)"
+		"dominantColor": "#281828"
 	},
 	{
 		"id": "theres-gunpowder-in-the-air",
 		"title": "There's Gunpowder in the Air",
 		"author": "Manoranjan Byapari",
 		"tags": ["Politics", "India", "Fiction"],
-		"cover": "/src/images/book-covers/theres-gunpowder-in-the-air.jpeg"
+		"cover": "/src/images/book-covers/theres-gunpowder-in-the-air.jpeg",
+		"dominantColor": "#f8f8f8"
 	},
 	{
 		"id": "thinking-fast-and-slow",
@@ -391,7 +409,7 @@
 		"author": "Daniel Kahneman",
 		"tags": ["Psychology", "Science", "Non-fiction"],
 		"cover": "/src/images/book-covers/thinking-fast-and-slow.jpeg",
-		"spineColor": "hsl(44deg 20% 82%)"
+		"dominantColor": "#e8e8e8"
 	},
 	{
 		"id": "this-life-at-play",
@@ -399,14 +417,16 @@
 		"subtitle": "Memoirs",
 		"author": "Girish Karnad",
 		"tags": ["Biography", "India", "Non-fiction"],
-		"cover": "/src/images/book-covers/this-life-at-play.jpeg"
+		"cover": "/src/images/book-covers/this-life-at-play.jpeg",
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "tomorrow-and-tomorrow-and-tomorrow",
 		"title": "Tomorrow and Tomorrow and Tomorrow",
 		"author": "Gabrielle Zevin",
 		"tags": ["Coming of age", "Fiction"],
-		"cover": "/src/images/book-covers/tomorrow-and-tomorrow-and-tomorrow.webp"
+		"cover": "/src/images/book-covers/tomorrow-and-tomorrow-and-tomorrow.webp",
+		"dominantColor": "#f8f8f8"
 	},
 	{
 		"id": "understanding-comics",
@@ -415,7 +435,7 @@
 		"author": "Scott McCloud",
 		"tags": ["Graphic novel", "Art", "Design", "Non-fiction"],
 		"cover": "/src/images/book-covers/understanding-comics.jpg",
-		"spineColor": "hsl(213deg 79% 36%)"
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "unsealed-covers",
@@ -423,14 +443,16 @@
 		"subtitle": "A Decade of the Constitution, the Courts and the State",
 		"author": "Gautam Bhatia",
 		"tags": ["Law", "India", "Non-fiction"],
-		"cover": "/src/images/book-covers/unsealed-covers.jpg"
+		"cover": "/src/images/book-covers/unsealed-covers.jpg",
+		"dominantColor": "#f8e8e8"
 	},
 	{
 		"id": "watchmen",
 		"title": "Watchmen",
 		"author": "Alan Moore, Dave Gibbons",
 		"tags": ["Graphic novel", "Fiction", "Dystopia"],
-		"cover": "/src/images/book-covers/watchmen.jpeg"
+		"cover": "/src/images/book-covers/watchmen.jpeg",
+		"dominantColor": "#080808"
 	},
 	{
 		"id": "what-i-talk-about-when-i-talk-about-running",
@@ -438,7 +460,8 @@
 		"author": "Haruki Murakami",
 		"tags": ["Sports", "Biography", "Non-fiction"],
 		"status": "read",
-		"cover": "/src/images/book-covers/what-i-talk-about-when-i-talk-about-running.jpg"
+		"cover": "/src/images/book-covers/what-i-talk-about-when-i-talk-about-running.jpg",
+		"dominantColor": "#f8f8f8"
 	},
 	{
 		"id": "what-if",
@@ -447,7 +470,7 @@
 		"author": "Randall Munroe",
 		"tags": ["Popular science", "Non-fiction"],
 		"cover": "/src/images/book-covers/what-if.jpeg",
-		"spineColor": "hsl(354deg 99% 38%)"
+		"dominantColor": "#c80818"
 	},
 	{
 		"id": "whole-numbers-and-half-truths",
@@ -456,6 +479,6 @@
 		"author": "Rukmini S.",
 		"tags": ["Non-fiction", "India", "Economics"],
 		"cover": "/src/images/book-covers/whole-numbers-and-half-truths.jpeg",
-		"spineColor": "hsl(14deg 75% 56%)"
+		"dominantColor": "#f8f8f8"
 	}
 ]

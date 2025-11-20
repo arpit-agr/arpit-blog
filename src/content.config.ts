@@ -63,6 +63,7 @@ const books = defineCollection({
 		cover: z.string(),
 		tags: z.array(z.string()),
 		status: z.enum(["unread", "read", "reading"]).default("unread"),
+		dominantColor: z.string(),
 	}),
 });
 

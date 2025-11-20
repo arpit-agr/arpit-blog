@@ -46,8 +46,8 @@
 		img {
 			position: absolute;
 			inset: 0;
-			outline: var(--border-thickness-s) solid var(--color-border);
-			outline-offset: calc(-1 * var(--border-thickness-s));
+			/* outline: var(--border-thickness-s) solid var(--color-border);
+			outline-offset: calc(-1 * var(--border-thickness-s)); */
 			border-top-right-radius: 4px;
 		}
 
@@ -60,24 +60,24 @@
 		}
 
 		&::before {
-			inline-size: 105%;
+			inline-size: 107.5%;
 			block-size: 125%;
 			inset-inline-end: 0%;
 			z-index: -1;
 			background-repeat: no-repeat;
 			background-image:
 				linear-gradient(
-					115deg,
-					transparent 2.8%,
-					#3f3f3f 3%,
-					#3f3f3f 16%,
+					120deg,
+					transparent 4%,
+					oklch(from var(--dominant-color, #3f3f3f) calc(l * 75%) c h) 4%,
+					oklch(from var(--dominant-color, #3f3f3f) calc(l * 75%) c h) 16%,
 					transparent 16%
 				),
 				linear-gradient(
 					125deg,
 					transparent 10%,
-					#3f3f3f 10%,
-					#3f3f3f 17%,
+					oklch(from var(--dominant-color, #3f3f3f) calc(l * 75%) c h) 10%,
+					oklch(from var(--dominant-color, #3f3f3f) calc(l * 75%) c h) 17%,
 					#222 46.8%,
 					transparent 47%
 				),
@@ -114,7 +114,7 @@
 
 		&::after {
 			inline-size: 100%;
-			block-size: 100%;
+			block-size: 120%;
 			background-repeat: no-repeat;
 			background-image:
 				linear-gradient(

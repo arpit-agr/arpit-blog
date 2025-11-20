@@ -12,16 +12,30 @@
 
 		display: grid;
 		grid-template-rows: subgrid;
-		gap: var(--space-s);
-	}
+		gap: var(--space-s-m);
 
-	.cover {
-		align-self: end;
+		> :last-child {
+			position: relative;
+		}
 	}
+}
 
-	.cover + * {
+/* https://codepen.io/jjcarey/full/JKGqjK */
+.book-wrapper {
+	perspective: 1400px;
+	align-self: end;
+
+	> * {
 		position: relative;
-		z-index: 1;
+		transform-style: preserve-3d;
+		transition: transform 0.5s;
+		transition-delay: 100ms;
+	}
+
+	@media (hover: hover) {
+		&:hover > * {
+			transform: rotate3d(0, 1, 0, 25deg);
+		}
 	}
 }
 
@@ -44,10 +58,10 @@
 	position: relative;
 	border-radius: var(--_book-cover-radius);
 	box-shadow: var(--_box-shadow);
-
-	/*@media (prefers-color-scheme: dark) {
-			box-shadow: none;
-		}*/
+	transform-style: preserve-3d;
+	transform-origin: 0% 50%;
+	transition: transform 0.5s;
+	transform: translate3d(0, 0, 20px);
 
 	&:before,
 	&:after {
@@ -66,7 +80,6 @@
 		mix-blend-mode: multiply;
 	}
 
-	/* spine */
 	&:after {
 		inset-block-start: 0;
 		inset-inline-start: 4%;
@@ -75,6 +88,10 @@
 		background: rgba(0, 0, 0, 0.06);
 		box-shadow: var(--space-5xs) 0 var(--space-4xs) rgba(255, 255, 255, 0.25);
 	}
+
+	> * {
+		transform-style: preserve-3d;
+	}
 }
 
 .cover,
@@ -82,4 +99,18 @@
 	inline-size: 100%;
 	block-size: auto;
 	border-radius: var(--_book-cover-radius);
+}
+
+.spine {
+	transform: rotate3d(0, 1, 0, -90deg);
+	background-color: oklch(
+		from var(--dominant-color, #3f3f3f) calc(l * 75%) c h
+	);
+	position: absolute;
+	inset-block-start: 0;
+	inset-inline-start: calc(-1 * var(--space-s) + 1px);
+	inline-size: calc(2 * var(--space-s));
+	block-size: 100%;
+	outline: var(--border-thickness-s) solid var(--color-border);
+	outline-offset: calc(-1 * var(--border-thickness-s));
 }

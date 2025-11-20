@@ -52,7 +52,8 @@
 			z-index: -1;
 		}
 
-		a:not(:hover, :focus-visible) {
+		a:not(:hover, :focus-visible),
+		.circle {
 			opacity: 0.6;
 		}
 
