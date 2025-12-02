@@ -1,0 +1,65 @@
+---
+title: How selector scoping works in element.querySelector() & element.querySelectorAll()
+pubDate: 2025-12-02T14:57+0530
+tags:
+  - 'dom'
+  - 'css-selector'
+  - 'web-api'
+  - 'javascript'
+---
+
+I was reading the [MDN docs for `element.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector) and learnt something totally unexpected about selector scope when this method is called on an element.
+
+Let’s say I have the following HTML:
+
+```html
+<div>
+	<p>This is a paragraph and it has a <span>span inside</span> it.</p>
+</div>
+
+<script>
+	const baseElement = document.querySelector('p');
+	// Note: We are querying relative to the <p> element, not the document
+	const matchedSpan = baseElement.querySelector('div span');
+	console.log(matchedSpan);
+</script>
+```
+
+Once the above JavaScript is executed, what do you expect to happen?
+
+I expected it to log `null` to the console. My reasoning was simple: I am calling the method on `baseElement` (the `<p>` tag), and that paragraph clearly does not contain a `<div>` inside it.
+
+But here's what actually gets logged to the console:
+
+```console
+<span>span inside</span>
+```
+
+This surprisingly returns the `<span>` from *inside* the `<p>`
+
+## Why does this happen?
+
+MDN explains it like this:
+
+> […] `selectors` is first applied to the whole document, not the `baseElement`, to generate an initial list of potential elements. The resulting elements are then examined to see if they are descendants of `baseElement`.
+
+Simply put, 
+
+1. Browsers first apply the selector as if it were called on the whole document, producing a list of globally matched candidates. 
+2. Then they filter that list to keep only those elements that are descendants of the `baseElement`.
+3. Then the first match of those remaining elements is returned.
+
+Note: `element.querySelectorAll()` also applies selector scoping in the same manner.
+
+## How do you fix it?
+
+If we want to restrict the selector to the element on which it is called, we should use the [`:scope` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:scope).
+
+```js
+const strictQuery = baseElement.querySelector(':scope div span');
+// Returns null, as expected
+```
+
+As mentioned on MDN, this works because:
+
+> When used within a DOM API call — such as `querySelector()`, `querySelectorAll()`, `matches()`, or `Element.closest()` — `:scope` matches the element on which the method was called.
