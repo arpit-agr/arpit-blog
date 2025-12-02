@@ -1,10 +1,10 @@
 .page {
-	outline: var(--border-thickness-separator) solid var(--color-border);
+	/*outline: var(--border-thickness-separator) solid var(--color-border);
 
 	@media (--wrapper-max-width) {
 		border-radius: var(--border-radius);
 		overflow: clip;
-	}
+	}*/
 
 	.site-nav {
 		margin-inline: max(
@@ -39,7 +39,7 @@
 		position: relative;
 
 		&::before {
-			content: "";
+			content: '';
 			position: absolute;
 			background: var(--separator);
 			/*z-index: -1;*/
@@ -63,7 +63,7 @@
 		}
 
 		@container (width >= 43.5rem) {
-			ul:not([role="list"]) {
+			ul:not([role='list']) {
 				column-count: 2;
 				column-gap: var(--space-l);
 			}

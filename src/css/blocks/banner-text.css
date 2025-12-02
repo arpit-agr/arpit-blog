@@ -4,7 +4,7 @@
 	padding-inline: var(--gutter);
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
-	overflow-x: clip;
+	border-block-end: var(--border-thickness-separator) solid var(--color-border);
 	z-index: 3;
 
 	a {

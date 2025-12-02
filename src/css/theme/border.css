@@ -4,7 +4,7 @@
 	--border-thickness-l: var(--space-4xs);
 	--border-thickness-xl: var(--space-3xs);
 
-	--border-thickness-separator: var(--border-thickness-m);
+	--border-thickness-separator: var(--border-thickness-s);
 	--border-thickness-blockquote: var(--border-thickness-l);
 	--border-thickness-focus: calc(1.25 * var(--space-4xs));
 
