@@ -1,13 +1,19 @@
 ---
-import AboutSite from "@components/AboutSite.astro";
-// import Search from "@components/Search.astro";
-import Subscribe from "@components/Subscribe.astro";
-import Socials from "@components/Socials.astro";
+import AboutSite from '@components/AboutSite.astro';
+import Search from '@components/Search.astro';
+import Subscribe from '@components/Subscribe.astro';
+import Socials from '@components/Socials.astro';
+
+// Determine which page we're on
+const path = Astro.url.pathname;
+const isSearchPage = path.includes('/search/');
+const isNotSearchPage = !isSearchPage;
 ---
 
 <aside class="sidebar container-type-inline">
 	<AboutSite />
-	<!-- <Search /> -->
+	<!-- only show the search component if not on the Search page -->
+	{isNotSearchPage && <Search />}
 	<Subscribe />
 	<Socials />
 	<slot />
