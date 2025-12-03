@@ -127,7 +127,7 @@ input {
 	background: var(--color-bg-primary);
 }
 
-:where(ol, ul):not([role="list"]) {
+:where(ol, ul):not([role='list']) {
 	padding-inline-start: var(--gutter);
 
 	> * + * {
@@ -139,7 +139,7 @@ input {
 	}
 }
 
-:where(ul):not([role="list"]) {
+:where(ul):not([role='list']) {
 	list-style: square;
 
 	::marker {
