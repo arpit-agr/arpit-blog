@@ -35,19 +35,15 @@ But here's what actually gets logged to the console:
 <span>span inside</span>
 ```
 
-This surprisingly returns the `<span>` from _inside_ the `<p>`
+This surprisingly returns the `<span>` from _inside_ the `<p>`.
 
-## Why does this happen?
-
-MDN explains it like this:
+Why does this happen? MDN explains it like this:
 
 > […] `selectors` is first applied to the whole document, not the `baseElement`, to generate an initial list of potential elements. The resulting elements are then examined to see if they are descendants of `baseElement`.
 
 Note: `element.querySelectorAll()` also applies selector scoping in the same manner.
 
-## How do we restrict the selector to the element on which it is called?
-
-Use the [`:scope` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:scope).
+If we want to restrict the selector to the element on which it is called then we should use the [`:scope` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:scope).
 
 ```js
 const scopedQuery = baseElement.querySelector(':scope div span');
