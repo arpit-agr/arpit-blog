@@ -1,10 +1,10 @@
 ---
-import { getCollection } from "astro:content";
-import BookCover from "@components/BookCover.astro";
+import { getCollection } from 'astro:content';
+import BookCover from '@components/BookCover.astro';
 
 // Fetch and filter books
-const books = await getCollection("books", (entry) => {
-	return entry.data.status === "reading";
+const books = await getCollection('books', (entry) => {
+	return entry.data.status === 'reading';
 });
 ---
 
@@ -24,7 +24,7 @@ const books = await getCollection("books", (entry) => {
 							return (
 								<li
 									class="book"
-									style={{ "--dominant-color": item.data.dominantColor }}
+									style={{ '--dominant-color': item.data.dominantColor }}
 								>
 									<div class="stack gap-xs p-space-xs">
 										<h3 class="aside-text-step-1 leading-snug">
