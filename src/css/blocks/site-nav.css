@@ -38,8 +38,8 @@
 		}
 	}
 
-	[aria-current="page"],
-	[data-state="active"] {
+	[aria-current='page'],
+	[data-state='active'] {
 		--offset: 180px;
 
 		path {
