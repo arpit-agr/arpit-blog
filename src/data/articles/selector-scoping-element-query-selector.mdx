@@ -35,7 +35,7 @@ But here's what actually gets logged to the console:
 <span>span inside</span>
 ```
 
-This surprisingly returns the `<span>` from *inside* the `<p>`
+This surprisingly returns the `<span>` from _inside_ the `<p>`
 
 ## Why does this happen?
 
@@ -43,23 +43,17 @@ MDN explains it like this:
 
 > […] `selectors` is first applied to the whole document, not the `baseElement`, to generate an initial list of potential elements. The resulting elements are then examined to see if they are descendants of `baseElement`.
 
-Simply put, 
-
-1. Browsers first apply the selector as if it were called on the whole document, producing a list of globally matched candidates. 
-2. Then they filter that list to keep only those elements that are descendants of the `baseElement`.
-3. Then the first match of those remaining elements is returned.
-
 Note: `element.querySelectorAll()` also applies selector scoping in the same manner.
 
-## How do you fix it?
+## How do we restrict the selector to the element on which it is called?
 
-If we want to restrict the selector to the element on which it is called, we should use the [`:scope` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:scope).
+Use the [`:scope` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:scope).
 
 ```js
-const strictQuery = baseElement.querySelector(':scope div span');
-// Returns null, as expected
+const scopedQuery = baseElement.querySelector(':scope div span');
+console.log(scopedQuery); // Returns null, as expected
 ```
 
-As mentioned on MDN, this works because:
+As mentioned in the [MDN docs for `:scope`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:scope), this works because:
 
 > When used within a DOM API call — such as `querySelector()`, `querySelectorAll()`, `matches()`, or `Element.closest()` — `:scope` matches the element on which the method was called.
