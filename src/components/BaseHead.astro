@@ -1,7 +1,7 @@
 ---
-import { join } from "node:path";
-import { AstroFont } from "astro-font";
-import stylesUrl from "@css/style.css?url";
+import { join } from 'node:path';
+import { AstroFont } from 'astro-font';
+import stylesUrl from '@css/style.css?url';
 // import printStylesUrl from "@css/print.css?url";
 
 interface Props {
@@ -17,10 +17,10 @@ interface Props {
 const {
 	pageTitle,
 	pageDesc,
-	ogLocale = "en_GB",
-	ogType = "article",
-	socialImageURL = new URL("/images/opengraph.png", Astro.url.origin),
-	socialImageAlt = "",
+	ogLocale = 'en_IN',
+	ogType = 'article',
+	socialImageURL = new URL('/images/opengraph.png', Astro.url.origin),
+	socialImageAlt = '',
 	canonicalURL = new URL(Astro.url.pathname, Astro.site),
 } = Astro.props;
 ---
@@ -34,71 +34,51 @@ const {
 <!-- Processing of the script contents is deferred -->
 <!-- Use the js class in CSS, if the styling of a component is different, when JS is active. -->
 <script type="module" is:inline>
-	document.documentElement.classList.remove("no-js");
-	document.documentElement.classList.add("js");
+	document.documentElement.classList.remove('no-js');
+	document.documentElement.classList.add('js');
 </script>
 
 <AstroFont
 	config={[
 		{
-			name: "Sarina",
+			name: 'Sarina',
 			src: [
 				{
-					style: "normal",
-					weight: "400",
+					style: 'normal',
+					weight: '400',
 					path: join(
 						process.cwd(),
-						"public",
-						"fonts",
-						"Sarina-Regular-subset.woff2",
+						'public',
+						'fonts',
+						'Sarina-Regular-subset.woff2',
 					),
 				},
 			],
 			preload: true,
-			display: "swap",
-			cssVariable: "font-cursive",
-			fallback: "sans-serif",
-			fallbackName: "Sarina Fallback",
+			display: 'swap',
+			cssVariable: 'font-cursive',
+			fallback: 'sans-serif',
+			fallbackName: 'Sarina Fallback',
 		},
 		{
-			name: "Figtree",
+			name: 'Figtree',
 			src: [
 				{
-					style: "normal",
-					weight: "300 900",
+					style: 'normal',
+					weight: '300 900',
 					path: join(
 						process.cwd(),
-						"public",
-						"fonts",
-						"Figtree-VariableFont_wght-subset.woff2",
+						'public',
+						'fonts',
+						'Figtree-VariableFont_wght-subset.woff2',
 					),
 				},
 			],
 			preload: true,
-			display: "swap",
-			cssVariable: "font-sans-serif",
-			fallback: "sans-serif",
-			fallbackName: "Figtree Fallback",
-		},
-		{
-			name: "Google Sans Code",
-			src: [
-				{
-					style: "normal",
-					weight: "300 800",
-					path: join(
-						process.cwd(),
-						"public",
-						"fonts",
-						"GoogleSansCode-VariableFont_wght-subset.woff2",
-					),
-				},
-			],
-			preload: true,
-			display: "swap",
-			cssVariable: "font-mono",
-			fallback: "monospace",
-			fallbackName: "Google Sans Code Fallback",
+			display: 'swap',
+			cssVariable: 'font-sans-serif',
+			fallback: 'sans-serif',
+			fallbackName: 'Figtree Fallback',
 		},
 	]}
 />
@@ -135,23 +115,23 @@ const {
 	rel="alternate"
 	type="application/rss+xml"
 	title="Notes RSS"
-	href={new URL("/notes/rss.xml", Astro.site)}
+	href={new URL('/notes/rss.xml', Astro.site)}
 />
 <link
 	rel="alternate"
 	type="application/rss+xml"
 	title="Articles RSS"
-	href={new URL("/articles/rss.xml", Astro.site)}
+	href={new URL('/articles/rss.xml', Astro.site)}
 />
 <link
 	rel="alternate"
 	type="application/rss+xml"
 	title="Links RSS"
-	href={new URL("/links/rss.xml", Astro.site)}
+	href={new URL('/links/rss.xml', Astro.site)}
 />
 <link
 	rel="alternate"
 	type="application/rss+xml"
 	title="Notes, Articles and Links RSS"
-	href={new URL("/rss.xml", Astro.site)}
+	href={new URL('/rss.xml', Astro.site)}
 />
