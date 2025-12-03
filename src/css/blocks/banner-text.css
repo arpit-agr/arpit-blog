@@ -4,8 +4,8 @@
 	padding-inline: var(--gutter);
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
-	border-block-end: var(--border-thickness-separator) solid var(--color-border);
 	z-index: 3;
+	view-transition-name: banner-text;
 
 	a {
 		position: absolute;
