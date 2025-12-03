@@ -1,42 +1,42 @@
 ---
 const socialLinks = [
 	{
-		network: "Bluesky",
-		username: "arpit.codes",
-		href: "https://bsky.app/profile/arpit.codes",
+		network: 'Bluesky',
+		username: 'arpit.codes',
+		href: 'https://bsky.app/profile/arpit.codes',
 	},
 	{
-		network: "Mastodon",
-		username: "@arpit@indieweb.social",
-		href: "https://indieweb.social/@arpit",
+		network: 'Mastodon',
+		username: '@arpit@indieweb.social',
+		href: 'https://indieweb.social/@arpit',
 	},
 	{
-		network: "GitHub",
-		username: "arpit-agr",
-		href: "https://github.com/arpit-agr",
+		network: 'GitHub',
+		username: 'arpit-agr',
+		href: 'https://github.com/arpit-agr',
 	},
 	{
-		network: "CodePen",
-		username: "arpit-codes",
-		href: "https://codepen.io/arpit-codes",
+		network: 'CodePen',
+		username: 'arpit-codes',
+		href: 'https://codepen.io/arpit-codes',
 	},
 	{
-		network: "LinkedIn",
-		username: "arpit-codes",
-		href: "https://www.linkedin.com/in/arpit-codes/",
+		network: 'LinkedIn',
+		username: 'arpit-codes',
+		href: 'https://www.linkedin.com/in/arpit-codes/',
 	},
 ];
 ---
 
 <div>
 	<div class="center p-space-m">
-		<div class="stack align-self-start">
+		<div class="stack align-self-stretch">
 			<h2 class="heading-3">Elsewhere on the Web</h2>
-			<ul class="aside-text-step-1">
+			<ul class="aside-text-step-1 align-self-stretch">
 				{
 					socialLinks.map((link) => (
 						<li>
-							{link.network}: {""}
+							{link.network}: {''}
 							<a href={link.href}>{link.username}</a>
 						</li>
 					))
