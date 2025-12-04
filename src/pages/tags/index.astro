@@ -1,0 +1,77 @@
+---
+import { loadAllEntries } from '@utils/loadAllEntries';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BannerText from '@components/BannerText.astro';
+import SiteHeader from '@components/SiteHeader.astro';
+import Aside from '@components/Aside.astro';
+import FeedHeader from '@components/FeedHeader.astro';
+import { TAGS_TITLE, TAGS_DESCRIPTION } from 'src/consts';
+import { slug } from 'github-slugger';
+
+const allEntries = await loadAllEntries();
+
+// Build a Map: tag → count
+const tagCountMap = new Map();
+
+for (const entry of allEntries) {
+	const tags = entry.data.tags || [];
+	for (const tag of tags) {
+		tagCountMap.set(tag, (tagCountMap.get(tag) || 0) + 1);
+	}
+}
+
+// Convert to array + sort DESC by count
+const sortedTags = [...tagCountMap.entries()].sort(); // [tag, count]
+
+// Dynamic bucket sizing
+const counts = [...tagCountMap.values()];
+
+function getStepClass(count: number) {
+	const sortedCounts = counts.sort((a, b) => a - b);
+	const index = sortedCounts.indexOf(count);
+
+	const percentile = index / (sortedCounts.length - 1);
+
+	if (percentile >= 0.75) return 'text-step-5 leading-flat'; // top 25%
+	if (percentile >= 0.5) return 'text-step-3 leading-snug';
+	if (percentile >= 0.25) return 'text-step-1';
+	return 'text-step--1';
+}
+---
+
+<BaseLayout
+	bodyClass="tag-page"
+	pageTitle={TAGS_TITLE}
+	pageDesc={TAGS_DESCRIPTION}
+>
+	<BannerText />
+	<div class="page">
+		<SiteHeader />
+		<div class="page-inner">
+			<main id="main">
+				<FeedHeader
+					isVisuallyHidden={false}
+					sectionTitle="Tags"
+					sectionDesc="Browse all tags used across my notes, articles, and links."
+				/>
+				<div class="center p-space-m">
+					<ul class="multi-col flow align-self-stretch" role="list">
+						{
+							sortedTags.map(([tag, count]) => {
+								const tagURL = `/tags/${slug(tag)}/`;
+								return (
+									<li class:list={[getStepClass(count)]}>
+										<a href={tagURL}>{tag}</a>
+										<span>({count})</span>
+									</li>
+								);
+							})
+						}
+					</ul>
+				</div>
+			</main>
+			<Aside />
+		</div>
+	</div>
+</BaseLayout>
+
