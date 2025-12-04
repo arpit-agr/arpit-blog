@@ -1,0 +1,36 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BannerText from '@components/BannerText.astro';
+import SiteHeader from '@components/SiteHeader.astro';
+import Aside from '@components/Aside.astro';
+import FeedHeader from '@components/FeedHeader.astro';
+import SearchWithResults from '@components/SearchWithResults.astro';
+---
+
+<BaseLayout pageTitle="Search">
+	<BannerText />
+	<div class="page">
+		<SiteHeader />
+		<div class="page-inner">
+			<main id="main">
+				<FeedHeader
+					isVisuallyHidden={false}
+					sectionTitle="Search"
+					sectionDesc="Search across my notes, articles and links"
+				/>
+				<SearchWithResults />
+			</main>
+			<Aside />
+		</div>
+	</div>
+</BaseLayout>
+
+<style is:global>
+	@layer exceptions {
+		.feed-header {
+			border: none;
+		}
+	}
+</style>
+
+<script is:inline src="/scripts/search.js"></script>
