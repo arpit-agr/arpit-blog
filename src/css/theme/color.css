@@ -23,7 +23,7 @@
 		var(--color-bg-primary)
 	);
 	--color-underline: color-mix(
-		in oklch,
+		in oklab,
 		var(--color-accent) 75%,
 		var(--color-bg-primary)
 	);
@@ -31,12 +31,12 @@
 
 	/* 4th order variables */
 	--color-bg-button: color-mix(
-		in oklch,
+		in oklab,
 		var(--color-text-primary) 8%,
 		var(--color-bg-primary)
 	);
 	--color-bg-button-hover: color-mix(
-		in oklch,
+		in oklab,
 		var(--color-accent) 33%,
 		var(--color-bg-primary)
 	);
