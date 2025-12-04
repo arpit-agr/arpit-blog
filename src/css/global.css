@@ -241,7 +241,12 @@ mark {
 	&::after {
 		content: '';
 		position: absolute;
-		border: var(--border-thickness-l) solid var(--color-border);
+		border: var(--border-thickness-l) solid
+			color-mix(
+				in oklab,
+				var(--color-text-primary) 50%,
+				var(--color-bg-primary)
+			);
 		inset: var(--circle-padding);
 	}
 
