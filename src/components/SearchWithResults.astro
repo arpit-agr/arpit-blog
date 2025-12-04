@@ -1,0 +1,77 @@
+<div>
+	<div class="center pi-space-m">
+		<div class="flow align-self-stretch">
+			<search>
+				<form
+					id="search-form"
+					class="stack"
+					action="https://duckduckgo.com/"
+					method="get"
+				>
+					<label
+						class:list={['heading-1', 'text-box-trim', 'visually-hidden']}
+						for="search-term"
+					>
+						Search
+					</label>
+					<div class="cluster align-self-stretch">
+						<input
+							class="text-box-trim"
+							type="search"
+							id="search-term"
+							name="q"
+							placeholder="Type to search…"
+						/>
+						<input aria-hidden="true" hidden name="sites" value="arpit.blog" />
+						<!-- search and clear button -->
+						<div class="search-button-container | step-min-1">
+							<!-- search button -->
+							<button type="submit" class="search-btn">Search</button>
+							<!-- clear button -->
+							<button class="clear-btn" aria-label="Clear search term">
+								Clear
+							</button>
+						</div>
+					</div>
+				</form>
+			</search>
+			<!-- search results -->
+			<div id="search-results" class="flow hidden">
+				<h2 id="search-results-count" class="heading-4" aria-live="polite">
+					Results
+				</h2>
+				<ol id="search-results-list" role="list"></ol>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style is:global>
+	@layer exceptions {
+		#search-form {
+			margin-block-end: var(--space-m);
+
+			.js & .search-btn {
+				display: none;
+			}
+
+			.clear-btn {
+				display: none;
+
+				.js & {
+					display: unset;
+				}
+			}
+
+			&:has([type='search']:placeholder-shown) .clear-btn {
+				cursor: not-allowed;
+				/*opacity: 0.37;*/
+			}
+
+			.js & [type='search']::-webkit-search-cancel-button,
+			.js & [type='search']::-webkit-search-decoration {
+				-webkit-appearance: none;
+			}
+		}
+	}
+</style>
