@@ -5,5 +5,8 @@
 		inline-size: auto;
 		stroke-width: 10%;
 		translate: 0 12.5%;
+
+		background-color: var(--color-underline);
+		border-radius: var(--border-radius);
 	}
 }
