@@ -1,3 +1,8 @@
+.text-step--2 {
+	font-size: var(--step--2);
+	letter-spacing: var(--tracking-widest);
+}
+
 .text-step--1 {
 	font-size: var(--step--1);
 	letter-spacing: var(--tracking-wider);
@@ -9,6 +14,22 @@
 
 .text-step-1 {
 	font-size: var(--step-1);
+}
+
+.text-step-2 {
+	font-size: var(--step-2);
+}
+
+.text-step-3 {
+	font-size: var(--step-3);
+}
+
+.text-step-4 {
+	font-size: var(--step-4);
+}
+
+.text-step-5 {
+	font-size: var(--step-5);
 }
 
 .aside-text-step-1 {
@@ -42,6 +63,10 @@
 
 .leading-flat {
 	line-height: var(--leading-flat);
+}
+
+.leading-tight {
+	line-height: var(--leading-tight);
 }
 
 .leading-snug {
