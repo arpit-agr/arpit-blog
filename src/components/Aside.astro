@@ -7,7 +7,7 @@ import Socials from '@components/Socials.astro';
 // Determine which page we're on
 const path = Astro.url.pathname;
 const isSearchPage = path.includes('/search/');
-const isTagsPage = path.includes('/tags/');
+const isTagsPage = path.endsWith('/tags/');
 ---
 
 <aside class="sidebar container-type-inline">
