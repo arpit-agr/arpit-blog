@@ -41,3 +41,8 @@
 .container-type-inline {
 	container-type: inline-size;
 }
+
+.multi-col {
+	column-width: 25ch;
+	column-gap: var(--space-l);
+}

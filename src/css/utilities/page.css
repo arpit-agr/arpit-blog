@@ -62,12 +62,5 @@
 			border-block-start: var(--border-thickness-separator) solid
 				var(--color-border);
 		}
-
-		@container (width >= 44rem) {
-			ul:not([role='list']) {
-				column-count: 2;
-				column-gap: var(--space-l);
-			}
-		}
 	}
 }
