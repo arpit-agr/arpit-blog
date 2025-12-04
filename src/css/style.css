@@ -45,3 +45,4 @@
 @import url(/src/css/utilities/flex-grid.css) layer(utilities);
 @import url(/src/css/exceptions/expressive-code.css) layer(exceptions);
 @import url(/src/css/exceptions/book-gallery.css) layer(exceptions);
+@import url(/src/css/exceptions/tag-page.css) layer(exceptions);

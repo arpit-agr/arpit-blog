@@ -1,0 +1,11 @@
+.tag-page ul {
+	--flow-space: var(--space-m);
+
+	li {
+		text-box: trim-both cap alphabetic;
+
+		span {
+			font-size: max(var(--step--2), 0.5em);
+		}
+	}
+}
