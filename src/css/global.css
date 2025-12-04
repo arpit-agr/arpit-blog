@@ -168,8 +168,8 @@ blockquote {
 	border-image: linear-gradient(
 			to bottom,
 			transparent 0,
-			transparent 1lh,
-			oklch(from currentColor l c h / calc(0.75 * alpha)) 1lh,
+			transparent 0.8lh,
+			oklch(from currentColor l c h / calc(0.75 * alpha)) 0.8lh,
 			oklch(from currentColor l c h / calc(0.75 * alpha)) calc(100% - 0.3lh),
 			transparent calc(100% - 0.3lh)
 		)
