@@ -1,17 +1,17 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import BannerText from "@components/BannerText.astro";
-import SiteHeader from "@components/SiteHeader.astro";
-import BackLink from "@components/BackLink.astro";
-import PubDate from "@components/PubDate.astro";
-import UpdatedDate from "@components/UpdatedDate.astro";
-import LinkVia from "@components/LinkVia.astro";
-import ExternalLinkIcon from "src/images/external-link.svg";
-import TagList from "@components/TagList.astro";
-import EntryShareAndFeedback from "@components/EntryShareAndFeedback.astro";
-import Aside from "@components/Aside.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BannerText from '@components/BannerText.astro';
+import SiteHeader from '@components/SiteHeader.astro';
+import BackLink from '@components/BackLink.astro';
+import PubDate from '@components/PubDate.astro';
+import UpdatedDate from '@components/UpdatedDate.astro';
+import LinkVia from '@components/LinkVia.astro';
+import ExternalLinkIcon from 'src/images/external-link.svg';
+import TagList from '@components/TagList.astro';
+import EntryShareAndFeedback from '@components/EntryShareAndFeedback.astro';
+import Aside from '@components/Aside.astro';
 
-import { SITE_DESCRIPTION } from "src/consts";
+import { SITE_DESCRIPTION } from 'src/consts';
 
 const {
 	pageTitle, // string
@@ -51,25 +51,33 @@ const {
 										)
 									}
 								</footer>
-								<div class="entry-content flow">
+								<div
+									class="entry-content flow"
+									data-pagefind-body
+									data-pagefind-meta={`date:${entry.data.pubDate}`}
+								>
 									{
-										entry.collection === "notes" && (
+										entry.collection === 'notes' && (
 											<h1 class="visually-hidden">
-												{entry.data.pubDate.toLocaleString("en-IN", {
-													year: "numeric",
-													month: "short",
-													day: "numeric",
+												{entry.data.pubDate.toLocaleString('en-IN', {
+													year: 'numeric',
+													month: 'short',
+													day: 'numeric',
+													hour: 'numeric',
+													minute: 'numeric',
+													timeZone: 'Asia/Kolkata',
+													timeZoneName: 'short',
 												})}
 											</h1>
 										)
 									}
 									{
-										entry.collection === "articles" && (
+										entry.collection === 'articles' && (
 											<h1>{entry.data.title}</h1>
 										)
 									}
 									{
-										entry.collection === "links" && (
+										entry.collection === 'links' && (
 											<h1 class="link-entry-title heading-3">
 												<a href={entry.data.link}>{entry.data.title}</a>
 												<ExternalLinkIcon aria-hidden="true" />
