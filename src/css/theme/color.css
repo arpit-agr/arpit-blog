@@ -32,7 +32,7 @@
 	/* 4th order variables */
 	--color-bg-button: color-mix(
 		in oklab,
-		var(--color-text-primary) 8%,
+		var(--color-text-primary) 4%,
 		var(--color-bg-primary)
 	);
 	--color-bg-button-hover: color-mix(
