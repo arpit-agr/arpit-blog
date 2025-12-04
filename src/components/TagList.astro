@@ -8,15 +8,15 @@ const { tags } = Astro.props;
 // helper to join links with commas + "and"
 function formatLinks(items: string[]) {
 	if (items.length === 1) return items[0];
-	if (items.length === 2) return items.join(" and ");
-	return items.slice(0, -1).join(", ") + ", and " + items[items.length - 1];
+	if (items.length === 2) return items.join(' and ');
+	return items.slice(0, -1).join(', ') + ' and ' + items[items.length - 1];
 }
 
-import { slug } from "github-slugger";
+import { slug } from 'github-slugger';
 ---
 
 <footer class="tag-list text-balance text-step--1 leading-relaxed">
-	Tagged with
+	Tagged:
 	<Fragment
 		set:html={formatLinks(
 			tags.map((tag) => `<a href="/tags/${slug(tag)}/" rel="tag">${tag}</a>`),
