@@ -1,6 +1,6 @@
 .text-step--1 {
 	font-size: var(--step--1);
-	letter-spacing: 0.025em;
+	letter-spacing: var(--tracking-wider);
 }
 
 .text-step-0 {
@@ -13,10 +13,10 @@
 
 .aside-text-step-1 {
 	font-size: var(--step-cq-17-19);
-	letter-spacing: 0.0125em;
+	letter-spacing: var(--tracking-wide);
 
 	@container (width > 50vi) {
-		letter-spacing: normal;
+		letter-spacing: var(--tracking-normal);
 	}
 }
 

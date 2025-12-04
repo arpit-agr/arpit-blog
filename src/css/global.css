@@ -3,13 +3,13 @@
 }
 
 :root {
-	--wrapper-max-width: 72rem;
+	--wrapper-max-width: 73rem;
 	--measure: 60ch;
 	--sidebar-min-width: 24rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 
-	@custom-media --wrapper-max-width (width > 72rem);
+	@custom-media --wrapper-max-width (width > 73rem);
 	/* the vw size at which the page layout switches to two columns */
 	@custom-media --layout-with-sidebar (width > 68.5625rem);
 
@@ -57,33 +57,37 @@ h4,
 h1,
 .heading-1 {
 	font-size: var(--step-3);
-	line-height: var(--leading-tight);
+	line-height: var(--leading-snug);
 }
 
 h2,
 .heading-2 {
 	font-size: var(--step-1);
-	line-height: var(--leading-snug);
+	line-height: var(--leading-normal);
 }
 
 h3,
 .heading-3 {
 	font-size: var(--step-0);
 	line-height: var(--leading-normal);
-	letter-spacing: 0.0125em;
+	letter-spacing: var(--tracking-wide);
 }
 
 h4,
 .heading-4 {
-	font-size: var(--step--1);
+	font-size: var(--step--2);
 	text-transform: uppercase;
 	line-height: var(--leading-normal);
-	letter-spacing: 0.025em;
+	letter-spacing: var(--tracking-widest);
 }
 
 a {
 	text-decoration-thickness: max(var(--border-thickness-l), 0.2ex);
 	text-decoration-color: var(--color-underline);
+	text-decoration-skip-ink: none;
+	/*transition:
+		text-decoration-thickness 0.2s cubic-bezier(0.25, 0, 0.3, 1),
+		text-underline-offset 0.2s cubic-bezier(0.25, 0, 0.3, 1);*/
 
 	@media (prefers-color-scheme: dark) {
 		text-shadow: var(--color-bg-primary) 0 var(--space-5xs);
@@ -93,7 +97,6 @@ a {
 	&:focus-visible {
 		text-decoration-thickness: 0.3lh;
 		text-underline-offset: -0.15lh;
-		text-decoration-skip-ink: none;
 	}
 }
 
