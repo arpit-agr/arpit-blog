@@ -226,7 +226,7 @@ pre {
 	padding: 0px var(--space-3xs);
 	border-radius: var(--code-border-radius);
 	outline: var(--code-border-thickness) solid var(--color-border);
-	outline-offset: calc(-1 * var(--code-border-thickness));
+	/*outline-offset: calc(-1 * var(--code-border-thickness));*/
 }
 
 mark {
