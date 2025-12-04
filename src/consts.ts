@@ -24,3 +24,7 @@ export const ANTILIBRARY_DESCRIPTION =
 export const SEARCH_TITLE = "Search | Arpit's Blog";
 export const SEARCH_DESCRIPTION =
 	'Search across notes, articles and links published by Arpit Agrawal.';
+
+export const TAGS_TITLE = "Tags | Arpit's Blog";
+export const TAGS_DESCRIPTION =
+	'Browse all tags used across Arpit Agrawal’s notes, articles, and links.';
