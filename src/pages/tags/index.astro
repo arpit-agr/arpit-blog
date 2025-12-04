@@ -10,9 +10,8 @@ import { slug } from 'github-slugger';
 
 const allEntries = await loadAllEntries();
 
-// Build a Map: tag → count
+// Build Map: tag → count
 const tagCountMap = new Map();
-
 for (const entry of allEntries) {
 	const tags = entry.data.tags || [];
 	for (const tag of tags) {
@@ -20,22 +19,25 @@ for (const entry of allEntries) {
 	}
 }
 
-// Convert to array + sort DESC by count
-const sortedTags = [...tagCountMap.entries()].sort(); // [tag, count]
+// Convert to array and sort alphabetically or by count (your choice)
+const tagItems = [...tagCountMap.entries()].toSorted(); // DESC by count
 
-// Dynamic bucket sizing
-const counts = [...tagCountMap.values()];
+// Get min + max
+const counts = tagItems.map(([, c]) => c);
+const min = Math.min(...counts);
+const max = Math.max(...counts);
 
+// Map a count to a “step” class (0 → 3)
 function getStepClass(count: number) {
-	const sortedCounts = counts.sort((a, b) => a - b);
-	const index = sortedCounts.indexOf(count);
+	if (min === max) return 'text-step-1'; // all equal
 
-	const percentile = index / (sortedCounts.length - 1);
+	const t = (count - min) / (max - min); // normalize 0 → 1
 
-	if (percentile >= 0.75) return 'text-step-5 leading-flat'; // top 25%
-	if (percentile >= 0.5) return 'text-step-3 leading-snug';
-	if (percentile >= 0.25) return 'text-step-1';
-	return 'text-step--1';
+	// choose one: 4 levels
+	if (t > 0.75) return 'text-step-6 leading-tight';
+	if (t > 0.5) return 'text-step-4 leading-snug';
+	if (t > 0.25) return 'text-step-2';
+	return '';
 }
 ---
 
@@ -57,15 +59,12 @@ function getStepClass(count: number) {
 				<div class="center p-space-m">
 					<ul class="multi-col flow align-self-stretch" role="list">
 						{
-							sortedTags.map(([tag, count]) => {
-								const tagURL = `/tags/${slug(tag)}/`;
-								return (
-									<li class:list={[getStepClass(count)]}>
-										<a href={tagURL}>{tag}</a>
-										<span>({count})</span>
-									</li>
-								);
-							})
+							tagItems.map(([tag, count]) => (
+								<li class:list={[getStepClass(count)]}>
+									<a href={`/tags/${slug(tag)}/`}>{tag}</a>
+									<span>({count})</span>
+								</li>
+							))
 						}
 					</ul>
 				</div>
@@ -74,4 +73,3 @@ function getStepClass(count: number) {
 		</div>
 	</div>
 </BaseLayout>
-
