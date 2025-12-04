@@ -4,7 +4,7 @@
     maxFontSize: 19,
     minTypeScale: 1.125,
     maxTypeScale: 1.2,
-    positiveSteps: 5,
+    positiveSteps: 6,
     negativeSteps: 2,
     relativeTo: 'viewport',
     prefix: 'step'
