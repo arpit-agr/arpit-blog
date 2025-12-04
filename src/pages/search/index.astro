@@ -5,9 +5,11 @@ import SiteHeader from '@components/SiteHeader.astro';
 import Aside from '@components/Aside.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import SearchWithResults from '@components/SearchWithResults.astro';
+
+import { SEARCH_TITLE, SEARCH_DESCRIPTION } from 'src/consts';
 ---
 
-<BaseLayout pageTitle="Search">
+<BaseLayout pageTitle={SEARCH_TITLE} pageDesc={SEARCH_DESCRIPTION}>
 	<BannerText />
 	<div class="page">
 		<SiteHeader />
