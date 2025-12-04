@@ -32,6 +32,10 @@
 	font-size: var(--step-5);
 }
 
+.text-step-6 {
+	font-size: var(--step-6);
+}
+
 .aside-text-step-1 {
 	font-size: var(--step-cq-17-19);
 	letter-spacing: var(--tracking-wide);
