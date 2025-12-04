@@ -7,13 +7,28 @@ import Socials from '@components/Socials.astro';
 // Determine which page we're on
 const path = Astro.url.pathname;
 const isSearchPage = path.includes('/search/');
-const isNotSearchPage = !isSearchPage;
+const isTagsPage = path.includes('/tags/');
 ---
 
 <aside class="sidebar container-type-inline">
 	<AboutSite />
-	<!-- only show the search component if not on the Search page -->
-	{isNotSearchPage && <Search />}
+	<!-- selectively show the search component -->
+	{
+		!isSearchPage && (
+			<Search>
+				<ul class="multi-col aside-text-step-1 align-self-stretch">
+					<li>
+						Or read the <a href="#">archive</a>
+					</li>
+					{!isTagsPage && (
+						<li>
+							Or browse the <a href="/tags/">tags</a>
+						</li>
+					)}
+				</ul>
+			</Search>
+		)
+	}
 	<Subscribe />
 	<Socials />
 	<slot />
