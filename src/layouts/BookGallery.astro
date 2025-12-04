@@ -1,11 +1,10 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import HomeNavItem from "@components/HomeNavItem.astro";
-import Circle from "@images/circle.svg";
-import BookCover from "@components/BookCover.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BannerText from '@components/BannerText.astro';
+import BookCover from '@components/BookCover.astro';
 
-import { getCollection } from "astro:content";
-import { slug } from "github-slugger";
+import { getCollection } from 'astro:content';
+import { slug } from 'github-slugger';
 
 type Props = {
 	pageTitle: string;
@@ -18,31 +17,28 @@ const { pageTitle, pageDesc, sectionDesc, filterStatuses } = Astro.props;
 
 // Determine which page we're on
 const path = Astro.url.pathname;
-const isLibraryPage = path.includes("/library/");
+const isLibraryPage = path.includes('/library/');
 
 // Fetch and filter books
-const books = await getCollection("books", ({ data }) =>
-	filterStatuses.includes(data.status)
+const books = await getCollection('books', ({ data }) =>
+	filterStatuses.includes(data.status),
 );
 
 const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 ---
 
 <BaseLayout bodyClass="book-gallery" pageTitle={pageTitle} pageDesc={pageDesc}>
-	<div class="flow p-space-m">
-		<header class="flow">
-			<nav>
-				<HomeNavItem />
+	<div class="flow wrapper pb-space-l">
+		<header>
+			<nav class="sidebar">
+				<BannerText />
 			</nav>
 			<div class="flow">
-				<div class="heading-group cluster gap-s">
+				<div class="heading-group cluster gap-xs">
 					{
 						isLibraryPage ? (
 							<Fragment>
-								<h1>
-									<span>Library</span>
-									<Circle />
-								</h1>
+								<h1>Library</h1>
 								<div class="separator" aria-hidden="true" />
 								<a class="heading-1 text-box-trim" href="/antilibrary/">
 									<span>Antilibrary</span>
@@ -54,10 +50,7 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 									<span>Library</span>
 								</a>
 								<div class="separator" aria-hidden="true" />
-								<h1>
-									<span>Antilibrary</span>
-									<Circle />
-								</h1>
+								<h1>Antilibrary</h1>
 							</Fragment>
 						)
 					}
@@ -95,19 +88,19 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 					books.map((item, index) => {
 						const viewTransitionName = `book-${item.id}`;
 						const priority = index < 10 ? true : false;
-						const randomNum = Math.round(Math.random() * (2 - -2) - 2);
+						const randomNum = Math.round(Math.random() * (1 - -1) - 1);
 						const rotationAngle = `calc(${randomNum} * 1deg)`;
 						return (
 							<li
 								data-tags={item.data.tags}
 								style={{
-									"view-transition-name": viewTransitionName,
+									'view-transition-name': viewTransitionName,
 								}}
 							>
 								<div
 									class="book-wrapper"
 									style={{
-										"--dominant-color": item.data.dominantColor,
+										'--dominant-color': item.data.dominantColor,
 										rotate: rotationAngle,
 									}}
 								>
