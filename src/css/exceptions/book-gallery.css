@@ -1,29 +1,18 @@
 .book-gallery {
 	--flow-space: var(--space-xl);
+	background-image: none;
 
 	header {
-		h1 {
-			position: relative;
+		--sidebar-gap: var(--space-m) var(--space-s);
+		flex-direction: row-reverse;
+		align-items: first baseline;
 
-			svg {
-				--offset: 180px;
-				position: absolute;
-				inset-block-start: 50%;
-				inset-inline-start: 50%;
-				transform: translate(-50%, -50%);
-				max-inline-size: unset;
-				inline-size: 112.5%;
-				block-size: 212.5%;
-				fill: none;
-				stroke-linecap: round;
-				stroke-dasharray: var(--offset, 69px) 278px;
-				stroke-dashoffset: 361px;
-				stroke-width: var(--border-thickness-l);
-				z-index: -1;
-			}
+		nav {
+			--sidebar-min-width: 14.5rem;
 
-			path {
-				stroke: currentColor;
+			> * {
+				max-inline-size: var(--sidebar-min-width);
+				padding: unset;
 			}
 		}
 
@@ -44,7 +33,7 @@
 		}
 
 		&::after {
-			content: "";
+			content: '';
 			flex-grow: 999;
 			flex-shrink: 1;
 			block-size: var(--border-thickness-separator);
@@ -52,19 +41,13 @@
 			z-index: -1;
 		}
 
-		a:not(:hover, :focus-visible),
-		.circle {
+		a:not(:hover, :focus-visible) {
 			opacity: 0.6;
-		}
-
-		h1 span {
-			-webkit-text-stroke: var(--space-3xs) var(--color-bg-primary);
-			paint-order: stroke fill;
 		}
 	}
 
 	.separator {
-		inline-size: var(--border-thickness-l);
+		inline-size: var(--border-thickness-separator);
 		block-size: var(--space-l);
 		background-color: var(--color-border);
 	}
