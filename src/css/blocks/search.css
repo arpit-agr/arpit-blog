@@ -1,0 +1,26 @@
+search {
+	label + div {
+		--cluster-gap: var(--border-thickness-s);
+		outline: var(--border-thickness-s) solid var(--color-border);
+		border-radius: var(--border-radius);
+	}
+
+	input {
+		flex-grow: 99;
+		border-radius: var(--border-radius) 0 0 var(--border-radius);
+
+		&:not(:hover, :focus-visible) {
+			outline-color: #0000;
+		}
+	}
+
+	button {
+		flex-shrink: 0;
+		min-inline-size: 6ch;
+		border-radius: 0 var(--border-radius) var(--border-radius) 0;
+
+		&:not(:hover, :focus-visible) {
+			outline-color: #0000;
+		}
+	}
+}
