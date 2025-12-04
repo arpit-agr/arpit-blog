@@ -1,16 +1,16 @@
 ---
-import type { GetStaticPaths } from "astro";
-import { loadAllEntries } from "@utils/loadAllEntries";
-import { render } from "astro:content";
+import type { GetStaticPaths } from 'astro';
+import { loadAllEntries } from '@utils/loadAllEntries';
+import { render } from 'astro:content';
 
-import BaseLayout from "@layouts/BaseLayout.astro";
-import BannerText from "@components/BannerText.astro";
-import SiteHeader from "@components/SiteHeader.astro";
-import PaginatedEntries from "@components/PaginatedEntries.astro";
-import Aside from "@components/Aside.astro";
-import CurrentlyReading from "@components/CurrentlyReading.astro";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BannerText from '@components/BannerText.astro';
+import SiteHeader from '@components/SiteHeader.astro';
+import PaginatedEntries from '@components/PaginatedEntries.astro';
+import Aside from '@components/Aside.astro';
+import CurrentlyReading from '@components/CurrentlyReading.astro';
 
-import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from 'src/consts';
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allEntries = await loadAllEntries();
@@ -22,7 +22,7 @@ const entries = await Promise.all(
 	page.data.map(async (entry) => {
 		const { Content } = await render(entry);
 		return { ...entry, Content };
-	})
+	}),
 );
 ---
 
