@@ -7,6 +7,14 @@
 	z-index: 3;
 	view-transition-name: banner-text;
 
+	-webkit-text-stroke: var(--space-4xs) var(--color-bg-primary);
+	paint-order: stroke fill;
+
+	&:has(a:hover) {
+		-webkit-text-stroke: var(--space-4xs)
+			oklch(from var(--color-accent) calc(l * 75%) c h);
+	}
+
 	a {
 		position: absolute;
 		inset: 0;

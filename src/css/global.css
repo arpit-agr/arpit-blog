@@ -16,7 +16,7 @@
 	--font-mono: ui-monospace, 'SF Mono', monospace;
 
 	--button-padding-block: 0.5em;
-	--button-padding-inline: 1ch;
+	--button-padding-inline: 0.75ch;
 	--btn-border-radius: 100vmax;
 }
 
@@ -40,6 +40,16 @@ body {
 
 	@media (prefers-color-scheme: dark) {
 		-webkit-font-smoothing: antialiased;
+	}
+
+	@media (--layout-with-sidebar) {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23c3bdcd' fill-opacity='0.3' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+		background-size: 0.1875lh 0.1875lh;
+		background-position: 0px 0px;
+
+		@media (prefers-color-scheme: dark) {
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23443d51' fill-opacity='0.3' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+		}
 	}
 }
 
@@ -219,26 +229,35 @@ pre {
 	outline-offset: calc(-1 * var(--code-border-thickness));
 }
 
-/* hr {
-	inline-size: 100%;
-	color: var(--color-border);
-} */
+mark {
+	--circled-color: currentColor;
+	--circle-padding: -0.5ch;
 
-/* hr {
 	position: relative;
-	border-color: #0000;
+	background: none;
+	color: currentColor;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		border: var(--border-thickness-l) solid var(--color-border);
+		inset: var(--circle-padding);
+	}
 
 	&::before {
-		--separator-angle: 90deg;
-		content: "";
-		position: absolute;
-		inset-inline: 0;
-		inset-block-start: 0;
-		background: var(--separator);
-		inline-size: 100%;
-		block-size: var(--border-thickness-separator);
+		inset-block-start: calc(var(--circle-padding) / 2);
+		inset-inline-end: 50%;
+		border-inline-end: none;
+		border-radius: 100% 0 0 75% / 50% 0 0 50%;
 	}
-} */
+
+	&::after {
+		inset-inline-start: 30%;
+		border-inline-start: none;
+		border-radius: 0 100% 75% 0 / 0 50% 50% 0;
+	}
+}
 
 ::selection {
 	background-color: var(--color-bg-selection);
