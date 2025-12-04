@@ -3,9 +3,9 @@
 	--color-dark: light-dark(rgb(44, 75, 133), #1d1c1c);
 	--color-light: #fefbf9;
 	--color-brand: oklch(0.8383 0.1982 80.76);
-	--color-brand-shade: oklch(0.6782 0.163 76.95);
 
 	/* 2nd order variables */
+	--color-brand-shade: oklch(from var(--color-brand) calc(l * 70%) c h);
 	--color-dark-shade: oklch(from var(--color-dark) calc(l * 150%) c h);
 	--color-light-shade: oklch(from var(--color-light) calc(l * 90%) c h);
 	--color-text-primary: light-dark(var(--color-dark), var(--color-light));
@@ -28,11 +28,9 @@
 		var(--color-bg-primary)
 	);
 	--color-focus: var(--color-accent);
-
-	/* 4th order variables */
 	--color-bg-button: color-mix(
 		in oklab,
-		var(--color-text-primary) 4%,
+		var(--color-text-primary) 6%,
 		var(--color-bg-primary)
 	);
 	--color-bg-button-hover: color-mix(
