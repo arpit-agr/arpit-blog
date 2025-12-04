@@ -43,6 +43,6 @@
 }
 
 .multi-col {
-	column-width: 25ch;
+	column-width: var(--multi-col-width, 25ch);
 	column-gap: var(--space-l);
 }
