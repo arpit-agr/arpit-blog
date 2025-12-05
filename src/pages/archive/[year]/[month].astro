@@ -1,0 +1,74 @@
+---
+import { loadAllEntries } from '@utils/loadAllEntries';
+import { render } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BannerText from '@components/BannerText.astro';
+import SiteHeader from '@components/SiteHeader.astro';
+import FeedHeader from '@components/FeedHeader.astro';
+import EntryList from '@components/EntryList.astro';
+import Aside from '@components/Aside.astro';
+import { SITE_TITLE } from 'src/consts';
+
+export async function getStaticPaths() {
+	const allEntries = await loadAllEntries();
+	const set = new Set<string>();
+
+	for (const entry of allEntries) {
+		const date = entry.data.pubDate;
+		const year = date.getFullYear();
+		const month = String(date.getMonth() + 1).padStart(2, '0');
+		set.add(`${year}-${month}`);
+	}
+
+	return Array.from(set).map((key) => {
+		const [year, month] = key.split('-');
+		return { params: { year, month } };
+	});
+}
+
+const { year, month } = Astro.params;
+const allEntries = await loadAllEntries();
+
+const filtered = allEntries.filter((entry) => {
+	const date = entry.data.pubDate;
+	return (
+		date.getFullYear() === Number(year) &&
+		String(date.getMonth() + 1).padStart(2, '0') === month
+	);
+});
+
+const entries = await Promise.all(
+	filtered.map(async (entry) => {
+		const rendered = await render(entry);
+		return {
+			...entry,
+			Content: rendered.Content,
+		};
+	}),
+);
+
+const monthName = new Date(Number(year), Number(month) - 1).toLocaleString(
+	'en-IN',
+	{ month: 'long' },
+);
+
+const pageTitle = `Archive: ${monthName} ${year} | ${SITE_TITLE}`;
+const pageDescription = `All notes, articles, and links published in ${monthName} ${year} by Arpit Agrawal.`;
+---
+
+<BaseLayout {pageTitle} pageDesc={pageDescription}>
+	<BannerText />
+	<div class="page">
+		<SiteHeader />
+		<div class="page-inner">
+			<main id="main">
+				<FeedHeader
+					isVisuallyHidden={false}
+					sectionTitle={`Archive: ${monthName} ${year}`}
+				/>
+				<EntryList entries={entries} />
+			</main>
+			<Aside />
+		</div>
+	</div>
+</BaseLayout>
