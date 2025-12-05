@@ -20,7 +20,6 @@ export default defineConfig({
 			collapseBooleanAttributes: true,
 			collapseWhitespace: true,
 			continueOnMinifyError: false,
-			decodeEntities: true,
 			keepClosingSlash: false,
 			preventAttributesEscaping: true,
 			removeComments: true,
