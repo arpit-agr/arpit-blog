@@ -7,6 +7,7 @@ import Socials from '@components/Socials.astro';
 // Determine which page we're on
 const path = Astro.url.pathname;
 const isSearchPage = path.includes('/search/');
+const isArchivePage = path.includes('/archive/');
 const isTagsPage = path.endsWith('/tags/');
 ---
 
@@ -17,9 +18,11 @@ const isTagsPage = path.endsWith('/tags/');
 		!isSearchPage && (
 			<Search>
 				<ul class="multi-col aside-text-step-1 align-self-stretch">
-					<li>
-						Or read the <a href="#">archive</a>
-					</li>
+					{!isArchivePage && (
+						<li>
+							Or browse the <a href="/archive/">archive</a>
+						</li>
+					)}
 					{!isTagsPage && (
 						<li>
 							Or browse the <a href="/tags/">tags</a>
