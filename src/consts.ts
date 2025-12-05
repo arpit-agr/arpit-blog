@@ -28,3 +28,7 @@ export const SEARCH_DESCRIPTION =
 export const TAGS_TITLE = "Tags | Arpit's Blog";
 export const TAGS_DESCRIPTION =
 	'Browse all tags used across Arpit Agrawal’s notes, articles, and links.';
+
+export const ARCHIVE_TITLE = "Archive | Arpit's Blog";
+export const ARCHIVE_DESCRIPTION =
+	'Browse the complete archive of notes, articles, and links published by Arpit Agrawal, grouped by year and month.';
