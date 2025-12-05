@@ -7,7 +7,7 @@ import Socials from '@components/Socials.astro';
 // Determine which page we're on
 const path = Astro.url.pathname;
 const isSearchPage = path.includes('/search/');
-const isArchivePage = path.includes('/archive/');
+const isArchivePage = path.endsWith('/archive/');
 const isTagsPage = path.endsWith('/tags/');
 ---
 
