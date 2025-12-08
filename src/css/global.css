@@ -28,7 +28,7 @@
 body {
 	max-inline-size: var(--wrapper-max-width);
 	margin-inline: auto;
-	background-color: var(--color-bg-primary);
+	background-color: var(--color-bg-body);
 	color: var(--color-text-primary);
 	accent-color: var(--color-accent);
 	font-family: var(--font-sans-serif);
@@ -42,7 +42,7 @@ body {
 		-webkit-font-smoothing: antialiased;
 	}
 
-	@media (--layout-with-sidebar) {
+	/*@media (--layout-with-sidebar) {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23c3bdcd' fill-opacity='0.3' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 		background-size: 0.1lh 0.1lh;
 		background-position: 0px 0px;
@@ -50,7 +50,7 @@ body {
 		@media (prefers-color-scheme: dark) {
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23443d51' fill-opacity='0.3' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 		}
-	}
+	}*/
 }
 
 h1,
