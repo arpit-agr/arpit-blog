@@ -1,6 +1,5 @@
 .book-gallery {
 	--flow-space: var(--space-xl);
-	background-image: none;
 
 	header {
 		--sidebar-gap: var(--space-m) var(--space-s);
