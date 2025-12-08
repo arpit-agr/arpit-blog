@@ -23,6 +23,7 @@
 		"author": "Bill Bryson",
 		"tags": ["Popular science", "Non-fiction"],
 		"cover": "/src/images/book-covers/a-short-history-of-nearly-everything.jpeg",
+		"status": "reading",
 		"dominantColor": "#283878"
 	},
 	{
