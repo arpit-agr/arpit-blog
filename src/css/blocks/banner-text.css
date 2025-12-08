@@ -6,14 +6,15 @@
 	color: var(--color-accent);
 	z-index: 3;
 	view-transition-name: banner-text;
+	mix-blend-mode: multiply;
 
-	/*-webkit-text-stroke: var(--space-4xs) var(--color-bg-primary);
-	paint-order: stroke fill;
+	@media (prefers-color-scheme: dark) {
+		mix-blend-mode: lighten;
+	}
 
 	&:has(a:hover) {
-		-webkit-text-stroke: var(--space-4xs)
-			oklch(from var(--color-accent) calc(l * 75%) c h);
-	}*/
+		mix-blend-mode: normal;
+	}
 
 	a {
 		position: absolute;
