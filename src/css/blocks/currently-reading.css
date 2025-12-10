@@ -7,6 +7,7 @@
 		--grid-min-item-size: 16.2rem;
 		--grid-row-gap: var(--space-s);
 		--grid-column-gap: var(--space-m);
+		--grid-placement: auto-fit;
 	}
 
 	.book {
