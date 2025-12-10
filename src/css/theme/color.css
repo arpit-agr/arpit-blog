@@ -41,4 +41,12 @@
 	--color-bg-selection: oklch(
 		from var(--color-accent) l c h / calc(0.5 * alpha)
 	);
+
+	--color-bg-body: var(--color-bg-primary);
+	@media (--layout-with-sidebar) {
+		--color-bg-body: light-dark(
+			oklch(from var(--color-light) calc(l * 98%) c h),
+			oklch(from var(--color-dark) calc(l * 90%) c h)
+		);
+	}
 }
