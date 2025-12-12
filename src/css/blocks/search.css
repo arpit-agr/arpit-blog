@@ -1,8 +1,14 @@
 search {
 	label + div {
-		--cluster-gap: var(--border-thickness-s);
-		outline: var(--border-thickness-s) solid var(--color-border);
+		--cluster-gap: calc(1/2 * var(--border-thickness-focus));
+		border: var(--border-thickness-s) solid var(--color-border);
 		border-radius: var(--border-radius);
+	}
+
+	input,
+	button {
+		outline: var(--border-thickness-focus) solid var(--color-focus);
+		outline-offset: calc(-1 / 2 * var(--border-thickness-focus));
 	}
 
 	input {
