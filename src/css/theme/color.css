@@ -1,6 +1,6 @@
 :root {
 	/* 1st order variables */
-	--color-dark: light-dark(rgb(44, 75, 133), #1f1f1f);
+	--color-dark: light-dark(rgb(44, 75, 133), #1d1c1c);
 	--color-light: #fefbf9;
 	--color-brand: oklch(0.8383 0.1982 80.76);
 
@@ -45,8 +45,12 @@
 	--color-bg-body: var(--color-bg-primary);
 	@media (--layout-with-sidebar) {
 		--color-bg-body: light-dark(
-			oklch(from var(--color-light) calc(l * 98%) c h),
-			oklch(from var(--color-dark) calc(l * 90%) c h)
+			color-mix(in oklab, var(--color-accent) 3%, var(--color-light)),
+			color-mix(
+				in oklab,
+				var(--color-accent) 2%,
+				oklch(from var(--color-dark) calc(l * 85%) c h)
+			)
 		);
 	}
 }
