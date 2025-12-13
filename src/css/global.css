@@ -223,41 +223,6 @@ pre {
 	/*outline-offset: calc(-1 * var(--code-border-thickness));*/
 }
 
-mark {
-	--circled-color: currentColor;
-	--circle-padding: -0.5ch;
-
-	position: relative;
-	background: none;
-	color: currentColor;
-
-	&::before,
-	&::after {
-		content: '';
-		position: absolute;
-		border: var(--border-thickness-l) solid
-			color-mix(
-				in oklab,
-				var(--color-text-primary) 50%,
-				var(--color-bg-primary)
-			);
-		inset: var(--circle-padding);
-	}
-
-	&::before {
-		inset-block-start: calc(var(--circle-padding) / 2);
-		inset-inline-end: 50%;
-		border-inline-end: none;
-		border-radius: 100% 0 0 75% / 50% 0 0 50%;
-	}
-
-	&::after {
-		inset-inline-start: 30%;
-		border-inline-start: none;
-		border-radius: 0 100% 75% 0 / 0 50% 50% 0;
-	}
-}
-
 ::selection {
 	background-color: var(--color-bg-selection);
 }
