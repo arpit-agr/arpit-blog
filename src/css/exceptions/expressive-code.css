@@ -13,6 +13,7 @@
 
 	@media (prefers-color-scheme: dark) {
 		--ec-frm-edTabBarBg: oklch(from var(--ec-frm-edBg) calc(l * 110%) c h);
+		--ec-frm-trmTtbBg: var(--ec-frm-edTabBarBg);
 		--ec-frm-edActTabBg: var(--ec-frm-edTabBarBg);
 		--ec-frm-edActTabIndBtmCol: var(--ec-frm-edTabBarBg);
 	}
