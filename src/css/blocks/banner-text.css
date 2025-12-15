@@ -6,7 +6,7 @@
 	padding-inline: var(--gutter);
 	border-style: solid;
 	border-width: 0px 0px var(--border-thickness-separator) 0px;
-	border-image: var(--hr-image) 72 72 72 72 repeat repeat;
+	border-image: var(--hr-image) 72 72 72 72 stretch stretch;
 
 	font-family: var(--font-cursive);
 	color: var(--color-accent);

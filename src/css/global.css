@@ -171,7 +171,7 @@ blockquote {
 	padding-inline-start: var(--space-s);
 	border-style: solid;
 	border-width: 0px 0px 0px var(--border-thickness-separator);
-	border-image: var(--bq-image) 72 72 72 72 repeat repeat;
+	border-image: var(--bq-image) 72 72 72 72 stretch stretch;
 
 	> * + * {
 		margin-block-start: var(--flow-space, 0.5lh);

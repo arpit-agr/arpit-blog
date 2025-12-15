@@ -20,17 +20,17 @@
 
 		border-style: solid;
 		border-width: var(--border-thickness-separator) 0px 0px 0px;
-		border-image: var(--aside-image) 72 72 72 72 repeat repeat;
+		border-image: var(--aside-image) 72 72 72 72 stretch stretch;
 
 		@media (--layout-with-sidebar) {
 			border-width: 0px 0px 0px var(--border-thickness-separator);
-			border-image: var(--aside-image) 72 72 72 72 repeat repeat;
+			border-image: var(--aside-image) 72 72 72 72 stretch stretch;
 		}
 
 		> * + * {
 			border-style: solid;
 			border-width: var(--border-thickness-separator) 0px 0px 0px;
-			border-image: var(--hr-image) 72 72 72 72 repeat repeat;
+			border-image: var(--hr-image) 72 72 72 72 stretch stretch;
 		}
 	}
 }
