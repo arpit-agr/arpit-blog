@@ -10,6 +10,7 @@
 @import url(/src/css/theme/shadows.css) layer(theme);
 @import url(/src/css/theme/easings.css) layer(theme);
 @import url(/src/css/theme/code.css) layer(theme);
+@import url(/src/css/theme/images.css) layer(theme);
 @import url(/src/css/global.css) layer(global);
 @import url(/src/css/composition/box.css) layer(composition);
 @import url(/src/css/composition/center.css) layer(composition);

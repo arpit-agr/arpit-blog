@@ -1,7 +1,7 @@
 search {
 	label + div {
 		--cluster-gap: calc(1/2 * var(--border-thickness-focus));
-		border: var(--border-thickness-s) solid var(--color-border);
+		border: var(--border-thickness-m) solid var(--color-border);
 		border-radius: var(--border-radius);
 	}
 

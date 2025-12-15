@@ -19,7 +19,7 @@
 	);
 	--color-border: color-mix(
 		in oklab,
-		var(--color-text-primary) 18%,
+		var(--color-text-primary) 12%,
 		var(--color-bg-primary)
 	);
 	--color-underline: color-mix(
@@ -30,7 +30,7 @@
 	--color-focus: var(--color-accent);
 	--color-bg-button: color-mix(
 		in oklab,
-		var(--color-text-primary) 10%,
+		var(--color-text-primary) 8%,
 		var(--color-bg-primary)
 	);
 	--color-bg-button-hover: color-mix(
@@ -41,16 +41,4 @@
 	--color-bg-selection: oklch(
 		from var(--color-accent) l c h / calc(0.5 * alpha)
 	);
-
-	--color-bg-body: var(--color-bg-primary);
-	@media (--layout-with-sidebar) {
-		--color-bg-body: light-dark(
-			color-mix(in oklab, var(--color-accent) 3%, var(--color-light)),
-			color-mix(
-				in oklab,
-				var(--color-accent) 2%,
-				oklch(from var(--color-dark) calc(l * 85%) c h)
-			)
-		);
-	}
 }

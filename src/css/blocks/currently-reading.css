@@ -29,7 +29,7 @@
 		background: var(--box-bg, var(--radial-gradient)); */
 		display: grid;
 		grid-template-columns: minmax(18ch, 1fr) min(28.75cqi, var(--space-6xl));
-		outline: var(--border-thickness-separator) solid var(--color-border);
+		outline: var(--border-thickness-m) solid var(--color-border);
 		border-radius: var(--border-radius);
 		overflow: clip;
 	}
@@ -37,7 +37,7 @@
 	/* https://codepen.io/lynnandtonic/pen/JjGmrBz */
 	picture {
 		position: relative;
-		transform: perspective(60em) rotateX(58deg) rotateZ(-34deg) skewY(-7deg);
+		transform: perspective(60em) rotateX(58deg) rotateZ(-34deg) skewY(-17deg);
 		box-shadow:
 			-1.4em 1.7em 0.3em -0.3em rgba(0, 0, 0, 0.2),
 			-1.6em 1.8em 0.9em -0.2em rgba(0, 0, 0, 0.125),
@@ -47,8 +47,6 @@
 		img {
 			position: absolute;
 			inset: 0;
-			/* outline: var(--border-thickness-s) solid var(--color-border);
-			outline-offset: calc(-1 * var(--border-thickness-s)); */
 			border-top-right-radius: 4px;
 		}
 

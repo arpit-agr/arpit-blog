@@ -1,12 +1,4 @@
 .page {
-	background: var(--color-bg-primary);
-	outline: var(--border-thickness-separator) solid var(--color-border);
-
-	@media (--wrapper-max-width) {
-		border-radius: var(--border-radius);
-		overflow: clip;
-	}
-
 	.site-nav {
 		margin-inline: max(
 			0px,
@@ -21,46 +13,24 @@
 
 .page-inner {
 	--sidebar-gap: 0;
-	flex-grow: 999;
-
-	> aside.sidebar::before,
-	> aside hr::before {
-		/*--separator: repeating-linear-gradient(
-			var(--separator-angle, 0deg),
-			transparent,
-			transparent var(--space-4xs),
-			oklch(from var(--color-text-primary) l c h / 0.3) var(--space-4xs),
-			oklch(from var(--color-text-primary) l c h / 0.3) var(--space-3xs)
-		);*/
-		--separator: var(--color-border);
-	}
 
 	> aside {
 		--stack-gap: var(--space-s);
 		position: relative;
 
-		&::before {
-			content: '';
-			position: absolute;
-			background: var(--separator);
-			/*z-index: -1;*/
-			inset-inline-start: 0;
-			inset-block-start: 0;
-			inline-size: var(--border-thickness-separator);
-			block-size: 100%;
+		border-style: solid;
+		border-width: var(--border-thickness-separator) 0px 0px 0px;
+		border-image: var(--aside-image) 72 72 72 72 repeat repeat;
 
-			@container (width > 50vi) {
-				--separator-angle: 90deg;
-				inset-inline: 0;
-				inset-block-start: 0;
-				inline-size: 100%;
-				block-size: var(--border-thickness-separator);
-			}
+		@media (--layout-with-sidebar) {
+			border-width: 0px 0px 0px var(--border-thickness-separator);
+			border-image: var(--aside-image) 72 72 72 72 repeat repeat;
 		}
 
 		> * + * {
-			border-block-start: var(--border-thickness-separator) solid
-				var(--color-border);
+			border-style: solid;
+			border-width: var(--border-thickness-separator) 0px 0px 0px;
+			border-image: var(--hr-image) 72 72 72 72 repeat repeat;
 		}
 	}
 }

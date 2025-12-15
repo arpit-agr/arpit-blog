@@ -28,7 +28,7 @@
 		);
 		padding-inline: var(--ec-uiPadInl);
 
-		background-color: var(--color-bg-secondary);
+		background-color: var(--color-bg-button);
 		color: var(--color-text-primary);
 		font-family: var(--ec-codeFontFml);
 		font-size: var(--step--2);
@@ -69,7 +69,7 @@
 			}
 
 			&::after {
-				margin: 0.5em;
+				margin: 0.4em;
 			}
 
 			&:where(:hover, :focus-visible) {

@@ -88,7 +88,7 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 					books.map((item, index) => {
 						const viewTransitionName = `book-${item.id}`;
 						const priority = index < 10 ? true : false;
-						const randomNum = Math.round(Math.random() * (1 - -1) - 1);
+						const randomNum = Math.random() * (0.5 - -0.5) - 0.5;
 						const rotationAngle = `calc(${randomNum} * 1deg)`;
 						return (
 							<li
