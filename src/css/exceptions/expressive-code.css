@@ -10,13 +10,14 @@
 	--ec-frm-edBg: var(--color-bg-primary); /* sets the bg of the editor */
 	--ec-frm-trmBg: var(--color-bg-primary); /* sets the bg of the terminal */
 	--ec-frm-edTabBarBrdBtmCol: var(--ec-frm-edTabBarBg);
-
-	@media (prefers-color-scheme: dark) {
-		--ec-frm-edTabBarBg: oklch(from var(--ec-frm-edBg) calc(l * 110%) c h);
-		--ec-frm-trmTtbBg: var(--ec-frm-edTabBarBg);
-		--ec-frm-edActTabBg: var(--ec-frm-edTabBarBg);
-		--ec-frm-edActTabIndBtmCol: var(--ec-frm-edTabBarBg);
-	}
+	--ec-frm-edTabBarBg: color-mix(
+		in oklab,
+		var(--color-text-primary) 5%,
+		var(--color-bg-primary)
+	);
+	--ec-frm-trmTtbBg: var(--ec-frm-edTabBarBg);
+	--ec-frm-edActTabBg: var(--ec-frm-edTabBarBg);
+	--ec-frm-edActTabIndBtmCol: var(--ec-frm-edTabBarBg);
 
 	[data-language]::before {
 		inset-block-start: var(--ec-codePadBlk);
