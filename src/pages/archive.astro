@@ -36,34 +36,39 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 				<FeedHeader
 					isVisuallyHidden={false}
 					sectionTitle="Archive"
-					sectionDesc="Browse the complete archive of notes, articles, and links, grouped by year and month."
+					sectionDesc="Browse all my notes, articles, and links, grouped by year and month."
 				/>
 				<div class="center p-space-m">
-					{
-						years.map((year) => (
-							<section class="flow align-self-stretch">
-								<h2>{year}</h2>
-								<ul>
-									{Array.from(archive.get(year))
-										.sort((a, b) => Number(b) - Number(a)) // descending months
-										.map((month) => {
-											const label = new Date(
-												year,
-												Number(month) - 1,
-											).toLocaleString('en-IN', {
-												month: 'long',
-												year: 'numeric',
-											});
-											return (
-												<li>
-													<a href={`/archive/${year}/${month}/`}>{label}</a>
-												</li>
-											);
-										})}
-								</ul>
-							</section>
-						))
-					}
+					<div
+						class="grid align-self-stretch"
+						style="--grid-min-item-size: 25ch;"
+					>
+						{
+							years.map((year) => (
+								<section class="flow flow-space-s align-self-stretch">
+									<h2>{year}</h2>
+									<ul>
+										{Array.from(archive.get(year))
+											.sort((a, b) => Number(b) - Number(a)) // descending months
+											.map((month) => {
+												const label = new Date(
+													year,
+													Number(month) - 1,
+												).toLocaleString('en-IN', {
+													month: 'long',
+													year: 'numeric',
+												});
+												return (
+													<li>
+														<a href={`/archive/${year}/${month}/`}>{label}</a>
+													</li>
+												);
+											})}
+									</ul>
+								</section>
+							))
+						}
+					</div>
 				</div>
 			</main>
 			<Aside />
