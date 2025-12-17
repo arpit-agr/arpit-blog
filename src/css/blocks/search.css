@@ -1,14 +1,15 @@
 search {
 	label + div {
-		--cluster-gap: calc(1/2 * var(--border-thickness-focus));
+		--cluster-gap: 0px;
 		border: var(--border-thickness-m) solid var(--color-border);
 		border-radius: var(--border-radius);
+		overflow: clip;
 	}
 
 	input,
 	button {
 		outline: var(--border-thickness-focus) solid var(--color-focus);
-		outline-offset: calc(-1 / 2 * var(--border-thickness-focus));
+		outline-offset: calc(-1 * var(--border-thickness-focus));
 	}
 
 	input {
@@ -23,10 +24,11 @@ search {
 	button {
 		flex-shrink: 0;
 		min-inline-size: 6ch;
-		border-radius: 0 var(--border-radius) var(--border-radius) 0;
+		border-radius: 0px;
 
 		&:not(:hover, :focus-visible) {
 			outline-color: #0000;
+			border-radius: 0 var(--border-radius) var(--border-radius) 0;
 		}
 	}
 }
