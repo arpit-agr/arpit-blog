@@ -9,9 +9,9 @@ tags:
   - "nic-chan"
 ---
 
-This bit from Nic captures a dynamic I want to address upfront with clients, so they never treat me as just a pair of hands:
-
 > Instead of seeing us as people who brought valuable knowledge and expertise to the project, they saw us as the hands that would execute their vision.
+
+The above bit from Nic captures a dynamic I want to address upfront with clients, so they never treat me as just a pair of hands.
 
 Then there's the this bit, which really resonated with me (because I've been there too and it sucks):
 
