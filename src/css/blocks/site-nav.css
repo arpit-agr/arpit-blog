@@ -5,6 +5,17 @@
 	border-style: solid;
 	border-width: 0px 0px var(--border-thickness-separator) 0px;
 	border-image: var(--hr-image) 72 72 72 72 stretch stretch;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: var(--grain-image);
+		background-repeat: repeat;
+		background-size: var(--space-xl) var(--space-xl);
+		mix-blend-mode: hard-light;
+		pointer-events: none;
+	}
 }
 
 .site-nav {
