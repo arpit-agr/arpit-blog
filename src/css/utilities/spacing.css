@@ -141,3 +141,7 @@
 .flow-space-xs {
 	--flow-space: var(--space-xs);
 }
+
+.flow-space-s {
+	--flow-space: var(--space-s);
+}
