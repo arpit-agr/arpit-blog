@@ -11,3 +11,27 @@ tags:
 ---
 
 Roman Komarov on how they use an [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) to handle complex conditional rendering in `.astro` components.
+
+```astro
+---
+const { linkText, isDiv = false } = Astro.props;
+---
+{(() => {
+	const someContent = (
+		<a href="#hello">{linkText}</a>
+	);
+	return (
+		<div class="wrapper">
+			{isDiv ? (
+				<div class="inner">
+					{someContent}
+				</div>
+			) : (
+				<span class="inner">
+					{someContent}
+				</span>
+			)}
+		</div>
+	);
+})()}
+```
