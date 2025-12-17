@@ -1,12 +1,8 @@
 .banner-text {
 	view-transition-name: banner-text;
-
 	position: relative;
 	padding-block-start: var(--space-s-l);
 	padding-inline: var(--gutter);
-	border-style: solid;
-	border-width: 0px 0px var(--border-thickness-separator) 0px;
-	border-image: var(--hr-image) 72 72 72 72 stretch stretch;
 
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
@@ -20,6 +16,17 @@
 
 	&:has(a:hover) {
 		mix-blend-mode: normal;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset-inline: 0;
+		inset-block-end: 0;
+		border-style: solid;
+		border-width: 0px 0px var(--border-thickness-separator) 0px;
+		border-image: var(--hr-image) 72 72 72 72 stretch stretch;
+		z-index: -1;
 	}
 
 	a {
