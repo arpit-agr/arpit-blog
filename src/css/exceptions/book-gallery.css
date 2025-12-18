@@ -20,10 +20,6 @@
 		}
 	}
 
-	.banner-text::before {
-		display: none;
-	}
-
 	.heading-group {
 		position: relative;
 

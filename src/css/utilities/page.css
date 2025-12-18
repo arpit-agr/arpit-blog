@@ -1,18 +1,24 @@
 .page {
-	.site-nav {
-		margin-inline: max(
-			0px,
-			calc((100vw - var(--center-max-width)) / 2) - var(--gutter)
-		);
+	outline: var(--border-thickness-m) solid var(--color-border);
 
-		@media (--layout-with-sidebar) {
-			margin-inline: 0px;
+	.site-nav {
+		--_dynamic-margin: max(
+			0,
+			calc(((100cqi - var(--center-max-width)) / 2) - var(--gutter))
+		);
+		margin-inline: var(--_dynamic-margin);
+
+		/* cannot use @custom-media with @container  */
+		/* https://github.com/csstools/postcss-plugins/issues/1035 */
+		@container root (width > 68.5625rem) {
+			--_dynamic-margin: 0px;
 		}
 	}
 }
 
 .page-inner {
 	--sidebar-gap: 0;
+	--sidebar-min-width: 24rem;
 
 	> aside {
 		--stack-gap: var(--space-s);

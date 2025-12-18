@@ -5,16 +5,13 @@
 :root {
 	--wrapper-max-width: 73rem;
 	--measure: 60ch;
-	--sidebar-min-width: 24rem;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 
-	@custom-media --wrapper-max-width (width > 73rem);
-	/* the vw size at which the page layout switches to two columns */
+	/* The layout switches to two columns at 1098px. Anytime this value is changed, the value will also need to be updated in page.css */
 	@custom-media --layout-with-sidebar (width > 68.5625rem);
 
 	--font-mono: ui-monospace, 'SF Mono', monospace;
-
 	--button-padding-block: 0.5em;
 	--button-padding-inline: 0.75ch;
 	--btn-border-radius: 100vmax;
@@ -22,6 +19,7 @@
 
 :root {
 	container-type: inline-size;
+	container-name: root;
 	scrollbar-gutter: stable;
 
 	color-scheme: light dark;
@@ -62,7 +60,7 @@ body {
 		z-index: -1;
 
 		@media (prefers-color-scheme: dark) {
-			opacity: 0.5;
+			opacity: 0.66;
 		}
 	}
 }

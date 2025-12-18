@@ -17,7 +17,7 @@
 		pointer-events: none;
 
 		@media (prefers-color-scheme: dark) {
-			opacity: 0.5;
+			opacity: 0.66;
 		}
 	}
 }
