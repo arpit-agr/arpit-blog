@@ -7,7 +7,6 @@ tags:
   - "media-queries"
   - "css"
   - "mac-os"
-draft: true
 ---
 
 Today I learned that on macOS, with the default scrollbar setting enabled, classic scrollbars are shown automatically when a mouse is connected. I used to believe that, mouse or not, users needed to explicitly change the scrollbar appearance to get the classic scrollbars.
