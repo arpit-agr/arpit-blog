@@ -8,8 +8,13 @@
 		);
 		margin-inline: var(--_dynamic-margin);
 
-		/* cannot use @custom-media with @container  */
-		/* https://github.com/csstools/postcss-plugins/issues/1035 */
+		/*
+			Measure the HTML container instead of the viewport.
+      This width automatically shrinks when a scrollbar appears.
+
+      Note: We cannot use @custom-media with @container yet.
+      (https://github.com/csstools/postcss-plugins/issues/1035)
+    */
 		@container root (width > 68.5625rem) {
 			--_dynamic-margin: 0px;
 		}
