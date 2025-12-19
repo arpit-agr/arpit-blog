@@ -213,6 +213,10 @@ pre {
 	background: var(--color-bg-button);
 }
 
+mark {
+	background: var(--color-accent);
+}
+
 ::selection {
 	background-color: var(--color-bg-selection);
 }
