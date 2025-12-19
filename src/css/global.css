@@ -176,9 +176,9 @@ blockquote {
 		position: absolute;
 		inset-inline-start: calc(-1 * var(--border-thickness-blockquote));
 		inset-block-start: 0;
-		translate: -50% 0%;
+		translate: -50% -2%;
 		background: var(--color-bg-primary);
-		block-size: var(--space-s);
+		block-size: 0.75lh;
 	}
 
 	> *:last-child::after {
