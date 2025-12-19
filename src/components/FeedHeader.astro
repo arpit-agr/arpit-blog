@@ -18,10 +18,10 @@ const { isVisuallyHidden, sectionTitle, sectionDesc } = Astro.props;
 	<div class="center pi-space-m">
 		{
 			!!sectionTitle && !!sectionDesc ? (
-				<hgroup class="text-balance text-box-trim align-self-stretch">
+				<hgroup class="text-balance text-box-trim-end align-self-stretch">
 					<h1>{sectionTitle}</h1>
 					<span>-</span>
-					<p>{sectionDesc}</p>
+					<span>{sectionDesc}</span>
 				</hgroup>
 			) : !!sectionTitle ? (
 				<h1 class="align-self-stretch">{sectionTitle}</h1>

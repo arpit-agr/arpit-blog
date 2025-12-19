@@ -15,6 +15,10 @@
 			}
 		}
 
+		.banner-text::before {
+			display: none;
+		}
+
 		p {
 			--flow-space: var(--space-s);
 		}
