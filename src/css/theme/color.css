@@ -28,10 +28,9 @@
 		var(--color-bg-primary)
 	);
 	--color-focus: var(--color-accent);
-	--color-bg-button: color-mix(
-		in oklab,
-		var(--color-text-primary) 8%,
-		var(--color-bg-primary)
+	--color-bg-button: light-dark(
+		color-mix(in oklab, var(--color-text-primary) 8%, var(--color-bg-primary)),
+		color-mix(in oklab, var(--color-text-primary) 16%, var(--color-bg-primary))
 	);
 	--color-bg-button-hover: color-mix(
 		in oklab,
