@@ -1,23 +1,23 @@
 ---
-import type { GetStaticPaths } from "astro";
-import type { CollectionEntry } from "astro:content";
-import { loadAndFormatCollection } from "@utils/collection";
-import { render } from "astro:content";
+import type { GetStaticPaths } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import { loadAndFormatCollection } from '@utils/collection';
+import { render } from 'astro:content';
 
-import BaseLayout from "@layouts/BaseLayout.astro";
-import BannerText from "@components/BannerText.astro";
-import SiteHeader from "@components/SiteHeader.astro";
-import FeedHeader from "@components/FeedHeader.astro";
-import PaginatedEntries from "@components/PaginatedEntries.astro";
-import Aside from "@components/Aside.astro";
-import CurrentlyReading from "@components/CurrentlyReading.astro";
-import { ARTICLES_TITLE, ARTICLES_DESCRIPTION } from "src/consts";
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BannerText from '@components/BannerText.astro';
+import SiteHeader from '@components/SiteHeader.astro';
+import FeedHeader from '@components/FeedHeader.astro';
+import PaginatedEntries from '@components/PaginatedEntries.astro';
+import Aside from '@components/Aside.astro';
+import CurrentlyReading from '@components/CurrentlyReading.astro';
+import { ARTICLES_TITLE, ARTICLES_DESCRIPTION } from 'src/consts';
 
-type ArticleEntry = CollectionEntry<"articles">;
+type ArticleEntry = CollectionEntry<'articles'>;
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allEntries = (await loadAndFormatCollection(
-		"articles"
+		'articles',
 	)) as ArticleEntry[];
 	return paginate(allEntries, { pageSize: 20 });
 }) satisfies GetStaticPaths;
@@ -27,13 +27,18 @@ const entries = await Promise.all(
 	page.data.map(async (entry) => {
 		const { Content } = await render(entry);
 		return { ...entry, Content };
-	})
+	}),
 );
+
+const pageTitle =
+	page.currentPage > 1
+		? `Page ${page.currentPage} - ${ARTICLES_TITLE}`
+		: ARTICLES_TITLE;
 ---
 
 <BaseLayout
 	bodyClass="homepage"
-	pageTitle={ARTICLES_TITLE}
+	{pageTitle}
 	pageDesc={ARTICLES_DESCRIPTION}
 	ogType="website"
 >

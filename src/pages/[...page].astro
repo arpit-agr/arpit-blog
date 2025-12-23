@@ -24,11 +24,16 @@ const entries = await Promise.all(
 		return { ...entry, Content };
 	}),
 );
+
+const pageTitle =
+	page.currentPage > 1
+		? `Page ${page.currentPage} - ${SITE_TITLE}`
+		: SITE_TITLE;
 ---
 
 <BaseLayout
 	bodyClass="homepage"
-	pageTitle={SITE_TITLE}
+	{pageTitle}
 	pageDesc={SITE_DESCRIPTION}
 	ogType="website"
 >
