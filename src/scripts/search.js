@@ -8,14 +8,14 @@ class Search {
 		let listItem = document.createElement('li');
 		listItem.classList.add('pb-space-m');
 
-		const pubDate = new Date(result.meta.date)
+		const pubDate = new Date(result.meta.date);
 		const dateISOString = result.meta.date;
-		const dateLocaleString = pubDate.toLocaleString("en-IN", {
-			weekday: "short",
-			year: "numeric",
-			month: "short",
-			day: "numeric",
-			timeZone: "Asia/Kolkata",
+		const dateLocaleString = pubDate.toLocaleString('en-IN', {
+			weekday: 'short',
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+			timeZone: 'Asia/Kolkata',
 		});
 
 		listItem.innerHTML = `
@@ -39,11 +39,31 @@ class Search {
 						.replace(/</g, '&lt;')
 						.replace(/&lt;mark>/g, '<mark>')
 						.replace(/&lt;\/mark>/g, '</mark>')}
-					${result.word_count > result.excerpt.split(" ").length ? `[…]` : ''}
+					${result.word_count > result.excerpt.split(' ').length ? `[…]` : ''}
 	      </p>
       </article>
     `;
 		this.searchResultsList.append(listItem);
+	}
+
+	updateUI(count, query) {
+		let statusText = '';
+		let titleText = '';
+
+		if (!query || query.length <= 1) {
+			statusText = 'Results';
+			titleText = 'Search';
+		} else if (count > 0) {
+			const plural = count !== 1 ? 's' : '';
+			statusText = `${count} result${plural} for '${query}'`;
+			titleText = statusText + ' - Search';
+		} else {
+			statusText = `No matches found`;
+			titleText = statusText + ' - Search';
+		}
+
+		this.searchResultsCount.innerHTML = statusText;
+		document.title = `${titleText} | Arpit's Blog`;
 	}
 
 	async getLibrary() {
@@ -51,7 +71,7 @@ class Search {
 			try {
 				this.pagefind = await import('/pagefind/pagefind.js');
 				this.pagefind.options({
-				   "excerptLength": 25,
+					excerptLength: 25,
 				});
 			} catch (error) {
 				console.error("Error loading '/pagefind/pagefind.js':", error);
@@ -75,20 +95,16 @@ class Search {
 				for (let result of results) {
 					this.addResult(result, value);
 				}
-				if (results.length) {
-					this.searchResultsCount.innerHTML = `${results.length} result${
-						results.length != 1 ? 's' : ''
-					} for '${value}'`;
-				} else {
-					this.searchResultsCount.innerHTML = `No matches found.`;
-				}
+				// Use the helper
+				this.updateUI(results.length, value);
 				this.searchResultsList.classList[results.length > 0 ? 'remove' : 'add'](
 					'search-results-notfound',
 				);
 			} else {
 				this.searchResults.classList.add('hidden');
+				this.updateUI(0, ''); // Reset title when input is too short
 			}
-		}, 100);
+		}, 300);
 	}
 
 	getQueryString() {

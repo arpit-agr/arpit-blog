@@ -28,5 +28,13 @@ export default defineConfig({
 			useShortDoctype: true,
 		}),
 	],
+	vite: {
+		build: {
+			rollupOptions: {
+				// This tells Rollup: "Don't try to find this file, it's external"
+				external: ['/pagefind/pagefind.js'],
+			},
+		},
+	},
 	trailingSlash: 'always',
 });
