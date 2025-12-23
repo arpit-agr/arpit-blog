@@ -23,7 +23,6 @@
 		"author": "Bill Bryson",
 		"tags": ["Popular science", "Non-fiction"],
 		"cover": "/src/images/book-covers/a-short-history-of-nearly-everything.jpeg",
-		"status": "reading",
 		"dominantColor": "#283878"
 	},
 	{
@@ -480,6 +479,16 @@
 		"author": "Rukmini S.",
 		"tags": ["Non-fiction", "India", "Economics"],
 		"cover": "/src/images/book-covers/whole-numbers-and-half-truths.jpeg",
+		"dominantColor": "#f8f8f8"
+	},
+	{
+		"id": "web-accessibility-cookbook",
+		"title": "Web Accessibility Cookbook",
+		"subtitle": "Creating Inclusive Experiences",
+		"author": "Manuel Matuzović",
+		"tags": ["Web", "Non-fiction"],
+		"status": "reading",
+		"cover": "/src/images/book-covers/web-accessibility-cookbook.jpg",
 		"dominantColor": "#f8f8f8"
 	}
 ]
