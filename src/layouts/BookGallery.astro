@@ -62,7 +62,7 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 		</header>
 		<main class="flow" id="main">
 			<fieldset class="book-filters flow text-step--1" disabled>
-				<legend>Filter:</legend>
+				<legend class="heading-4">Filter:</legend>
 				<div class="cluster">
 					<div class="btn cluster gap-0">
 						<input name="filter" id="all" type="radio" value="all" checked="" />
@@ -83,6 +83,9 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 					}
 				</div>
 			</fieldset>
+			<h2 id="books-results-count" aria-live="polite">
+				{books.length} books
+			</h2>
 			<ul class="book-list grid" role="list">
 				{
 					books.map((item, index) => {

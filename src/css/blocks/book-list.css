@@ -1,7 +1,4 @@
 .book-list {
-	--flow-space: calc(
-		var(--space-l-xl) + (var(--step--1) * var(--leading-normal))
-	);
 	--grid-min-item-size: 12.8ch;
 	--grid-gap: var(--space-l);
 
@@ -65,7 +62,7 @@
 
 	&:before,
 	&:after {
-		content: "";
+		content: '';
 		position: absolute;
 		border-radius: var(--_book-cover-radius);
 		pointer-events: none;
