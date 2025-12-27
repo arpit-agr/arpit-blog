@@ -1,5 +1,5 @@
 ---
-import EntryList from "@components/EntryList.astro";
+import EntryList from '@components/EntryList.astro';
 
 const { page, entries } = Astro.props;
 ---
@@ -13,12 +13,12 @@ const { page, entries } = Astro.props;
 			<div class="center p-space-m">
 				<div class="cluster align-self-stretch">
 					{page.url.prev && (
-						<a href={page.url.prev} rel="prev" class="heading-4 text-box-trim">
+						<a href={page.url.prev} rel="prev" class="heading-3 text-box-trim">
 							&larr; Newer Entries
 						</a>
 					)}
 					{page.url.next && (
-						<a href={page.url.next} rel="next" class="heading-4 text-box-trim">
+						<a href={page.url.next} rel="next" class="heading-3 text-box-trim">
 							Older Entries &rarr;
 						</a>
 					)}
