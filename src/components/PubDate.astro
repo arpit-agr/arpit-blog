@@ -6,17 +6,17 @@ interface Props {
 const { date } = Astro.props;
 ---
 
-<p class="pub-date text-box-trim">
+<span class="pub-date text-box-trim">
 	Posted on
 	<time datetime={date.toISOString()}>
 		{
-			date.toLocaleString("en-IN", {
-				weekday: "short",
-				year: "numeric",
-				month: "short",
-				day: "numeric",
-				timeZone: "Asia/Kolkata",
+			date.toLocaleString('en-IN', {
+				weekday: 'short',
+				year: 'numeric',
+				month: 'short',
+				day: 'numeric',
+				timeZone: 'Asia/Kolkata',
 			})
 		}
 	</time>
-</p>
+</span>

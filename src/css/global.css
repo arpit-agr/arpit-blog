@@ -4,7 +4,7 @@
 
 :root {
 	--wrapper-max-width: 73rem;
-	--measure: 60ch;
+	--measure: 70ch;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 
@@ -37,6 +37,11 @@ body {
 	font-size-adjust: from-font;
 	font-weight: var(--font-regular);
 	line-height: var(--leading-normal);
+	-webkit-font-smoothing: auto;
+
+	@media (prefers-color-scheme: dark) {
+		-webkit-font-smoothing: antialiased;
+	}
 }
 
 h1,
@@ -215,6 +220,10 @@ pre {
 
 mark {
 	background: var(--color-accent);
+}
+
+strong {
+	font-weight: var(--font-medium);
 }
 
 ::selection {
