@@ -35,22 +35,24 @@ const {
 					<div class="align-self-stretch">
 						<main id="main" class="pb-space-m">
 							<article class="flow flow-space-m">
-								<footer class="cluster gap-2xs text-step--1">
-									{
-										entry.data.updatedDate ? (
-											<details class="flow flow-space-xs">
-												<summary class="text-box-trim">
-													<PubDate date={entry.data.pubDate} />
-												</summary>
-												{!!entry.data.updatedDate && (
-													<UpdatedDate date={entry.data.updatedDate} />
-												)}
-											</details>
-										) : (
-											<PubDate date={entry.data.pubDate} />
-										)
-									}
-								</footer>
+								{
+									entry.collection !== 'notes' && (
+										<footer class="cluster gap-2xs text-step--1">
+											{entry.data.updatedDate ? (
+												<details class="flow flow-space-xs">
+													<summary class="text-box-trim">
+														<PubDate date={entry.data.pubDate} />
+													</summary>
+													{!!entry.data.updatedDate && (
+														<UpdatedDate date={entry.data.updatedDate} />
+													)}
+												</details>
+											) : (
+												<PubDate date={entry.data.pubDate} />
+											)}
+										</footer>
+									)
+								}
 								<div>
 									<div
 										class="entry-content flow"
@@ -59,16 +61,17 @@ const {
 									>
 										{
 											entry.collection === 'notes' && (
-												<h1 class="visually-hidden">
-													{entry.data.pubDate.toLocaleString('en-IN', {
-														year: 'numeric',
-														month: 'short',
-														day: 'numeric',
-														hour: 'numeric',
-														minute: 'numeric',
-														timeZone: 'Asia/Kolkata',
-														timeZoneName: 'short',
-													})}
+												<h1 class="text-step--1 text-box-trim font-regular">
+													Posted on
+													<time datetime={entry.data.pubDate.toISOString()}>
+														{entry.data.pubDate.toLocaleString('en-IN', {
+															weekday: 'short',
+															year: 'numeric',
+															month: 'short',
+															day: 'numeric',
+															timeZone: 'Asia/Kolkata',
+														})}
+													</time>
 												</h1>
 											)
 										}
