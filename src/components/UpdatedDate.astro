@@ -10,12 +10,12 @@ const { date } = Astro.props;
 	Last Updated on
 	<time datetime={date?.toISOString()}>
 		{
-			date?.toLocaleString("en-IN", {
-				weekday: "short",
-				year: "numeric",
-				month: "short",
-				day: "numeric",
-				timeZone: "Asia/Kolkata",
+			date?.toLocaleString('en-IN', {
+				weekday: 'short',
+				year: 'numeric',
+				month: 'short',
+				day: 'numeric',
+				timeZone: 'Asia/Kolkata',
 			})
 		}
 	</time>

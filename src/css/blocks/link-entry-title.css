@@ -1,7 +1,7 @@
 .link-entry-title {
 	svg {
 		display: inline;
-		block-size: 1em;
+		block-size: 0.8em;
 		inline-size: auto;
 		stroke-width: 9%;
 		translate: 0 12.5%;

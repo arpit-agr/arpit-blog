@@ -15,7 +15,9 @@ function formatLinks(items: string[]) {
 import { slug } from 'github-slugger';
 ---
 
-<footer class="tag-list text-balance text-step--1 leading-relaxed">
+<footer
+	class="tag-list text-balance text-step--1 leading-relaxed text-box-trim"
+>
 	Tagged:
 	<Fragment
 		set:html={formatLinks(
@@ -29,6 +31,7 @@ import { slug } from 'github-slugger';
 		.tag-list {
 			--measure: none;
 			text-align: end;
+			justify-self: end;
 		}
 	}
 </style>

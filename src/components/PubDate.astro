@@ -6,7 +6,7 @@ interface Props {
 const { date } = Astro.props;
 ---
 
-<span class="pub-date text-box-trim">
+<p class="pub-date text-box-trim">
 	Posted on
 	<time datetime={date.toISOString()}>
 		{
@@ -19,4 +19,4 @@ const { date } = Astro.props;
 			})
 		}
 	</time>
-</span>
+</p>

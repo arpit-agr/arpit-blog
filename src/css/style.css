@@ -26,6 +26,7 @@
 @import url(/src/css/blocks/site-nav.css) layer(blocks);
 @import url(/src/css/blocks/home-nav-item.css) layer(blocks);
 @import url(/src/css/blocks/feed-header.css) layer(blocks);
+@import url(/src/css/blocks/entry-content.css) layer(blocks);
 @import url(/src/css/blocks/pagination-control.css) layer(blocks);
 @import url(/src/css/blocks/link-entry-title.css) layer(blocks);
 @import url(/src/css/blocks/mastodon-share.css) layer(blocks);

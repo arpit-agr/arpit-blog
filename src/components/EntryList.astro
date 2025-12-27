@@ -31,6 +31,9 @@ const headingComponents = {
 				<li class="entry">
 					<div class="center p-space-m">
 						<article class="stack align-self-stretch">
+							<footer class="text-step--1">
+								<PubDate date={entry.data.pubDate} />
+							</footer>
 							<div class="entry-content flow">
 								{entry.collection === 'articles' && (
 									<h2>
@@ -52,8 +55,17 @@ const headingComponents = {
 								)}
 							</div>
 							<footer class="cluster text-step--1">
-								<a href={entry.absoluteURL} rel="bookmark">
-									<PubDate date={entry.data.pubDate} />
+								<a
+									class="text-box-trim"
+									href={entry.absoluteURL}
+									rel="bookmark"
+								>
+									<time datetime={entry.data.pubDate.toISOString()}>
+										{entry.data.pubDate.toLocaleString('en-IN', {
+											timeStyle: 'short',
+											timeZone: 'Asia/Kolkata',
+										})}
+									</time>
 								</a>
 							</footer>
 						</article>
@@ -74,6 +86,7 @@ const headingComponents = {
 
 		.entry {
 			article {
+				--stack-gap: var(--space-m);
 				--stack-horizontal-alignment: stretch;
 			}
 

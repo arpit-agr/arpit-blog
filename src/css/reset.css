@@ -78,8 +78,8 @@ video {
 }
 
 /* Remove list styles on ul, ol with a list role, which suggests default styling will be removed */
-ol[role="list"],
-ul[role="list"] {
+ol[role='list'],
+ul[role='list'] {
 	list-style: none;
 	padding-inline-start: 0; /* Browsers apply a default padding-inline-start of 40px */
 }
@@ -100,7 +100,7 @@ input,
 button,
 textarea,
 select,
-input[type="file"]::-webkit-file-upload-button {
+input[type='file']::-webkit-file-upload-button {
 	font: inherit;
 	font-size: inherit;
 	color: inherit;
@@ -130,18 +130,18 @@ a[href],
 area,
 button,
 input:not(
-	[type="text"],
-	[type="email"],
-	[type="number"],
-	[type="password"],
-	[type=""],
-	[type="tel"],
-	[type="url"]
+	[type='text'],
+	[type='email'],
+	[type='number'],
+	[type='password'],
+	[type=''],
+	[type='tel'],
+	[type='url']
 ),
 label[for],
 select,
 summary,
-[tabindex]:not([tabindex*="-"], pre) {
+[tabindex]:not([tabindex*='-'], pre) {
 	cursor: pointer;
 }
 
@@ -153,7 +153,7 @@ label[for],
 select,
 summary,
 textarea,
-[tabindex]:not([tabindex*="-"]) {
+[tabindex]:not([tabindex*='-']) {
 	touch-action: manipulation;
 	-webkit-tap-highlight-color: transparent;
 }

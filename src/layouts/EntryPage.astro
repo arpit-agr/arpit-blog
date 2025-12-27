@@ -34,7 +34,7 @@ const {
 				<div class="center pi-space-m">
 					<div class="align-self-stretch">
 						<main id="main" class="pb-space-m">
-							<article class="flow">
+							<article class="flow flow-space-m">
 								<footer class="cluster gap-2xs text-step--1">
 									{
 										entry.data.updatedDate ? (
@@ -51,48 +51,50 @@ const {
 										)
 									}
 								</footer>
-								<div
-									class="entry-content flow"
-									data-pagefind-body
-									data-pagefind-meta={`date:${entry.data.pubDate}`}
-								>
-									{
-										entry.collection === 'notes' && (
-											<h1 class="visually-hidden">
-												{entry.data.pubDate.toLocaleString('en-IN', {
-													year: 'numeric',
-													month: 'short',
-													day: 'numeric',
-													hour: 'numeric',
-													minute: 'numeric',
-													timeZone: 'Asia/Kolkata',
-													timeZoneName: 'short',
-												})}
-											</h1>
-										)
-									}
-									{
-										entry.collection === 'articles' && (
-											<h1>{entry.data.title}</h1>
-										)
-									}
-									{
-										entry.collection === 'links' && (
-											<h1 class="link-entry-title heading-3">
-												<a href={entry.data.link}>{entry.data.title}</a>
-												<ExternalLinkIcon aria-hidden="true" />
-											</h1>
-										)
-									}
-									<Content />
-									{
-										!!entry.data.via && (
-											<LinkVia
-												url={entry.data.via.url}
-												label={entry.data.via.label}
-											/>
-										)
-									}
+								<div>
+									<div
+										class="entry-content flow"
+										data-pagefind-body
+										data-pagefind-meta={`date:${entry.data.pubDate}`}
+									>
+										{
+											entry.collection === 'notes' && (
+												<h1 class="visually-hidden">
+													{entry.data.pubDate.toLocaleString('en-IN', {
+														year: 'numeric',
+														month: 'short',
+														day: 'numeric',
+														hour: 'numeric',
+														minute: 'numeric',
+														timeZone: 'Asia/Kolkata',
+														timeZoneName: 'short',
+													})}
+												</h1>
+											)
+										}
+										{
+											entry.collection === 'articles' && (
+												<h1>{entry.data.title}</h1>
+											)
+										}
+										{
+											entry.collection === 'links' && (
+												<h1 class="link-entry-title heading-3">
+													<a href={entry.data.link}>{entry.data.title}</a>
+													<ExternalLinkIcon aria-hidden="true" />
+												</h1>
+											)
+										}
+										<Content />
+										{
+											!!entry.data.via && (
+												<LinkVia
+													url={entry.data.via.url}
+													label={entry.data.via.label}
+												/>
+											)
+										}
+									</div>
 								</div>
 								{!!entry.data.tags && <TagList tags={entry.data.tags} />}
 							</article>
