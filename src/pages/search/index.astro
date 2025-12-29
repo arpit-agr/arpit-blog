@@ -12,29 +12,31 @@ import { SEARCH_TITLE, SEARCH_DESCRIPTION } from 'src/consts';
 <BaseLayout pageTitle={SEARCH_TITLE} pageDesc={SEARCH_DESCRIPTION}>
 	<BannerText />
 	<div class="page">
-		<SiteHeader />
-		<div class="page-inner">
-			<main id="main">
-				{
-					import.meta.env.DEV ? (
-						<FeedHeader
-							isVisuallyHidden={false}
-							sectionTitle="Pagefind is disabled in Dev mode."
-						/>
-					) : (
-						<Fragment>
+		<div>
+			<SiteHeader />
+			<div class="page-inner">
+				<main id="main">
+					{
+						import.meta.env.DEV ? (
 							<FeedHeader
 								isVisuallyHidden={false}
-								sectionTitle="Search"
-								sectionDesc="Search across all my notes, articles and links"
+								sectionTitle="Pagefind is disabled in Dev mode."
 							/>
-							<SearchWithResults />
-							<script src="/src/scripts/search.js" />
-						</Fragment>
-					)
-				}
-			</main>
-			<Aside />
+						) : (
+							<Fragment>
+								<FeedHeader
+									isVisuallyHidden={false}
+									sectionTitle="Search"
+									sectionDesc="Search across all my notes, articles and links"
+								/>
+								<SearchWithResults />
+								<script src="/src/scripts/search.js" />
+							</Fragment>
+						)
+					}
+				</main>
+				<Aside />
+			</div>
 		</div>
 	</div>
 </BaseLayout>
