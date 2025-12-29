@@ -42,13 +42,14 @@ class Search {
 
 	createResultHTML(result) {
 		const pubDate = new Date(result.meta.date);
-		const dateLocaleString = pubDate.toLocaleString('en-IN', {
-			weekday: 'short',
+		const dateLocaleString = new Intl.DateTimeFormat('en-IN', {
 			year: 'numeric',
 			month: 'short',
 			day: 'numeric',
+			hour: '2-digit',
+			minute: '2-digit',
 			timeZone: 'Asia/Kolkata',
-		});
+		}).format(pubDate);
 
 		const title = result.meta.title
 			? this.escapeHTML(result.meta.title)
