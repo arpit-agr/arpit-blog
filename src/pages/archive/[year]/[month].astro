@@ -47,9 +47,8 @@ const entries = await Promise.all(
 	}),
 );
 
-const monthName = new Date(Number(year), Number(month) - 1).toLocaleString(
-	'en-IN',
-	{ month: 'long' },
+const monthName = new Intl.DateTimeFormat('en-IN', { month: 'long' }).format(
+	new Date(Number(year), Number(month) - 1),
 );
 
 const pageTitle = `Archive: ${monthName} ${year} | ${SITE_TITLE}`;
@@ -59,16 +58,18 @@ const pageDescription = `All notes, articles, and links published in ${monthName
 <BaseLayout {pageTitle} pageDesc={pageDescription}>
 	<BannerText />
 	<div class="page">
-		<SiteHeader />
-		<div class="page-inner">
-			<main id="main">
-				<FeedHeader
-					isVisuallyHidden={false}
-					sectionTitle={`Archive: ${monthName} ${year}`}
-				/>
-				<EntryList entries={entries} />
-			</main>
-			<Aside />
+		<div>
+			<SiteHeader />
+			<div class="page-inner">
+				<main id="main">
+					<FeedHeader
+						isVisuallyHidden={false}
+						sectionTitle={`Archive: ${monthName} ${year}`}
+					/>
+					<EntryList entries={entries} />
+				</main>
+				<Aside />
+			</div>
 		</div>
 	</div>
 </BaseLayout>
