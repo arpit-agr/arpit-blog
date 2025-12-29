@@ -1,0 +1,97 @@
+.page {
+	transition: translate 200ms var(--ease-5);
+
+	> * {
+		outline: var(--border-thickness-m) solid var(--color-border);
+		background: var(--color-bg-primary);
+	}
+
+	@container doc-root (width >= 75rem) {
+		position: relative;
+		isolation: isolate;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			inset-inline-start: 0;
+			inset-block-start: 0;
+			background-color: var(--color-bg-primary);
+			outline: var(--border-thickness-m) solid var(--color-border);
+			outline-offset: calc(-1 * var(--border-thickness-m));
+			inline-size: 100%;
+			block-size: min(100cqi, 100%);
+			animation: rotatePage linear forwards;
+			animation-timeline: scroll();
+			animation-range: 0vh 15vh;
+			pointer-events: none;
+			z-index: -1;
+		}
+
+		&::before {
+			rotate: 1.5deg;
+			view-transition-name: page-1;
+		}
+
+		&::after {
+			rotate: -1.5deg;
+			view-transition-name: page-2;
+		}
+	}
+}
+
+/*
+	Measure the HTML container instead of the viewport.
+  This width automatically shrinks when a scrollbar appears.
+
+  Note: We cannot use @custom-media with @container yet.
+  (https://github.com/csstools/postcss-plugins/issues/1035)
+*/
+.page .site-nav {
+	--_dynamic-margin: max(
+		0px,
+		((100cqi - var(--center-max-width)) / 2) - var(--gutter)
+	);
+	margin-inline: var(--_dynamic-margin);
+
+	@container doc-root (width > 68.5625rem) {
+		--_dynamic-margin: 0px;
+	}
+}
+
+.page-inner {
+	--sidebar-gap: 0;
+	--sidebar-min-width: 24rem;
+	z-index: 2;
+
+	> aside {
+		--stack-gap: var(--space-s);
+		position: relative;
+
+		> * + * {
+			border-block-start: var(--border-thickness-separator) solid
+				var(--color-border);
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset-inline-start: 0;
+			inset-block-start: 0;
+			inline-size: var(--border-thickness-separator);
+			block-size: 100%;
+			background-color: var(--color-border);
+
+			@container (width > 50vi) {
+				inline-size: 100%;
+				block-size: var(--border-thickness-separator);
+			}
+		}
+	}
+}
+
+@keyframes rotatePage {
+	to {
+		rotate: 0deg;
+	}
+}
