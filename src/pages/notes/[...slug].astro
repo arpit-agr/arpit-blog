@@ -1,13 +1,14 @@
 ---
-import { loadAndFormatCollection } from "@utils/collection";
-import { type CollectionEntry, render } from "astro:content";
-import EntryPage from "@layouts/EntryPage.astro";
-import { NOTES_TITLE } from "src/consts";
+import { loadAndFormatCollection } from '@utils/collection';
+import { formatDate } from '@utils/date';
+import { type CollectionEntry, render } from 'astro:content';
+import EntryPage from '@layouts/EntryPage.astro';
+import { NOTES_TITLE } from 'src/consts';
 
-type NotesEntry = CollectionEntry<"notes">;
+type NotesEntry = CollectionEntry<'notes'>;
 
 export async function getStaticPaths() {
-	const posts = await loadAndFormatCollection("notes") as NotesEntry[];
+	const posts = (await loadAndFormatCollection('notes')) as NotesEntry[];
 	return posts.map((post) => ({
 		// @ts-expect-error
 		params: { slug: post.relativeURL },
@@ -18,15 +19,7 @@ export async function getStaticPaths() {
 const entry = Astro.props;
 const { Content } = await render(entry);
 
-const noteTitle = `${entry.data.pubDate.toLocaleString("en-IN", {
-	year: "numeric",
-	month: "short",
-	day: "numeric",
-	hour: "numeric",
-	minute: "numeric",
-	timeZone: "Asia/Kolkata",
-	timeZoneName: "short",
-})} - ${NOTES_TITLE}`;
+const noteTitle = `${formatDate(entry.data.pubDate)} - ${NOTES_TITLE}`;
 ---
 
 <EntryPage pageTitle={noteTitle} entry={entry} Content={Content} />
