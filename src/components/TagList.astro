@@ -5,19 +5,17 @@ interface Props {
 
 const { tags } = Astro.props;
 
-// helper to join links with commas + "and"
 function formatLinks(items: string[]) {
-	if (items.length === 1) return items[0];
-	if (items.length === 2) return items.join(' and ');
-	return items.slice(0, -1).join(', ') + ' and ' + items[items.length - 1];
+	const formatter = new Intl.ListFormat('en-IN', {
+		type: 'conjunction',
+	});
+	return formatter.format(items);
 }
 
 import { slug } from 'github-slugger';
 ---
 
-<footer
-	class="tag-list text-balance text-step--1 leading-relaxed text-box-trim"
->
+<footer class="tag-list text-balance">
 	Tagged:
 	<Fragment
 		set:html={formatLinks(
