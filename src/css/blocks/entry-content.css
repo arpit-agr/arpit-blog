@@ -1,8 +1,9 @@
 .entry-content {
-	--flow-space: 1em;
+	> * {
+		--flow-space: 1em;
+	}
 
 	h1,
-	h1 + *,
 	h2,
 	h2 + *,
 	h3,
