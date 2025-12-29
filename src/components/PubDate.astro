@@ -1,22 +1,20 @@
 ---
-interface Props {
-	date: Date;
-}
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { formatDate } from '@utils/date';
 
-const { date } = Astro.props;
+// 1. Combine your custom props with the Polymorphic type
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	date: Date;
+}>;
+
+// 2. Extract props with the generic Tag
+const { as: Tag = 'p', date } = Astro.props;
 ---
 
-<p class="pub-date text-box-trim">
+<Tag class="pub-date text-box-trim">
 	Posted on
 	<time datetime={date.toISOString()}>
-		{
-			date.toLocaleString('en-IN', {
-				weekday: 'short',
-				year: 'numeric',
-				month: 'short',
-				day: 'numeric',
-				timeZone: 'Asia/Kolkata',
-			})
-		}
+		{formatDate(date)}
 	</time>
-</p>
+</Tag>
