@@ -59,17 +59,15 @@ class Search {
 			.replace(/&lt;\/mark>/g, '</mark>');
 
 		return `
-      <li class="pb-space-m">
+			<li class="pb-space-m" data-collection=${result.filters.collection[0]}>
         <article class="stack">
-          <footer class="text-step--1">
-            <p class="pub-date text-box-trim">
-              Posted on <time datetime="${this.escapeHTML(result.meta.date)}">${dateLocaleString}</time>
-            </p>
-          </footer>
           <h3 class="heading-2">
             <a href="${this.escapeHTML(result.url)}">${title}</a>
           </h3>
           <p class="search-result-excerpt">
+	          <span class="pub-date text-box-trim">
+	            Posted on <time datetime="${this.escapeHTML(result.meta.date)}">${dateLocaleString}</time> –
+	          </span>
             ${result.locations[0] > 25 ? `[…]` : ''}
             ${safeExcerpt}
             ${result.word_count > result.excerpt.split(' ').length ? `[…]` : ''}
