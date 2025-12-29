@@ -138,6 +138,14 @@
 	--flow-space: 0;
 }
 
+.flow-space-3xs {
+	--flow-space: var(--space-3xs);
+}
+
+.flow-space-2xs {
+	--flow-space: var(--space-2xs);
+}
+
 .flow-space-xs {
 	--flow-space: var(--space-xs);
 }
