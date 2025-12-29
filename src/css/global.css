@@ -8,7 +8,7 @@
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 
-	/* The layout switches to two columns at 1098px. Anytime this value is changed, the value will also need to be updated in page.css */
+	/* The layout switches to two columns at 1098px. Anytime this value is changed, the value will also need to be updated below and in page.css as well */
 	@custom-media --layout-with-sidebar (width > 68.5625rem);
 
 	--font-mono: ui-monospace, 'SF Mono', monospace;
@@ -41,6 +41,33 @@ body {
 
 	@media (prefers-color-scheme: dark) {
 		-webkit-font-smoothing: antialiased;
+	}
+}
+
+/*
+	Measure the HTML container instead of the viewport.
+  This width automatically shrinks when a scrollbar appears.
+
+  Note: We cannot use @custom-media with @container yet.
+  (https://github.com/csstools/postcss-plugins/issues/1035)
+*/
+@container doc-root (width > 68.5625rem) {
+	body::before {
+		content: '';
+		position: absolute;
+		background-image: var(--grain-image);
+		background-repeat: repeat;
+		background-size: var(--space-xl) var(--space-xl);
+		mix-blend-mode: hard-light;
+		pointer-events: none;
+		opacity: 0.66;
+
+		inset-block-start: 0;
+		inset-inline-start: 50%;
+		inline-size: 100cqi;
+		block-size: 100%;
+		translate: -50% 0;
+		z-index: -1;
 	}
 }
 
@@ -159,10 +186,16 @@ blockquote {
 	position: relative;
 	margin-inline-start: 1ch;
 	padding-inline-start: var(--space-s);
-	border-style: solid;
-	border-width: 0px 0px 0px var(--border-thickness-separator);
-	border-image: var(--bq-image) 72 72 72 72 stretch stretch;
-	text-box: trim-end cap alphabetic;
+	border-inline-start: var(--border-thickness-blockquote) solid transparent;
+	border-image: linear-gradient(
+			to bottom,
+			transparent 0,
+			transparent 0.8lh,
+			oklch(from currentColor l c h / calc(0.75 * alpha)) 0.8lh,
+			oklch(from currentColor l c h / calc(0.75 * alpha)) calc(100% - 0.2lh),
+			transparent calc(100% - 0.2lh)
+		)
+		1;
 
 	> * + * {
 		margin-block-start: var(--flow-space, 0.5lh);
@@ -181,7 +214,7 @@ blockquote {
 		position: absolute;
 		inset-inline-start: calc(-1 * var(--border-thickness-blockquote));
 		inset-block-start: 0;
-		translate: -50% -2%;
+		translate: -35% -2%;
 		background: var(--color-bg-primary);
 		block-size: 0.75lh;
 	}
@@ -223,7 +256,7 @@ mark {
 }
 
 strong {
-	font-weight: var(--font-medium);
+	font-weight: var(--font-bold);
 }
 
 ::selection {
@@ -235,5 +268,5 @@ strong {
 }
 
 :target {
-	scroll-margin-block-start: calc(calc(2 * (1.125 * var(--space-s))) + 1ex);
+	scroll-margin-block-start: calc(calc(2 * (1.25 * var(--space-s))) + 1ex);
 }
