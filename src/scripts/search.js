@@ -1,15 +1,46 @@
+/**
+ * Utility: Debounce
+ */
+const debounce = (fn, ms) => {
+	let timer;
+	return function (...args) {
+		clearTimeout(timer);
+		timer = setTimeout(() => fn.apply(this, args), ms);
+	};
+};
+
 class Search {
+	constructor() {
+		this.searchResults = null;
+		this.searchResultsList = null;
+		this.searchResultsCount = null;
+		this.pagefind = null;
+
+		this.debouncedSearch = debounce(this.performSearch, 300);
+	}
+
 	clearResults() {
 		this.searchResultsCount.innerHTML = 'Results';
 		this.searchResultsList.innerHTML = '';
 	}
 
-	addResult(result) {
-		let listItem = document.createElement('li');
-		listItem.classList.add('pb-space-m');
+	escapeHTML(str) {
+		if (!str) return '';
+		return str.replace(
+			/[&<>"']/g,
+			(m) =>
+				({
+					'&': '&amp;',
+					'<': '&lt;',
+					'>': '&gt;',
+					'"': '&quot;',
+					"'": '&#39;',
+				})[m],
+		);
+	}
 
+	createResultHTML(result) {
 		const pubDate = new Date(result.meta.date);
-		const dateISOString = result.meta.date;
 		const dateLocaleString = pubDate.toLocaleString('en-IN', {
 			weekday: 'short',
 			year: 'numeric',
@@ -18,48 +49,53 @@ class Search {
 			timeZone: 'Asia/Kolkata',
 		});
 
-		listItem.innerHTML = `
-			<article class="stack">
-				<footer class="text-step--1">
-					<p class="pub-date text-box-trim">
-						Posted on
-						<time datetime="${dateISOString}">
-							${dateLocaleString}
-						</time>
-					</p>
-				</footer>
-				<h3 class="heading-2">
-		      <a href="${result.url}">
-		     		${result.meta.title ? `${result.meta.title}` : result.url}
-		      </a>
-	      </h3>
-	      <p class="search-result-excerpt">
-	      	${result.locations[0] > 25 ? `[…]` : ''}
-		      ${result.excerpt
-						.replace(/</g, '&lt;')
-						.replace(/&lt;mark>/g, '<mark>')
-						.replace(/&lt;\/mark>/g, '</mark>')}
-					${result.word_count > result.excerpt.split(' ').length ? `[…]` : ''}
-	      </p>
-      </article>
+		const title = result.meta.title
+			? this.escapeHTML(result.meta.title)
+			: this.escapeHTML(result.url);
+		const safeExcerpt = result.excerpt
+			.replace(/</g, '&lt;')
+			.replace(/&lt;mark>/g, '<mark>')
+			.replace(/&lt;\/mark>/g, '</mark>');
+
+		return `
+      <li class="pb-space-m">
+        <article class="stack">
+          <footer class="text-step--1">
+            <p class="pub-date text-box-trim">
+              Posted on <time datetime="${this.escapeHTML(result.meta.date)}">${dateLocaleString}</time>
+            </p>
+          </footer>
+          <h3 class="heading-2">
+            <a href="${this.escapeHTML(result.url)}">${title}</a>
+          </h3>
+          <p class="search-result-excerpt">
+            ${result.locations[0] > 25 ? `[…]` : ''}
+            ${safeExcerpt}
+            ${result.word_count > result.excerpt.split(' ').length ? `[…]` : ''}
+          </p>
+        </article>
+      </li>
     `;
-		this.searchResultsList.append(listItem);
 	}
 
-	updateUI(count, query) {
-		let statusText = '';
-		let titleText = '';
+	/**
+	 * Updates the UI text.
+	 * Added a 'isLoading' parameter to handle the "Searching..." state.
+	 */
+	updateUI(count, query, isLoading = false) {
+		let statusText = 'Results';
+		let titleText = 'Search';
 
-		if (!query || query.length <= 1) {
-			statusText = 'Results';
-			titleText = 'Search';
-		} else if (count > 0) {
-			const plural = count !== 1 ? 's' : '';
-			statusText = `${count} result${plural} for '${query}'`;
-			titleText = statusText + ' - Search';
-		} else {
-			statusText = `No matches found`;
-			titleText = statusText + ' - Search';
+		if (isLoading) {
+			statusText = `Searching for '${query}'...`;
+		} else if (query && query.length > 1) {
+			if (count > 0) {
+				const plural = count !== 1 ? 's' : '';
+				statusText = `${count} result${plural} for '${query}'`;
+			} else {
+				statusText = `No matches found for '${query}'`;
+			}
+			titleText = `${statusText} - Search`;
 		}
 
 		this.searchResultsCount.innerHTML = statusText;
@@ -70,120 +106,88 @@ class Search {
 		if (!this.pagefind) {
 			try {
 				this.pagefind = await import('/pagefind/pagefind.js');
-				this.pagefind.options({
-					excerptLength: 25,
-				});
+				await this.pagefind.options({ excerptLength: 25 });
 			} catch (error) {
-				console.error("Error loading '/pagefind/pagefind.js':", error);
+				console.error('Error loading Pagefind:', error);
 			}
 		}
 		return this.pagefind;
 	}
 
-	async onInput(value) {
-		let pagefind = await this.getLibrary();
-		window.clearTimeout(this.onInputTimeout);
-		this.onInputTimeout = window.setTimeout(async () => {
+	async performSearch(value) {
+		if (value.length > 1) {
+			// 1. Show the "Searching..." state immediately
+			this.updateUI(0, value, true);
+			this.searchResults.classList.remove('hidden');
+
+			const pagefind = await this.getLibrary();
+			if (!pagefind) return;
+
+			const search = await pagefind.search(value);
+
+			// If user cleared the input while we were waiting for Pagefind, abort
+			if (!this.searchResultsCount.innerHTML.includes('Searching')) return;
+
+			const results = await Promise.all(search.results.map((r) => r.data()));
+
+			this.searchResultsList.innerHTML = results
+				.map((result) => this.createResultHTML(result))
+				.join('');
+
+			// 2. Update with the actual results
+			this.updateUI(results.length, value, false);
+			this.searchResultsList.classList.toggle(
+				'search-results-notfound',
+				results.length === 0,
+			);
+		} else {
 			this.clearResults();
-
-			if (value.length > 1) {
-				this.searchResults.classList.remove('hidden');
-
-				let search = await pagefind.search(value);
-				let results = await Promise.all(search.results.map((r) => r.data()));
-
-				for (let result of results) {
-					this.addResult(result, value);
-				}
-				// Use the helper
-				this.updateUI(results.length, value);
-				this.searchResultsList.classList[results.length > 0 ? 'remove' : 'add'](
-					'search-results-notfound',
-				);
-			} else {
-				this.searchResults.classList.add('hidden');
-				this.updateUI(0, ''); // Reset title when input is too short
-			}
-		}, 300);
-	}
-
-	getQueryString() {
-		let url = new URL(document.location.href);
-		let searchQueryParam = url.searchParams.get('q');
-		return searchQueryParam ? decodeURIComponent(searchQueryParam) : '';
+			this.searchResults.classList.add('hidden');
+			this.updateUI(0, '');
+		}
 	}
 
 	hydrate() {
-		let form = document.getElementById('search-form');
-		if (form) {
-			form.addEventListener(
-				'submit',
-				function (event) {
-					event.preventDefault();
-				},
-				false,
-			);
-		}
+		const form = document.getElementById('search-form');
+		const text = document.getElementById('search-term');
+		const clearButton = document.querySelector('.clear-btn');
 
-		let text = document.getElementById('search-term');
+		this.searchResults = document.getElementById('search-results');
+		this.searchResultsList = document.getElementById('search-results-list');
+		this.searchResultsCount = document.getElementById('search-results-count');
+
+		if (form) form.addEventListener('submit', (e) => e.preventDefault());
+
 		if (text) {
-			text.addEventListener(
-				'input',
-				async (event) => {
-					let value = event.target.value;
-					await this.onInput(value);
-					window.history.replaceState(
-						{},
-						'',
-						`/search/${value ? `?q=${encodeURIComponent(value)}` : ''}`,
-					);
-				},
-				false,
-			);
+			text.addEventListener('input', (event) => {
+				const value = event.target.value;
+				this.debouncedSearch(value);
 
-			let queryString = this.getQueryString();
-			if (queryString) {
-				text.value = queryString;
-				this.onInput(queryString);
-			} else {
-				text.value = '';
+				const url = new URL(window.location);
+				if (value) url.searchParams.set('q', value);
+				else url.searchParams.delete('q');
+				window.history.replaceState({}, '', url);
+			});
+
+			const params = new URLSearchParams(window.location.search);
+			const initialQuery = params.get('q');
+			if (initialQuery) {
+				text.value = initialQuery;
+				this.performSearch(initialQuery);
 			}
 		}
 
-		let results = document.getElementById('search-results');
-		if (results) {
-			this.searchResults = results;
-		}
-
-		let resultsList = document.getElementById('search-results-list');
-		if (resultsList) {
-			this.searchResultsList = resultsList;
-		}
-
-		let resultsCount = document.getElementById('search-results-count');
-		if (resultsCount) {
-			this.searchResultsCount = resultsCount;
-		}
-
-		let clearButton = document.querySelector('.clear-btn');
 		if (clearButton) {
 			clearButton.addEventListener('click', () => {
-				// Get a reference to the input element
-				let searchInput = document.getElementById('search-term');
-
-				// Clear the input text
-				searchInput.value = '';
-
-				// Trigger the 'input' event on the input element
-				const event = new Event('input', { bubbles: true });
-				searchInput.dispatchEvent(event);
-
-				// Optionally, set focus back to the input field
-				searchInput.focus();
+				if (text) {
+					text.value = '';
+					text.dispatchEvent(new Event('input', { bubbles: true }));
+					text.focus();
+				}
 			});
 		}
 	}
 }
 
-let search = new Search();
+const search = new Search();
 search.hydrate();
