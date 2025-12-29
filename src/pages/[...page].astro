@@ -39,14 +39,16 @@ const pageTitle =
 >
 	<BannerText as="h1" />
 	<div class="page">
-		<SiteHeader />
-		<div class="page-inner">
-			<main id="main">
-				<PaginatedEntries page={page} entries={entries} />
-			</main>
-			<Aside>
-				<CurrentlyReading />
-			</Aside>
+		<div>
+			<SiteHeader />
+			<div class="page-inner">
+				<main id="main">
+					<PaginatedEntries page={page} entries={entries} />
+				</main>
+				<Aside>
+					<CurrentlyReading />
+				</Aside>
+			</div>
 		</div>
 	</div>
 </BaseLayout>
