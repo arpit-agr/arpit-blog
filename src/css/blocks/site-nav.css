@@ -1,9 +1,7 @@
 .site-header {
 	z-index: 1;
 	background: var(--color-bg-primary);
-	border-style: solid;
-	border-width: 0px 0px var(--border-thickness-separator) 0px;
-	border-image: var(--hr-image) 72 72 72 72 stretch stretch;
+	border-block-end: var(--border-thickness-separator) solid var(--color-border);
 }
 
 .site-nav {
@@ -21,7 +19,7 @@
 .nav-item {
 	a {
 		position: relative;
-		padding: calc(1.125 * var(--space-s)) var(--space-2xs);
+		padding: calc(1.25 * var(--space-s)) var(--space-2xs);
 
 		svg {
 			position: absolute;
@@ -35,13 +33,16 @@
 			stroke-dasharray: var(--offset, 69px) 278px;
 			stroke-dashoffset: 361px;
 			stroke-width: var(--border-thickness-l);
-			/*view-transition-name: circle;*/
 		}
 	}
 
 	[aria-current='page'],
 	[data-state='active'] {
 		--offset: 180px;
+
+		/*svg {
+			view-transition-name: circle;
+		}*/
 
 		path {
 			stroke: currentColor;
