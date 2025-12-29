@@ -54,15 +54,14 @@
 	);
 	margin-inline: var(--_dynamic-margin);
 
-	@container doc-root (width > 68.5625rem) {
+	@container doc-root (width >= 64rem) {
 		--_dynamic-margin: 0px;
 	}
 }
 
 .page-inner {
 	--sidebar-gap: 0;
-	--sidebar-min-width: 24rem;
-	z-index: 2;
+	--sidebar-min-width: 22.4rem;
 
 	> aside {
 		--stack-gap: var(--space-s);
