@@ -28,92 +28,75 @@ const {
 >
 	<BannerText />
 	<div class="page">
-		<SiteHeader />
-		<div class="page-inner">
-			<div>
-				<div class="center pi-space-m">
-					<div class="align-self-stretch">
-						<main id="main" class="pb-space-m">
-							<article class="flow flow-space-m">
-								{
-									entry.collection !== 'notes' && (
-										<footer class="cluster gap-2xs text-step--1">
-											{entry.data.updatedDate ? (
-												<details class="flow flow-space-xs">
-													<summary class="text-box-trim">
-														<PubDate date={entry.data.pubDate} />
-													</summary>
-													{!!entry.data.updatedDate && (
-														<UpdatedDate date={entry.data.updatedDate} />
-													)}
-												</details>
-											) : (
+		<div>
+			<SiteHeader />
+			<div class="page-inner">
+				<div>
+					<div class="center pi-space-m">
+						<div class="align-self-stretch">
+							<main id="main" class="pb-space-m">
+								<article class="flow flow-space-m">
+									{
+										entry.collection != 'notes' && (
+											<footer class="cluster gap-2xs text-step--1">
 												<PubDate date={entry.data.pubDate} />
-											)}
-										</footer>
-									)
-								}
-								<div>
+												{entry.data.updatedDate && (
+													<Fragment>
+														<span>•</span>
+														<UpdatedDate date={entry.data.updatedDate} />
+													</Fragment>
+												)}
+												{!!entry.data.via && (
+													<Fragment>
+														<span>•</span>
+														<LinkVia
+															url={entry.data.via.url}
+															label={entry.data.via.label}
+														/>
+													</Fragment>
+												)}
+											</footer>
+										)
+									}
+									{
+										entry.collection === 'notes' && (
+											<h1 class="text-step--1 text-box-trim font-regular">
+												<PubDate as="span" date={entry.data.pubDate} />
+											</h1>
+										)
+									}
+									{
+										entry.collection === 'articles' && (
+											<h1>{entry.data.title}</h1>
+										)
+									}
+									{
+										entry.collection === 'links' && (
+											<h1 class="link-entry-title">
+												<a href={entry.data.link}>{entry.data.title}</a>
+												<ExternalLinkIcon aria-hidden="true" />
+											</h1>
+										)
+									}
 									<div
 										class="entry-content flow"
 										data-pagefind-body
 										data-pagefind-meta={`date:${entry.data.pubDate}`}
 									>
-										{
-											entry.collection === 'notes' && (
-												<h1 class="text-step--1 text-box-trim font-regular">
-													Posted on
-													<time datetime={entry.data.pubDate.toISOString()}>
-														{entry.data.pubDate.toLocaleString('en-IN', {
-															weekday: 'short',
-															year: 'numeric',
-															month: 'short',
-															day: 'numeric',
-															timeZone: 'Asia/Kolkata',
-														})}
-													</time>
-												</h1>
-											)
-										}
-										{
-											entry.collection === 'articles' && (
-												<h1>{entry.data.title}</h1>
-											)
-										}
-										{
-											entry.collection === 'links' && (
-												<h1 class="link-entry-title heading-3">
-													<a href={entry.data.link}>{entry.data.title}</a>
-													<ExternalLinkIcon aria-hidden="true" />
-												</h1>
-											)
-										}
 										<Content />
-										{
-											!!entry.data.via && (
-												<LinkVia
-													url={entry.data.via.url}
-													label={entry.data.via.label}
-												/>
-											)
-										}
 									</div>
-								</div>
-								{!!entry.data.tags && <TagList tags={entry.data.tags} />}
-							</article>
-						</main>
-						<div class="entry-actions text-step--1">
-							<EntryShareAndFeedback />
-							<!-- <details class="flow pb-space-m text-step--1">
-							<summary class="text-box-trim" id="comments">Comments</summary>
-							<p>TODO: Add comments</p>
-						</details> -->
+									{!!entry.data.tags && <TagList tags={entry.data.tags} />}
+								</article>
+							</main>
+							<div class="entry-actions text-step--1">
+								<EntryShareAndFeedback />
+							</div>
+							<BackLink />
 						</div>
-						<BackLink />
 					</div>
 				</div>
+				<Aside />
 			</div>
-			<Aside />
 		</div>
 	</div>
 </BaseLayout>
@@ -121,21 +104,8 @@ const {
 <style is:global>
 	@layer blocks {
 		.entry-actions > * {
-			border-style: solid;
-			border-width: var(--border-thickness-separator) 0px 0px 0px;
-			border-image: var(--hr-image) 72 72 72 72 stretch stretch;
-		}
-	}
-
-	@layer exceptions {
-		summary {
-			.pub-date {
-				display: contents;
-			}
-
-			+ * {
-				margin-inline-start: 1em;
-			}
+			border-block-start: var(--border-thickness-separator) solid
+				var(--color-border);
 		}
 	}
 </style>
