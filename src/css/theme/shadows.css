@@ -63,3 +63,11 @@
 			hsl(var(--shadow-color) / calc(var(--shadow-strength) + 9%)),
 		var(--inner-shadow-highlight);
 }
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--shadow-color: 220 40% 2%;
+		--shadow-strength: 25%;
+		--inner-shadow-highlight: inset 0 -0.5px 0 0 #fff1, inset 0 0.5px 0 0 #0007;
+	}
+}
