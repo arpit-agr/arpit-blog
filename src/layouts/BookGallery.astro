@@ -90,7 +90,6 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 				{
 					books.map((item, index) => {
 						const viewTransitionName = `book-${item.id}`;
-						const priority = index < 12 ? true : false;
 						const randomNum = Math.random() * (0.5 - -0.5) - 0.5;
 						const rotationAngle = `calc(${randomNum} * 1deg)`;
 						return (
@@ -112,7 +111,7 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 											<BookCover
 												imagePath={item.data.cover}
 												widths={[315, 630]}
-												{priority}
+												priority={index < 12}
 												sizes="(width < 21.5rem) 100vw, (width < 32.125rem) 50vw, (width < 43rem) 33vw, (width <= 54.125rem) 25vw, (width < 65.625rem) 20vw, 16.67vw"
 											/>
 										</div>
