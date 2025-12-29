@@ -22,6 +22,7 @@
 @import url(/src/css/composition/stack.css) layer(composition);
 @import url(/src/css/composition/wrapper.css) layer(composition);
 @import url(/src/css/blocks/skip-to-content.css) layer(blocks);
+@import url(/src/css/blocks/page.css) layer(blocks);
 @import url(/src/css/blocks/banner-text.css) layer(blocks);
 @import url(/src/css/blocks/site-nav.css) layer(blocks);
 @import url(/src/css/blocks/home-nav-item.css) layer(blocks);
@@ -41,7 +42,6 @@
 @import url(/src/css/utilities/text-fit.css) layer(utilities);
 @import url(/src/css/utilities/spacing.css) layer(utilities);
 @import url(/src/css/utilities/sizing.css) layer(utilities);
-@import url(/src/css/utilities/page.css) layer(utilities);
 @import url(/src/css/utilities/layout.css) layer(utilities);
 @import url(/src/css/utilities/typography.css) layer(utilities);
 @import url(/src/css/utilities/flex-grid.css) layer(utilities);
