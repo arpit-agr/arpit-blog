@@ -3,20 +3,13 @@ interface Props {
 	date?: Date;
 }
 
+import { formatDate } from '@utils/date';
 const { date } = Astro.props;
 ---
 
 <p class="text-box-trim">
 	Last Updated on
 	<time datetime={date?.toISOString()}>
-		{
-			date?.toLocaleString('en-IN', {
-				weekday: 'short',
-				year: 'numeric',
-				month: 'short',
-				day: 'numeric',
-				timeZone: 'Asia/Kolkata',
-			})
-		}
+		{formatDate(date)}
 	</time>
 </p>
