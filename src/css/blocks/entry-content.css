@@ -1,6 +1,6 @@
 .entry-content {
 	> * {
-		--flow-space: 1em;
+		--flow-space: initial;
 	}
 
 	h1,
@@ -9,7 +9,9 @@
 	h3,
 	h3 + *,
 	h4,
-	h4 + * {
+	h4 + *,
+	.expressive-code,
+	.expressive-code + * {
 		--flow-space: 1lh;
 	}
 }
