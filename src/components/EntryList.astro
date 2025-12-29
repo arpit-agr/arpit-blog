@@ -60,12 +60,7 @@ const headingComponents = {
 									href={entry.absoluteURL}
 									rel="bookmark"
 								>
-									<time datetime={entry.data.pubDate.toISOString()}>
-										{entry.data.pubDate.toLocaleString('en-IN', {
-											timeStyle: 'short',
-											timeZone: 'Asia/Kolkata',
-										})}
-									</time>
+									More about this
 								</a>
 							</footer>
 						</article>
@@ -79,9 +74,8 @@ const headingComponents = {
 <style is:global>
 	@layer blocks {
 		.entry + .entry {
-			border-style: solid;
-			border-width: var(--border-thickness-separator) 0px 0px 0px;
-			border-image: var(--hr-image) 72 72 72 72 stretch stretch;
+			border-block-start: var(--border-thickness-separator) solid
+				var(--color-border);
 		}
 
 		.entry {
