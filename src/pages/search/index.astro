@@ -15,12 +15,24 @@ import { SEARCH_TITLE, SEARCH_DESCRIPTION } from 'src/consts';
 		<SiteHeader />
 		<div class="page-inner">
 			<main id="main">
-				<FeedHeader
-					isVisuallyHidden={false}
-					sectionTitle="Search"
-					sectionDesc="Search across all my notes, articles and links"
-				/>
-				<SearchWithResults />
+				{
+					import.meta.env.DEV ? (
+						<FeedHeader
+							isVisuallyHidden={false}
+							sectionTitle="Pagefind is disabled in Dev mode."
+						/>
+					) : (
+						<Fragment>
+							<FeedHeader
+								isVisuallyHidden={false}
+								sectionTitle="Search"
+								sectionDesc="Search across all my notes, articles and links"
+							/>
+							<SearchWithResults />
+							<script src="/src/scripts/search.js" />
+						</Fragment>
+					)
+				}
 			</main>
 			<Aside />
 		</div>
@@ -34,5 +46,3 @@ import { SEARCH_TITLE, SEARCH_DESCRIPTION } from 'src/consts';
 		}
 	}
 </style>
-
-<script src="/src/scripts/search.js"></script>

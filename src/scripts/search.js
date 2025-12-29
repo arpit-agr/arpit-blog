@@ -1,5 +1,6 @@
 /**
  * Utility: Debounce
+ * https://github.com/antonmedv/textarea/blob/7ab14e5df775a4f5e2d53465c1842889c16f91e4/index.html#L121C3-L127C4
  */
 const debounce = (fn, ms) => {
 	let timer;
