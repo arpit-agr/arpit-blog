@@ -12,5 +12,5 @@ tags:
 Jason Lengstorf on how to get hired as a developer:
 
 - **Document what you learn publicly** — consistency matters more than polish.
-- **Publish your work** — CodePen demos, personal projects or tutorials all count.
+- **Show your work** — CodePen demos, personal projects or tutorials all count.
 - **Participate in communities** — Bluesky, Mastodon, Discord.
