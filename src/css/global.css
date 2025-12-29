@@ -9,7 +9,7 @@
 	--center-max-width: var(--measure);
 
 	/* The layout switches to two columns at 1098px. Anytime this value is changed, the value will also need to be updated below and in page.css as well */
-	@custom-media --layout-with-sidebar (width > 68.5625rem);
+	@custom-media --layout-with-sidebar (width >= 64rem);
 
 	--font-mono: ui-monospace, 'SF Mono', monospace;
 	--button-padding-block: 0.5em;
@@ -51,7 +51,7 @@ body {
   Note: We cannot use @custom-media with @container yet.
   (https://github.com/csstools/postcss-plugins/issues/1035)
 */
-@container doc-root (width > 68.5625rem) {
+@container doc-root (width >= 64rem) {
 	body::before {
 		content: '';
 		position: absolute;
