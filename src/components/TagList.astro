@@ -15,21 +15,11 @@ function formatLinks(items: string[]) {
 import { slug } from 'github-slugger';
 ---
 
-<footer class="tag-list text-balance text-step--1 leading-relaxed">
+<p class="text-balance">
 	Tagged:
 	<Fragment
 		set:html={formatLinks(
 			tags.map((tag) => `<a href="/tags/${slug(tag)}/" rel="tag">${tag}</a>`),
 		)}
 	/>
-</footer>
-
-<style is:global>
-	@layer blocks {
-		.tag-list {
-			--measure: none;
-			text-align: end;
-			justify-self: end;
-		}
-	}
-</style>
+</p>
