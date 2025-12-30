@@ -43,16 +43,14 @@ const pageTitle =
 	<BannerText />
 	<div class="page">
 		<div>
-			<SiteHeader />
 			<div class="page-inner">
-				<main id="main">
-					<FeedHeader
-						isVisuallyHidden={true}
-						sectionTitle="Links"
-						sectionDesc={LINKS_DESCRIPTION}
-					/>
-					<PaginatedEntries page={page} entries={entries} />
-				</main>
+				<div>
+					<SiteHeader />
+					<main id="main">
+						<FeedHeader isVisuallyHidden={false} sectionTitle="Recent Links" />
+						<PaginatedEntries page={page} entries={entries} />
+					</main>
+				</div>
 				<Aside>
 					<CurrentlyReading />
 				</Aside>
