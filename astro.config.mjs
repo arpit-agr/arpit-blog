@@ -4,7 +4,7 @@ import expressiveCode from 'astro-expressive-code';
 import { pluginLanguageBadge } from 'expressive-code-language-badge';
 import mdx from '@astrojs/mdx';
 import pagefind from 'astro-pagefind';
-import htmlMinifierNext from 'astro-html-minifier-next';
+// import htmlMinifierNext from 'astro-html-minifier-next';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,18 +15,18 @@ export default defineConfig({
 		}),
 		mdx(),
 		pagefind(),
-		htmlMinifierNext({
-			caseSensitive: true,
-			collapseBooleanAttributes: true,
-			collapseWhitespace: true,
-			continueOnMinifyError: false,
-			keepClosingSlash: false,
-			preventAttributesEscaping: true,
-			removeComments: true,
-			removeScriptTypeAttributes: true,
-			removeStyleLinkTypeAttributes: true,
-			useShortDoctype: true,
-		}),
+		// htmlMinifierNext({
+		// 	caseSensitive: true,
+		// 	collapseBooleanAttributes: true,
+		// 	collapseWhitespace: true,
+		// 	continueOnMinifyError: false,
+		// 	keepClosingSlash: false,
+		// 	preventAttributesEscaping: true,
+		// 	removeComments: true,
+		// 	removeScriptTypeAttributes: true,
+		// 	removeStyleLinkTypeAttributes: true,
+		// 	useShortDoctype: true,
+		// }),
 	],
 	vite: {
 		build: {
