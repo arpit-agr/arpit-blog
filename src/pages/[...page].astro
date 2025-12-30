@@ -6,6 +6,7 @@ import { render } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import BannerText from '@components/BannerText.astro';
 import SiteHeader from '@components/SiteHeader.astro';
+import FeedHeader from '@components/FeedHeader.astro';
 import PaginatedEntries from '@components/PaginatedEntries.astro';
 import Aside from '@components/Aside.astro';
 import CurrentlyReading from '@components/CurrentlyReading.astro';
@@ -40,11 +41,17 @@ const pageTitle =
 	<BannerText as="h1" />
 	<div class="page">
 		<div>
-			<SiteHeader />
 			<div class="page-inner">
-				<main id="main">
-					<PaginatedEntries page={page} entries={entries} />
-				</main>
+				<div>
+					<SiteHeader />
+					<main id="main">
+						<FeedHeader
+							isVisuallyHidden={false}
+							sectionTitle="Recent Notes, Articles and Links"
+						/>
+						<PaginatedEntries page={page} entries={entries} />
+					</main>
+				</div>
 				<Aside>
 					<CurrentlyReading />
 				</Aside>
