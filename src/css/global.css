@@ -15,6 +15,7 @@
 	--button-padding-block: 0.5em;
 	--button-padding-inline: 0.75ch;
 	--btn-border-radius: 100vmax;
+	--site-nav-padding-block: calc(1.25 * var(--space-s));
 }
 
 :root {
@@ -84,7 +85,7 @@ h4,
 
 h1,
 .heading-1 {
-	font-size: var(--step-3);
+	font-size: var(--step-2);
 	line-height: var(--leading-snug);
 }
 
@@ -163,7 +164,7 @@ input {
 }
 
 :where(ol, ul):not([role='list']) {
-	padding-inline-start: var(--gutter);
+	/*padding-inline-start: var(--gutter);*/
 
 	> * + * {
 		margin-block-start: var(--flow-space, var(--space-3xs));
@@ -207,7 +208,7 @@ blockquote {
 
 	> *:first-child::before {
 		content: open-quote;
-		font-size: var(--step-4);
+		font-size: var(--step-5);
 		line-height: var(--leading-flat);
 		color: oklch(from currentColor l c h / calc(0.875 * alpha));
 
@@ -216,7 +217,7 @@ blockquote {
 		inset-block-start: 0;
 		translate: -35% -2%;
 		background: var(--color-bg-primary);
-		block-size: 0.75lh;
+		block-size: 0.66lh;
 	}
 
 	> *:last-child::after {
@@ -253,6 +254,7 @@ pre {
 
 mark {
 	background: var(--color-accent);
+	color: var(--color-text-primary);
 }
 
 strong {
@@ -268,5 +270,5 @@ strong {
 }
 
 :target {
-	scroll-margin-block-start: calc(calc(2 * (1.25 * var(--space-s))) + 1ex);
+	scroll-margin-block-start: calc((2 * var(--site-nav-padding-block)) + 1ex);
 }
