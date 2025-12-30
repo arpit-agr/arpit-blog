@@ -27,7 +27,6 @@
 		"typescript": "^5.9.3"
 	},
 	"devDependencies": {
-		"baseline-browser-mapping": "^2.8.29",
 		"postcss-preset-env": "^10.3.1",
 		"prettier": "^3.6.2",
 		"prettier-plugin-astro": "^0.14.1"
