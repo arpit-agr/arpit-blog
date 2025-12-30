@@ -29,9 +29,9 @@ const {
 	<BannerText />
 	<div class="page">
 		<div>
-			<SiteHeader />
 			<div class="page-inner">
 				<div>
+					<SiteHeader />
 					<div class="center pi-space-m">
 						<div class="align-self-stretch">
 							<main id="main" class="pb-space-m">
@@ -44,15 +44,6 @@ const {
 													<Fragment>
 														<span>•</span>
 														<UpdatedDate date={entry.data.updatedDate} />
-													</Fragment>
-												)}
-												{!!entry.data.via && (
-													<Fragment>
-														<span>•</span>
-														<LinkVia
-															url={entry.data.via.url}
-															label={entry.data.via.label}
-														/>
 													</Fragment>
 												)}
 											</footer>
@@ -86,7 +77,17 @@ const {
 									>
 										<Content />
 									</div>
-									{!!entry.data.tags && <TagList tags={entry.data.tags} />}
+									<footer class="stack gap-2xs text-step--1">
+										{
+											!!entry.data.via && (
+												<LinkVia
+													url={entry.data.via.url}
+													label={entry.data.via.label}
+												/>
+											)
+										}
+										{!!entry.data.tags && <TagList tags={entry.data.tags} />}
+									</footer>
 								</article>
 							</main>
 							<div class="entry-actions text-step--1">
@@ -107,6 +108,16 @@ const {
 		.entry-actions > * {
 			border-block-start: var(--border-thickness-separator) solid
 				var(--color-border);
+		}
+	}
+
+	@layer exceptions {
+		.entry-content ~ * {
+			&,
+			> * {
+				text-align: end;
+				place-self: end;
+			}
 		}
 	}
 </style>
