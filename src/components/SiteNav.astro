@@ -1,19 +1,19 @@
 ---
-import HomeNavItem from "@components/HomeNavItem.astro";
-import Circle from "@images/circle.svg";
+import HomeNavItem from '@components/HomeNavItem.astro';
+import Circle from '@images/circle.svg';
 
 const navLinks = [
 	{
-		label: "Notes",
-		href: "/notes/",
+		label: 'Notes',
+		href: '/notes/',
 	},
 	{
-		label: "Articles",
-		href: "/articles/",
+		label: 'Articles',
+		href: '/articles/',
 	},
 	{
-		label: "Links",
-		href: "/links/",
+		label: 'Links',
+		href: '/links/',
 	},
 ];
 
@@ -21,12 +21,12 @@ const { pathname } = Astro.url;
 
 // Root pages get aria-current; paginated and entry pages get data-state="active"
 function getLinkState(href: string, pathname: string) {
-	const normalize = (path: string) => (path.endsWith("/") ? path : path + "/");
+	const normalize = (path: string) => (path.endsWith('/') ? path : path + '/');
 
 	href = normalize(href);
 	pathname = normalize(pathname);
 
-	const isRoot = href === "/";
+	const isRoot = href === '/';
 	const isCurrent = href === pathname;
 
 	let isActive = false;
@@ -43,17 +43,17 @@ function getLinkState(href: string, pathname: string) {
 }
 ---
 
-<nav class="site-nav">
+<nav class="site-nav pi-space-m">
 	<ul class="cluster" role="list">
 		{
 			(() => {
-				const { isCurrent, isActive } = getLinkState("/", pathname);
+				const { isCurrent, isActive } = getLinkState('/', pathname);
 				return (
 					<HomeNavItem
 						as="li"
 						label="Home"
-						aria-current={isCurrent ? "page" : null}
-						data-state={isActive ? "active" : null}
+						aria-current={isCurrent ? 'page' : null}
+						data-state={isActive ? 'active' : null}
 					>
 						<Circle />
 					</HomeNavItem>
@@ -68,8 +68,8 @@ function getLinkState(href: string, pathname: string) {
 						<a
 							class="text-box-trim"
 							href={link.href}
-							aria-current={isCurrent ? "page" : null}
-							data-state={isActive ? "active" : null}
+							aria-current={isCurrent ? 'page' : null}
+							data-state={isActive ? 'active' : null}
 						>
 							{link.label}
 							<Circle />
