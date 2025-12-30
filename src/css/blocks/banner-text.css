@@ -1,6 +1,5 @@
 .banner-text {
 	position: relative;
-	padding-block-start: var(--space-s-l);
 	padding-inline: var(--gutter);
 
 	font-family: var(--font-cursive);
@@ -40,13 +39,13 @@
 	}
 
 	.banner-text + .page {
-		margin-block-start: calc(1.25 * var(--space-s));
+		margin-block-start: var(--space-xs);
 	}
 
-	/*@media (hover: hover) {
+	@media (hover: hover) {
 		.banner-text:has(a:hover) + .page {
 			translate: 0px var(--space-l);
 			transition-delay: 150ms;
 		}
-	}*/
+	}
 }
