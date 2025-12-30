@@ -4,6 +4,7 @@
 	> * {
 		outline: var(--border-thickness-m) solid var(--color-border);
 		background: var(--color-bg-primary);
+		view-transition-name: page;
 	}
 
 	@container doc-root (width >= 75rem) {
@@ -30,12 +31,12 @@
 
 		&::before {
 			rotate: 1.5deg;
-			view-transition-name: page-1;
+			view-transition-name: page-before;
 		}
 
 		&::after {
 			rotate: -1.5deg;
-			view-transition-name: page-2;
+			view-transition-name: page-after;
 		}
 	}
 }
