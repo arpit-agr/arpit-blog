@@ -1,8 +1,13 @@
 import { defineEcConfig } from 'astro-expressive-code';
+import { pluginLanguageBadge } from 'expressive-code-language-badge';
 
 export default defineEcConfig({
-	cascadeLayer: 'blocks',
+	plugins: [pluginLanguageBadge()],
 	themes: ['min-light', 'min-dark'],
+	themeCssRoot: '.expressive-code',
+	themeCssSelector: false,
+	useStyleReset: false,
+	cascadeLayer: 'blocks',
 	styleOverrides: {
 		borderColor: 'var(--color-border)',
 		borderRadius: 'var(--code-border-radius)',
@@ -32,6 +37,4 @@ export default defineEcConfig({
 			inlineMarkerBorderWidth: '0',
 		},
 	},
-	useStyleReset: false,
-	themeCssRoot: '.expressive-code',
 });
