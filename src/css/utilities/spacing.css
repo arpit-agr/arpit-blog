@@ -130,6 +130,10 @@
 	padding-block-start: var(--space-s);
 }
 
+.pbs-space-m {
+	padding-block-start: var(--space-m);
+}
+
 .pbs-space-s-xs {
 	padding-block-start: var(--space-s-xs);
 }
