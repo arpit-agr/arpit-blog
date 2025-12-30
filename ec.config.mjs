@@ -10,7 +10,7 @@ export default defineEcConfig({
 		codeFontFamily: 'var(--font-mono)',
 		codeFontSize: 'var(--code-font-size)',
 		codeFontWeight: 'var(--code-font-weight)',
-		codeLineHeight: 'var(--leading-relaxed)',
+		codeLineHeight: 'var(--leading-normal)',
 		codePaddingBlock: 'var(--code-padding-block)',
 		codePaddingInline: 'var(--code-padding-inline)',
 		focusBorder: 'var(--color-focus)',
