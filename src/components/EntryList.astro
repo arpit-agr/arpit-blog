@@ -30,9 +30,6 @@ const headingComponents = {
 				<li class="entry">
 					<div class="center p-space-m">
 						<article class="stack align-self-stretch">
-							<footer class="text-step--1">
-								<PubDate date={entry.data.pubDate} />
-							</footer>
 							<div class="entry-content flow">
 								{entry.collection === 'articles' && (
 									<h2>
@@ -53,7 +50,7 @@ const headingComponents = {
 									href={entry.absoluteURL}
 									rel="bookmark"
 								>
-									More about this
+									<PubDate as="span" date={entry.data.pubDate} />
 								</a>
 							</footer>
 						</article>
