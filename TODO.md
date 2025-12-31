@@ -2,7 +2,7 @@
 
 ## Next Up
 
-- [ ] Add page numbers to the page title for paginated pages
+- [x] Add page numbers to the page title for paginated pages
 - [ ] Add [microdata](https://schema.org/docs/gs.html)
 - [ ] [Add Bluesky comments](https://brittanyellich.com/bluesky-comments-likes/)
 - [x] Add links to tags (See the markup on Jeremy's website)
