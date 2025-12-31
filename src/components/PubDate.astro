@@ -13,7 +13,7 @@ const { as: Tag = 'p', date } = Astro.props;
 ---
 
 <Tag class="pub-date text-box-trim">
-	Posted on
+	<span class="visually-hidden">Posted on</span>
 	<time datetime={date.toISOString()}>
 		{formatDate(date)}
 	</time>
