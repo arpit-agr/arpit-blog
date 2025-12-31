@@ -3,12 +3,18 @@
 	/*border-block-end: var(--border-thickness-separator) solid var(--color-border);*/
 
 	hgroup {
-		> h1 {
-			display: inline-block;
+		--cluster-gap: var(--space-s);
+
+		&::before {
+			content: '';
+			flex-basis: var(--space-l);
+			flex-grow: 999;
+			block-size: var(--border-thickness-separator);
+			background: var(--color-border);
 		}
 
-		> span {
-			display: inline;
+		h1 {
+			order: -1;
 		}
 	}
 }
