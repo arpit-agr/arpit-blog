@@ -30,6 +30,7 @@ const pageTitle =
 	page.currentPage > 1
 		? `Page ${page.currentPage} - ${SITE_TITLE}`
 		: SITE_TITLE;
+// const sectionDesc = page.currentPage > 1 ? `Page ${page.currentPage}` : '';
 ---
 
 <BaseLayout
@@ -45,10 +46,12 @@ const pageTitle =
 				<div>
 					<SiteHeader />
 					<main id="main">
-						<FeedHeader
-							isVisuallyHidden={false}
-							sectionTitle="Recent Notes, Articles and Links"
-						/>
+						<!-- cannot have two `h1` on the page -->
+						<!-- <FeedHeader
+							isVisuallyHidden={true}
+							sectionTitle="Notes, Articles and Links"
+							{sectionDesc}
+						/> -->
 						<PaginatedEntries page={page} entries={entries} />
 					</main>
 				</div>

@@ -32,6 +32,7 @@ const pageTitle =
 	page.currentPage > 1
 		? `Page ${page.currentPage} - ${LINKS_TITLE}`
 		: LINKS_TITLE;
+const sectionDesc = page.currentPage > 1 ? `Page ${page.currentPage}` : '';
 ---
 
 <BaseLayout
@@ -47,7 +48,11 @@ const pageTitle =
 				<div>
 					<SiteHeader />
 					<main id="main">
-						<FeedHeader isVisuallyHidden={false} sectionTitle="Recent Links" />
+						<FeedHeader
+							isVisuallyHidden={false}
+							sectionTitle="Links"
+							{sectionDesc}
+						/>
 						<PaginatedEntries page={page} entries={entries} />
 					</main>
 				</div>

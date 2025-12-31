@@ -34,6 +34,7 @@ const pageTitle =
 	page.currentPage > 1
 		? `Page ${page.currentPage} - ${ARTICLES_TITLE}`
 		: ARTICLES_TITLE;
+const sectionDesc = page.currentPage > 1 ? `Page ${page.currentPage}` : '';
 ---
 
 <BaseLayout
@@ -51,7 +52,8 @@ const pageTitle =
 					<main id="main">
 						<FeedHeader
 							isVisuallyHidden={false}
-							sectionTitle="Recent Articles"
+							sectionTitle="Articles"
+							{sectionDesc}
 						/>
 						<PaginatedEntries page={page} entries={entries} />
 					</main>
