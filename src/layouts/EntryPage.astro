@@ -39,12 +39,18 @@ const {
 									{
 										entry.collection != 'notes' && (
 											<footer class="cluster gap-2xs text-step--1">
-												<PubDate date={entry.data.pubDate} />
-												{entry.data.updatedDate && (
+												{entry.data.updatedDate ? (
 													<Fragment>
-														<span>•</span>
-														<UpdatedDate date={entry.data.updatedDate} />
+														<del>
+															<PubDate as="span" date={entry.data.pubDate} />
+														</del>
+														<span aria-hidden="true">•</span>
+														<ins>
+															<UpdatedDate date={entry.data.updatedDate} />
+														</ins>
 													</Fragment>
+												) : (
+													<PubDate date={entry.data.pubDate} />
 												)}
 											</footer>
 										)
