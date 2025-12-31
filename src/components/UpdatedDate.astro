@@ -8,7 +8,7 @@ const { date } = Astro.props;
 ---
 
 <span class="text-box-trim">
-	Last updated on
+	Updated on
 	<time datetime={date?.toISOString()}>
 		{formatDate(date)}
 	</time>
