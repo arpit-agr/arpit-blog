@@ -261,6 +261,10 @@ strong {
 	font-weight: var(--font-bold);
 }
 
+ins {
+	text-decoration: none;
+}
+
 ::selection {
 	background-color: var(--color-bg-selection);
 }
