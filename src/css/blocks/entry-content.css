@@ -10,8 +10,8 @@
 	h3 + *,
 	h4,
 	h4 + *,
-	.expressive-code,
-	.expressive-code + * {
+	.astro-code,
+	.astro-code + * {
 		--flow-space: 1lh;
 	}
 }

@@ -1,0 +1,15 @@
+.astro-code {
+	--shiki-light-bg: #0000 !important;
+	--shiki-dark-bg: #0000 !important;
+}
+
+.astro-code,
+.astro-code span {
+	color: var(--shiki-light);
+	background-color: var(--shiki-light-bg);
+
+	@media (prefers-color-scheme: dark) {
+		color: var(--shiki-dark);
+		background-color: var(--shiki-dark-bg);
+	}
+}

@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import expressiveCode from 'astro-expressive-code';
 import mdx from '@astrojs/mdx';
 import pagefind from 'astro-pagefind';
 import htmlMinifierNext from 'astro-html-minifier-next';
@@ -8,8 +7,16 @@ import htmlMinifierNext from 'astro-html-minifier-next';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://arpit.blog',
+	markdown: {
+		shikiConfig: {
+			themes: {
+				light: 'min-light',
+				dark: 'min-dark',
+			},
+			defaultColor: false,
+		},
+	},
 	integrations: [
-		expressiveCode(),
 		mdx(),
 		pagefind(),
 		htmlMinifierNext({

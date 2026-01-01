@@ -244,6 +244,7 @@ code {
 pre {
 	padding: var(--code-padding-block) var(--code-padding-inline);
 	border-radius: var(--code-border-radius);
+	outline: var(--border-thickness-separator) solid var(--color-border);
 }
 
 :not(pre) > code {

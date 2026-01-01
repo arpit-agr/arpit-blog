@@ -38,6 +38,7 @@
 @import url(/src/css/blocks/book-list.css) layer(blocks);
 @import url(/src/css/blocks/book-filters.css) layer(blocks);
 @import url(/src/css/blocks/currently-reading.css) layer(blocks);
+@import url(/src/css/blocks/astro-code.css) layer(blocks);
 @import url(/src/css/blocks/search.css) layer(blocks);
 @import url(/src/css/utilities/region.css) layer(utilities);
 @import url(/src/css/utilities/visually-hidden.css) layer(utilities);
@@ -48,7 +49,6 @@
 @import url(/src/css/utilities/typography.css) layer(utilities);
 @import url(/src/css/utilities/flex-grid.css) layer(utilities);
 @import url(/src/css/exceptions/share-feedback.css) layer(exceptions);
-@import url(/src/css/exceptions/expressive-code.css) layer(exceptions);
 @import url(/src/css/exceptions/book-gallery.css) layer(exceptions);
 @import url(/src/css/exceptions/tag-page.css) layer(exceptions);
 @import url(/src/css/exceptions/search-with-results.css) layer(exceptions);
