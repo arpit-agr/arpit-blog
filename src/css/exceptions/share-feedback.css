@@ -1,0 +1,7 @@
+.share-feedback {
+	--repel-gap: var(--space-s) var(--space-2xs);
+}
+
+.share-feedback:has(.mastodon-edit) {
+	padding-block: calc(var(--space-m) - var(--button-padding-block));
+}

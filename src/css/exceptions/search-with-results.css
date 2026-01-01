@@ -1,0 +1,44 @@
+search:has(> #search-form) {
+	padding-block: var(--space-m) var(--space-xs);
+}
+
+#search-form {
+	margin-block-end: var(--space-m);
+
+	.sidebar {
+		--sidebar-min-width: auto;
+	}
+
+	.js & .search-btn {
+		display: none;
+	}
+
+	.clear-btn {
+		display: none;
+
+		.js & {
+			display: unset;
+		}
+	}
+
+	&:has([type='search']:placeholder-shown) .clear-btn {
+		cursor: not-allowed;
+		/*opacity: 0.37;*/
+	}
+
+	.js & [type='search']::-webkit-search-cancel-button,
+	.js & [type='search']::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
+}
+
+#search-results-list {
+	li {
+		border-block-start: var(--border-thickness-separator) solid
+			var(--color-border);
+	}
+
+	/*li[data-collection='notes'] .pub-date {
+				display: none;
+			}*/
+}

@@ -83,7 +83,9 @@ const {
 									>
 										<Content />
 									</div>
-									<footer class="stack gap-2xs text-step--1">
+									<footer
+										class="stack gap-2xs text-step--1 place-self-end text-align-end"
+									>
 										{
 											!!entry.data.via && (
 												<LinkVia
@@ -108,22 +110,3 @@ const {
 		</div>
 	</div>
 </BaseLayout>
-
-<style is:global>
-	@layer blocks {
-		.entry-actions > * {
-			border-block-start: var(--border-thickness-separator) solid
-				var(--color-border);
-		}
-	}
-
-	@layer exceptions {
-		.entry-content ~ * {
-			&,
-			> * {
-				text-align: end;
-				place-self: end;
-			}
-		}
-	}
-</style>

@@ -10,6 +10,10 @@
 	align-self: stretch;
 }
 
+.place-self-end {
+	place-self: end;
+}
+
 .gap-0 {
 	gap: 0px;
 }

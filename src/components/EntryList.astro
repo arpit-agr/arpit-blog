@@ -27,7 +27,7 @@ const headingComponents = {
 		// for the specific entry we're working with, making this safe.
 		entries.map((entry) => {
 			return (
-				<li class="entry">
+				<li class="entry-item">
 					<div class="center p-space-m">
 						<article class="stack align-self-stretch">
 							<div class="entry-content flow">
@@ -60,23 +60,3 @@ const headingComponents = {
 		})
 	}
 </ul>
-
-<style is:global>
-	@layer blocks {
-		.entry + .entry {
-			border-block-start: var(--border-thickness-separator) solid
-				var(--color-border);
-		}
-
-		.entry {
-			article {
-				--stack-gap: var(--space-m);
-				--stack-horizontal-alignment: stretch;
-			}
-
-			[rel='bookmark'] {
-				margin-inline-start: auto;
-			}
-		}
-	}
-</style>

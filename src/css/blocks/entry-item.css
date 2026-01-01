@@ -1,0 +1,15 @@
+.entry-item + .entry-item {
+	border-block-start: var(--border-thickness-separator) solid
+		var(--color-border);
+}
+
+.entry-item {
+	article {
+		--stack-gap: var(--space-m);
+		--stack-horizontal-alignment: stretch;
+	}
+
+	[rel='bookmark'] {
+		margin-inline-start: auto;
+	}
+}

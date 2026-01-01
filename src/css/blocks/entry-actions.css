@@ -1,0 +1,4 @@
+.entry-actions > * {
+	border-block-start: var(--border-thickness-separator) solid
+		var(--color-border);
+}

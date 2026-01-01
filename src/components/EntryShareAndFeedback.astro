@@ -1,10 +1,10 @@
 ---
-import CopyToClipboard from "@components/CopyToClipboard.astro";
-import MastodonShare from "./MastodonShare.astro";
+import CopyToClipboard from '@components/CopyToClipboard.astro';
+import MastodonShare from '@components/MastodonShare.astro';
 
 const copyText = `${new URL(Astro.url.pathname, Astro.site)}`;
 const blueskyLink = `https://bsky.app/intent/compose?text=${encodeURIComponent(`${Astro.url}`)}`;
-const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent("Re: " + Astro.url.pathname)}`;
+const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent('Re: ' + Astro.url.pathname)}`;
 ---
 
 <div class="share-feedback repel pb-space-m">
@@ -22,15 +22,3 @@ const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent("Re: "
 	<p class="text-box-trim">Found this useful?</p>
 	<a class="text-box-trim" href={mailtoLink}>Let Me Know</a>
 </div>
-
-<style is:global>
-	@layer exceptions {
-		.share-feedback {
-			--repel-gap: var(--space-s) var(--space-2xs);
-		}
-
-		.share-feedback:has(.mastodon-edit) {
-			padding-block: calc(var(--space-m) - var(--button-padding-block));
-		}
-	}
-</style>

@@ -54,7 +54,7 @@ const {
 					),
 				},
 			],
-			preload: true,
+			preload: false, // manually preloaded after Synchronous CSS
 			display: 'swap',
 			cssVariable: 'font-cursive',
 			fallback: 'sans-serif',
@@ -74,7 +74,7 @@ const {
 					),
 				},
 			],
-			preload: true,
+			preload: false, // manually preloaded after Synchronous CSS
 			display: 'swap',
 			cssVariable: 'font-sans-serif',
 			fallback: 'sans-serif',
@@ -85,6 +85,21 @@ const {
 
 <link rel="stylesheet" href={stylesUrl} />
 <!-- <link rel="stylesheet" href={printStylesUrl} media="print" /> -->
+
+<link
+	as="font"
+	crossorigin=""
+	rel="preload"
+	href="/fonts/Sarina-Regular-subset.woff2"
+	type="font/woff2"
+/>
+<link
+	as="font"
+	crossorigin=""
+	rel="preload"
+	href="/fonts/Figtree-VariableFont_wght-subset.woff2"
+	type="font/woff2"
+/>
 
 <meta property="og:title" content={pageTitle} />
 {!!pageDesc && <meta name="description" content={pageDesc} />}
