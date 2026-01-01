@@ -13,7 +13,7 @@
 	.book {
 		display: grid;
 		grid-template-columns: minmax(18ch, 1fr) min(28.75cqi, var(--space-6xl));
-		outline: var(--border-thickness-m) solid var(--color-border);
+		outline: var(--border-thickness-separator) solid var(--color-border);
 		border-radius: var(--border-radius);
 		background: var(--color-bg-primary);
 		overflow: clip;

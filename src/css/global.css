@@ -134,7 +134,7 @@ button,
 input {
 	border: none;
 	padding: var(--button-padding-block) var(--button-padding-inline);
-	outline: var(--border-thickness-m) solid var(--color-border);
+	outline: var(--border-thickness-separator) solid var(--color-border);
 	border-radius: var(--btn-border-radius);
 	transition-property: background, outline-color, opacity;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

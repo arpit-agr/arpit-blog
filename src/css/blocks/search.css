@@ -1,6 +1,6 @@
 search {
 	label + div {
-		border: var(--border-thickness-m) solid var(--color-border);
+		border: var(--border-thickness-separator) solid var(--color-border);
 		border-radius: var(--border-radius);
 		overflow: clip;
 	}
