@@ -3,15 +3,19 @@
 
 	> * {
 		background: var(--color-bg-primary);
-		outline: calc(2 * var(--border-thickness-separator)) solid
-			var(--color-bg-primary);
-		outline-offset: var(--border-thickness-separator);
+
 		view-transition-name: page;
 	}
 
 	@container doc-root (width >= 75rem) {
 		position: relative;
 		isolation: isolate;
+
+		> * {
+			outline: calc(2 * var(--border-thickness-separator)) solid
+				var(--color-bg-primary);
+			outline-offset: var(--border-thickness-separator);
+		}
 
 		&::before,
 		&::after {
