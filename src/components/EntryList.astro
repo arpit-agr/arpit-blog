@@ -30,18 +30,18 @@ const headingComponents = {
 				<li class="entry-item">
 					<div class="center p-space-m">
 						<article class="stack align-self-stretch">
+							{entry.collection === 'articles' && (
+								<h2>
+									<a href={entry.absoluteURL}>{entry.data.title}</a>
+								</h2>
+							)}
+							{entry.collection === 'links' && (
+								<h2 class="link-entry-title">
+									<a href={entry.data.link}>{entry.data.title}</a>
+									<ExternalLinkIcon aria-hidden="true" />
+								</h2>
+							)}
 							<div class="entry-content flow">
-								{entry.collection === 'articles' && (
-									<h2>
-										<a href={entry.absoluteURL}>{entry.data.title}</a>
-									</h2>
-								)}
-								{entry.collection === 'links' && (
-									<h2 class="link-entry-title">
-										<a href={entry.data.link}>{entry.data.title}</a>
-										<ExternalLinkIcon aria-hidden="true" />
-									</h2>
-								)}
 								<entry.Content components={headingComponents} />
 							</div>
 							<footer class="cluster text-step--1">
