@@ -1,0 +1,30 @@
+.archive-page {
+	.archive-list {
+		column-width: var(--multi-col-width, 25ch);
+		column-gap: var(--space-l);
+
+		> * {
+			break-inside: avoid;
+		}
+
+		> * + * {
+			margin-block-start: 1lh;
+		}
+
+		@supports (display: grid-lanes) {
+			--grid-min-item-size: 25ch;
+
+			column-width: unset;
+			display: grid-lanes;
+			gap: 1lh;
+			grid-template-columns: repeat(
+				var(--grid-placement, auto-fill),
+				minmax(var(--grid-min-item-size, min(16rem, 100%)), 1fr)
+			);
+
+			> * + * {
+				margin-block-start: unset;
+			}
+		}
+	}
+}
