@@ -9,21 +9,21 @@ const { page, entries } = Astro.props;
 </div>
 {
 	page.lastPage > 1 && (
-		<div class="pagination-control text-box-trim">
+		<nav class="pagination-control text-box-trim" aria-label="Pagination">
 			<div class="center p-space-m">
 				<div class="cluster align-self-stretch">
 					{page.url.prev && (
 						<a href={page.url.prev} rel="prev" class="heading-3 text-box-trim">
-							&larr; Newer Entries
+							&larr; Newer entries
 						</a>
 					)}
 					{page.url.next && (
 						<a href={page.url.next} rel="next" class="heading-3 text-box-trim">
-							Older Entries &rarr;
+							Older entries &rarr;
 						</a>
 					)}
 				</div>
 			</div>
-		</div>
+		</nav>
 	)
 }
