@@ -16,22 +16,19 @@ Roman Komarov on how they use an [IIFE (Immediately Invoked Function Expression)
 ---
 const { linkText, isDiv = false } = Astro.props;
 ---
-{(() => {
-	const someContent = (
-		<a href="#hello">{linkText}</a>
-	);
-	return (
-		<div class="wrapper">
-			{isDiv ? (
-				<div class="inner">
-					{someContent}
-				</div>
-			) : (
-				<span class="inner">
-					{someContent}
-				</span>
-			)}
-		</div>
-	);
-})()}
+
+{
+	(() => {
+		const someContent = <a href="#hello">{linkText}</a>;
+		return (
+			<div class="wrapper">
+				{isDiv ? (
+					<div class="inner">{someContent}</div>
+				) : (
+					<span class="inner">{someContent}</span>
+				)}
+			</div>
+		);
+	})()
+}
 ```

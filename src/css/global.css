@@ -8,14 +8,15 @@
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 
-	/* The layout switches to two columns at 1098px. Anytime this value is changed, the value will also need to be updated below and in page.css as well */
+	/* The layout switches to two columns at 1024px. Anytime this value is changed, the value will also need to be updated below and in page.css as well */
 	@custom-media --layout-with-sidebar (width >= 64rem);
 
 	--font-mono: ui-monospace, 'SF Mono', monospace;
-	--button-padding-block: 0.5em;
-	--button-padding-inline: 0.75ch;
-	--btn-border-radius: 100vmax;
-	--site-nav-padding-block: calc(1.25 * var(--space-s));
+	--button-padding-block: 0.33em;
+	--button-padding-inline: 0.33ch;
+	--btn-border-radius: var(--border-radius);
+	--site-nav-padding-block: calc(1.125 * var(--space-s));
+	--site-nav-padding-inline: var(--space-2xs);
 }
 
 :root {
@@ -52,7 +53,7 @@ body {
   Note: We cannot use @custom-media with @container yet.
   (https://github.com/csstools/postcss-plugins/issues/1035)
 */
-@container doc-root (width >= 64rem) {
+@container doc-root (width >= 75rem) {
 	body::before {
 		content: '';
 		position: absolute;

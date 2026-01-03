@@ -38,25 +38,28 @@
 
 				@container (inline-size > 0) {
 					white-space: nowrap;
+
+					/* temporary hack to fix overflow on Safari */
+					max-inline-size: 100cqi;
 				}
 			}
 
 			&.text-fit {
 				--captured-length2: var(--font-size);
-				font-variation-settings: "opsz" tan(atan2(var(--captured-length2), 1px));
+				font-variation-settings: 'opsz' tan(atan2(var(--captured-length2), 1px));
 			}
 		}
 	}
 }
 
 @property --captured-length {
-	syntax: "<length>";
+	syntax: '<length>';
 	initial-value: 0px;
 	inherits: true;
 }
 
 @property --captured-length2 {
-	syntax: "<length>";
+	syntax: '<length>';
 	initial-value: 0px;
 	inherits: true;
 }

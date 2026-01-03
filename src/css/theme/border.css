@@ -8,5 +8,5 @@
 	--border-thickness-blockquote: var(--border-thickness-l);
 	--border-thickness-focus: calc(1.25 * var(--space-4xs));
 
-	--border-radius: var(--space-3xs);
+	--border-radius: 0px;
 }

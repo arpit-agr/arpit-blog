@@ -4,5 +4,5 @@ copy-to-clipboard:not(:defined) button {
 }
 
 copy-to-clipboard button {
-	min-inline-size: 9ch;
+	min-inline-size: 7.5ch; /* magic number */
 }

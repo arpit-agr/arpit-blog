@@ -1,0 +1,34 @@
+#about-site {
+	position: relative;
+}
+
+.paper-clip {
+	--_size: var(--space-m);
+	display: none;
+	position: absolute;
+	inset-block-start: calc(
+		(-1 / 2 * var(--_size)) + var(--border-thickness-separator)
+	);
+	inset-inline-end: var(--space-2xs);
+	inline-size: var(--_size);
+}
+
+.profile-pic {
+	float: right;
+	inline-size: var(--space-4xl);
+	border: calc(2 * var(--border-thickness-separator)) solid
+		var(--color-bg-primary);
+	outline: var(--border-thickness-separator) solid var(--color-border);
+	translate: calc(-1 / 1.5 * var(--space-m)) calc(1 / 1.5 * var(--space-m));
+	rotate: -2deg;
+}
+
+@container doc-root (width >= 64rem) {
+	.paper-clip {
+		display: unset;
+	}
+
+	.profile-pic {
+		translate: calc(-1 / 2 * var(--space-m)) calc(1 / 2 * var(--space-m));
+	}
+}

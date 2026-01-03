@@ -1,5 +1,5 @@
 .mastodon-share-container {
-	--cluster-gap: calc(1 / 2 * var(--button-padding-inline));
+	--cluster-gap: 0.5ch;
 
 	.no-js & a {
 		cursor: not-allowed;

@@ -2,7 +2,7 @@
 	--code-font-size: 1rem;
 	--code-font-weight: var(--font-regular);
 	--code-border-thickness: var(--border-thickness-separator);
-	--code-border-radius: var(--space-3xs);
+	--code-border-radius: 0px;
 	--code-padding-block: var(--space-2xs-xs);
 	--code-padding-inline: var(--space-2xs-xs);
 }

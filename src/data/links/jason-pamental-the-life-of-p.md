@@ -9,9 +9,7 @@ tags:
   - "css"
 ---
 
-I just saw Jason Pamental's excellent talk on 'The Life of `<p>`'. As mentioned in the YouTube description, in this talk Jason explores:
-
-> the varying ways the lowly `<p>` has been designed in print—from the earliest printed works on through to today […]
+I just saw Jason Pamental's excellent talk on 'The Life of `<p>`'. In this talk, Jason traces the evolution of paragraph design in print and shows how those typographic ideas can be applied using CSS.
 
 There’s one moment during the Q&A where Jason mentions:
 

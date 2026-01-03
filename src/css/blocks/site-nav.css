@@ -5,6 +5,8 @@
 }
 
 .site-nav {
+	padding-inline: calc(var(--space-m) - var(--site-nav-padding-inline));
+
 	> ul {
 		--cluster-gap: 0px;
 	}
@@ -17,7 +19,7 @@
 .nav-item {
 	a {
 		position: relative;
-		padding: var(--site-nav-padding-block) var(--space-2xs);
+		padding: var(--site-nav-padding-block) var(--site-nav-padding-inline);
 
 		svg {
 			position: absolute;

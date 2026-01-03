@@ -10,11 +10,13 @@ const books = await getCollection('books', (entry) => {
 
 {
 	!!books.length && (
-		<div class="currently-reading">
+		<section id="currently-reading" aria-labelledby="currently-reading_heading">
 			<div class="center p-space-m">
 				<div class="stack align-self-stretch">
 					<header class="repel align-self-stretch">
-						<h2 class="heading-3">Currently reading</h2>
+						<h2 class="heading-3" id="currently-reading_heading">
+							Currently reading
+						</h2>
 						<a class="text-step--1 text-box-trim-start" href="/library/">
 							View Library
 						</a>
@@ -44,6 +46,6 @@ const books = await getCollection('books', (entry) => {
 					</ul>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }

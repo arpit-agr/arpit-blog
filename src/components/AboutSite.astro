@@ -1,8 +1,26 @@
 ---
-
+import { Image } from 'astro:assets';
+import myImage from '@images/arpit.jpg';
+import paperClip from '@images/paper-clip.png';
 ---
 
 <section id="about-site" aria-labelledby="about-site_heading">
+	<Image
+		src={myImage}
+		alt=""
+		class="profile-pic"
+		widths={[100, 200, 300]}
+		sizes="94px"
+		priority={true}
+	/>
+	<Image
+		src={paperClip}
+		alt=""
+		class="paper-clip"
+		widths={[27, 54, 81]}
+		sizes="27px"
+		priority={true}
+	/>
 	<div class="center p-space-m">
 		<div class="stack align-self-start">
 			<h2 class="heading-3" id="about-site_heading">About this site</h2>

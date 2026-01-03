@@ -1,8 +1,11 @@
 ---
-import HomeNavItem from '@components/HomeNavItem.astro';
 import Circle from '@images/circle.svg';
 
 const navLinks = [
+	{
+		label: 'Home',
+		href: '/',
+	},
 	{
 		label: 'Notes',
 		href: '/notes/',
@@ -43,23 +46,8 @@ function getLinkState(href: string, pathname: string) {
 }
 ---
 
-<nav class="site-nav center pi-space-m" aria-label="Main">
+<nav class="site-nav center" aria-label="Main">
 	<ul class="cluster align-self-stretch" role="list">
-		{
-			(() => {
-				const { isCurrent, isActive } = getLinkState('/', pathname);
-				return (
-					<HomeNavItem
-						as="li"
-						label="Home"
-						aria-current={isCurrent ? 'page' : null}
-						data-state={isActive ? 'active' : null}
-					>
-						<Circle />
-					</HomeNavItem>
-				);
-			})()
-		}
 		{
 			navLinks.map((link) => {
 				const { isCurrent, isActive } = getLinkState(link.href, pathname);

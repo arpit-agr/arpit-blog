@@ -53,3 +53,4 @@
 @import url(/src/css/exceptions/tag-page.css) layer(exceptions);
 @import url(/src/css/exceptions/archive-page.css) layer(exceptions);
 @import url(/src/css/exceptions/search-with-results.css) layer(exceptions);
+@import url(/src/css/exceptions/about-site.css) layer(exceptions);
