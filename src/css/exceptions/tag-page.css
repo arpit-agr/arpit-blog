@@ -1,6 +1,5 @@
 .tag-page main ul {
 	--flow-space: var(--space-m);
-	--multi-col-width: 13ch;
 
 	li {
 		text-box: trim-both cap alphabetic;
