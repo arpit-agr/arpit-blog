@@ -51,4 +51,5 @@
 @import url(/src/css/exceptions/share-feedback.css) layer(exceptions);
 @import url(/src/css/exceptions/book-gallery.css) layer(exceptions);
 @import url(/src/css/exceptions/tag-page.css) layer(exceptions);
+@import url(/src/css/exceptions/archive-page.css) layer(exceptions);
 @import url(/src/css/exceptions/search-with-results.css) layer(exceptions);
