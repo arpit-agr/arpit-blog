@@ -1,6 +1,5 @@
 ---
 import PubDate from '@components/PubDate.astro';
-import ExternalLinkIcon from 'src/images/external-link.svg';
 import H2 from '@components/H2.astro';
 import H3 from '@components/H3.astro';
 import H4 from '@components/H4.astro';
@@ -38,7 +37,6 @@ const headingComponents = {
 							{entry.collection === 'links' && (
 								<h2 class="link-entry-title">
 									<a href={entry.data.link}>{entry.data.title}</a>
-									<ExternalLinkIcon aria-hidden="true" />
 								</h2>
 							)}
 							<div class="entry-content flow">
