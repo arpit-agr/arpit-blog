@@ -113,19 +113,13 @@ h4,
 a {
 	text-decoration-thickness: max(var(--border-thickness-l), 0.2ex);
 	text-decoration-color: var(--color-underline);
-	text-decoration-skip-ink: none;
-	/*transition:
-		text-decoration-thickness 0.2s cubic-bezier(0.25, 0, 0.3, 1),
-		text-underline-offset 0.2s cubic-bezier(0.25, 0, 0.3, 1);*/
-
-	@media (prefers-color-scheme: dark) {
-		text-shadow: var(--color-bg-primary) 0 var(--space-5xs);
-	}
+	text-shadow: var(--color-bg-primary) var(--space-5xs) var(--space-5xs);
 
 	&:hover,
 	&:focus-visible {
 		text-decoration-thickness: 0.3lh;
 		text-underline-offset: -0.15lh;
+		text-decoration-skip-ink: none;
 	}
 }
 
