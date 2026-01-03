@@ -1,23 +1,34 @@
 ---
 interface Props {
 	isVisuallyHidden: boolean;
-	sectionTitle?: string;
+	sectionTitle: string;
 	sectionDesc?: string;
 }
 
+import { slug } from 'github-slugger';
+
 const { isVisuallyHidden, sectionTitle, sectionDesc } = Astro.props;
+const headingID = slug(sectionTitle);
 ---
 
-<div class:list={['feed-header', { 'visually-hidden': isVisuallyHidden }]}>
+<div
+	class:list={['feed-header', { 'visually-hidden': isVisuallyHidden }]}
+	role="region"
+	aria-labelledby={headingID}
+>
 	<div class="center pi-space-m">
 		{
 			!!sectionTitle && !!sectionDesc ? (
 				<hgroup class="cluster align-self-stretch">
-					<h1 class="text-box-trim">{sectionTitle}</h1>
+					<h1 id={headingID} class="text-box-trim">
+						{sectionTitle}
+					</h1>
 					<p class="text-box-trim text-balance">{sectionDesc}</p>
 				</hgroup>
 			) : !!sectionTitle ? (
-				<h1 class="align-self-stretch">{sectionTitle}</h1>
+				<h1 id={headingID} class="align-self-stretch">
+					{sectionTitle}
+				</h1>
 			) : (
 				<p class="align-self-stretch">{sectionDesc}</p>
 			)
