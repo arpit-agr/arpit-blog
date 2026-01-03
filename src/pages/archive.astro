@@ -27,7 +27,11 @@ for (const entry of allEntries) {
 const years = Array.from(archive.keys()).sort((a, b) => b - a);
 ---
 
-<BaseLayout pageTitle={ARCHIVE_TITLE} pageDesc={ARCHIVE_DESCRIPTION}>
+<BaseLayout
+	bodyClass="archive-page"
+	pageTitle={ARCHIVE_TITLE}
+	pageDesc={ARCHIVE_DESCRIPTION}
+>
 	<BannerText />
 	<div class="page">
 		<div>
@@ -41,10 +45,7 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 							sectionDesc="Browse all my notes, articles, and links, grouped by year and month."
 						/>
 						<div class="center p-space-m">
-							<div
-								class="grid align-self-stretch"
-								style="--grid-min-item-size: 25ch;"
-							>
+							<div class="archive-list align-self-stretch">
 								{
 									years.map((year) => (
 										<section class="flow flow-space-s align-self-stretch">
