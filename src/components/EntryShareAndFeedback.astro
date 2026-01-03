@@ -13,12 +13,15 @@ const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent('Re: '
 		<a class="text-box-trim" href={blueskyLink} target="_blank">Bluesky</a>
 		<MastodonShare />
 		<CopyToClipboard text={copyText}>
-			Copy Link
+			Copy link
 			<span class="visually-hidden">To This Entry</span>
 		</CopyToClipboard>
 	</div>
 </div>
 <div class="repel pb-space-m">
 	<p class="text-box-trim">Found this useful?</p>
-	<a class="text-box-trim" href={mailtoLink}>Let Me Know</a>
+	<a class="text-box-trim" href={mailtoLink}>
+		Let me know
+		<!-- <span class="text-step--2">(via email)</span> -->
+	</a>
 </div>
