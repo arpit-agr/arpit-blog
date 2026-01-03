@@ -8,7 +8,7 @@ import UpdatedDate from '@components/UpdatedDate.astro';
 import LinkVia from '@components/LinkVia.astro';
 import ExternalLinkIcon from 'src/images/external-link.svg';
 import TagList from '@components/TagList.astro';
-import EntryShareAndFeedback from '@components/EntryShareAndFeedback.astro';
+import EntryActions from '@components/EntryActions.astro';
 import Aside from '@components/Aside.astro';
 
 import { SITE_DESCRIPTION } from 'src/consts';
@@ -98,8 +98,12 @@ const {
 									</footer>
 								</article>
 							</main>
-							<div class="entry-actions text-step--1">
-								<EntryShareAndFeedback />
+							<div
+								class="entry-actions text-step--1"
+								role="region"
+								aria-label="Entry actions"
+							>
+								<EntryActions />
 							</div>
 							<BackLink />
 						</div>
