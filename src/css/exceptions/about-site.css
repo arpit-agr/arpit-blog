@@ -32,9 +32,6 @@
 	}
 
 	.profile-pic {
-		block-size: 100%;
-		inline-size: auto;
-		object-fit: cover;
 		translate: 0px 0px;
 		rotate: 0deg;
 	}
