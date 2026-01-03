@@ -14,4 +14,8 @@
 	.astro-code + * {
 		--flow-space: 1lh;
 	}
+
+	/*a {
+		font-weight: var(--font-medium);
+	}*/
 }
