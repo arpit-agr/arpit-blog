@@ -16,7 +16,7 @@
 	}
 
 	> div {
-		--flow-space: var(--space-2xs);
+		--flow-space: var(--space-xs);
 		--cluster-gap: var(--space-2xs);
 
 		> div {
@@ -44,7 +44,7 @@
 			}
 
 			label::after {
-				content: "";
+				content: '';
 				position: absolute;
 				inset: 0;
 			}
