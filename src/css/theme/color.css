@@ -40,4 +40,12 @@
 	--color-bg-selection: oklch(
 		from var(--color-accent) l c h / calc(0.5 * alpha)
 	);
+
+	--color-scrollbar-track: var(--color-bg-primary);
+	--color-scrollbar-thumb: var(--color-border);
+	--color-scrollbar-thumb-hover: color-mix(
+		in oklab,
+		var(--color-text-primary) 18%,
+		var(--color-bg-primary)
+	);
 }

@@ -242,11 +242,11 @@ pre {
 	padding: var(--code-padding-block) var(--code-padding-inline);
 	border-radius: var(--code-border-radius);
 	outline: var(--border-thickness-separator) solid var(--color-border);
-	scrollbar-color: var(--color-bg-secondary) var(--color-bg-primary);
+	scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 
 	&:hover {
-		scrollbar-color: oklch(from var(--color-bg-secondary) calc(l * 150%) c h)
-			var(--color-bg-primary);
+		scrollbar-color: var(--color-scrollbar-thumb-hover)
+			var(--color-scrollbar-track);
 	}
 }
 
