@@ -204,14 +204,15 @@ blockquote {
 
 	> *:first-child::before {
 		content: open-quote;
-		font-size: var(--step-5);
+		font-family: var(--font-cursive);
+		font-size: var(--step-4);
 		line-height: var(--leading-flat);
 		color: oklch(from currentColor l c h / calc(0.875 * alpha));
 
 		position: absolute;
 		inset-inline-start: calc(-1 * var(--border-thickness-blockquote));
 		inset-block-start: 0;
-		translate: -35% -2%;
+		translate: -50% -2%;
 		background: var(--color-bg-primary);
 		block-size: 0.66lh;
 	}
