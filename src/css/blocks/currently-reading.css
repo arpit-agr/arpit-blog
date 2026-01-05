@@ -17,5 +17,16 @@
 		border-radius: var(--border-radius);
 		background: var(--color-bg-primary);
 		overflow: clip;
+
+		div:has(.cover) {
+			position: relative;
+			flex-basis: var(--space-6xl);
+		}
+
+		.cover {
+			position: absolute;
+			inset-block-start: 0;
+			inset-inline-end: 0;
+		}
 	}
 }
