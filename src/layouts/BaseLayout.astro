@@ -1,6 +1,7 @@
 ---
 import type { ComponentProps } from 'astro/types';
 import BaseHead from '@components/BaseHead.astro';
+import SkipLink from '@components/SkipLink.astro';
 
 type Props = ComponentProps<typeof BaseHead> & {
 	bodyClass?: string;
@@ -32,12 +33,7 @@ const {
 		/>
 	</head>
 	<body class={bodyClass}>
-		<a
-			class="skip-to-content heading-3 text-box-trim visually-hidden"
-			href="#main"
-		>
-			Skip to content
-		</a>
+		<SkipLink />
 		<slot />
 	</body>
 </html>

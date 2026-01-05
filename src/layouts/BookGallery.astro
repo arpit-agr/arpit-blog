@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BannerText from '@components/BannerText.astro';
 import BookCover from '@components/BookCover.astro';
 
 import { getCollection } from 'astro:content';
@@ -29,10 +28,10 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 
 <BaseLayout bodyClass="book-gallery" pageTitle={pageTitle} pageDesc={pageDesc}>
 	<div class="flow wrapper pb-space-l">
-		<header>
-			<nav class="sidebar">
-				<BannerText />
-			</nav>
+		<header class="stack">
+			<div class="nav-item heading-3">
+				<a href="/">Home</a>
+			</div>
 			<div class="flow">
 				<div class="heading-group cluster gap-xs">
 					{
@@ -66,7 +65,7 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 				<div class="cluster">
 					<div class="btn cluster gap-0">
 						<input name="filter" id="all" type="radio" value="all" checked="" />
-						<label class="text-box-trim" for="all">All</label>
+						<label class="font-medium text-box-trim" for="all">All</label>
 					</div>
 					{
 						uniqueTags.map((tag) => {
@@ -74,7 +73,7 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 							return (
 								<div class="btn cluster gap-0">
 									<input name="filter" id={tagID} type="radio" value={tag} />
-									<label class="text-box-trim" for={tagID}>
+									<label class="font-medium text-box-trim" for={tagID}>
 										{tag}
 									</label>
 								</div>

@@ -21,7 +21,7 @@
 @import url(/src/css/composition/sidebar.css) layer(composition);
 @import url(/src/css/composition/stack.css) layer(composition);
 @import url(/src/css/composition/wrapper.css) layer(composition);
-@import url(/src/css/blocks/skip-to-content.css) layer(blocks);
+@import url(/src/css/blocks/skip-link.css) layer(blocks);
 @import url(/src/css/blocks/page.css) layer(blocks);
 @import url(/src/css/blocks/banner-text.css) layer(blocks);
 @import url(/src/css/blocks/site-nav.css) layer(blocks);

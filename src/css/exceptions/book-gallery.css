@@ -1,22 +1,10 @@
 .book-gallery {
 	--flow-space: var(--space-xl);
+	--stack-gap: var(--space-xl);
 
 	header {
-		--sidebar-gap: var(--space-m) var(--space-s);
-		flex-direction: row-reverse;
-		align-items: first baseline;
-
-		nav {
-			--sidebar-min-width: 14.5rem;
-
-			> * {
-				max-inline-size: var(--sidebar-min-width);
-				padding: unset;
-			}
-		}
-
-		.banner-text::before {
-			display: none;
+		.nav-item {
+			margin-inline-start: calc(-1 * var(--site-nav-padding-inline));
 		}
 
 		p {
@@ -28,6 +16,7 @@
 		position: relative;
 
 		> * {
+			font-size: var(--step-5);
 			flex-shrink: 0;
 		}
 
@@ -46,8 +35,8 @@
 	}
 
 	.separator {
-		inline-size: var(--border-thickness-separator);
+		inline-size: calc(2 * var(--border-thickness-separator));
 		block-size: var(--space-l);
-		background-color: var(--color-border);
+		background-color: currentColor;
 	}
 }

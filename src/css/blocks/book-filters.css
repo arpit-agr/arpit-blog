@@ -17,18 +17,27 @@
 
 	> div {
 		--flow-space: var(--space-xs);
-		--cluster-gap: var(--space-2xs);
+		--cluster-gap: 1ex;
 
 		> div {
 			position: relative;
 
-			&:focus-within,
+			&:hover,
 			&:has(:checked) {
+				outline-color: currentColor;
+				outline-width: var(--border-thickness-focus);
+			}
+
+			&:hover {
+				background: var(--color-bg-button);
+			}
+
+			&:has(:checked):hover {
 				background: var(--color-bg-button-hover);
-				outline-color: var(--color-focus);
 			}
 
 			&:focus-within {
+				background: var(--color-bg-button-hover);
 				outline: var(--border-thickness-focus) solid var(--color-focus);
 			}
 

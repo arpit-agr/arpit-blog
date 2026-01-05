@@ -1,0 +1,16 @@
+---
+const path = Astro.url.pathname;
+const isLibraryPage = path.includes('/library/');
+const isAntiLibraryPage = path.includes('/antilibrary/');
+---
+
+<a class="skip-link heading-3 text-box-trim visually-hidden" href="">
+	Skip to main
+</a>
+{
+	!(isLibraryPage || isAntiLibraryPage) && (
+		<a class="skip-link heading-3 text-box-trim visually-hidden" href="#aside">
+			Skip to aside
+		</a>
+	)
+}

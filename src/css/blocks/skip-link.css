@@ -1,4 +1,4 @@
-.skip-to-content {
+.skip-link {
 	position: absolute;
 	inset-inline-start: var(--space-m);
 	inset-block-start: var(--space-xs);
@@ -11,4 +11,9 @@
 		background: var(--color-bg-primary);
 		z-index: -1;
 	}
+}
+
+.skip-link:nth-of-type(2) {
+	inset-inline-start: unset;
+	inset-inline-end: var(--space-m);
 }
