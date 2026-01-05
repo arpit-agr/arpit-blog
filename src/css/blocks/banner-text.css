@@ -4,9 +4,14 @@
 
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
+	transition: scale 200ms var(--ease-3);
+	transition-delay: 100ms;
 
-	&:has(a:hover) {
-		mix-blend-mode: normal;
+	@media (hover: hover) {
+		&:has(a:hover) {
+			mix-blend-mode: normal;
+			scale: 0.975;
+		}
 	}
 
 	a {
