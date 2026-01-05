@@ -10,7 +10,7 @@
 	@media (hover: hover) {
 		&:has(a:hover) {
 			mix-blend-mode: normal;
-			scale: 0.975;
+			scale: 1.025;
 		}
 	}
 
