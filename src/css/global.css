@@ -12,7 +12,7 @@
 	@custom-media --layout-with-sidebar (width >= 64rem);
 
 	--font-mono: ui-monospace, 'SF Mono', monospace;
-	--button-padding-block: 0.33em;
+	--button-padding-block: 0.5em;
 	--button-padding-inline: 0.5ch;
 	--btn-border-radius: var(--border-radius);
 	--site-nav-padding-block: calc(1.125 * var(--space-s));
@@ -132,7 +132,7 @@ button,
 input {
 	border: none;
 	padding: var(--button-padding-block) var(--button-padding-inline);
-	outline: var(--border-thickness-separator) solid var(--color-border);
+	outline: var(--border-thickness-separator) solid #0000;
 	border-radius: var(--btn-border-radius);
 	transition-property: background, outline-color, opacity;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
