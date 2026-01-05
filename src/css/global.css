@@ -14,7 +14,7 @@
 	--font-mono: ui-monospace, 'SF Mono', monospace;
 	--button-padding-block: 0.33em;
 	--button-padding-inline: 0.5ch;
-	--btn-border-radius: 100vmax;
+	--btn-border-radius: var(--border-radius);
 	--site-nav-padding-block: calc(1.125 * var(--space-s));
 	--site-nav-padding-inline: var(--space-2xs);
 }
