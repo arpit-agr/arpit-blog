@@ -17,7 +17,7 @@
 
 	> div {
 		--flow-space: var(--space-xs);
-		--cluster-gap: 1ex;
+		--cluster-gap: var(--space-2xs);
 
 		> div {
 			position: relative;
