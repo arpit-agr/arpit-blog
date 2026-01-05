@@ -65,7 +65,7 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 				<div class="cluster">
 					<div class="btn cluster gap-0">
 						<input name="filter" id="all" type="radio" value="all" checked="" />
-						<label class="font-medium text-box-trim" for="all">All</label>
+						<label class="text-box-trim" for="all">All</label>
 					</div>
 					{
 						uniqueTags.map((tag) => {
@@ -73,7 +73,7 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 							return (
 								<div class="btn cluster gap-0">
 									<input name="filter" id={tagID} type="radio" value={tag} />
-									<label class="font-medium text-box-trim" for={tagID}>
+									<label class="text-box-trim" for={tagID}>
 										{tag}
 									</label>
 								</div>
