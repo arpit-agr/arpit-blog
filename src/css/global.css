@@ -4,7 +4,7 @@
 
 :root {
 	--wrapper-max-width: 73rem;
-	--measure: 70ch;
+	--measure: 65ch;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 
