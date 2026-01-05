@@ -13,6 +13,10 @@
 	--color-accent: light-dark(var(--color-brand), var(--color-brand-shade));
 
 	/* 3rd order variables */
+	--color-text-secondary: light-dark(
+		var(--color-dark-shade),
+		var(--color-light-shade)
+	);
 	--color-bg-secondary: light-dark(
 		var(--color-light-shade),
 		var(--color-dark-shade)
