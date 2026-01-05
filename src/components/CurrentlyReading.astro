@@ -25,21 +25,25 @@ const books = await getCollection('books', (entry) => {
 						{books.map((item) => {
 							return (
 								<li
-									class="book"
+									class="book repel p-space-xs"
 									style={{ '--dominant-color': item.data.dominantColor }}
 								>
-									<div class="stack gap-xs p-space-xs">
+									<div class="stack gap-xs">
 										<h3 class="aside-text-step-1 leading-snug">
 											{item.data.title}
 										</h3>
 										<p class="text-step--1 text-box-trim">{item.data.author}</p>
 									</div>
-									<BookCover
-										imagePath={item.data.cover}
-										widths={[128, 256]}
-										sizes="128px"
-										priority={true}
-									/>
+									<div>
+										<div class="cover">
+											<BookCover
+												imagePath={item.data.cover}
+												widths={[128, 256]}
+												sizes="128px"
+												priority={true}
+											/>
+										</div>
+									</div>
 								</li>
 							);
 						})}
