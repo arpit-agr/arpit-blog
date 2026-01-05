@@ -181,7 +181,7 @@ input {
 blockquote {
 	position: relative;
 	margin-inline-start: 1ch;
-	padding-inline-start: var(--space-s);
+	padding-inline-start: var(--gutter);
 	border-inline-start: var(--border-thickness-blockquote) solid transparent;
 	border-image: linear-gradient(
 			to bottom,
