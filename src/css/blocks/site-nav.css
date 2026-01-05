@@ -5,7 +5,7 @@
 }
 
 .site-nav {
-	padding-inline: calc(var(--space-m) - var(--site-nav-padding-inline));
+	translate: calc(-1 * var(--site-nav-padding-inline)) 0;
 
 	> ul {
 		--cluster-gap: 0px;
