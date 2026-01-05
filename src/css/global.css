@@ -162,7 +162,9 @@ input {
 }
 
 :where(ol, ul):not([role='list']) {
-	/*padding-inline-start: var(--gutter);*/
+	::marker {
+		color: var(--color-text-secondary);
+	}
 
 	> * + * {
 		margin-block-start: var(--flow-space, var(--space-3xs));
@@ -175,10 +177,6 @@ input {
 
 :where(ul):not([role='list']) {
 	list-style: square;
-
-	::marker {
-		color: var(--color-accent);
-	}
 }
 
 blockquote {
