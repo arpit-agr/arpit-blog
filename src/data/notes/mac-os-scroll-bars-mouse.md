@@ -13,7 +13,7 @@ Today I learned that on macOS, with the default scrollbar setting enabled, class
 
 This is relevant for everyone who builds websites because when classic scrollbars are shown, the value of `100vw` includes the scrollbar width. This can cause an unexpected horizontal overflow if the layout relies on `100vw` for full-width elements. Additionally, they affect media queries, which assume scrollbars don’t exist when evaluating viewport width.
 
-Having said that, these aren’t new issues. Classic scrollbars are shown by default on Windows, where the same behaviors apply.
+Having said that, these aren’t new issues. Classic scrollbars are shown by default on Windows, where the same behaviours apply.
 
 Further reading:
 
