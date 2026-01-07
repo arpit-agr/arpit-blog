@@ -12,7 +12,7 @@
 		gap: var(--space-s-m);
 
 		> :last-child {
-			position: relative;
+			order: -1;
 		}
 	}
 }
@@ -29,11 +29,11 @@
 		transition-delay: 100ms;
 	}
 
-	@media (hover: hover) {
+	/*@media (hover: hover) {
 		&:hover > * {
 			transform: rotate3d(0, 1, 0, 25deg);
 		}
-	}
+	}*/
 }
 
 .cover {

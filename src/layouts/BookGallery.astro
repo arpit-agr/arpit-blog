@@ -98,6 +98,10 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 									'view-transition-name': viewTransitionName,
 								}}
 							>
+								<div class="stack gap-2xs">
+									<h2 class="heading-3 leading-snug">{item.data.title}</h2>
+									<p class="text-step--1">{item.data.author}</p>
+								</div>
 								<div
 									class="book-wrapper"
 									style={{
@@ -114,12 +118,8 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 												sizes="(width < 21.5rem) 100vw, (width < 32.125rem) 50vw, (width < 43rem) 33vw, (width <= 54.125rem) 25vw, (width < 65.625rem) 20vw, 16.67vw"
 											/>
 										</div>
-										<div class="spine" />
+										<!-- <div class="spine" /> -->
 									</div>
-								</div>
-								<div class="stack gap-2xs">
-									<h2 class="heading-3 leading-snug">{item.data.title}</h2>
-									<p class="text-step--1">{item.data.author}</p>
 								</div>
 							</li>
 						);
