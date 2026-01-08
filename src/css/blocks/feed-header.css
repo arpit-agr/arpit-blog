@@ -3,7 +3,7 @@
 	/*border-block-end: var(--border-thickness-separator) solid var(--color-border);*/
 
 	hgroup {
-		--cluster-gap: var(--space-s);
+		--cluster-gap: var(--space-m);
 
 		&::before {
 			content: '';
