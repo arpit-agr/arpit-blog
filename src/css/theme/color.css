@@ -44,6 +44,7 @@
 	--color-bg-selection: oklch(
 		from var(--color-accent) l c h / calc(0.5 * alpha)
 	);
+	--color-bg-mark: oklch(from var(--color-accent) l c h / calc(0.33 * alpha));
 
 	--color-scrollbar-track: var(--color-bg-primary);
 	--color-scrollbar-thumb: var(--color-border);

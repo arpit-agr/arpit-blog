@@ -221,7 +221,7 @@ pre {
 }
 
 mark {
-	background: var(--color-accent);
+	background: var(--color-bg-mark);
 	color: var(--color-text-primary);
 }
 

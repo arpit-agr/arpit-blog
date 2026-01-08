@@ -41,6 +41,8 @@ class Search {
 	}
 
 	createResultHTML(result) {
+		// console.log(result);
+		const isNote = result.filters.collection[0] === 'notes';
 		const pubDate = new Date(result.meta.date);
 		const dateLocaleString = new Intl.DateTimeFormat('en-IN', {
 			year: 'numeric',
@@ -60,19 +62,46 @@ class Search {
 			.replace(/&lt;\/mark>/g, '</mark>');
 
 		return `
-			<li class="pb-space-m" data-collection=${result.filters.collection[0]}>
+			<li
+				class="entry-item pb-space-m"
+				data-collection=${result.filters.collection[0]}
+			>
         <article class="stack">
-          <h3 class="heading-2">
-            <a href="${this.escapeHTML(result.url)}">${title}</a>
-          </h3>
+					<h3 class="heading-2">
+	       		${
+							!isNote
+								? `
+							<a href="${this.escapeHTML(result.url)}">${title}</a>
+							`
+								: `
+							<a href="${this.escapeHTML(result.url)}">
+							  Noted on
+							  <time datetime="${this.escapeHTML(result.meta.date)}">
+							    ${dateLocaleString}
+							  </time>
+							</a>
+	         `
+						}
+					</h3>
           <p class="search-result-excerpt">
-	          <span class="pub-date text-box-trim">
-	            Posted on <time datetime="${this.escapeHTML(result.meta.date)}">${dateLocaleString}</time> –
-	          </span>
-            ${result.locations[0] > 25 ? `[…]` : ''}
+            ${result.locations[0] > 35 ? `…` : ''}
             ${safeExcerpt}
-            ${result.word_count > result.excerpt.split(' ').length ? `[…]` : ''}
+            ${result.word_count > result.excerpt.split(' ').length ? `…` : ''}
           </p>
+          <footer class="cluster text-step--1">
+          	<a
+							class="text-box-trim"
+							href="${this.escapeHTML(result.url)}"
+							rel="bookmark"
+						>
+		          <span class="pub-date text-box-trim">
+		        		<span class="visually-hidden">Posted on</span>
+								<time datetime="${this.escapeHTML(result.meta.date)}">
+									${dateLocaleString}
+								</time>
+		          </span>
+						</a>
+          </footer>
         </article>
       </li>
     `;
@@ -106,7 +135,7 @@ class Search {
 		if (!this.pagefind) {
 			try {
 				this.pagefind = await import('/pagefind/pagefind.js');
-				await this.pagefind.options({ excerptLength: 25 });
+				await this.pagefind.options({ excerptLength: 35 });
 			} catch (error) {
 				console.error('Error loading Pagefind:', error);
 			}

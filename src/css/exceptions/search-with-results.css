@@ -33,9 +33,15 @@ search:has(> #search-form) {
 }
 
 #search-results-list {
+	padding-inline-start: 0px;
+
 	li {
 		border-block-start: var(--border-thickness-separator) solid
 			var(--color-border);
+
+		article {
+			--stack-gap: var(--space-s-m);
+		}
 	}
 
 	/*li[data-collection='notes'] .pub-date {
