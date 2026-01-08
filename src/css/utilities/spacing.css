@@ -98,6 +98,18 @@
 	padding-block: var(--space-l);
 }
 
+.pb-space-xl {
+	padding-block: var(--space-xl);
+}
+
+.pb-space-2xl {
+	padding-block: var(--space-2xl);
+}
+
+.pb-space-3xl {
+	padding-block: var(--space-3xl);
+}
+
 .pb-space-m-l {
 	padding-block: var(--space-m-l);
 }
