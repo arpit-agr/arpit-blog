@@ -4,13 +4,13 @@ const isLibraryPage = path.includes('/library/');
 const isAntiLibraryPage = path.includes('/antilibrary/');
 ---
 
-<a class="skip-link heading-3 text-box-trim visually-hidden" href="">
-	Skip to main
+<a href="#main" class="skip-link heading-3 text-box-trim visually-hidden">
+	Jump to main content
 </a>
 {
 	!(isLibraryPage || isAntiLibraryPage) && (
-		<a class="skip-link heading-3 text-box-trim visually-hidden" href="#aside">
-			Skip to aside
+		<a href="#aside" class="skip-link heading-3 text-box-trim visually-hidden">
+			Jump to sidebar
 		</a>
 	)
 }
