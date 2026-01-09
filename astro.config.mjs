@@ -9,10 +9,7 @@ export default defineConfig({
 	site: 'https://arpit.blog',
 	markdown: {
 		shikiConfig: {
-			themes: {
-				light: 'min-light',
-				dark: 'min-dark',
-			},
+			theme: 'css-variables',
 			defaultColor: false,
 		},
 	},

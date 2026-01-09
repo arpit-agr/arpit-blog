@@ -1,17 +1,18 @@
+/*https://christianpenrod.com/blog/astro-shiki-syntax-highlighting-with-css-variables*/
+
 .astro-code {
-	--shiki-light-bg: #0000 !important;
-	--shiki-dark-bg: #0000 !important;
-}
-
-.astro-code,
-.astro-code span {
-	color: var(--shiki-light);
-	background-color: var(--shiki-light-bg);
-
-	@media (prefers-color-scheme: dark) {
-		color: var(--shiki-dark);
-		background-color: var(--shiki-dark-bg);
-	}
+	/* largely based on shiki themes min-light and min-dark  */
+	--astro-code-background: var(--color-bg-primary);
+	--astro-code-foreground: light-dark(#24292eff, #b392f0);
+	--astro-code-token-constant: light-dark(#1974ce, #79b8ff);
+	--astro-code-token-string: light-dark(#2c5581, #9db1c5);
+	--astro-code-token-comment: light-dark(#727374, #7d8690);
+	--astro-code-token-keyword: light-dark(#d32f2f, #f97583);
+	--astro-code-token-parameter: light-dark(#a76300, #ff9800);
+	--astro-code-token-function: light-dark(#6f42c1, #b392f0);
+	--astro-code-token-string-expression: light-dark(#228439, #ffab70);
+	--astro-code-token-punctuation: light-dark(#212121, #bbbbbb);
+	--astro-code-token-link: light-dark(#1b75d2, #1f85ef);
 }
 
 .astro-code[data-language] {
