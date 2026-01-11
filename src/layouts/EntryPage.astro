@@ -36,25 +36,6 @@ const {
 							<main id="main" class="pb-space-m">
 								<article class="flow flow-space-m">
 									{
-										entry.collection != 'notes' && (
-											<footer class="cluster gap-2xs text-step--1">
-												{entry.data.updatedDate ? (
-													<Fragment>
-														<del>
-															<PubDate as="span" date={entry.data.pubDate} />
-														</del>
-														<span aria-hidden="true">•</span>
-														<ins>
-															<UpdatedDate date={entry.data.updatedDate} />
-														</ins>
-													</Fragment>
-												) : (
-													<PubDate date={entry.data.pubDate} />
-												)}
-											</footer>
-										)
-									}
-									{
 										entry.collection === 'notes' && (
 											<h1 class="text-step--1 text-box-trim font-regular">
 												<PubDate as="span" date={entry.data.pubDate} />
@@ -71,6 +52,25 @@ const {
 											<h1 class="link-entry-title">
 												<a href={entry.data.link}>{entry.data.title}</a>
 											</h1>
+										)
+									}
+									{
+										entry.collection != 'notes' && (
+											<footer class="cluster gap-2xs text-step--1">
+												{entry.data.updatedDate ? (
+													<Fragment>
+														<del>
+															<PubDate as="span" date={entry.data.pubDate} />
+														</del>
+														<span aria-hidden="true">•</span>
+														<ins>
+															<UpdatedDate date={entry.data.updatedDate} />
+														</ins>
+													</Fragment>
+												) : (
+													<PubDate date={entry.data.pubDate} />
+												)}
+											</footer>
 										)
 									}
 									<div
