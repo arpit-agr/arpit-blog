@@ -1,3 +1,9 @@
+---
+const path = Astro.url.pathname;
+const isArchivePage = path.endsWith('/archive/');
+const isTagsPage = path.endsWith('/tags/');
+---
+
 <section id="search" aria-labelledby="search_heading">
 	<div class="center p-space-m">
 		<div class="stack align-self-stretch">
@@ -26,7 +32,28 @@
 					</div>
 				</form>
 			</search>
-			<slot />
+			<ul class="multi-col aside-text-step-1 align-self-stretch">
+				{
+					!isArchivePage && (
+						<li>
+							Or browse the{' '}
+							<a href="/archive/" data-astro-prefetch>
+								archive
+							</a>
+						</li>
+					)
+				}
+				{
+					!isTagsPage && (
+						<li>
+							Or browse the{' '}
+							<a href="/tags/" data-astro-prefetch>
+								tags
+							</a>
+						</li>
+					)
+				}
+			</ul>
 		</div>
 	</div>
 </section>
