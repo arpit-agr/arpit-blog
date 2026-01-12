@@ -29,6 +29,11 @@ const headingComponents = {
 				<li class="entry-item">
 					<div class="center p-space-m">
 						<article class="stack align-self-stretch">
+							{entry.collection === 'notes' && (
+								<h2 class="visually-hidden">
+									Note - <PubDate as="span" date={entry.data.pubDate} />
+								</h2>
+							)}
 							{entry.collection === 'articles' && (
 								<h2>
 									<a href={entry.absoluteURL}>{entry.data.title}</a>

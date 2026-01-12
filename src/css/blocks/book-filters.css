@@ -8,6 +8,9 @@
 }
 
 .book-filters {
+	--btn-border-radius: 100vmax;
+	--button-padding-inline: 0.75ch;
+
 	padding: unset;
 	border: none;
 
@@ -17,7 +20,7 @@
 
 	> div {
 		--flow-space: var(--space-xs);
-		--cluster-gap: var(--space-2xs);
+		--cluster-gap: var(--space-3xs);
 
 		> div {
 			position: relative;

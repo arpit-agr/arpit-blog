@@ -6,7 +6,7 @@
 		view-transition-name: page;
 	}
 
-	@container doc-root (width >= 75rem) {
+	/*@container doc-root (width >= 75rem) {
 		position: relative;
 		isolation: isolate;
 
@@ -43,7 +43,7 @@
 			rotate: -1.5deg;
 			view-transition-name: page-after;
 		}
-	}
+	}*/
 }
 
 .page-inner {

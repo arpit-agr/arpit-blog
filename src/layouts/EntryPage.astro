@@ -14,14 +14,13 @@ import { SITE_DESCRIPTION } from 'src/consts';
 
 const {
 	pageTitle, // string
-	bodyClass, // string
 	entry, // CollectionEntry
 	Content, // from render(entry)
 } = Astro.props;
 ---
 
 <BaseLayout
-	bodyClass={bodyClass}
+	bodyClass="entry-page"
 	pageTitle={pageTitle}
 	pageDesc={SITE_DESCRIPTION}
 >
@@ -34,11 +33,11 @@ const {
 					<div class="center pi-space-m">
 						<div class="align-self-stretch">
 							<main id="main" class="pb-space-m">
-								<article class="flow flow-space-m">
+								<article class="stack">
 									{
 										entry.collection === 'notes' && (
-											<h1 class="text-step--1 text-box-trim font-regular">
-												<PubDate as="span" date={entry.data.pubDate} />
+											<h1 class="visually-hidden">
+												Note - <PubDate as="span" date={entry.data.pubDate} />
 											</h1>
 										)
 									}
@@ -54,25 +53,6 @@ const {
 											</h1>
 										)
 									}
-									{
-										entry.collection != 'notes' && (
-											<footer class="cluster gap-2xs text-step--1">
-												{entry.data.updatedDate ? (
-													<Fragment>
-														<del>
-															<PubDate as="span" date={entry.data.pubDate} />
-														</del>
-														<span aria-hidden="true">•</span>
-														<ins>
-															<UpdatedDate date={entry.data.updatedDate} />
-														</ins>
-													</Fragment>
-												) : (
-													<PubDate date={entry.data.pubDate} />
-												)}
-											</footer>
-										)
-									}
 									<div
 										class="entry-content flow"
 										data-pagefind-body
@@ -81,6 +61,23 @@ const {
 									>
 										<Content />
 									</div>
+									<footer class="cluster gap-2xs text-step--1">
+										{
+											entry.data.updatedDate ? (
+												<Fragment>
+													<del>
+														<PubDate as="span" date={entry.data.pubDate} />
+													</del>
+													<span aria-hidden="true">•</span>
+													<ins>
+														<UpdatedDate date={entry.data.updatedDate} />
+													</ins>
+												</Fragment>
+											) : (
+												<PubDate date={entry.data.pubDate} />
+											)
+										}
+									</footer>
 									<footer
 										class="stack gap-2xs text-step--1 place-self-end text-align-end"
 									>

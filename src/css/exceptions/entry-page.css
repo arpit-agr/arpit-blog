@@ -1,0 +1,7 @@
+.entry-page {
+	article {
+		footer:has(> .pub-date) {
+			order: -1;
+		}
+	}
+}

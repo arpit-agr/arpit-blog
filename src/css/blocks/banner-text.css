@@ -4,13 +4,12 @@
 
 	font-family: var(--font-cursive);
 	color: var(--color-accent);
-	/*transition: scale 200ms var(--ease-3);*/
-	/*transition-delay: 100ms;*/
+
+	view-transition-name: banner-text;
 
 	@media (hover: hover) {
 		&:has(a:hover) {
 			mix-blend-mode: normal;
-			/*scale: 1.025;*/
 		}
 	}
 
@@ -37,7 +36,7 @@
 	}
 }
 
-@container doc-root (width >= 75rem) {
+/*@container doc-root (width >= 75rem) {
 	.banner-text:has(+ .page) {
 		z-index: unset;
 		mix-blend-mode: unset;
@@ -46,4 +45,4 @@
 	.banner-text + .page {
 		margin-block-start: var(--space-m);
 	}
-}
+}*/

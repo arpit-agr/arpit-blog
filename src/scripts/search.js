@@ -75,7 +75,7 @@ class Search {
 							`
 								: `
 							<a href="${this.escapeHTML(result.url)}">
-							  Noted on
+							  Note - <span class="visually-hidden">Posted on</span>
 							  <time datetime="${this.escapeHTML(result.meta.date)}">
 							    ${dateLocaleString}
 							  </time>

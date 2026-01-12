@@ -1,4 +1,6 @@
 .entry-content {
+	max-inline-size: 100%;
+
 	> * {
 		--flow-space: initial;
 	}
