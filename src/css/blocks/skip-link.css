@@ -1,19 +1,13 @@
 .skip-link {
-	position: absolute;
-	inset-inline-start: var(--space-m);
-	inset-block-start: var(--space-xs);
-	z-index: 4;
+	display: block;
+	padding-block: var(--site-nav-padding-block);
+	outline: none;
 
-	&::before {
-		content: '';
-		position: absolute;
-		inset: calc(-1 * var(--border-thickness-focus));
-		background: var(--color-bg-primary);
-		z-index: -1;
+	&:nth-of-type(2) {
+		text-align: end;
 	}
-}
 
-.skip-link:nth-of-type(2) {
-	inset-inline-start: unset;
-	inset-inline-end: var(--space-m);
+	&:focus-visible span {
+		outline: var(--border-thickness-focus) solid var(--color-focus);
+	}
 }
