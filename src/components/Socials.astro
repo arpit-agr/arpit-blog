@@ -36,8 +36,9 @@ const socialLinks = [
 				{
 					socialLinks.map((link) => (
 						<li>
-							{link.network}: {''}
-							<a href={link.href}>{link.username}</a>
+							<a href={link.href}>
+								{link.network}: {link.username}
+							</a>
 						</li>
 					))
 				}
