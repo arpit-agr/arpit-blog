@@ -38,9 +38,6 @@
 
 				@container (inline-size > 0) {
 					white-space: nowrap;
-
-					/* temporary hack to fix overflow on Safari */
-					max-inline-size: 100cqi;
 				}
 			}
 
