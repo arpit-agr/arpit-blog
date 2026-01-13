@@ -2,6 +2,11 @@
 	--flow-space: var(--space-xl);
 	--stack-gap: var(--space-xl);
 
+	.skip-link {
+		position: relative;
+		inset-inline-start: var(--gutter);
+	}
+
 	header {
 		.nav-item {
 			margin-inline-start: calc(-1 * var(--site-nav-padding-inline));
@@ -37,6 +42,17 @@
 	.separator {
 		inline-size: calc(2 * var(--border-thickness-separator));
 		block-size: var(--space-l);
-		background-color: currentColor;
+		border-inline-start: calc(2 * var(--border-thickness-separator)) solid
+			var(--color-border);
+	}
+
+	details {
+		outline: var(--border-thickness-separator) solid var(--color-border);
+		outline-offset: calc(-1 * var(--border-thickness-separator));
+		border-radius: var(--btn-border-radius);
+	}
+
+	summary {
+		user-select: none;
 	}
 }

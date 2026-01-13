@@ -9,7 +9,7 @@
 
 .book-filters {
 	--btn-border-radius: 100vmax;
-	--button-padding-inline: 0.75ch;
+	--button-padding-inline: 1ch;
 
 	padding: unset;
 	border: none;
@@ -18,9 +18,29 @@
 		padding: unset;
 	}
 
+	.btn {
+		outline-offset: calc(-1 * var(--border-thickness-separator));
+	}
+
+	input {
+		/* visually hidden */
+		position: absolute;
+		block-size: 1px;
+		inline-size: 1px;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	label::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+	}
+
 	> div {
-		--flow-space: var(--space-xs);
-		--cluster-gap: var(--space-3xs);
+		--cluster-gap: calc(1.25 * var(--space-3xs));
 
 		> div {
 			position: relative;
@@ -43,23 +63,10 @@
 				background: var(--color-bg-button-hover);
 				outline: var(--border-thickness-focus) solid var(--color-focus);
 			}
-
-			input {
-				/* visually hidden */
-				position: absolute;
-				block-size: 1px;
-				inline-size: 1px;
-				clip: rect(0 0 0 0);
-				clip-path: inset(50%);
-				overflow: hidden;
-				white-space: nowrap;
-			}
-
-			label::after {
-				content: '';
-				position: absolute;
-				inset: 0;
-			}
 		}
 	}
+
+	/*&:has(.btn:hover) .btn:not(:hover) {
+		opacity: 0.37;
+	}*/
 }

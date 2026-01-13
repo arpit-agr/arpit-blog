@@ -60,28 +60,36 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 			</div>
 		</header>
 		<main class="flow" id="main">
-			<fieldset class="book-filters flow" disabled>
-				<legend class="heading-4">Filter:</legend>
-				<div class="cluster">
-					<div class="btn cluster gap-0">
-						<input name="filter" id="all" type="radio" value="all" checked="" />
-						<label class="text-box-trim" for="all">All</label>
+			<details>
+				<summary class="heading-2 p-space-xs">Filter</summary>
+				<fieldset class="book-filters p-space-xs" disabled>
+					<div class="cluster">
+						<div class="btn cluster gap-0">
+							<input
+								name="filter"
+								id="all"
+								type="radio"
+								value="all"
+								checked=""
+							/>
+							<label class="text-box-trim" for="all">All</label>
+						</div>
+						{
+							uniqueTags.map((tag) => {
+								const tagID = `tag-${slug(tag)}`;
+								return (
+									<div class="btn cluster gap-0">
+										<input name="filter" id={tagID} type="radio" value={tag} />
+										<label class="text-box-trim" for={tagID}>
+											{tag}
+										</label>
+									</div>
+								);
+							})
+						}
 					</div>
-					{
-						uniqueTags.map((tag) => {
-							const tagID = `tag-${slug(tag)}`;
-							return (
-								<div class="btn cluster gap-0">
-									<input name="filter" id={tagID} type="radio" value={tag} />
-									<label class="text-box-trim" for={tagID}>
-										{tag}
-									</label>
-								</div>
-							);
-						})
-					}
-				</div>
-			</fieldset>
+				</fieldset>
+			</details>
 			<h2 id="books-results-count" aria-live="polite">
 				{books.length} books
 			</h2>
