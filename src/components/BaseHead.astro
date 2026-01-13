@@ -41,26 +41,6 @@ const {
 <AstroFont
 	config={[
 		{
-			name: 'Sarina',
-			src: [
-				{
-					style: 'normal',
-					weight: '400',
-					path: join(
-						process.cwd(),
-						'public',
-						'fonts',
-						'Sarina-Regular-subset.woff2',
-					),
-				},
-			],
-			preload: false, // manually preloaded after Synchronous CSS
-			display: 'swap',
-			cssVariable: 'font-cursive',
-			fallback: 'sans-serif',
-			fallbackName: 'Sarina Fallback',
-		},
-		{
 			name: 'Figtree',
 			src: [
 				{
@@ -86,13 +66,6 @@ const {
 <link rel="stylesheet" href={stylesUrl} />
 <!-- <link rel="stylesheet" href={printStylesUrl} media="print" /> -->
 
-<link
-	as="font"
-	crossorigin=""
-	rel="preload"
-	href="/fonts/Sarina-Regular-subset.woff2"
-	type="font/woff2"
-/>
 <link
 	as="font"
 	crossorigin=""

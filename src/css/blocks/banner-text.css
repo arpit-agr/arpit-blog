@@ -1,11 +1,8 @@
 .banner-text {
 	position: relative;
-	padding-block-start: var(--space-s-5xs);
-
-	font-family: var(--font-cursive);
-	color: var(--color-accent);
-
 	view-transition-name: banner-text;
+	transition: mix-blend-mode 0.2s;
+	transition-behavior: allow-discrete;
 
 	@media (hover: hover) {
 		&:has(a:hover) {
@@ -13,17 +10,18 @@
 		}
 	}
 
-	a {
-		position: absolute;
-		inset: 0;
-
-		&:focus-visible {
-			outline-offset: calc(-1 * var(--border-thickness-focus));
-		}
+	&:focus-within:not(:has(a:active), :has(a:hover)) {
+		outline: var(--border-thickness-focus) solid var(--color-focus);
+		outline-offset: calc(-1 * var(--border-thickness-focus));
 	}
 
-	.text-fit > span:first-child {
-		pointer-events: none;
+	svg {
+		inline-size: 100%;
+		overflow: visible;
+
+		path {
+			fill: var(--color-accent);
+		}
 	}
 }
 

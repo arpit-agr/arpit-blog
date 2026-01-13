@@ -4,16 +4,11 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
 const { as: Tag = 'div' } = Astro.props;
 
 import { SITE_TITLE } from 'src/consts';
+import BannerSVG from '@images/banner.svg';
 ---
 
-<div class="banner-text pi-space-m">
-	<a href="/">
-		<span class="visually-hidden">Home</span>
+<Tag class="banner-text pi-space-m">
+	<a href="/" aria-label={SITE_TITLE}>
+		<BannerSVG />
 	</a>
-	<Tag class="leading-snug">
-		<span class="text-fit">
-			<span><span class="text-box-trim">{SITE_TITLE}</span></span>
-			<span aria-hidden="true">{SITE_TITLE}</span>
-		</span>
-	</Tag>
-</div>
+</Tag>
