@@ -12,7 +12,7 @@
 
 	&:focus-within:not(:has(a:active), :has(a:hover)) {
 		outline: var(--border-thickness-focus) solid var(--color-focus);
-		outline-offset: calc(-1 * var(--border-thickness-focus));
+		outline-offset: calc(-1 * var(--border-thickness-separator));
 	}
 
 	svg {
