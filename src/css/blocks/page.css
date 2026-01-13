@@ -67,11 +67,15 @@
 			inset-block-start: 0;
 			inline-size: var(--border-thickness-separator);
 			block-size: 100%;
-			background-color: var(--color-border);
+			border-inline-start: var(--border-thickness-separator) solid
+				var(--color-border);
 
 			@container (width > 50vi) {
 				inline-size: 100%;
 				block-size: var(--border-thickness-separator);
+				border-inline-start: unset;
+				border-block-start: var(--border-thickness-separator) solid
+					var(--color-border);
 			}
 		}
 	}
