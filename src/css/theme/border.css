@@ -6,7 +6,7 @@
 
 	--border-thickness-separator: var(--border-thickness-m);
 	--border-thickness-blockquote: var(--border-thickness-xl);
-	--border-thickness-focus: calc(1.125 * var(--space-4xs));
+	--border-thickness-focus: calc(1.25 * var(--space-4xs));
 
 	--border-radius: var(--border-thickness-s);
 }
