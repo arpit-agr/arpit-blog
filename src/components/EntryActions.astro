@@ -2,15 +2,17 @@
 import CopyToClipboard from '@components/CopyToClipboard.astro';
 import MastodonShare from '@components/MastodonShare.astro';
 
+const { entryTitle } = Astro.props;
+
 const copyText = `${new URL(Astro.url.pathname, Astro.site)}`;
 const blueskyLink = `https://bsky.app/intent/compose?text=${encodeURIComponent(`${Astro.url}`)}`;
-const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent('Re: ' + Astro.url.pathname)}`;
+const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent('Re: ' + entryTitle)}&body=${encodeURIComponent(`${Astro.url}`)}`;
 ---
 
 <div class="share-feedback repel pb-space-m">
 	<p class="text-box-trim">Share:</p>
 	<div class="cluster gap-s">
-		<a class="text-box-trim" href={blueskyLink} target="_blank">Bluesky</a>
+		<a class="text-box-trim" href={blueskyLink}>Bluesky</a>
 		<MastodonShare />
 		<CopyToClipboard text={copyText}>
 			Copy link
@@ -19,9 +21,6 @@ const mailtoLink = `mailto:hello@arpit.codes?subject=${encodeURIComponent('Re: '
 	</div>
 </div>
 <div class="repel pb-space-m">
-	<p class="text-box-trim">Found this useful?</p>
-	<a class="text-box-trim" href={mailtoLink}>
-		Let me know (via email)
-		<!-- <span class="text-step--2">(via email)</span> -->
-	</a>
+	<p class="text-box-trim">Reply:</p>
+	<a class="text-box-trim" href={mailtoLink}>hello@arpit.codes</a>
 </div>
