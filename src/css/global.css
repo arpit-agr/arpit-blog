@@ -112,28 +112,17 @@ h4,
 }
 
 a {
-	text-decoration-thickness: max(var(--border-thickness-l), 0.2ex);
+	text-decoration-thickness: max(var(--border-thickness-l), 0.25ex);
 	text-decoration-color: var(--color-underline);
 
 	@media (prefers-color-scheme: dark) {
 		text-shadow: var(--color-bg-primary) var(--space-5xs) var(--space-5xs);
 	}
 
-	&:hover {
-		text-decoration-thickness: 0.3lh;
-		text-underline-offset: -0.15lh;
-		text-decoration-skip-ink: none;
-	}
-
-	@media (forced-colors: active) {
-		&:hover {
-			text-decoration-thickness: calc(1.75 * var(--border-thickness-l));
-			text-underline-offset: revert;
-		}
-	}
-
+	&:hover,
 	&:focus-visible {
-		text-decoration-line: none;
+		text-decoration-thickness: max(var(--border-thickness-xl), 0.5ex);
+		text-decoration-skip-ink: none;
 	}
 }
 
