@@ -31,6 +31,10 @@
 }
 
 @container (width >= 50vi) {
+	#about-site .sidebar {
+		align-self: end;
+	}
+
 	.paper-clip {
 		display: none;
 	}
