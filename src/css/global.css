@@ -53,7 +53,7 @@ body {
   Note: We cannot use @custom-media with @container yet.
   (https://github.com/csstools/postcss-plugins/issues/1035)
 */
-/*@container doc-root (width >= 75rem) {
+@container doc-root (width >= 75rem) {
 	body::before {
 		content: '';
 		position: absolute;
@@ -71,7 +71,7 @@ body {
 		translate: -50% 0;
 		z-index: -1;
 	}
-}*/
+}
 
 h1,
 .heading-1,

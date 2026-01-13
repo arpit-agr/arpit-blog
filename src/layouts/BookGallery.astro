@@ -60,9 +60,9 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 			</div>
 		</header>
 		<main class="flow" id="main">
-			<details>
-				<summary class="heading-2 p-space-xs">Filter</summary>
-				<fieldset class="book-filters p-space-xs" disabled>
+			<details class="flow flow-space-xs" open>
+				<summary class="heading-2">Filter</summary>
+				<fieldset class="book-filters" disabled>
 					<div class="cluster">
 						<div class="btn cluster gap-0">
 							<input

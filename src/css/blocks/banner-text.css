@@ -34,13 +34,13 @@
 	}
 }
 
-/*@container doc-root (width >= 75rem) {
+@container doc-root (width >= 75rem) {
 	.banner-text:has(+ .page) {
 		z-index: unset;
 		mix-blend-mode: unset;
 	}
 
 	.banner-text + .page {
-		margin-block-start: var(--space-m);
+		margin-block-start: calc(1.25 * var(--space-s));
 	}
-}*/
+}
