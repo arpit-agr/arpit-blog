@@ -42,7 +42,7 @@
 @import url(/src/css/blocks/search.css) layer(blocks);
 @import url(/src/css/utilities/region.css) layer(utilities);
 @import url(/src/css/utilities/visually-hidden.css) layer(utilities);
-@import url(/src/css/utilities/text-fit.css) layer(utilities);
+/*@import url(/src/css/utilities/text-fit.css) layer(utilities);*/
 @import url(/src/css/utilities/spacing.css) layer(utilities);
 @import url(/src/css/utilities/sizing.css) layer(utilities);
 @import url(/src/css/utilities/layout.css) layer(utilities);
