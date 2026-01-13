@@ -119,11 +119,21 @@ a {
 		text-shadow: var(--color-bg-primary) var(--space-5xs) var(--space-5xs);
 	}
 
-	&:hover,
-	&:focus-visible {
+	&:hover {
 		text-decoration-thickness: 0.3lh;
 		text-underline-offset: -0.15lh;
 		text-decoration-skip-ink: none;
+	}
+
+	@media (forced-colors: active) {
+		&:hover {
+			text-decoration-thickness: calc(1.75 * var(--border-thickness-l));
+			text-underline-offset: revert;
+		}
+	}
+
+	&:focus-visible {
+		text-decoration-line: none;
 	}
 }
 
