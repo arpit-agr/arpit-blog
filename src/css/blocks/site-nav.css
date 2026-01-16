@@ -45,7 +45,11 @@
 		}*/
 
 		path {
-			stroke: currentColor;
+			stroke: color-mix(
+				in oklab,
+				var(--color-text-primary) 50%,
+				var(--color-bg-primary)
+			);
 		}
 	}
 }
