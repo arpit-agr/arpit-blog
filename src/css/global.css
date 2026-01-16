@@ -178,6 +178,11 @@ input {
 	list-style: square;
 }
 
+blockquote,
+q {
+	font-style: italic;
+}
+
 blockquote {
 	position: relative;
 	padding-inline-start: var(--space-s);
