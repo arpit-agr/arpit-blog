@@ -15,7 +15,7 @@
 	--button-padding-block: 0.5em;
 	--button-padding-inline: 0.5ch;
 	--btn-border-radius: var(--border-radius);
-	--site-nav-padding-block: calc(1.125 * var(--space-s));
+	--site-nav-padding-block: var(--space-s-m);
 	--site-nav-padding-inline: var(--space-2xs);
 }
 
@@ -114,6 +114,7 @@ h4,
 a {
 	text-decoration-thickness: max(var(--border-thickness-l), 0.25ex);
 	text-decoration-color: var(--color-underline);
+	text-decoration-skip-ink: none;
 
 	@media (prefers-color-scheme: dark) {
 		text-shadow: var(--color-bg-primary) var(--space-5xs) var(--space-5xs);
@@ -122,7 +123,6 @@ a {
 	&:hover,
 	&:focus-visible {
 		text-decoration-thickness: max(var(--border-thickness-xl), 0.5ex);
-		text-decoration-skip-ink: none;
 	}
 }
 
