@@ -1,7 +1,7 @@
 .link-entry-title {
-	position: relative;
-
-	&::after {
-		content: ' ↗';
+	a::after {
+		content: ' ↗' /' (external)';
+		display: inline-block;
+		margin-inline-start: var(--space-3xs);
 	}
 }
