@@ -1,31 +1,25 @@
 search {
-	label + div {
-		border: var(--border-thickness-separator) solid var(--color-border);
-		border-radius: var(--border-radius);
-		overflow: clip;
-	}
-
 	input,
 	button {
-		outline: var(--border-thickness-focus) solid var(--color-focus);
-		outline-offset: calc(-1 * var(--border-thickness-focus));
+		&:not(:hover, :focus-visible) {
+			outline-color: var(--color-border);
+		}
+
+		&:hover,
+		&:focus-visible {
+			outline: var(--border-thickness-focus) solid var(--color-focus);
+			outline-offset: calc(-1 / 2 * var(--border-thickness-focus));
+			z-index: 1;
+		}
 	}
 
 	input {
 		border-radius: var(--border-radius) 0 0 var(--border-radius);
-
-		&:not(:hover, :focus-visible) {
-			outline-color: #0000;
-		}
 	}
 
 	button {
 		--button-padding-inline: 1ch;
 		--sidebar-min-width: 6ch;
 		border-radius: 0px;
-
-		&:not(:hover, :focus-visible) {
-			outline-color: #0000;
-		}
 	}
 }
