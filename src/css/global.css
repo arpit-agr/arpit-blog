@@ -15,7 +15,7 @@
 	--button-padding-block: 0.5em;
 	--button-padding-inline: 0.5ch;
 	--btn-border-radius: var(--border-radius);
-	--site-nav-padding-block: var(--space-s-m);
+	--site-nav-padding-block: calc(1.25 * var(--space-s));
 	--site-nav-padding-inline: var(--space-2xs);
 }
 
@@ -122,7 +122,16 @@ a {
 
 	&:hover,
 	&:focus-visible {
-		text-decoration-thickness: max(var(--border-thickness-xl), 0.5ex);
+		text-decoration-thickness: max(var(--border-thickness-2xl), 0.5ex);
+		text-underline-offset: -0.2lh;
+	}
+
+	@media (forced-colors: active) {
+		&:hover,
+		&:focus-visible {
+			text-decoration-thickness: max(var(--border-thickness-xl), 0.5ex);
+			text-underline-offset: revert;
+		}
 	}
 }
 
@@ -178,10 +187,10 @@ input {
 	list-style: square;
 }
 
-blockquote,
+/*blockquote,
 q {
 	font-style: italic;
-}
+}*/
 
 blockquote {
 	position: relative;
