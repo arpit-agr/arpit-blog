@@ -1,7 +1,7 @@
 :root {
 	@utopia typeScale({
-    minFontSize: 16,
-    maxFontSize: 18,
+    minFontSize: 17,
+    maxFontSize: 19,
     minTypeScale: 1.125,
     maxTypeScale: 1.1625,
     positiveSteps: 6,
@@ -10,8 +10,8 @@
     prefix: 'step'
   });
 	@utopia spaceScale({
-    minSize: 16,
-    maxSize: 18,
+    minSize: 17,
+    maxSize: 19,
     positiveSteps: [1.5, 2, 2.5, 3, 4, 5, 6, 7],
     negativeSteps: [0.75, 0.5, 0.25, 0.125, 0.0625],
     customSizes: ['s-l', 'm-s', 's-xs', 's-5xs', 'm-5xs', 'l-5xs', 'l-m', 'xl-m', '5xs-m'],
@@ -21,7 +21,7 @@
   });
 	@utopia clamps({
       pairs: [
-        [16, 18]
+        [17, 19]
       ],
       prefix: 'step-cq',       /* Optional */
       relativeTo: 'container' /* Optional */
