@@ -1,12 +1,16 @@
 #about-site {
 	div:has(> .sidebar) {
-		--sidebar-gap: var(--space-m) var(--space-xs);
+		--sidebar-gap: var(--space-m) var(--space-3xs);
 		--sidebar-min-width: auto;
 		position: relative;
 	}
 
 	div:has(> .sidebar) > :not(.sidebar) {
 		min-inline-size: 60%;
+	}
+
+	p {
+		--measure: 45ch;
 	}
 }
 
@@ -22,7 +26,7 @@
 }
 
 .profile-pic {
-	inline-size: calc(1.125 * var(--space-4xl));
+	inline-size: var(--space-4xl);
 	border: calc(2 * var(--border-thickness-separator)) solid
 		var(--color-bg-primary);
 	outline: var(--border-thickness-separator) solid var(--color-border);
@@ -31,8 +35,10 @@
 }
 
 @container (width >= 50vi) {
-	#about-site .sidebar {
-		align-self: end;
+	#about-site {
+		div:has(> .sidebar) {
+			--sidebar-gap: var(--space-m);
+		}
 	}
 
 	.paper-clip {
@@ -40,6 +46,7 @@
 	}
 
 	.profile-pic {
+		inline-size: var(--space-5xl);
 		translate: 0px 0px;
 		rotate: 0deg;
 	}
