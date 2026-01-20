@@ -25,7 +25,7 @@ const books = await getCollection('books', (entry) => {
 						{books.map((item) => {
 							return (
 								<li
-									class="book repel p-space-xs"
+									class="book repel"
 									style={{ '--dominant-color': item.data.dominantColor }}
 								>
 									<div class="stack gap-xs">

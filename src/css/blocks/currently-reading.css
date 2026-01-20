@@ -11,6 +11,7 @@
 	}
 
 	.book {
+		padding: max(3cqi, var(--space-xs));
 		flex-wrap: nowrap;
 		align-items: stretch;
 		outline: var(--border-thickness-separator) solid var(--color-border);
