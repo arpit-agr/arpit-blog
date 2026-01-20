@@ -27,42 +27,46 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 ---
 
 <BaseLayout bodyClass="book-gallery" pageTitle={pageTitle} pageDesc={pageDesc}>
-	<div class="flow wrapper pb-space-l">
-		<header class="stack">
-			<div class="nav-item heading-3">
-				<a href="/">Home</a>
-			</div>
-			<div class="flow">
-				<div class="heading-group cluster gap-xs">
+	<div class="wrapper">
+		<a class="heading-3" href="/">Home</a>
+		<main class="flow pb-space-l" id="main">
+			<header class="flow">
+				<div class="heading-group cluster gap-2xs">
 					{
 						isLibraryPage ? (
 							<Fragment>
-								<h1>Library</h1>
-								<div class="separator" aria-hidden="true" />
+								<h1 aria-describedby="section-desc">Library</h1>
+								<span class="text-box-trim" aria-hidden="true">
+									/
+								</span>
 								<a class="heading-1 text-box-trim" href="/antilibrary/">
-									<span>Antilibrary</span>
+									Antilibrary
 								</a>
 							</Fragment>
 						) : (
 							<Fragment>
 								<a class="heading-1 text-box-trim" href="/library/">
-									<span>Library</span>
+									Library
 								</a>
-								<div class="separator" aria-hidden="true" />
-								<h1>Antilibrary</h1>
+								<span class="text-box-trim" aria-hidden="true">
+									/
+								</span>
+								<h1 aria-describedby="section-desc">Antilibrary</h1>
 							</Fragment>
 						)
 					}
 				</div>
-				<p class="text-step-1 text-box-trim">
+				<p
+					id="section-desc"
+					class="text-step-1 text-box-trim flow-space-m"
+					aria-hidden="true"
+				>
 					{sectionDesc}
 				</p>
-			</div>
-		</header>
-		<main class="flow" id="main">
-			<details class="flow flow-space-xs" open>
-				<summary class="heading-2">Filter</summary>
-				<fieldset class="book-filters" disabled>
+			</header>
+			<details class="flow" open>
+				<summary class="heading-4">Filter</summary>
+				<fieldset class="book-filters text-step--1 flow-space-xs" disabled>
 					<div class="cluster">
 						<div class="btn cluster gap-0">
 							<input
@@ -90,7 +94,7 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 					</div>
 				</fieldset>
 			</details>
-			<h2 id="books-results-count" aria-live="polite">
+			<h2 id="books-results-count" aria-live="polite" class="visually-hidden">
 				{books.length} books
 			</h2>
 			<ul class="book-list grid" role="list">
@@ -122,8 +126,8 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 											<BookCover
 												imagePath={item.data.cover}
 												widths={[315, 630]}
-												priority={index < 12}
-												sizes="(width < 21.5rem) 100vw, (width < 32.125rem) 50vw, (width < 43rem) 33vw, (width <= 54.125rem) 25vw, (width < 65.625rem) 20vw, 16.67vw"
+												priority={index < 10}
+												sizes="(width < 23rem) 100vw, (width < 34.75rem) 50vw, (width <= 47.125rem) 33vw, (width <= 60.25rem) 25vw, 20vw"
 											/>
 										</div>
 									</div>

@@ -6,15 +6,12 @@
 		inset-inline-start: var(--gutter);
 	}
 
-	.nav-item {
-		margin-inline-start: calc(-1 * var(--site-nav-padding-inline));
-
-		a {
-			display: inline-block;
-		}
+	[href='/'] {
+		display: inline-block;
+		padding-block: var(--site-nav-padding-block);
 	}
 
-	header {
+	.heading-group {
 		> * {
 			font-size: var(--step-5);
 			flex-shrink: 0;
@@ -22,6 +19,10 @@
 
 		a:not(:hover, :focus-visible) {
 			opacity: 0.6;
+		}
+
+		a:hover {
+			text-decoration-thickness: max(var(--border-thickness-2xl), 0.75ex);
 		}
 	}
 
