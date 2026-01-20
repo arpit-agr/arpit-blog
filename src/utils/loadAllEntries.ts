@@ -1,27 +1,25 @@
-import { type CollectionEntry } from "astro:content";
-import { loadAndFormatCollection } from "@utils/collection";
+import { loadAndFormatCollection } from '@utils/collection';
+import type { AnyEntry } from '@appTypes/entries';
 
-// Define a union of all the collection entry types you have
-export type AnyEntry =
-	| CollectionEntry<"notes">
-	| CollectionEntry<"articles">
-	| CollectionEntry<"links">;
-
+/**
+ * Loads notes, articles, and links, formats them with URLs
+ * and Content components, and returns a combined, sorted array.
+ */
 export async function loadAllEntries(): Promise<AnyEntry[]> {
-	// Load all collections in parallel
+	// 1. Load all collections in parallel.
+	// The utility's generics handle the type mapping automatically.
 	const [notes, articles, links] = await Promise.all([
-		loadAndFormatCollection("notes"),
-		loadAndFormatCollection("articles"),
-		loadAndFormatCollection("links"),
+		loadAndFormatCollection('notes'),
+		loadAndFormatCollection('articles'),
+		loadAndFormatCollection('links'),
 	]);
 
-	// Merge them and assert that the combined array matches AnyEntry[]
-	const allEntries = [...notes, ...articles, ...links] as AnyEntry[];
+	// 2. Merge them into a single array
+	const allEntries: AnyEntry[] = [...notes, ...articles, ...links];
 
-	// Sort in descending order by pubDate
-	allEntries.sort(
+	// 3. Sort by pubDate descending
+	// (Though the utility now sorts individually, we must sort the combined list)
+	return allEntries.sort(
 		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	);
-
-	return allEntries;
 }

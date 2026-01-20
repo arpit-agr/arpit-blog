@@ -1,20 +1,19 @@
 ---
-import { loadAndFormatCollection } from "@utils/collection";
-import { type CollectionEntry, render } from "astro:content";
-import EntryPage from "@layouts/EntryPage.astro";
-import { LINKS_TITLE } from "src/consts";
-
-type LinksEntry = CollectionEntry<"links">;
+import { loadAndFormatCollection } from '@utils/collection';
+import type { EnhancedEntry } from '@appTypes/entries';
+import { render } from 'astro:content';
+import EntryPage from '@layouts/EntryPage.astro';
+import { LINKS_TITLE } from 'src/consts';
 
 export async function getStaticPaths() {
-	const posts = await loadAndFormatCollection("links") as LinksEntry[];
+	const posts = await loadAndFormatCollection('links');
 	return posts.map((post) => ({
-		// @ts-expect-error
 		params: { slug: post.relativeURL },
 		props: post,
 	}));
 }
 
+type Props = EnhancedEntry<'links'>;
 const entry = Astro.props;
 const { Content } = await render(entry);
 ---

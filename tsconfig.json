@@ -9,7 +9,8 @@
 			"@components/*": ["src/components/*"],
 			"@css/*": ["src/css/*"],
 			"@utils/*": ["src/utils/*"],
-			"@images/*": ["src/images/*"]
-		}
-	}
+			"@images/*": ["src/images/*"],
+			"@appTypes/*": ["src/types/*"],
+		},
+	},
 }
