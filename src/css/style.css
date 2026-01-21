@@ -25,7 +25,6 @@
 @import url(/src/css/blocks/page.css) layer(blocks);
 @import url(/src/css/blocks/banner-text.css) layer(blocks);
 @import url(/src/css/blocks/site-nav.css) layer(blocks);
-@import url(/src/css/blocks/home-nav-item.css) layer(blocks);
 @import url(/src/css/blocks/feed-header.css) layer(blocks);
 @import url(/src/css/blocks/entry-item.css) layer(blocks);
 @import url(/src/css/blocks/entry-content.css) layer(blocks);
