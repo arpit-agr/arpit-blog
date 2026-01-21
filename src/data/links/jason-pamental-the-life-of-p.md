@@ -1,5 +1,5 @@
 ---
-title: "Jason Pamental - The Life of <p> - YouTube"
+title: "Jason Pamental - The Life of p - YouTube"
 pubDate: "2026-01-01T22:03+0530"
 link: "https://www.youtube.com/watch?v=4ggOmfBtWRM"
 tags:
