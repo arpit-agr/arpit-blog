@@ -58,42 +58,34 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 				</div>
 				<p
 					id="section-desc"
-					class="text-step-1 text-box-trim flow-space-m"
+					class="text-step-1 text-box-trim"
 					aria-hidden="true"
 				>
 					{sectionDesc}
 				</p>
 			</header>
-			<details class="flow" open>
-				<summary class="heading-4">Filter</summary>
-				<fieldset class="book-filters text-step--1 flow-space-xs" disabled>
-					<div class="cluster">
-						<div class="btn cluster gap-0">
-							<input
-								name="filter"
-								id="all"
-								type="radio"
-								value="all"
-								checked=""
-							/>
-							<label class="text-box-trim" for="all">All</label>
-						</div>
-						{
-							uniqueTags.map((tag) => {
-								const tagID = `tag-${slug(tag)}`;
-								return (
-									<div class="btn cluster gap-0">
-										<input name="filter" id={tagID} type="radio" value={tag} />
-										<label class="text-box-trim" for={tagID}>
-											{tag}
-										</label>
-									</div>
-								);
-							})
-						}
+			<fieldset class="book-filters" disabled>
+				<legend class="heading-4">Filter</legend>
+				<div class="cluster text-step--1">
+					<div class="btn cluster gap-0">
+						<input name="filter" id="all" type="radio" value="all" checked="" />
+						<label class="text-box-trim" for="all">All</label>
 					</div>
-				</fieldset>
-			</details>
+					{
+						uniqueTags.map((tag) => {
+							const tagID = `tag-${slug(tag)}`;
+							return (
+								<div class="btn cluster gap-0">
+									<input name="filter" id={tagID} type="radio" value={tag} />
+									<label class="text-box-trim" for={tagID}>
+										{tag}
+									</label>
+								</div>
+							);
+						})
+					}
+				</div>
+			</fieldset>
 			<h2 id="books-results-count" aria-live="polite" class="visually-hidden">
 				{books.length} books
 			</h2>
