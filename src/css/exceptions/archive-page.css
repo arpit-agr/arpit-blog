@@ -8,7 +8,7 @@
 			display: inline;
 
 			+ li::before {
-				content: '/';
+				content: '/ ';
 			}
 
 			a {
