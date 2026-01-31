@@ -6,14 +6,13 @@
 		inset-inline-start: var(--gutter);
 	}
 
-	[href='/'] {
-		display: inline-block;
-		padding-block: var(--site-nav-padding-block);
+	main {
+		--flow-space: var(--space-xl);
 	}
 
 	.heading-group {
 		> * {
-			font-size: var(--step-5);
+			font-size: var(--step-4);
 			flex-shrink: 0;
 		}
 
@@ -26,6 +25,10 @@
 		}
 	}
 
+	#section-desc {
+		--flow-space: var(--space-m);
+	}
+
 	fieldset,
 	.book-list {
 		--flow-space: var(--space-2xl);
@@ -34,6 +37,7 @@
 	fieldset {
 		position: relative;
 		padding: var(--space-s);
+		padding-block-start: calc(var(--space-s) + 0.5ex);
 		outline: var(--border-thickness-separator) solid var(--color-border);
 		border-radius: var(--border-radius);
 	}

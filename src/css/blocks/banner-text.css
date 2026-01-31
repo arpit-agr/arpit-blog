@@ -18,6 +18,7 @@
 	svg {
 		inline-size: 100%;
 		overflow: visible;
+		pointer-events: none;
 
 		path {
 			fill: var(--color-accent);

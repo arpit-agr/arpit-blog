@@ -9,7 +9,7 @@ tags:
   - "analytics"
 via:
   url: "https://frontendmasters.com/blog/browserslist-baseline/"
-  label: "Browserslist & Baseline – Frontend Masters Blog"
+  label: "Frontend Masters Blog"
 ---
 
 Jeremy Wagner and Rachel Andrew explain how to use analytics to select a Baseline target and what to do when you don't have any real user data. 

@@ -3,7 +3,7 @@
 
 	> * {
 		background: var(--color-bg-primary);
-		view-transition-name: page;
+		/*view-transition-name: page;*/
 	}
 
 	/*@container doc-root (width >= 75rem) {

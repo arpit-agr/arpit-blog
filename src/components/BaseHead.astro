@@ -41,24 +41,19 @@ const {
 <AstroFont
 	config={[
 		{
-			name: 'Figtree',
+			name: 'Recursive',
 			src: [
 				{
 					style: 'normal',
-					weight: '300 900',
-					path: join(
-						process.cwd(),
-						'public',
-						'fonts',
-						'Figtree-VariableFont_wght-subset.woff2',
-					),
+					weight: '300 700',
+					path: join(process.cwd(), 'public', 'fonts', 'recursive.woff2'),
 				},
 			],
 			preload: false, // manually preloaded after Synchronous CSS
 			display: 'swap',
-			cssVariable: 'font-sans-serif',
-			fallback: 'sans-serif',
-			fallbackName: 'Figtree Fallback',
+			cssVariable: 'font-mono',
+			fallback: 'monospace',
+			fallbackName: 'Recursive Fallback',
 		},
 	]}
 />
@@ -70,7 +65,7 @@ const {
 	as="font"
 	crossorigin=""
 	rel="preload"
-	href="/fonts/Figtree-VariableFont_wght-subset.woff2"
+	href="/fonts/recursive.woff2"
 	type="font/woff2"
 />
 

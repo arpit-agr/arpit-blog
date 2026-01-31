@@ -27,9 +27,9 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 ---
 
 <BaseLayout bodyClass="book-gallery" pageTitle={pageTitle} pageDesc={pageDesc}>
-	<div class="wrapper">
-		<a class="heading-3" href="/">Home</a>
-		<main class="flow pb-space-l" id="main">
+	<div class="flow wrapper pb-space-m">
+		<a class="heading-3" href="/"> Home </a>
+		<main class="flow" id="main">
 			<header class="flow">
 				<div class="heading-group cluster gap-2xs">
 					{
@@ -66,7 +66,7 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 			</header>
 			<fieldset class="book-filters" disabled>
 				<legend class="heading-4">Filter</legend>
-				<div class="cluster text-step--1">
+				<div class="cluster">
 					<div class="btn cluster gap-0">
 						<input name="filter" id="all" type="radio" value="all" checked="" />
 						<label class="text-box-trim" for="all">All</label>

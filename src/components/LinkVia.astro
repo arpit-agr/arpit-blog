@@ -7,7 +7,6 @@ interface Props {
 const { url, label } = Astro.props;
 ---
 
-<p class="text-balance place-self-end text-align-end">
-	Discovered via
-	<a href={url}>{label}</a>
+<p class="text-balance text-box-trim">
+	• <span class="visually-hidden">Discovered</span>via <a href={url}>{label}</a>
 </p>

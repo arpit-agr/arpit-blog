@@ -77,10 +77,6 @@ const {
 												<PubDate date={entry.data.pubDate} />
 											)
 										}
-									</footer>
-									<footer
-										class="stack gap-2xs text-step--1 place-self-end text-align-end"
-									>
 										{
 											!!entry.data.via && (
 												<LinkVia
@@ -89,6 +85,10 @@ const {
 												/>
 											)
 										}
+									</footer>
+									<footer
+										class="stack gap-2xs text-step--1 place-self-end text-align-end"
+									>
 										{!!entry.data.tags && <TagList tags={entry.data.tags} />}
 									</footer>
 								</article>

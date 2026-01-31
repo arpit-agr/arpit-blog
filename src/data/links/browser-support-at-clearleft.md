@@ -9,7 +9,7 @@ tags:
   - "principle"
 via:
   url: "https://web.dev/articles/how-to-choose-your-baseline-target?hl=en"
-  label: "How to choose your Baseline target  |  Articles  |  web.dev"
+  label: "web.dev"
 ---
 
 > Underlying our browser support policy are two foundational principles:

@@ -42,7 +42,7 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 						<FeedHeader
 							isVisuallyHidden={false}
 							sectionTitle="Archive"
-							sectionDesc="Browse all my notes, articles, and links, grouped by year and month."
+							sectionDesc="Browse all entries grouped by year and month."
 						/>
 						<div class="center p-space-m">
 							<div class="archive-list align-self-stretch">
@@ -50,18 +50,18 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 									years.map((year) => (
 										<section class="flow flow-space-s align-self-stretch">
 											<h2>{year}</h2>
-											<ul>
+											<ul role="list">
 												{Array.from(archive.get(year))
 													.sort((a, b) => Number(b) - Number(a)) // descending months
 													.map((month) => {
 														const label = new Intl.DateTimeFormat('en-IN', {
 															month: 'long',
-															year: 'numeric',
 														}).format(new Date(year, Number(month) - 1));
 														return (
 															<li>
 																<a href={`/archive/${year}/${month}/`}>
-																	{label}
+																	<span>{label}</span>
+																	<span class="visually-hidden">{year}</span>
 																</a>
 															</li>
 														);

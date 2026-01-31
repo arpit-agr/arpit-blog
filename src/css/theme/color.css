@@ -6,8 +6,8 @@
 
 	/* 2nd order variables */
 	--color-brand-shade: oklch(from var(--color-brand) calc(l * 70%) c h);
-	--color-dark-shade: oklch(from var(--color-dark) calc(l * 150%) c h);
-	--color-light-shade: oklch(from var(--color-light) calc(l * 90%) c h);
+	--color-dark-shade: oklch(from var(--color-dark) calc(l * 105%) c h);
+	--color-light-shade: oklch(from var(--color-light) calc(l * 95%) c h);
 	--color-text-primary: light-dark(var(--color-dark), var(--color-light));
 	--color-bg-primary: light-dark(var(--color-light), var(--color-dark));
 	--color-accent: light-dark(var(--color-brand), var(--color-brand-shade));
@@ -41,11 +41,13 @@
 		var(--color-accent) 33%,
 		var(--color-bg-primary)
 	);
-	--color-bg-selection: oklch(
-		from var(--color-accent) l c h / calc(0.5 * alpha)
+	--color-bg-highlight: oklch(
+		from var(--color-accent) l c h / calc(0.33 * alpha)
 	);
-	--color-bg-mark: oklch(from var(--color-accent) l c h / calc(0.33 * alpha));
-
+	--color-text-highlight: light-dark(
+		oklch(from var(--color-accent) calc(l * 50%) c h),
+		oklch(from var(--color-accent) calc(l * 125%) c h)
+	);
 	--color-scrollbar-track: var(--color-bg-primary);
 	--color-scrollbar-thumb: var(--color-border);
 	--color-scrollbar-thumb-hover: color-mix(

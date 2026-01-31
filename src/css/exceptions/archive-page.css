@@ -1,29 +1,33 @@
 .archive-page {
 	.archive-list {
-		column-width: var(--multi-col-width, 25ch);
-		column-gap: var(--space-l);
-
-		> * {
-			break-inside: avoid;
-		}
-
 		> * + * {
 			margin-block-start: 1lh;
 		}
 
-		@supports (display: grid-lanes) {
-			--grid-min-item-size: 25ch;
+		li {
+			display: inline;
 
-			column-width: unset;
-			display: grid-lanes;
-			gap: 1lh;
-			grid-template-columns: repeat(
-				var(--grid-placement, auto-fill),
-				minmax(var(--grid-min-item-size, min(16rem, 100%)), 1fr)
-			);
+			+ li::before {
+				content: '/';
+			}
 
-			> * + * {
-				margin-block-start: unset;
+			a {
+				text-decoration: none;
+
+				span:first-child {
+					text-decoration-line: underline;
+					text-decoration-thickness: 0.25rex;
+					text-underline-offset: 0.25rex;
+					text-decoration-color: var(--color-underline);
+				}
+
+				&:hover {
+					background: #0000;
+
+					span:first-child {
+						background: var(--color-bg-highlight);
+					}
+				}
 			}
 		}
 	}
