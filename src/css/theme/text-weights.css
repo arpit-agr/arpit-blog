@@ -2,4 +2,10 @@
 	--font-regular: 400;
 	--font-medium: 600;
 	--font-bold: 700;
+
+	@media (prefers-color-scheme: dark) {
+		--font-regular: 350;
+		--font-medium: 550;
+		--font-bold: 650;
+	}
 }

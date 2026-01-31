@@ -32,7 +32,8 @@ body {
 	position: relative;
 	max-inline-size: var(--wrapper-max-width);
 	margin-inline: auto;
-	color: var(--color-text-secondary);
+	/*color: var(--color-text-secondary);*/
+	color: var(--color-text-primary);
 	accent-color: var(--color-accent);
 	font-family: var(--font-mono);
 	font-size: var(--step-0);
@@ -82,7 +83,7 @@ h3,
 .heading-3,
 h4,
 .heading-4 {
-	color: var(--color-text-primary);
+	/*color: var(--color-text-primary);*/
 	font-variation-settings:
 		'MONO' 0,
 		'wght' var(--font-medium);
@@ -119,25 +120,22 @@ h4,
 }
 
 a {
-	text-decoration-thickness: max(var(--border-thickness-l), 0.25ex);
+	text-decoration-thickness: 0.25rex;
+	text-underline-offset: 0.25rex;
 	text-decoration-color: var(--color-underline);
-	text-decoration-skip-ink: none;
 
-	@media (prefers-color-scheme: dark) {
-		text-shadow: var(--color-bg-primary) var(--space-5xs) var(--space-5xs);
+	&:hover {
+		background: var(--color-underline-hover);
+		text-decoration-color: #0000;
 	}
 
-	&:hover,
 	&:focus-visible {
-		text-decoration-thickness: max(var(--border-thickness-2xl), 0.5ex);
-		text-underline-offset: -0.2lh;
+		text-decoration: none;
 	}
 
 	@media (forced-colors: active) {
-		&:hover,
-		&:focus-visible {
-			text-decoration-thickness: max(var(--border-thickness-xl), 0.5ex);
-			text-underline-offset: revert;
+		&:hover {
+			text-decoration-thickness: 0.5rex;
 		}
 	}
 }

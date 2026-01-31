@@ -25,7 +25,7 @@
 					background: #0000;
 
 					span:first-child {
-						background: var(--color-bg-highlight);
+						background: var(--color-underline-hover);
 					}
 				}
 			}

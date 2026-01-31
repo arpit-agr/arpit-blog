@@ -31,6 +31,11 @@
 		var(--color-accent) 75%,
 		var(--color-bg-primary)
 	);
+	--color-underline-hover: color-mix(
+		in oklab,
+		var(--color-accent) 66%,
+		var(--color-bg-primary)
+	);
 	--color-focus: var(--color-accent);
 	--color-bg-button: light-dark(
 		color-mix(in oklab, var(--color-text-primary) 8%, var(--color-bg-primary)),
