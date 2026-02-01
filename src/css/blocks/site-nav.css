@@ -37,6 +37,14 @@
 
 .site-header:has([aria-current='page'], [data-state='active'], a:hover) {
 	--offset: 180px;
+
+	path {
+		stroke: color-mix(
+			in oklab,
+			var(--color-text-primary) 85%,
+			var(--color-bg-primary)
+		);
+	}
 }
 
 .site-header .circle {
@@ -62,10 +70,10 @@
 	transition-timing-function: var(--ease-spring-2);
 
 	path {
-		stroke: color-mix(
-			in oklab,
-			var(--color-text-primary) 85%,
-			var(--color-bg-primary)
-		);
+		stroke: #0000;
 	}
+}
+
+.site-header li:first-child {
+	anchor-name: --nav-link;
 }
