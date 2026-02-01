@@ -1,7 +1,29 @@
 .archive-page {
 	.archive-list {
-		> * + * {
-			margin-block-start: 1lh;
+		> * {
+			padding-block: 1lh;
+		}
+
+		section {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			grid-template-rows: auto 1fr;
+			gap: var(--space-s) var(--space-2xs);
+
+			& + section {
+				border-block-start: var(--border-thickness-separator) solid
+					var(--color-border);
+			}
+
+			&::before {
+				content: '■';
+				font-size: 0.5em;
+				line-height: var(--leading-tight);
+			}
+
+			> *:not(:first-child) {
+				grid-column: 2/-1;
+			}
 		}
 
 		li {
