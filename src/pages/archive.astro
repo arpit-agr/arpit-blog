@@ -44,11 +44,11 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 							sectionTitle="Archive"
 							sectionDesc="Browse all entries grouped by year and month."
 						/>
-						<div class="center p-space-m">
+						<div class="center pi-space-m">
 							<div class="archive-list align-self-stretch">
 								{
 									years.map((year) => (
-										<section class="flow flow-space-s align-self-stretch">
+										<section class="align-self-stretch">
 											<h2>{year}</h2>
 											<ul role="list">
 												{Array.from(archive.get(year))
