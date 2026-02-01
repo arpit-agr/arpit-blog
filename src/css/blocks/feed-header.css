@@ -1,20 +1,11 @@
 .feed-header {
 	padding-block: var(--space-m) var(--space-xs);
-	/*border-block-end: var(--border-thickness-separator) solid var(--color-border);*/
 
 	hgroup {
-		--cluster-gap: var(--space-m);
-
-		&::before {
-			content: '';
-			flex-basis: var(--space-l);
-			flex-grow: 999;
-			block-size: var(--border-thickness-separator);
-			background: var(--color-border);
-		}
-
-		h1 {
-			order: -1;
-		}
+		display: flex;
+		flex-direction: column;
+		gap: var(--stack-gap, var(--space-m));
+		justify-content: var(--stack-vertical-alignment, flex-start);
+		align-items: var(--stack-horizontal-alignment, flex-start);
 	}
 }

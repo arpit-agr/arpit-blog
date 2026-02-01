@@ -1,0 +1,23 @@
+.feed-page {
+	hgroup {
+		--cluster-gap: var(--space-m);
+		display: flex;
+		flex-direction: row;
+		flex-wrap: var(--cluster-wrap, wrap);
+		gap: var(--cluster-gap, var(--space-s-m));
+		justify-content: var(--cluster-horizontal-alignment, flex-start);
+		align-items: var(--cluster-vertical-alignment, center);
+
+		&::before {
+			content: '';
+			flex-basis: var(--space-l);
+			flex-grow: 999;
+			block-size: var(--border-thickness-separator);
+			background: var(--color-border);
+		}
+
+		h1 {
+			order: -1;
+		}
+	}
+}

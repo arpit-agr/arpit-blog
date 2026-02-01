@@ -9,7 +9,7 @@
 		--cluster-gap: 0px;
 	}
 
-	li:not(.home-nav-item) a {
+	li a {
 		display: block;
 	}
 }

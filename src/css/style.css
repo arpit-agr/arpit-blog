@@ -48,6 +48,7 @@
 @import url(/src/css/utilities/typography.css) layer(utilities);
 @import url(/src/css/utilities/flex-grid.css) layer(utilities);
 @import url(/src/css/exceptions/share-feedback.css) layer(exceptions);
+@import url(/src/css/exceptions/feed-page.css) layer(exceptions);
 @import url(/src/css/exceptions/entry-page.css) layer(exceptions);
 @import url(/src/css/exceptions/book-gallery.css) layer(exceptions);
 @import url(/src/css/exceptions/tag-page.css) layer(exceptions);
