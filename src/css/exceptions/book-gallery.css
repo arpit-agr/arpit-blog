@@ -6,6 +6,16 @@
 		inset-inline-start: var(--gutter);
 	}
 
+	[href='/'] {
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: calc(-1 * var(--site-nav-padding-block)) 0;
+		}
+	}
+
 	main {
 		--flow-space: var(--space-xl);
 	}

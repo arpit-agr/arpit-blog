@@ -1,29 +1,49 @@
 ---
-const socialLinks = [
+import type { SvgComponent } from 'astro/types';
+
+import Bluesky from '@images/bluesky.svg';
+import Mastodon from '@images/mastodon.svg';
+import GitHub from '@images/github.svg';
+import CodePen from '@images/codepen.svg';
+import LinkedIn from '@images/linkedin.svg';
+
+interface Link {
+	network: string;
+	username: string;
+	href: string;
+	icon: SvgComponent;
+}
+
+const socialLinks: Link[] = [
 	{
 		network: 'Bluesky',
 		username: 'arpit.codes',
 		href: 'https://bsky.app/profile/arpit.codes',
+		icon: Bluesky,
 	},
 	{
 		network: 'Mastodon',
 		username: '@arpit@indieweb.social',
 		href: 'https://indieweb.social/@arpit',
+		icon: Mastodon,
 	},
 	{
 		network: 'GitHub',
 		username: 'arpit-agr',
 		href: 'https://github.com/arpit-agr',
+		icon: GitHub,
 	},
 	{
 		network: 'CodePen',
 		username: 'arpit-codes',
 		href: 'https://codepen.io/arpit-codes',
+		icon: CodePen,
 	},
 	{
 		network: 'LinkedIn',
 		username: 'arpit-codes',
 		href: 'https://www.linkedin.com/in/arpit-codes/',
+		icon: LinkedIn,
 	},
 ];
 ---
@@ -32,15 +52,21 @@ const socialLinks = [
 	<div class="center p-space-m">
 		<div class="stack align-self-stretch">
 			<h2 class="heading-3" id="socials_heading">Elsewhere on the web</h2>
-			<ul class="multi-col align-self-stretch">
+			<ul class="flow multi-col align-self-stretch" role="list">
 				{
-					socialLinks.map((link) => (
-						<li>
-							<a href={link.href}>
-								{link.network}: {link.username}
-							</a>
-						</li>
-					))
+					socialLinks.map((link) => {
+						const Icon = link.icon;
+
+						return (
+							<li>
+								<a href={link.href}>
+									<Icon aria-hidden="true" />
+									<span class="visually-hidden">{link.network}:</span>
+									<span>{link.username}</span>
+								</a>
+							</li>
+						);
+					})
 				}
 			</ul>
 		</div>

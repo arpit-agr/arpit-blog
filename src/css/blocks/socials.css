@@ -1,0 +1,26 @@
+#socials {
+	--flow-space: 0.25lh;
+
+	ul {
+		padding-inline-start: 1em;
+	}
+
+	a:has(svg) {
+		text-decoration: none;
+		background: #0000;
+
+		svg {
+			display: inline;
+			vertical-align: text-top;
+			vertical-align: middle;
+		}
+
+		span {
+			text-decoration-line: underline;
+		}
+
+		&:hover span {
+			background: var(--color-underline-hover);
+		}
+	}
+}

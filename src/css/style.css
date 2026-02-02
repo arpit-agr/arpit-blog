@@ -39,6 +39,7 @@
 @import url(/src/css/blocks/currently-reading.css) layer(blocks);
 @import url(/src/css/blocks/astro-code.css) layer(blocks);
 @import url(/src/css/blocks/search.css) layer(blocks);
+@import url(/src/css/blocks/socials.css) layer(blocks);
 @import url(/src/css/utilities/region.css) layer(utilities);
 @import url(/src/css/utilities/visually-hidden.css) layer(utilities);
 /*@import url(/src/css/utilities/text-fit.css) layer(utilities);*/
