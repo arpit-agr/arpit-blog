@@ -36,20 +36,14 @@ const isTagsPage = path.endsWith('/tags/');
 				{
 					!isArchivePage && (
 						<li>
-							Or browse the{' '}
-							<a href="/archive/" data-astro-prefetch>
-								archive
-							</a>
+							Or browse the <a href="/archive/">archive</a>
 						</li>
 					)
 				}
 				{
 					!isTagsPage && (
 						<li>
-							Or browse the{' '}
-							<a href="/tags/" data-astro-prefetch>
-								tags
-							</a>
+							Or browse the <a href="/tags/">tags</a>
 						</li>
 					)
 				}

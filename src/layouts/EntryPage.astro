@@ -27,85 +27,77 @@ const {
 	<BannerText />
 	<div class="page">
 		<div>
-			<div class="page-inner">
-				<div>
-					<SiteHeader />
-					<div class="center pi-space-m">
-						<div class="align-self-stretch">
-							<main id="main" class="pb-space-m">
-								<article class="stack">
-									{
-										entry.collection === 'notes' && (
-											<h1 class="visually-hidden">
-												Note - <PubDate as="span" date={entry.data.pubDate} />
-											</h1>
-										)
-									}
-									{
-										entry.collection === 'articles' && (
-											<h1>{entry.data.title}</h1>
-										)
-									}
-									{
-										entry.collection === 'links' && (
-											<h1 class="link-entry-title">
-												<a href={entry.data.link}>{entry.data.title}</a>
-											</h1>
-										)
-									}
-									<div
-										class="entry-content flow"
-										data-pagefind-body
-										data-pagefind-meta={`date:${entry.data.pubDate}`}
-										data-pagefind-filter={`collection:${entry.collection}`}
-									>
-										<Content />
-									</div>
-									<footer class="cluster gap-2xs text-step--1">
-										{
-											entry.data.updatedDate ? (
-												<Fragment>
-													<del>
-														<PubDate as="span" date={entry.data.pubDate} />
-													</del>
-													<span aria-hidden="true">•</span>
-													<ins>
-														<UpdatedDate date={entry.data.updatedDate} />
-													</ins>
-												</Fragment>
-											) : (
-												<PubDate date={entry.data.pubDate} />
-											)
-										}
-										{
-											!!entry.data.via && (
-												<LinkVia
-													url={entry.data.via.url}
-													label={entry.data.via.label}
-												/>
-											)
-										}
-									</footer>
-									<footer
-										class="stack gap-2xs text-step--1 place-self-end text-align-end"
-									>
-										{!!entry.data.tags && <TagList tags={entry.data.tags} />}
-									</footer>
-								</article>
-							</main>
+			<SiteHeader />
+			<div class="center pi-space-m">
+				<div class="align-self-stretch">
+					<main id="main" class="pb-space-m">
+						<article class="stack">
+							{
+								entry.collection === 'notes' && (
+									<h1 class="visually-hidden">
+										Note - <PubDate as="span" date={entry.data.pubDate} />
+									</h1>
+								)
+							}
+							{entry.collection === 'articles' && <h1>{entry.data.title}</h1>}
+							{
+								entry.collection === 'links' && (
+									<h1 class="link-entry-title">
+										<a href={entry.data.link}>{entry.data.title}</a>
+									</h1>
+								)
+							}
 							<div
-								class="entry-actions text-step--1"
-								role="region"
-								aria-label="Entry actions"
+								class="entry-content flow"
+								data-pagefind-body
+								data-pagefind-meta={`date:${entry.data.pubDate}`}
+								data-pagefind-filter={`collection:${entry.collection}`}
 							>
-								<EntryActions entryTitle={entry.data.title} />
+								<Content />
 							</div>
-							<BackLink />
-						</div>
+							<footer class="cluster gap-2xs text-step--1">
+								{
+									entry.data.updatedDate ? (
+										<Fragment>
+											<del>
+												<PubDate as="span" date={entry.data.pubDate} />
+											</del>
+											<span aria-hidden="true">•</span>
+											<ins>
+												<UpdatedDate date={entry.data.updatedDate} />
+											</ins>
+										</Fragment>
+									) : (
+										<PubDate date={entry.data.pubDate} />
+									)
+								}
+								{
+									!!entry.data.via && (
+										<LinkVia
+											url={entry.data.via.url}
+											label={entry.data.via.label}
+										/>
+									)
+								}
+							</footer>
+							<footer
+								class="stack gap-2xs text-step--1 place-self-end text-align-end"
+							>
+								{!!entry.data.tags && <TagList tags={entry.data.tags} />}
+							</footer>
+						</article>
+					</main>
+					<div
+						class="entry-actions text-step--1"
+						role="region"
+						aria-label="Entry actions"
+					>
+						<EntryActions entryTitle={entry.data.title} />
 					</div>
+					<BackLink />
 				</div>
-				<Aside />
 			</div>
 		</div>
+		<Aside />
 	</div>
 </BaseLayout>

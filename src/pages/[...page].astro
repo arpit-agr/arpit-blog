@@ -10,6 +10,7 @@ import SiteHeader from '@components/SiteHeader.astro';
 import PaginatedEntries from '@components/PaginatedEntries.astro';
 import Aside from '@components/Aside.astro';
 import CurrentlyReading from '@components/CurrentlyReading.astro';
+// import CurrentlyListening from '@components/CurrentlyListening.astro';
 
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/consts';
 
@@ -42,23 +43,14 @@ const pageTitle =
 	<BannerText as="h1" />
 	<div class="page">
 		<div>
-			<div class="page-inner">
-				<div>
-					<SiteHeader />
-					<main id="main">
-						<!-- cannot have two `h1` on the page -->
-						<!-- <FeedHeader
-							isVisuallyHidden={true}
-							sectionTitle="Notes, Articles and Links"
-							{sectionDesc}
-						/> -->
-						<PaginatedEntries page={page} entries={entries} />
-					</main>
-				</div>
-				<Aside>
-					<CurrentlyReading />
-				</Aside>
-			</div>
+			<SiteHeader />
+			<main id="main">
+				<PaginatedEntries page={page} entries={entries} />
+			</main>
 		</div>
+		<Aside>
+			<CurrentlyReading />
+			<!-- <CurrentlyListening /> -->
+		</Aside>
 	</div>
 </BaseLayout>

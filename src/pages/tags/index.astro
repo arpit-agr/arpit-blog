@@ -49,31 +49,27 @@ function getStepClass(count: number) {
 	<BannerText />
 	<div class="page">
 		<div>
-			<div class="page-inner">
-				<div>
-					<SiteHeader />
-					<main id="main">
-						<FeedHeader
-							isVisuallyHidden={false}
-							sectionTitle="Tags"
-							sectionDesc="Browse all tags used across my notes, articles, and links."
-						/>
-						<div class="center p-space-m">
-							<ul class="multi-col flow align-self-stretch" role="list">
-								{
-									tagItems.map(([tag, count]) => (
-										<li class:list={[getStepClass(count)]}>
-											<a href={`/tags/${slug(tag)}/`}>{tag}</a>
-											<span>({count})</span>
-										</li>
-									))
-								}
-							</ul>
-						</div>
-					</main>
+			<SiteHeader />
+			<main id="main">
+				<FeedHeader
+					isVisuallyHidden={false}
+					sectionTitle="Tags"
+					sectionDesc="Browse all tags used across my notes, articles, and links."
+				/>
+				<div class="center p-space-m">
+					<ul class="multi-col flow align-self-stretch" role="list">
+						{
+							tagItems.map(([tag, count]) => (
+								<li class:list={[getStepClass(count)]}>
+									<a href={`/tags/${slug(tag)}/`}>{tag}</a>
+									<span>({count})</span>
+								</li>
+							))
+						}
+					</ul>
 				</div>
-				<Aside />
-			</div>
+			</main>
 		</div>
+		<Aside />
 	</div>
 </BaseLayout>

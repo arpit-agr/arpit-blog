@@ -59,19 +59,15 @@ const pageDescription = `All notes, articles, and links published in ${monthName
 	<BannerText />
 	<div class="page">
 		<div>
-			<div class="page-inner">
-				<div>
-					<SiteHeader />
-					<main id="main">
-						<FeedHeader
-							isVisuallyHidden={false}
-							sectionTitle={`Archive: ${monthName} ${year}`}
-						/>
-						<EntryList entries={entries} />
-					</main>
-				</div>
-				<Aside />
-			</div>
+			<SiteHeader />
+			<main id="main">
+				<FeedHeader
+					isVisuallyHidden={false}
+					sectionTitle={`Archive: ${monthName} ${year}`}
+				/>
+				<EntryList entries={entries} />
+			</main>
 		</div>
+		<Aside />
 	</div>
 </BaseLayout>

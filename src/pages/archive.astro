@@ -35,47 +35,43 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 	<BannerText />
 	<div class="page">
 		<div>
-			<div class="page-inner">
-				<div>
-					<SiteHeader />
-					<main id="main">
-						<FeedHeader
-							isVisuallyHidden={false}
-							sectionTitle="Archive"
-							sectionDesc="Browse all entries grouped by year and month."
-						/>
-						<div class="center pi-space-m">
-							<div class="archive-list align-self-stretch">
-								{
-									years.map((year) => (
-										<section class="align-self-stretch">
-											<h2>{year}</h2>
-											<ul role="list">
-												{Array.from(archive.get(year))
-													.sort((a, b) => Number(b) - Number(a)) // descending months
-													.map((month) => {
-														const label = new Intl.DateTimeFormat('en-IN', {
-															month: 'long',
-														}).format(new Date(year, Number(month) - 1));
-														return (
-															<li>
-																<a href={`/archive/${year}/${month}/`}>
-																	<span>{label}</span>
-																	<span class="visually-hidden">{year}</span>
-																</a>
-															</li>
-														);
-													})}
-											</ul>
-										</section>
-									))
-								}
-							</div>
-						</div>
-					</main>
+			<SiteHeader />
+			<main id="main">
+				<FeedHeader
+					isVisuallyHidden={false}
+					sectionTitle="Archive"
+					sectionDesc="Browse all entries grouped by year and month."
+				/>
+				<div class="center pi-space-m">
+					<div class="archive-list align-self-stretch">
+						{
+							years.map((year) => (
+								<section class="align-self-stretch">
+									<h2>{year}</h2>
+									<ul role="list">
+										{Array.from(archive.get(year))
+											.sort((a, b) => Number(b) - Number(a)) // descending months
+											.map((month) => {
+												const label = new Intl.DateTimeFormat('en-IN', {
+													month: 'long',
+												}).format(new Date(year, Number(month) - 1));
+												return (
+													<li>
+														<a href={`/archive/${year}/${month}/`}>
+															<span>{label}</span>
+															<span class="visually-hidden">{year}</span>
+														</a>
+													</li>
+												);
+											})}
+									</ul>
+								</section>
+							))
+						}
+					</div>
 				</div>
-				<Aside />
-			</div>
+			</main>
 		</div>
+		<Aside />
 	</div>
 </BaseLayout>

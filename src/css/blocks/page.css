@@ -1,54 +1,7 @@
 .page {
-	transition: translate 200ms var(--ease-5);
-
-	> * {
-		background: var(--color-bg-primary);
-		/*view-transition-name: page;*/
-	}
-
-	/*@container doc-root (width >= 75rem) {
-		position: relative;
-		isolation: isolate;
-
-		> * {
-			outline: calc(2 * var(--border-thickness-separator)) solid
-				var(--color-bg-primary);
-			outline-offset: var(--border-thickness-separator);
-		}
-
-		&::before,
-		&::after {
-			content: '';
-			position: absolute;
-			inset-inline-start: 0;
-			inset-block-start: 0;
-			background-color: var(--color-bg-primary);
-			outline: var(--border-thickness-separator) solid var(--color-border);
-			outline-offset: calc(-1 * var(--border-thickness-separator));
-			inline-size: 100%;
-			block-size: min(100cqi, 100%);
-			animation: rotatePage linear forwards;
-			animation-timeline: scroll();
-			animation-range: 0vh 15vh;
-			pointer-events: none;
-			z-index: -1;
-		}
-
-		&::before {
-			rotate: 1.5deg;
-			view-transition-name: page-before;
-		}
-
-		&::after {
-			rotate: -1.5deg;
-			view-transition-name: page-after;
-		}
-	}*/
-}
-
-.page-inner {
 	--sidebar-gap: 0;
 	--sidebar-min-width: 22.4rem;
+	background: var(--color-bg-primary);
 	outline: var(--border-thickness-separator) solid var(--color-border);
 
 	> aside {
@@ -78,11 +31,5 @@
 					var(--color-border);
 			}
 		}
-	}
-}
-
-@keyframes rotatePage {
-	to {
-		rotate: 0deg;
 	}
 }
