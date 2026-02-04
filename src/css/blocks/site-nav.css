@@ -24,7 +24,6 @@
 		&:hover {
 			anchor-name: --nav-link;
 			background: unset;
-			text-decoration-color: #0000;
 		}
 	}
 }
@@ -66,9 +65,8 @@
 		anchor-size(block) - (1 / 2 * var(--site-nav-padding-block))
 	);
 	transition-property: inset-inline-start, inline-size;
-	transition-duration: 1s;
-	transition-timing-function: var(--ease-spring-2);
-	transition-delay: -100ms;
+	transition-duration: 300ms;
+	transition-timing-function: ease;
 
 	path {
 		stroke: #0000;
