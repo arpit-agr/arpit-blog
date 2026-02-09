@@ -50,6 +50,7 @@
 	}
 
 	legend {
+		background: var(--color-bg-primary);
 		translate: var(--space-s) -50%;
 
 		+ * {
