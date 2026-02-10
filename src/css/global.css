@@ -32,7 +32,6 @@ body {
 	position: relative;
 	max-inline-size: var(--wrapper-max-width);
 	margin-inline: auto;
-	/*color: var(--color-text-secondary);*/
 	color: var(--color-text-primary);
 	accent-color: var(--color-accent);
 	font-family: var(--font-mono);
