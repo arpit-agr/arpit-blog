@@ -256,6 +256,10 @@ ins {
 	text-decoration: none;
 }
 
+dd {
+	margin-inline-start: var(--space-m);
+}
+
 :focus-visible {
 	outline: var(--border-thickness-focus) solid var(--color-focus);
 }
