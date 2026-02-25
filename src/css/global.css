@@ -38,7 +38,7 @@ body {
 	accent-color: var(--color-accent);
 	font-family: var(--font-sans-serif);
 	font-size: var(--step-0);
-	font-size-adjust: from-font;
+	/*font-size-adjust: from-font;*/
 	line-height: var(--leading-normal);
 	-webkit-font-smoothing: auto;
 
@@ -116,6 +116,8 @@ a {
 	text-decoration-thickness: 0.25rex;
 	text-underline-offset: 0.25rex;
 	text-decoration-color: var(--color-underline);
+	transition-delay: 100ms;
+	transition: background 200ms;
 
 	&:hover {
 		background: var(--color-underline-hover);
@@ -224,11 +226,11 @@ pre {
 	}
 }
 
-:not(pre) > code {
+/*:not(pre) > code {
 	padding: 0px var(--space-3xs);
 	border-radius: var(--code-border-radius);
 	background: var(--color-bg-button);
-}
+}*/
 
 mark,
 ::selection {
