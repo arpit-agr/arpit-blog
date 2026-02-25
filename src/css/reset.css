@@ -37,7 +37,8 @@ h4 {
 }
 
 p,
-li {
+li,
+dd {
 	text-wrap: pretty;
 }
 
