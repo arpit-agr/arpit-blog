@@ -118,8 +118,8 @@ const uniqueTags = [...new Set(books.map((entry) => entry.data.tags).flat())];
 											<BookCover
 												imagePath={item.data.cover}
 												widths={[315, 630]}
-												priority={index < 10}
-												sizes="(width < 23rem) 100vw, (width < 34.75rem) 50vw, (width <= 47.125rem) 33vw, (width <= 60.25rem) 25vw, 20vw"
+												priority={index < 12}
+												sizes="(width < 21.5rem) 100vw, (width <= 32.5rem) 50vw, (width < 44.25rem) 33vw, (width < 56.5rem) 25vw, 20vw, (width < 69.5rem) 16.67vw"
 											/>
 										</div>
 									</div>

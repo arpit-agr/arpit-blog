@@ -18,6 +18,7 @@
 
 		span {
 			text-decoration-line: underline;
+			text-decoration-color: var(--color-underline);
 		}
 
 		&:hover span {

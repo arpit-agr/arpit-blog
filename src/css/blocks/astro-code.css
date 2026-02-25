@@ -25,10 +25,7 @@
 		padding-inline: var(--code-padding-inline);
 		background: oklch(from var(--color-border) l c h / calc(alpha * 0.8));
 		color: var(--color-text-primary);
-		font-variation-settings:
-			'MONO' 1,
-			'wght' var(--font-medium);
-		font-size: var(--step--1);
+		font-size: var(--step--2);
 		letter-spacing: var(--tracking-wider);
 		line-height: var(--leading-flat);
 	}

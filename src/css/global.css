@@ -3,15 +3,17 @@
 }
 
 :root {
-	--wrapper-max-width: 72rem;
-	--measure: 70ch;
+	--wrapper-max-width: 73rem;
+	--measure: 60ch;
 	--gutter: var(--space-m);
 	--center-max-width: var(--measure);
 
 	/* The layout switches to two columns at 1024px. Anytime this value is changed, the value will also need to be updated below and in page.css as well */
 	@custom-media --layout-with-sidebar (width >= 64rem);
 
-	--font-mono: ui-monospace, 'SF Mono', monospace;
+	--font-mono:
+		ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+		'DejaVu Sans Mono', monospace;
 	--button-padding-block: 0.5em;
 	--button-padding-inline: 0.5ch;
 	--btn-border-radius: var(--border-radius);
@@ -34,11 +36,9 @@ body {
 	margin-inline: auto;
 	color: var(--color-text-primary);
 	accent-color: var(--color-accent);
-	font-family: var(--font-mono);
+	font-family: var(--font-sans-serif);
 	font-size: var(--step-0);
-	font-variation-settings:
-		'MONO' 0,
-		'wght' var(--font-regular);
+	font-size-adjust: from-font;
 	line-height: var(--leading-normal);
 	-webkit-font-smoothing: auto;
 
@@ -82,20 +82,13 @@ h3,
 .heading-3,
 h4,
 .heading-4 {
-	/*color: var(--color-text-primary);*/
-	font-variation-settings:
-		'MONO' 0,
-		'wght' var(--font-medium);
+	font-weight: var(--font-medium);
 }
 
 h1,
 .heading-1 {
 	font-size: var(--step-2);
 	line-height: var(--leading-snug);
-	letter-spacing: -0.025em;
-	font-variation-settings:
-		'MONO' 0,
-		'wght' var(--font-bold);
 }
 
 h2,
@@ -214,10 +207,7 @@ blockquote {
 
 pre,
 code {
-	font-family: inherit;
-	font-variation-settings:
-		'MONO' 1,
-		'wght' var(--font-regular);
+	font-family: var(--font-mono);
 	font-size: var(--code-font-size);
 	line-height: var(--leading-normal);
 }
@@ -247,9 +237,7 @@ mark,
 }
 
 strong {
-	font-variation-settings:
-		'MONO' 0,
-		'wght' var(--font-bold);
+	font-weight: var(--font-medium);
 }
 
 ins {
