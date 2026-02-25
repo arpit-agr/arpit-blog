@@ -64,9 +64,9 @@
 	block-size: calc(
 		anchor-size(block) - (1 / 2 * var(--site-nav-padding-block))
 	);
-	transition-property: inset-inline-start, inline-size;
+	/*transition-property: inset-inline-start, inline-size;
 	transition-duration: 300ms;
-	transition-timing-function: ease;
+	transition-timing-function: ease;*/
 
 	path {
 		stroke: #0000;
