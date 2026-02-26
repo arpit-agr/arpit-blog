@@ -14,7 +14,7 @@ I keep forgetting how each of the following CSS values rolls back a declaration 
 				<code>initial</code>
 			</a>
 		</dt>
-		<dd>Applies the default value as listed in the CSS spec</dd>
+		<dd>Applies the initial value as defined in the CSS spec</dd>
 	</div>
 	<div>
 		<dt>
@@ -22,7 +22,7 @@ I keep forgetting how each of the following CSS values rolls back a declaration 
 				<code>unset</code>
 			</a>
 		</dt>
-		<dd>Inherits or falls back to spec default value</dd>
+		<dd>Inherits or falls back to the initial value</dd>
 	</div>
 	<div>
 		<dt>
