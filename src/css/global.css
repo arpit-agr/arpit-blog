@@ -226,11 +226,11 @@ pre {
 	}
 }
 
-/*:not(pre) > code {
-	padding: 0px var(--space-3xs);
-	border-radius: var(--code-border-radius);
-	background: var(--color-bg-button);
-}*/
+:not(pre) > code {
+	padding: var(--space-5xs) var(--space-4xs);
+	border: var(--border-thickness-separator) solid var(--color-border);
+	border-radius: calc(2 * var(--code-border-radius));
+}
 
 mark,
 ::selection {
@@ -239,7 +239,7 @@ mark,
 }
 
 strong {
-	font-weight: var(--font-medium);
+	font-weight: 550;
 }
 
 ins {
