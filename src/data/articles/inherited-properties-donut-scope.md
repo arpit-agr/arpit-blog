@@ -1,6 +1,6 @@
 ---
 title: "Inherited properties leak through the donut scope"
-pubDate: "2026-03-14T12:39+0530"
+pubDate: "2026-03-14T16:20+0530"
 tags:
   - "scope"
   - "css"
@@ -69,4 +69,6 @@ If you're coming from JavaScript, you might expect custom properties to work lik
 
 With the same HTML, the second `<p>` again loses the `padding` and `outline`. But `--text-color` inherits down from `.card` into `.content p`. So the second `<p>` also turns red because its `color` property references `var(--text-color)` which resolves to `red`.
 
-For custom properties, if inheritance were blocked at the scope limit and no ancestor outside the scope had also defined it, any `var(--text-color)` beyond the scope limit would just trigger the fallback in the `var()` function, or if there's no fallback, the property using it would behave as [`unset`](https://arpit.blog/notes/2026/02/rollback-css/).
+For custom properties, if inheritance were blocked at the scope limit and no ancestor outside the scope had also defined it, any `var(--text-color)` beyond the scope limit would be undefined and that would just trigger the fallback in the `var()` function, or if there's no fallback, the property using it would behave as [`unset`](https://arpit.blog/notes/2026/02/rollback-css/).
+
+There's more to what happens when a custom property is undefined, involving the <i>guaranteed-invalid value</i> and <i>invalid at computed-value time (IACVT)</i>. I wrote a [note on what happens when the CSS function `var()` references an undefined custom property](https://arpit.blog/notes/2026/03/undefined-custom-property/).
