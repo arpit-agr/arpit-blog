@@ -6,7 +6,7 @@ tags:
   - "variables"
 ---
 
-What happens in CSS when `var()` references a custom property that is undefined or explicitly set to `initial`?
+What happens when the `var()` CSS function references a custom property that is undefined or explicitly set to `initial`?
 
 In both cases the custom property's value is the [<i>guaranteed-invalid value</i>](https://drafts.csswg.org/css-variables/#guaranteed-invalid-value). That's the initial value of every custom property as defined in the spec. When `var()` encounters this value during substitution, here's what happens:
 
