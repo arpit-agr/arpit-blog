@@ -8,4 +8,21 @@
 		justify-content: var(--stack-vertical-alignment, flex-start);
 		align-items: var(--stack-horizontal-alignment, flex-start);
 	}
+
+	h1 {
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset-inline-start: calc(
+				(-1 * var(--space-m)) - var(--border-thickness-separator)
+			);
+			inset-block-start: 50%;
+			inline-size: calc(1 / 2 * var(--space-m));
+			block-size: 1ex;
+			background: currentColor;
+			translate: 0 -50%;
+		}
+	}
 }

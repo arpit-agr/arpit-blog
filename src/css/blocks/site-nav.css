@@ -8,71 +8,22 @@
 	> ul {
 		--cluster-gap: 0px;
 	}
-
-	li a {
-		display: block;
-	}
 }
 
 .nav-item {
 	a {
-		position: relative;
+		display: block;
 		padding: var(--site-nav-padding-block) var(--site-nav-padding-inline);
+	}
 
-		&[aria-current='page'],
-		&[data-state='active'],
-		&:hover {
-			anchor-name: --nav-link;
-			background: unset;
-		}
+	&:first-child a {
+		padding-inline-start: unset;
 	}
 }
 
-.site-header:has(a:not([aria-current='page'], [data-state='active']):hover)
-	:is([aria-current='page'], [data-state='active']) {
-	anchor-name: none;
-	text-decoration-color: var(--color-underline);
-}
-
-.site-header:has([aria-current='page'], [data-state='active'], a:hover) {
-	--offset: 180px;
-
-	path {
-		stroke: color-mix(
-			in oklab,
-			var(--color-text-primary) 85%,
-			var(--color-bg-primary)
-		);
+.site-nav {
+	[aria-current='page'],
+	[data-state='active'] {
+		text-decoration-color: #0000;
 	}
-}
-
-.site-header .circle {
-	fill: none;
-	stroke-linecap: round;
-	stroke-dasharray: var(--offset, 0px) 278px;
-	stroke-dashoffset: 361px;
-	stroke-width: var(--border-thickness-l);
-	pointer-events: none;
-
-	position: absolute;
-	position-anchor: --nav-link;
-	inset-block-start: calc(
-		anchor(start) + (0.25 * var(--site-nav-padding-block))
-	);
-	inset-inline-start: anchor(start);
-	inline-size: anchor-size(inline);
-	block-size: calc(
-		anchor-size(block) - (1 / 2 * var(--site-nav-padding-block))
-	);
-	/*transition-property: inset-inline-start, inline-size;
-	transition-duration: 300ms;
-	transition-timing-function: ease;*/
-
-	path {
-		stroke: #0000;
-	}
-}
-
-.site-header li:first-child {
-	anchor-name: --nav-link;
 }

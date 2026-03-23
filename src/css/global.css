@@ -6,7 +6,7 @@
 	--wrapper-max-width: 73rem;
 	--measure: 60ch;
 	--gutter: var(--space-m);
-	--center-max-width: var(--measure);
+	--center-max-width: 48rem;
 
 	/* The layout switches to two columns at 1024px. Anytime this value is changed, the value will also need to be updated below and in page.css as well */
 	@custom-media --layout-with-sidebar (width >= 64rem);
@@ -38,7 +38,7 @@ body {
 	accent-color: var(--color-accent);
 	font-family: var(--font-sans-serif);
 	font-size: var(--step-0);
-	/*font-size-adjust: from-font;*/
+	font-size-adjust: from-font;
 	line-height: var(--leading-normal);
 	-webkit-font-smoothing: auto;
 
@@ -117,11 +117,10 @@ a {
 	text-underline-offset: 0.25rex;
 	text-decoration-color: var(--color-underline);
 	transition-delay: 100ms;
-	transition: background 200ms;
+	transition: text-decoration-color 200ms;
 
 	&:hover {
-		background: var(--color-underline-hover);
-		text-decoration-color: #0000;
+		text-decoration-color: currentColor;
 	}
 
 	&:focus-visible {
@@ -211,7 +210,7 @@ pre,
 code {
 	font-family: var(--font-mono);
 	font-size: var(--code-font-size);
-	line-height: var(--leading-normal);
+	line-height: var(--leading-relaxed);
 }
 
 pre {

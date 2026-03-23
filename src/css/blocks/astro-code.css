@@ -20,7 +20,10 @@
 
 	&::before {
 		content: attr(data-language);
-		display: block;
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-end: 0;
+
 		padding-block: var(--space-2xs);
 		padding-inline: var(--code-padding-inline);
 		background: oklch(from var(--color-border) l c h / calc(alpha * 0.8));

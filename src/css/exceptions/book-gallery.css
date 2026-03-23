@@ -26,12 +26,14 @@
 			flex-shrink: 0;
 		}
 
-		a:not(:hover, :focus-visible) {
-			opacity: 0.6;
+		a {
+			transition:
+				opacity 200ms,
+				text-decoration-color 200ms;
 		}
 
-		a:hover {
-			text-decoration-thickness: max(var(--border-thickness-2xl), 0.75ex);
+		a:not(:hover, :focus-visible) {
+			opacity: 0.6;
 		}
 	}
 
