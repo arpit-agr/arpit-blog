@@ -22,7 +22,7 @@
 		}
 
 		&:hover span {
-			background: var(--color-underline-hover);
+			text-decoration-color: currentColor;
 		}
 	}
 }

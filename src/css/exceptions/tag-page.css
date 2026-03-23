@@ -1,11 +1,23 @@
 .tag-page main ul {
-	--flow-space: var(--space-m);
-
 	li {
 		text-box: trim-both cap alphabetic;
 
+		p {
+			--cluster-gap: var(--space-3xs);
+			--cluster-vertical-alignment: baseline;
+
+			position: relative;
+			padding-block: var(--space-3xs);
+		}
+
+		a::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+		}
+
 		span {
-			font-size: max(var(--step--2), 0.5em);
+			font-size: max(var(--step--2), 0.33em);
 		}
 	}
 }

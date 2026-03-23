@@ -44,10 +44,8 @@
 				}
 
 				&:hover {
-					background: #0000;
-
 					span:first-child {
-						background: var(--color-underline-hover);
+						text-decoration-color: currentColor;
 					}
 				}
 			}
