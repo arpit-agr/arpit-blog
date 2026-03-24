@@ -3,7 +3,7 @@
 }
 
 :root {
-	--wrapper-max-width: 73rem;
+	--wrapper-max-width: 70rem;
 	--measure: 60ch;
 	--gutter: var(--space-m);
 	--center-max-width: 48rem;
