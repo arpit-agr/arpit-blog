@@ -61,8 +61,12 @@ function getStepClass(count: number) {
 						{
 							tagItems.map(([tag, count]) => (
 								<li class:list={[getStepClass(count)]}>
-									<a href={`/tags/${slug(tag)}/`}>{tag}</a>
-									<span>({count})</span>
+									<p class="cluster">
+										<a href={`/tags/${slug(tag)}/`} data-astro-prefetch>
+											{tag}
+										</a>
+										<span>({count})</span>
+									</p>
 								</li>
 							))
 						}
