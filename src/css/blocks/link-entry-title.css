@@ -2,6 +2,6 @@
 	a::after {
 		content: ' ↗' /' (external)';
 		display: inline-block;
-		margin-inline-start: var(--space-2xs);
+		margin-inline-start: var(--space-3xs);
 	}
 }
