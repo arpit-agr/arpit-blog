@@ -188,6 +188,7 @@ input {
 
 hr {
 	color: var(--color-border);
+	border-block-start-width: var(--border-thickness-separator);
 }
 
 /*blockquote,
