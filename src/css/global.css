@@ -186,6 +186,10 @@ input {
 	list-style: square;
 }
 
+hr {
+	color: var(--color-border);
+}
+
 /*blockquote,
 q {
 	font-style: italic;
