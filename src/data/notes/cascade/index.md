@@ -7,7 +7,8 @@ tags:
 
 I built a [visual explainer of the CSS Cascade](https://cascade.arpit.codes/), the algorithm that determines the "winning value" from a list of competing declarations.
 
-![ ](./cascade.jpeg)
+
+[![CSS cascade - visual explainer](./cascade.jpeg)](https://cascade.arpit.codes/)
 
 After Web Day Out 2026, I was checking out [Manuel Matuzović's UA+ stylesheet](https://fokus.dev/tools/uaplus/). Manuel mentioned that he wraps all rules in an anonymous layer to avoid specificity issues. I realised I didn't actually understand how anonymous layers worked, so I went back and re-read [Miriam Suzanne's cascade layers guide on CSS-Tricks](https://css-tricks.com/css-cascade-layers/). I really liked the way Miriam presented the cascade and specifically the order of precedence within each step.
 
