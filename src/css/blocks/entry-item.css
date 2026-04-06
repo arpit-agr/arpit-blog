@@ -4,6 +4,8 @@
 }
 
 .entry-item {
+	contain: content;
+
 	article {
 		--stack-gap: var(--space-m);
 		--stack-horizontal-alignment: stretch;
