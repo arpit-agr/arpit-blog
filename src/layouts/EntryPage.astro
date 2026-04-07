@@ -1,4 +1,8 @@
 ---
+import type { AnyEntry } from '@appTypes/entries';
+import { render } from 'astro:content';
+import { formatDate } from '@utils/date';
+
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
@@ -11,13 +15,26 @@ import TagList from '@components/TagList.astro';
 import EntryActions from '@components/EntryActions.astro';
 import SiteSidebar from '@components/SiteSidebar.astro';
 
-import { SITE_DESCRIPTION } from 'src/consts';
+import {
+	SITE_DESCRIPTION,
+	NOTES_TITLE,
+	ARTICLES_TITLE,
+	LINKS_TITLE,
+} from 'src/consts';
 
-const {
-	pageTitle, // string
-	entry, // CollectionEntry
-	Content, // from render(entry)
-} = Astro.props;
+interface Props {
+	entry: AnyEntry;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const collectionTitles = {
+	notes: `${formatDate(entry.data.pubDate)} - ${NOTES_TITLE}`,
+	articles: `${entry.data.title} - ${ARTICLES_TITLE}`,
+	links: `${entry.data.title} - ${LINKS_TITLE}`,
+};
+const pageTitle = collectionTitles[entry.collection];
 ---
 
 <BaseLayout
@@ -44,7 +61,7 @@ const {
 							</div>
 							<footer class="cluster gap-2xs text-step--1">
 								{
-									entry.data.updatedDate ? (
+									'updatedDate' in entry.data && entry.data.updatedDate ? (
 										<Fragment>
 											<del>
 												<PubDate as="span" date={entry.data.pubDate} />
@@ -59,7 +76,7 @@ const {
 									)
 								}
 								{
-									!!entry.data.via && (
+									'via' in entry.data && !!entry.data.via && (
 										<LinkVia
 											url={entry.data.via.url}
 											label={entry.data.via.label}

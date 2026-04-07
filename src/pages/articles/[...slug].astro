@@ -1,25 +1,16 @@
 ---
 import { loadAndFormatCollection } from '@utils/collection';
-import type { EnhancedEntry } from '@appTypes/entries';
-import { render } from 'astro:content';
 import EntryPage from '@layouts/EntryPage.astro';
-import { ARTICLES_TITLE } from 'src/consts';
 
 export async function getStaticPaths() {
 	const posts = await loadAndFormatCollection('articles');
 	return posts.map((post) => ({
 		params: { slug: post.relativeURL },
-		props: post,
+		props: { entry: post },
 	}));
 }
 
-type Props = EnhancedEntry<'articles'>;
-const entry = Astro.props;
-const { Content } = await render(entry);
+const { entry } = Astro.props;
 ---
 
-<EntryPage
-	pageTitle=`${entry.data.title} - ${ARTICLES_TITLE}`
-	entry={entry}
-	Content={Content}
-/>
+<EntryPage entry={entry} />
