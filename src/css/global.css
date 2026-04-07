@@ -114,7 +114,6 @@ a {
 	text-underline-offset: 0.25rex;
 	text-decoration-color: var(--color-underline);
 	transition: text-decoration-color 200ms;
-	transition-delay: 50ms;
 
 	&:hover {
 		text-decoration-color: currentColor;
