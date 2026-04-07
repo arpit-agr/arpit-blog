@@ -98,17 +98,3 @@
 	block-size: auto;
 	border-radius: var(--_book-cover-radius);
 }
-
-.spine {
-	transform: rotate3d(0, 1, 0, -90deg);
-	background-color: oklch(
-		from var(--dominant-color, #3f3f3f) calc(l * 75%) c h
-	);
-	position: absolute;
-	inset-block-start: 0;
-	inset-inline-start: calc(-1 * var(--space-s) + 1px);
-	inline-size: calc(2 * var(--space-s));
-	block-size: 100%;
-	outline: var(--border-thickness-s) solid var(--color-border);
-	outline-offset: calc(-1 * var(--border-thickness-s));
-}
