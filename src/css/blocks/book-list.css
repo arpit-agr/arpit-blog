@@ -37,6 +37,7 @@
 }
 
 .cover {
+	--shadow-color: 220 3% 15%;
 	--_book-cover-radius: 3px 4px 4px 3px;
 	--_shadow-strength: 15%;
 	--_box-shadow:
