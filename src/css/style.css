@@ -8,7 +8,7 @@
 @import url(/src/css/theme/tracking.css) layer(theme);
 @import url(/src/css/theme/border.css) layer(theme);
 @import url(/src/css/theme/shadows.css) layer(theme);
-@import url(/src/css/theme/easings.css) layer(theme);
+/*@import url(/src/css/theme/easings.css) layer(theme);*/
 @import url(/src/css/theme/code.css) layer(theme);
 @import url(/src/css/theme/images.css) layer(theme);
 @import url(/src/css/global.css) layer(global);
