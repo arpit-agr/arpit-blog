@@ -1,0 +1,37 @@
+---
+import type { AnyEntry } from '@appTypes/entries';
+import PubDate from '@components/PubDate.astro';
+
+interface Props {
+	as?: 'h1' | 'h2';
+	entry: AnyEntry;
+	linkedTitle: boolean;
+}
+
+const { as: Tag = 'h1', entry, linkedTitle = false } = Astro.props as Props;
+---
+
+{
+	entry.collection === 'notes' && (
+		<Tag class="visually-hidden">
+			Note - <PubDate as="span" date={entry.data.pubDate} />
+		</Tag>
+	)
+}
+{
+	entry.collection === 'articles' &&
+		(linkedTitle ? (
+			<Tag>
+				<a href={entry.absoluteURL}>{entry.data.title}</a>
+			</Tag>
+		) : (
+			<Tag>{entry.data.title}</Tag>
+		))
+}
+{
+	entry.collection === 'links' && (
+		<Tag class="link-entry-title heading-3">
+			<a href={entry.data.link}>{entry.data.title}</a>
+		</Tag>
+	)
+}

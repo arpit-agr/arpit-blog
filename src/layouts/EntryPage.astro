@@ -2,6 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
+import EntryHeading from '@components/EntryHeading.astro';
 import BackLink from '@components/BackLink.astro';
 import PubDate from '@components/PubDate.astro';
 import UpdatedDate from '@components/UpdatedDate.astro';
@@ -32,21 +33,7 @@ const {
 				<div class="align-self-stretch">
 					<main id="main" class="pb-space-m">
 						<article class="stack">
-							{
-								entry.collection === 'notes' && (
-									<h1 class="visually-hidden">
-										Note - <PubDate as="span" date={entry.data.pubDate} />
-									</h1>
-								)
-							}
-							{entry.collection === 'articles' && <h1>{entry.data.title}</h1>}
-							{
-								entry.collection === 'links' && (
-									<h1 class="link-entry-title heading-3">
-										<a href={entry.data.link}>{entry.data.title}</a>
-									</h1>
-								)
-							}
+							<EntryHeading entry={entry} />
 							<div
 								class="entry-content flow"
 								data-pagefind-body

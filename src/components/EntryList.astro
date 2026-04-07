@@ -1,5 +1,6 @@
 ---
 import type { AnyEntry } from '@appTypes/entries';
+import EntryHeading from '@components/EntryHeading.astro';
 import PubDate from '@components/PubDate.astro';
 import H2 from '@components/H2.astro';
 import H3 from '@components/H3.astro';
@@ -30,21 +31,7 @@ const headingComponents = {
 				<li class="entry-item">
 					<div class="center p-space-m">
 						<article class="stack align-self-stretch">
-							{entry.collection === 'notes' && (
-								<h2 class="visually-hidden">
-									Note - <PubDate as="span" date={entry.data.pubDate} />
-								</h2>
-							)}
-							{entry.collection === 'articles' && (
-								<h2>
-									<a href={entry.absoluteURL}>{entry.data.title}</a>
-								</h2>
-							)}
-							{entry.collection === 'links' && (
-								<h2 class="link-entry-title heading-3">
-									<a href={entry.data.link}>{entry.data.title}</a>
-								</h2>
-							)}
+							<EntryHeading as="h2" entry={entry} linkedTitle />
 							<div class="entry-content flow">
 								<entry.Content components={headingComponents} />
 							</div>
