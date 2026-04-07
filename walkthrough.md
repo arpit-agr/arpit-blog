@@ -664,7 +664,7 @@ import UpdatedDate from '@components/UpdatedDate.astro';
 import LinkVia from '@components/LinkVia.astro';
 import TagList from '@components/TagList.astro';
 import EntryActions from '@components/EntryActions.astro';
-import Aside from '@components/Aside.astro';
+import SiteSidebar from '@components/SiteSidebar.astro';
 
 import { SITE_DESCRIPTION } from 'src/consts';
 
@@ -754,7 +754,7 @@ const {
 				</div>
 			</div>
 		</div>
-		<Aside />
+		<SiteSidebar />
 	</div>
 </BaseLayout>
 ```
@@ -764,7 +764,7 @@ This layout wraps `BaseLayout` and adds the full structure for a note, article, 
 - **Collection-aware heading**: The `h1` renders differently for each type. Notes have a visually-hidden heading (since they have no title — just a date). Articles get a plain `h1`. Links get a heading that is itself an anchor to the external URL.
 - **Pagefind attributes**: `data-pagefind-body` marks the content for search indexing. `data-pagefind-meta` and `data-pagefind-filter` attach metadata (date and collection type) so search results can display them.
 - **Updated date handling**: If `updatedDate` exists, the original date is shown as `<del>` (strikethrough) and the updated date as `<ins>`.
-- **`<Aside />`** renders the sidebar (search, about, socials, currently reading).
+- **`<SiteSidebar />`** renders the sidebar (search, about, socials, currently reading).
 - **`<EntryActions />`** provides sharing and reply functionality.
 
 ### BookGallery.astro — library and antilibrary
@@ -1288,10 +1288,10 @@ This is the workhorse of the feed pages. For each entry it:
 2. **Renders content with heading offset** — `<entry.Content components={headingComponents} />` passes custom heading components (H2 through H6) that shift heading levels down by one. This is important because the entry's own `h1` in Markdown becomes `h2` in the list context, preventing heading hierarchy violations.
 3. **Permalink via date** — The footer links to the entry's permanent URL using the formatted date as link text, with `rel="bookmark"`.
 
-### Aside.astro — the sidebar
+### SiteSidebar.astro — the sidebar
 
 ```bash
-cat src/components/Aside.astro
+cat src/components/SiteSidebar.astro
 ```
 
 ```output
@@ -1455,7 +1455,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import PaginatedEntries from '@components/PaginatedEntries.astro';
-import Aside from '@components/Aside.astro';
+import SiteSidebar from '@components/SiteSidebar.astro';
 import CurrentlyReading from '@components/CurrentlyReading.astro';
 
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/consts';
@@ -1493,9 +1493,9 @@ const pageTitle =
 				<PaginatedEntries page={page} entries={entries} />
 			</main>
 		</div>
-		<Aside>
+		<SiteSidebar>
 			<CurrentlyReading />
-		</Aside>
+		</SiteSidebar>
 	</div>
 </BaseLayout>
 ```
@@ -1621,7 +1621,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
-import Aside from '@components/Aside.astro';
+import SiteSidebar from '@components/SiteSidebar.astro';
 import { ARCHIVE_TITLE, ARCHIVE_DESCRIPTION } from 'src/consts';
 
 // Load all entries (already sorted newest → oldest)
@@ -1689,7 +1689,7 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 				</div>
 			</main>
 		</div>
-		<Aside />
+		<SiteSidebar />
 	</div>
 </BaseLayout>
 ```
@@ -1708,7 +1708,7 @@ import { loadAllEntries } from '@utils/loadAllEntries';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
-import Aside from '@components/Aside.astro';
+import SiteSidebar from '@components/SiteSidebar.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import { TAGS_TITLE, TAGS_DESCRIPTION } from 'src/consts';
 import { slug } from 'github-slugger';
@@ -1779,7 +1779,7 @@ function getStepClass(count: number) {
 				</div>
 			</main>
 		</div>
-		<Aside />
+		<SiteSidebar />
 	</div>
 </BaseLayout>
 ```

@@ -4,7 +4,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
-import Aside from '@components/Aside.astro';
+import SiteSidebar from '@components/SiteSidebar.astro';
 import { ARCHIVE_TITLE, ARCHIVE_DESCRIPTION } from 'src/consts';
 
 // Load all entries (already sorted newest → oldest)
@@ -72,6 +72,6 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 				</div>
 			</main>
 		</div>
-		<Aside />
+		<SiteSidebar />
 	</div>
 </BaseLayout>

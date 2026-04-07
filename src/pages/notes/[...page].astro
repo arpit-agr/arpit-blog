@@ -9,7 +9,7 @@ import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import PaginatedEntries from '@components/PaginatedEntries.astro';
-import Aside from '@components/Aside.astro';
+import SiteSidebar from '@components/SiteSidebar.astro';
 import CurrentlyReading from '@components/CurrentlyReading.astro';
 import { NOTES_TITLE, NOTES_DESCRIPTION } from 'src/consts';
 
@@ -54,8 +54,8 @@ const sectionDesc = page.currentPage > 1 ? `Page ${page.currentPage}` : '';
 				<PaginatedEntries page={page} entries={entries} />
 			</main>
 		</div>
-		<Aside>
+		<SiteSidebar>
 			<CurrentlyReading />
-		</Aside>
+		</SiteSidebar>
 	</div>
 </BaseLayout>

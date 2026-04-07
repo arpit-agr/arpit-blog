@@ -7,7 +7,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import PaginatedEntries from '@components/PaginatedEntries.astro';
-import Aside from '@components/Aside.astro';
+import SiteSidebar from '@components/SiteSidebar.astro';
 import CurrentlyReading from '@components/CurrentlyReading.astro';
 
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/consts';
@@ -45,8 +45,8 @@ const pageTitle =
 				<PaginatedEntries page={page} entries={entries} />
 			</main>
 		</div>
-		<Aside>
+		<SiteSidebar>
 			<CurrentlyReading />
-		</Aside>
+		</SiteSidebar>
 	</div>
 </BaseLayout>

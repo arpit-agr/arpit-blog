@@ -3,7 +3,7 @@ import { loadAllEntries } from '@utils/loadAllEntries';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
-import Aside from '@components/Aside.astro';
+import SiteSidebar from '@components/SiteSidebar.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import { TAGS_TITLE, TAGS_DESCRIPTION } from 'src/consts';
 import { slug } from 'github-slugger';
@@ -74,6 +74,6 @@ function getStepClass(count: number) {
 				</div>
 			</main>
 		</div>
-		<Aside />
+		<SiteSidebar />
 	</div>
 </BaseLayout>
