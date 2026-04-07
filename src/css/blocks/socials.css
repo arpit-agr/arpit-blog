@@ -11,7 +11,6 @@
 
 		svg {
 			display: inline;
-			vertical-align: text-top;
 			vertical-align: middle;
 			color: var(--color-text-secondary);
 		}
