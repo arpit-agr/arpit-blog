@@ -1,0 +1,58 @@
+---
+import type { AnyEntry } from '@appTypes/entries';
+import { render } from 'astro:content';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SiteBanner from '@components/SiteBanner.astro';
+import SiteHeader from '@components/SiteHeader.astro';
+import FeedHeader from '@components/FeedHeader.astro';
+import PaginatedEntries from '@components/PaginatedEntries.astro';
+import SiteSidebar from '@components/SiteSidebar.astro';
+import CurrentlyReading from '@components/CurrentlyReading.astro';
+
+interface Props {
+	page: {
+		data: AnyEntry[];
+		currentPage: number;
+		url: { prev?: string; next?: string };
+		lastPage: number;
+	};
+	title: string;
+	description: string;
+	sectionTitle: string;
+}
+
+const { page, title, description, sectionTitle } = Astro.props;
+
+const entries = await Promise.all(
+	page.data.map(async (entry) => {
+		const { Content } = await render(entry);
+		return { ...entry, Content };
+	}),
+);
+
+const pageTitle =
+	page.currentPage > 1 ? `Page ${page.currentPage} - ${title}` : title;
+const sectionDesc = page.currentPage > 1 ? `Page ${page.currentPage}` : '';
+---
+
+<BaseLayout
+	bodyClass="feed-page"
+	{pageTitle}
+	pageDesc={description}
+	ogType="website"
+>
+	<SiteBanner />
+	<div class="page">
+		<div>
+			<SiteHeader />
+			<main id="main">
+				<FeedHeader isVisuallyHidden={false} {sectionTitle} {sectionDesc} />
+				<PaginatedEntries page={page} entries={entries} />
+			</main>
+		</div>
+		<SiteSidebar>
+			<CurrentlyReading />
+		</SiteSidebar>
+	</div>
+</BaseLayout>
