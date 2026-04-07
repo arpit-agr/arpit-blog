@@ -5,7 +5,7 @@ import PubDate from '@components/PubDate.astro';
 interface Props {
 	as?: 'h1' | 'h2';
 	entry: AnyEntry;
-	linkedTitle: boolean;
+	linkedTitle?: boolean;
 }
 
 const { as: Tag = 'h1', entry, linkedTitle = false } = Astro.props as Props;
