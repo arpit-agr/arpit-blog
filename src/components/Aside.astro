@@ -1,6 +1,6 @@
 ---
 import AboutSite from '@components/AboutSite.astro';
-import Search from '@components/Search.astro';
+import SidebarSearch from '@components/SidebarSearch.astro';
 import Subscribe from '@components/Subscribe.astro';
 import Socials from '@components/Socials.astro';
 
@@ -11,7 +11,7 @@ const isSearchPage = path.includes('/search/');
 
 <aside class="sidebar container-type-inline" id="aside">
 	<AboutSite />
-	{!isSearchPage && <Search />}
+	{!isSearchPage && <SidebarSearch />}
 	<Subscribe />
 	<Socials />
 	<slot />

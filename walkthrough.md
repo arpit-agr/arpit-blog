@@ -1,6 +1,7 @@
 # arpit.blog — A Complete Code Walkthrough
 
-*2026-04-06T08:29:49Z by Showboat 0.6.1*
+_2026-04-06T08:29:49Z by Showboat 0.6.1_
+
 <!-- showboat-id: 18d70674-d565-4ff1-9578-e57f9a53128c -->
 
 This is a complete walkthrough of the **arpit.blog** codebase — a personal blog built with [Astro](https://astro.build/). The site publishes three kinds of content (notes, articles, and links), maintains a book library, and generates RSS feeds and a full-text search index. Everything is statically generated at build time.
@@ -1076,7 +1077,7 @@ const {
 This is the densest component. Highlights:
 
 - **Progressive enhancement via `no-js`/`js` toggle**: An inline `<script type="module">` swaps `no-js` for `js` on the `<html>` element. If the browser doesn't support ES modules, this never runs, and the CSS can degrade gracefully using the `no-js` class.
-- **Font loading**: The Figtree variable font (weights 300-900) is configured via `AstroFont`. It's manually preloaded *after* the synchronous CSS `<link>` to avoid blocking render.
+- **Font loading**: The Figtree variable font (weights 300-900) is configured via `AstroFont`. It's manually preloaded _after_ the synchronous CSS `<link>` to avoid blocking render.
 - **Stylesheet**: `@css/style.css?url` imports the CSS as a URL (Vite asset handling), generating a hashed production filename.
 - **Open Graph / SEO**: Full OG meta tags with defaults (`ogLocale: "en_IN"`, `ogType: "article"`).
 - **Dev vs prod favicon**: In development, a siren emoji favicon makes it obvious you're on localhost. Production uses a real `.ico` file.
@@ -1296,7 +1297,7 @@ cat src/components/Aside.astro
 ```output
 ---
 import AboutSite from '@components/AboutSite.astro';
-import Search from '@components/Search.astro';
+import SidebarSearch from '@components/SidebarSearch.astro';
 import Subscribe from '@components/Subscribe.astro';
 import Socials from '@components/Socials.astro';
 
@@ -1307,7 +1308,7 @@ const isSearchPage = path.includes('/search/');
 
 <aside class="sidebar container-type-inline" id="aside">
 	<AboutSite />
-	{!isSearchPage && <Search />}
+	{!isSearchPage && <SidebarSearch />}
 	<Subscribe />
 	<Socials />
 	<slot />
@@ -1420,23 +1421,23 @@ src/pages/tags/index.astro
 
 Each file maps to a route:
 
-| File | URL | Purpose |
-|------|-----|---------|
-| `[...page].astro` | `/`, `/2/`, `/3/` | Paginated homepage (all entries) |
-| `notes/[...page].astro` | `/notes/`, `/notes/2/` | Paginated notes feed |
-| `notes/[...slug].astro` | `/notes/2026/03/cascade/` | Individual note |
-| `articles/[...page].astro` | `/articles/`, `/articles/2/` | Paginated articles feed |
-| `articles/[...slug].astro` | `/articles/2024/05/transparent-borders/` | Individual article |
-| `links/[...page].astro` | `/links/`, `/links/2/` | Paginated links feed |
-| `links/[...slug].astro` | `/links/2024/06/html-web-components/` | Individual link |
-| `*/rss.xml.js` | `/rss.xml`, `/notes/rss.xml`, etc. | RSS feeds |
-| `archive.astro` | `/archive/` | Archive index by year |
-| `archive/[year]/[month].astro` | `/archive/2024/05/` | Monthly archive |
-| `tags/index.astro` | `/tags/` | Tag cloud |
-| `tags/[tag].astro` | `/tags/css/` | Entries for a tag |
-| `library/index.astro` | `/library/` | Read books |
-| `antilibrary/index.astro` | `/antilibrary/` | Unread books |
-| `search/index.astro` | `/search/` | Search page |
+| File                           | URL                                      | Purpose                          |
+| ------------------------------ | ---------------------------------------- | -------------------------------- |
+| `[...page].astro`              | `/`, `/2/`, `/3/`                        | Paginated homepage (all entries) |
+| `notes/[...page].astro`        | `/notes/`, `/notes/2/`                   | Paginated notes feed             |
+| `notes/[...slug].astro`        | `/notes/2026/03/cascade/`                | Individual note                  |
+| `articles/[...page].astro`     | `/articles/`, `/articles/2/`             | Paginated articles feed          |
+| `articles/[...slug].astro`     | `/articles/2024/05/transparent-borders/` | Individual article               |
+| `links/[...page].astro`        | `/links/`, `/links/2/`                   | Paginated links feed             |
+| `links/[...slug].astro`        | `/links/2024/06/html-web-components/`    | Individual link                  |
+| `*/rss.xml.js`                 | `/rss.xml`, `/notes/rss.xml`, etc.       | RSS feeds                        |
+| `archive.astro`                | `/archive/`                              | Archive index by year            |
+| `archive/[year]/[month].astro` | `/archive/2024/05/`                      | Monthly archive                  |
+| `tags/index.astro`             | `/tags/`                                 | Tag cloud                        |
+| `tags/[tag].astro`             | `/tags/css/`                             | Entries for a tag                |
+| `library/index.astro`          | `/library/`                              | Read books                       |
+| `antilibrary/index.astro`      | `/antilibrary/`                          | Unread books                     |
+| `search/index.astro`           | `/search/`                               | Search page                      |
 
 ### The homepage — [...page].astro
 
