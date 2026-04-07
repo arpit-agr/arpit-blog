@@ -656,7 +656,7 @@ cat src/layouts/EntryPage.astro
 ```output
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BannerText from '@components/BannerText.astro';
+import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import BackLink from '@components/BackLink.astro';
 import PubDate from '@components/PubDate.astro';
@@ -680,7 +680,7 @@ const {
 	pageTitle={pageTitle}
 	pageDesc={SITE_DESCRIPTION}
 >
-	<BannerText />
+	<SiteBanner />
 	<div class="page">
 		<div>
 			<SiteHeader />
@@ -1452,7 +1452,7 @@ import { loadAllEntries } from '@utils/loadAllEntries';
 import { render } from 'astro:content';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BannerText from '@components/BannerText.astro';
+import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import PaginatedEntries from '@components/PaginatedEntries.astro';
 import Aside from '@components/Aside.astro';
@@ -1485,7 +1485,7 @@ const pageTitle =
 	pageDesc={SITE_DESCRIPTION}
 	ogType="website"
 >
-	<BannerText as="h1" />
+	<SiteBanner as="h1" />
 	<div class="page">
 		<div>
 			<SiteHeader />
@@ -1505,7 +1505,7 @@ This is the most important page. The flow:
 1. **`getStaticPaths`** runs at build time. It calls `loadAllEntries()` to get every note, article, and link, then passes them to Astro's `paginate()` with 20 entries per page. Astro generates `/`, `/2/`, `/3/`, etc.
 2. **Re-rendering content**: The paginated entries need fresh `Content` components (since `paginate()` serializes data), so each entry is re-rendered via `render(entry)`.
 3. **Dynamic title**: Page 1 shows "Arpit's Blog", subsequent pages show "Page 2 - Arpit's Blog".
-4. **Layout composition**: `BannerText` renders the site logo as an `<h1>`, then `SiteHeader` (which contains `SiteNav`), the paginated entries as `<main>`, and the sidebar with `CurrentlyReading` injected via the slot.
+4. **Layout composition**: `SiteBanner` renders the site logo as an `<h1>`, then `SiteHeader` (which contains `SiteNav`), the paginated entries as `<main>`, and the sidebar with `CurrentlyReading` injected via the slot.
 
 ### Individual entry pages — [collection]/[...slug].astro
 
@@ -1618,7 +1618,7 @@ cat src/pages/archive.astro
 ---
 import { loadAllEntries } from '@utils/loadAllEntries';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BannerText from '@components/BannerText.astro';
+import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import Aside from '@components/Aside.astro';
@@ -1649,7 +1649,7 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 	pageTitle={ARCHIVE_TITLE}
 	pageDesc={ARCHIVE_DESCRIPTION}
 >
-	<BannerText />
+	<SiteBanner />
 	<div class="page">
 		<div>
 			<SiteHeader />
@@ -1706,7 +1706,7 @@ cat src/pages/tags/index.astro
 ---
 import { loadAllEntries } from '@utils/loadAllEntries';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BannerText from '@components/BannerText.astro';
+import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import Aside from '@components/Aside.astro';
 import FeedHeader from '@components/FeedHeader.astro';
@@ -1751,7 +1751,7 @@ function getStepClass(count: number) {
 	pageTitle={TAGS_TITLE}
 	pageDesc={TAGS_DESCRIPTION}
 >
-	<BannerText />
+	<SiteBanner />
 	<div class="page">
 		<div>
 			<SiteHeader />

@@ -5,7 +5,7 @@ import { loadAndFormatCollection } from '@utils/collection';
 import { render } from 'astro:content';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BannerText from '@components/BannerText.astro';
+import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import PaginatedEntries from '@components/PaginatedEntries.astro';
@@ -41,7 +41,7 @@ const sectionDesc = page.currentPage > 1 ? `Page ${page.currentPage}` : '';
 	pageDesc={LINKS_DESCRIPTION}
 	ogType="website"
 >
-	<BannerText />
+	<SiteBanner />
 	<div class="page">
 		<div>
 			<SiteHeader />

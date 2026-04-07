@@ -1,7 +1,7 @@
 ---
 import { loadAllEntries } from '@utils/loadAllEntries';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BannerText from '@components/BannerText.astro';
+import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import Aside from '@components/Aside.astro';
@@ -32,7 +32,7 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 	pageTitle={ARCHIVE_TITLE}
 	pageDesc={ARCHIVE_DESCRIPTION}
 >
-	<BannerText />
+	<SiteBanner />
 	<div class="page">
 		<div>
 			<SiteHeader />

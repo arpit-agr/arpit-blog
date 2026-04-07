@@ -4,7 +4,7 @@ import { loadAllEntries } from '@utils/loadAllEntries';
 import { render } from 'astro:content';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BannerText from '@components/BannerText.astro';
+import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import PaginatedEntries from '@components/PaginatedEntries.astro';
 import Aside from '@components/Aside.astro';
@@ -37,7 +37,7 @@ const pageTitle =
 	pageDesc={SITE_DESCRIPTION}
 	ogType="website"
 >
-	<BannerText as="h1" />
+	<SiteBanner as="h1" />
 	<div class="page">
 		<div>
 			<SiteHeader />

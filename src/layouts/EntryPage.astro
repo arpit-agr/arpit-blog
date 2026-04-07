@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BannerText from '@components/BannerText.astro';
+import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import BackLink from '@components/BackLink.astro';
 import PubDate from '@components/PubDate.astro';
@@ -24,7 +24,7 @@ const {
 	pageTitle={pageTitle}
 	pageDesc={SITE_DESCRIPTION}
 >
-	<BannerText />
+	<SiteBanner />
 	<div class="page">
 		<div>
 			<SiteHeader />

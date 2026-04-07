@@ -2,7 +2,7 @@
 import { loadAllEntries } from '@utils/loadAllEntries';
 import { render } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import BannerText from '@components/BannerText.astro';
+import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import EntryList from '@components/EntryList.astro';
@@ -43,7 +43,7 @@ const sectionTitle = `Tagged: ${tag}`;
 ---
 
 <BaseLayout {pageTitle}>
-	<BannerText />
+	<SiteBanner />
 	<div class="page">
 		<div>
 			<SiteHeader />
