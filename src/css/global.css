@@ -8,9 +8,6 @@
 	--gutter: var(--space-m);
 	--center-max-width: 48rem;
 
-	/* The layout switches to two columns at 1024px. Anytime this value is changed, the value will also need to be updated below and in page.css as well */
-	@custom-media --layout-with-sidebar (width >= 64rem);
-
 	--font-mono:
 		ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
 		'DejaVu Sans Mono', monospace;
