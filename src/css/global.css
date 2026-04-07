@@ -116,8 +116,8 @@ a {
 	text-decoration-thickness: 0.25rex;
 	text-underline-offset: 0.25rex;
 	text-decoration-color: var(--color-underline);
-	transition-delay: 100ms;
 	transition: text-decoration-color 200ms;
+	transition-delay: 50ms;
 
 	&:hover {
 		text-decoration-color: currentColor;
