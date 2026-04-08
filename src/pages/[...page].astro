@@ -1,6 +1,5 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import { loadAllEntries } from '@utils/loadAllEntries';
 import { render } from 'astro:content';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -10,6 +9,7 @@ import PaginatedEntries from '@components/PaginatedEntries.astro';
 import SiteSidebar from '@components/SiteSidebar.astro';
 import CurrentlyReading from '@components/CurrentlyReading.astro';
 
+import { loadAllEntries } from '@utils/loadAllEntries';
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/consts';
 
 export const getStaticPaths = (async ({ paginate }) => {

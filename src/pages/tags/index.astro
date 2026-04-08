@@ -1,12 +1,12 @@
 ---
-import { loadAllEntries } from '@utils/loadAllEntries';
+import { slug } from 'github-slugger';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import SiteSidebar from '@components/SiteSidebar.astro';
 import FeedHeader from '@components/FeedHeader.astro';
+import { loadAllEntries } from '@utils/loadAllEntries';
 import { TAGS_TITLE, TAGS_DESCRIPTION } from 'src/consts';
-import { slug } from 'github-slugger';
 
 const allEntries = await loadAllEntries();
 

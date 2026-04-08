@@ -1,9 +1,8 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import BookCover from '@components/BookCover.astro';
-
 import { getCollection } from 'astro:content';
 import { slug } from 'github-slugger';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BookCover from '@components/BookCover.astro';
 
 type Props = {
 	pageTitle: string;

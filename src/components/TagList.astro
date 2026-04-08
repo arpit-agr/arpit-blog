@@ -1,4 +1,6 @@
 ---
+import { slug } from 'github-slugger';
+
 interface Props {
 	tags: string[];
 }
@@ -11,8 +13,6 @@ function formatLinks(items: string[]) {
 	});
 	return formatter.format(items);
 }
-
-import { slug } from 'github-slugger';
 ---
 
 <p class="text-balance place-self-end text-align-end">

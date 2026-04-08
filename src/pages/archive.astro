@@ -1,10 +1,10 @@
 ---
-import { loadAllEntries } from '@utils/loadAllEntries';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import SiteSidebar from '@components/SiteSidebar.astro';
+import { loadAllEntries } from '@utils/loadAllEntries';
 import { ARCHIVE_TITLE, ARCHIVE_DESCRIPTION } from 'src/consts';
 
 // Load all entries (already sorted newest → oldest)

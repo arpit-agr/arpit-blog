@@ -1,5 +1,4 @@
 ---
-import { loadAllEntries } from '@utils/loadAllEntries';
 import { render } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
@@ -7,6 +6,7 @@ import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import EntryList from '@components/EntryList.astro';
 import SiteSidebar from '@components/SiteSidebar.astro';
+import { loadAllEntries } from '@utils/loadAllEntries';
 import { SITE_TITLE } from 'src/consts';
 
 export async function getStaticPaths() {

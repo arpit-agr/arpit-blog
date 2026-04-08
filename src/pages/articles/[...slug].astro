@@ -1,6 +1,6 @@
 ---
-import { loadAndFormatCollection } from '@utils/collection';
 import EntryPage from '@layouts/EntryPage.astro';
+import { loadAndFormatCollection } from '@utils/collection';
 
 export async function getStaticPaths() {
 	const posts = await loadAndFormatCollection('articles');

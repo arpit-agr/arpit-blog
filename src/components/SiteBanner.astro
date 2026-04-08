@@ -1,10 +1,11 @@
 ---
 import type { HTMLTag, Polymorphic } from 'astro/types';
-type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
-const { as: Tag = 'div' } = Astro.props;
-
-import { SITE_TITLE } from 'src/consts';
 import BannerSVG from '@images/banner.svg';
+import { SITE_TITLE } from 'src/consts';
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
+
+const { as: Tag = 'div' } = Astro.props;
 ---
 
 <Tag class="banner-text pi-space-m">
