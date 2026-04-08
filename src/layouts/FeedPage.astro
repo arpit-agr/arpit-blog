@@ -47,7 +47,7 @@ const sectionDesc = page.currentPage > 1 ? `Page ${page.currentPage}` : '';
 		<div>
 			<SiteHeader />
 			<main id="main">
-				<FeedHeader isVisuallyHidden={false} {sectionTitle} {sectionDesc} />
+				<FeedHeader {sectionTitle} {sectionDesc} />
 				<PaginatedEntries page={page} entries={entries} />
 			</main>
 		</div>

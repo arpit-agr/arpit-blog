@@ -17,14 +17,10 @@ import { SEARCH_TITLE, SEARCH_DESCRIPTION } from 'src/consts';
 			<main id="main">
 				{
 					import.meta.env.DEV ? (
-						<FeedHeader
-							isVisuallyHidden={false}
-							sectionTitle="Search is disabled in Dev mode."
-						/>
+						<FeedHeader sectionTitle="Search is disabled in Dev mode." />
 					) : (
 						<Fragment>
 							<FeedHeader
-								isVisuallyHidden={false}
 								sectionTitle="Search"
 								sectionDesc="Search across all my notes, articles and links"
 							/>

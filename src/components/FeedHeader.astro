@@ -1,14 +1,13 @@
 ---
 interface Props {
-	isVisuallyHidden: boolean;
 	sectionTitle: string;
 	sectionDesc?: string;
 }
 
-const { isVisuallyHidden, sectionTitle, sectionDesc } = Astro.props;
+const { sectionTitle, sectionDesc } = Astro.props;
 ---
 
-<div class:list={['feed-header', { 'visually-hidden': isVisuallyHidden }]}>
+<div class="feed-header">
 	<div class="center pi-space-m">
 		{
 			!!sectionTitle && !!sectionDesc ? (

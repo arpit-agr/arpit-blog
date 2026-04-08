@@ -1655,7 +1655,6 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 			<SiteHeader />
 			<main id="main">
 				<FeedHeader
-					isVisuallyHidden={false}
 					sectionTitle="Archive"
 					sectionDesc="Browse all entries grouped by year and month."
 				/>
@@ -1757,7 +1756,6 @@ function getStepClass(count: number) {
 			<SiteHeader />
 			<main id="main">
 				<FeedHeader
-					isVisuallyHidden={false}
 					sectionTitle="Tags"
 					sectionDesc="Browse all tags used across my notes, articles, and links."
 				/>
