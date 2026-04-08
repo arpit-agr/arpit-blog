@@ -60,6 +60,14 @@ const pageTitle = collectionTitles[entry.collection];
 								<Content />
 							</div>
 							<footer class="cluster gap-2xs text-step--1">
+								<!--
+									entry.data is a union type (different collection schemas).
+									Not all collections include `updatedDate` or `via`.
+
+									Using `'key' in entry.data` acts as a type guard:
+									- narrows the type for TypeScript
+									- makes it safe to access the property without errors
+								-->
 								{
 									'updatedDate' in entry.data && entry.data.updatedDate ? (
 										<Fragment>
