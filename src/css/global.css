@@ -226,11 +226,11 @@ pre {
 	}
 }
 
-:not(pre) > code {
+/*:not(pre) > code {
 	padding: var(--space-5xs) var(--space-4xs);
 	border: var(--border-thickness-separator) solid var(--color-border);
 	border-radius: calc(2 * var(--code-border-radius));
-}
+}*/
 
 mark,
 ::selection {
