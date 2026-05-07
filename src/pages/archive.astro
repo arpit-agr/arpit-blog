@@ -25,6 +25,22 @@ for (const entry of allEntries) {
 
 // Convert to sorted structure
 const years = Array.from(archive.keys()).sort((a, b) => b - a);
+
+const monthLabelFormatter = new Intl.DateTimeFormat('en-IN', { month: 'long' });
+
+const archiveByYear = years.map((year) => {
+	const monthsForYear = Array.from(archive.get(year));
+	const sortedMonths = monthsForYear.toSorted(
+		(a, b) => Number(b) - Number(a),
+	);
+	const monthsWithLabels = sortedMonths.map((month) => {
+		const label = monthLabelFormatter.format(
+			new Date(year, Number(month) - 1),
+		);
+		return { month, label };
+	});
+	return { year, months: monthsWithLabels };
+});
 ---
 
 <BaseLayout
@@ -44,25 +60,18 @@ const years = Array.from(archive.keys()).sort((a, b) => b - a);
 				<div class="center pi-space-m">
 					<div class="archive-list align-self-stretch">
 						{
-							years.map((year) => (
+							archiveByYear.map(({ year, months }) => (
 								<section class="align-self-stretch">
 									<h2>{year}</h2>
 									<ul role="list">
-										{Array.from(archive.get(year))
-											.sort((a, b) => Number(b) - Number(a)) // descending months
-											.map((month) => {
-												const label = new Intl.DateTimeFormat('en-IN', {
-													month: 'long',
-												}).format(new Date(year, Number(month) - 1));
-												return (
-													<li>
-														<a href={`/archive/${year}/${month}/`}>
-															<span>{label}</span>
-															<span class="visually-hidden">{year}</span>
-														</a>
-													</li>
-												);
-											})}
+										{months.map(({ month, label }) => (
+											<li>
+												<a href={`/archive/${year}/${month}/`}>
+													<span>{label}</span>
+													<span class="visually-hidden">{year}</span>
+												</a>
+											</li>
+										))}
 									</ul>
 								</section>
 							))

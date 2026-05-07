@@ -56,10 +56,10 @@ class Search {
 		const title = result.meta.title
 			? this.escapeHTML(result.meta.title)
 			: this.escapeHTML(result.url);
-		const safeExcerpt = result.excerpt
-			.replace(/</g, '&lt;')
-			.replace(/&lt;mark>/g, '<mark>')
-			.replace(/&lt;\/mark>/g, '</mark>');
+		// Escape all `<`, then restore Pagefind's <mark> highlights.
+		const escaped = result.excerpt.replace(/</g, '&lt;');
+		const withOpenMark = escaped.replace(/&lt;mark>/g, '<mark>');
+		const safeExcerpt = withOpenMark.replace(/&lt;\/mark>/g, '</mark>');
 
 		return `
 			<li
