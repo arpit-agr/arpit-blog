@@ -9,7 +9,12 @@ const isTagsPage = path.endsWith('/tags/');
 		<div class="stack align-self-stretch">
 			<h2 class="heading-3" id="search_heading">Search</h2>
 			<search class="align-self-stretch">
-				<form class="stack" action="/search/">
+				<form
+					id="sidebar-search-form"
+					class="stack"
+					action="https://duckduckgo.com/"
+					method="get"
+				>
 					<label
 						class="heading-3 text-box-trim visually-hidden"
 						for="search-term"
@@ -23,6 +28,7 @@ const isTagsPage = path.endsWith('/tags/');
 							id="search-term"
 							name="q"
 						/>
+						<input hidden name="sites" value="arpit.blog" />
 						<button
 							class="sidebar text-box-trim align-self-stretch"
 							type="submit"
@@ -51,3 +57,18 @@ const isTagsPage = path.endsWith('/tags/');
 		</div>
 	</div>
 </section>
+
+<script>
+	const form = document.getElementById(
+		'sidebar-search-form',
+	) as HTMLFormElement | null;
+	form?.addEventListener('submit', (event) => {
+		event.preventDefault();
+		const input = form.querySelector<HTMLInputElement>('input[name="q"]');
+		const query = input?.value.trim() ?? '';
+		const url = query
+			? `/search/?q=${encodeURIComponent(query)}`
+			: '/search/';
+		window.location.assign(url);
+	});
+</script>
