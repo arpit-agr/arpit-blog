@@ -22,13 +22,15 @@ const isTagsPage = path.endsWith('/tags/');
 						Search
 					</label>
 					<div class="align-self-stretch">
-						<input
-							class="text-box-trim"
-							type="search"
-							id="search-term"
-							name="q"
-						/>
-						<input hidden name="sites" value="arpit.blog" />
+						<div>
+							<input
+								class="text-box-trim"
+								type="search"
+								id="search-term"
+								name="q"
+							/>
+							<input class="sidebar" hidden name="sites" value="arpit.blog" />
+						</div>
 						<button
 							class="sidebar text-box-trim align-self-stretch"
 							type="submit"
