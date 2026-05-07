@@ -7,6 +7,7 @@
 .site-nav {
 	> ul {
 		--cluster-gap: 0px;
+		margin-inline-start: calc(-1 * var(--site-nav-padding-inline));
 	}
 }
 
@@ -15,14 +16,24 @@
 		display: block;
 		padding: var(--site-nav-padding-block) var(--site-nav-padding-inline);
 	}
-
-	&:first-child a {
-		padding-inline-start: unset;
-	}
 }
 
 .site-nav {
 	[aria-current] {
+		position: relative;
 		text-decoration-color: #0000;
+
+		&:hover {
+			text-decoration-color: revert;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset-inline: var(--site-nav-padding-inline);
+			inset-block-end: 0;
+			block-size: var(--border-thickness-xl);
+			background: var(--color-border);
+		}
 	}
 }
