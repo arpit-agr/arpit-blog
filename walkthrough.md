@@ -1113,7 +1113,7 @@ const navLinks = [
 
 const { pathname } = Astro.url;
 
-// Root pages get aria-current; paginated and entry pages get data-state="active"
+// Root pages get aria-current="page"; paginated and entry pages get aria-current="true"
 function getLinkState(href: string, pathname: string) {
 	const normalize = (path: string) => (path.endsWith('/') ? path : path + '/');
 
@@ -1147,8 +1147,7 @@ function getLinkState(href: string, pathname: string) {
 						<a
 							class="text-box-trim"
 							href={link.href}
-							aria-current={isCurrent ? 'page' : null}
-							data-state={isActive ? 'active' : null}
+							aria-current={isCurrent ? 'page' : isActive ? 'true' : null}
 						>
 							{link.label}
 						</a>
@@ -1163,7 +1162,7 @@ function getLinkState(href: string, pathname: string) {
 The nav uses two kinds of active indication:
 
 - **`aria-current="page"`** — set when the URL exactly matches the link (e.g., you're on `/notes/` and the link is `/notes/`). Screen readers announce this as "current page".
-- **`data-state="active"`** — set when you're on a sub-page (e.g., `/notes/2026/03/cascade/`). Visually styled the same but semantically different.
+- **`aria-current="true"`** — set when you're on a sub-page (e.g., `/notes/2026/03/cascade/`). Visually styled the same but semantically different.
 
 The `getLinkState()` function handles the special case of the homepage, where paginated URLs like `/2/` and `/3/` should highlight "Home".
 
