@@ -4,7 +4,7 @@ const isArchivePage = path.endsWith('/archive/');
 const isTagsPage = path.endsWith('/tags/');
 ---
 
-<section id="search" aria-labelledby="search_heading">
+<section id="search">
 	<div class="center p-space-m">
 		<div class="stack align-self-stretch">
 			<h2 class="heading-3" id="search_heading">Search</h2>
@@ -42,14 +42,14 @@ const isTagsPage = path.endsWith('/tags/');
 				{
 					!isArchivePage && (
 						<li>
-							Or browse the <a href="/archive/">archive</a>
+							Or <a href="/archive/">browse the archive</a>
 						</li>
 					)
 				}
 				{
 					!isTagsPage && (
 						<li>
-							Or browse the <a href="/tags/">tags</a>
+							Or <a href="/tags/">browse the tags</a>
 						</li>
 					)
 				}
@@ -66,9 +66,7 @@ const isTagsPage = path.endsWith('/tags/');
 		event.preventDefault();
 		const input = form.querySelector<HTMLInputElement>('input[name="q"]');
 		const query = input?.value.trim() ?? '';
-		const url = query
-			? `/search/?q=${encodeURIComponent(query)}`
-			: '/search/';
+		const url = query ? `/search/?q=${encodeURIComponent(query)}` : '/search/';
 		window.location.assign(url);
 	});
 </script>

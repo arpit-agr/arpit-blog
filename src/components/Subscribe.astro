@@ -1,24 +1,20 @@
 ---
 const rssLinks = [
 	{
-		label: 'My notes',
+		label: 'Notes',
 		href: '/notes/rss.xml',
-		title: 'Notes RSS',
 	},
 	{
-		label: 'My articles',
+		label: 'Articles',
 		href: '/articles/rss.xml',
-		title: 'Articles RSS',
 	},
 	{
-		label: 'My links',
+		label: 'Links',
 		href: '/links/rss.xml',
-		title: 'Links RSS',
 	},
 	{
-		label: 'My notes, articles & links together',
+		label: 'Notes, articles and links',
 		href: '/rss.xml',
-		title: 'Notes, Articles and Links RSS',
 	},
 ];
 ---
@@ -31,8 +27,9 @@ const rssLinks = [
 				{
 					rssLinks.map((link) => (
 						<li class="text-balance">
-							<a href={link.href} type="application/rss+xml" title={link.title}>
+							<a href={link.href} type="application/rss+xml">
 								{link.label}
+								<span class="visually-hidden">RSS</span>
 							</a>
 						</li>
 					))
