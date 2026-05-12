@@ -1,5 +1,4 @@
 ---
-import { render } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
@@ -37,16 +36,6 @@ const filtered = allEntries.filter((entry) => {
 	);
 });
 
-const entries = await Promise.all(
-	filtered.map(async (entry) => {
-		const rendered = await render(entry);
-		return {
-			...entry,
-			Content: rendered.Content,
-		};
-	}),
-);
-
 const monthName = new Intl.DateTimeFormat('en-IN', { month: 'long' }).format(
 	new Date(Number(year), Number(month) - 1),
 );
@@ -62,7 +51,7 @@ const pageDescription = `All notes, articles, and links published in ${monthName
 			<SiteHeader />
 			<main id="main">
 				<FeedHeader sectionTitle={`Archive: ${monthName} ${year}`} />
-				<EntryList entries={entries} />
+				<EntryList entries={filtered} />
 			</main>
 		</div>
 		<SiteSidebar />
