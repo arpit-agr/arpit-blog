@@ -1,4 +1,4 @@
-import { type CollectionEntry } from 'astro:content';
+import { type CollectionEntry, type render } from 'astro:content';
 
 // Shared fields present in every content collection (notes, articles, links)
 export interface BaseEntryData {
@@ -9,7 +9,7 @@ export interface BaseEntryData {
 export interface InjectedProps {
 	absoluteURL: string;
 	relativeURL: string;
-	Content: any;
+	Content: Awaited<ReturnType<typeof render>>['Content'];
 }
 
 // 2. Define a helper type for "Enhanced" entries
