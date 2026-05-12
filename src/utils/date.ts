@@ -1,5 +1,3 @@
-// src/utils/date.js
-
 const indianDateFormatter = new Intl.DateTimeFormat('en-IN', {
 	year: 'numeric',
 	month: 'short',
@@ -14,7 +12,7 @@ const indianDateFormatter = new Intl.DateTimeFormat('en-IN', {
  * Since Astro's Zod schema transforms your frontmatter dates into Date objects,
  * we can assume the input is a valid Date.
  */
-export function formatDate(date) {
+export function formatDate(date: Date | undefined): string {
 	if (!date) return '';
 	return indianDateFormatter.format(date);
 }
