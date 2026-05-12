@@ -1,5 +1,4 @@
 ---
-import { render } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
 import SiteHeader from '@components/SiteHeader.astro';
@@ -12,20 +11,12 @@ import { SITE_TITLE } from 'src/consts';
 export async function getStaticPaths() {
 	const allEntries = await loadAllEntries();
 
-	// Render all entries
-	const renderedEntries = await Promise.all(
-		allEntries.map(async (entry) => {
-			const { Content } = await render(entry);
-			return { ...entry, Content };
-		}),
-	);
-
 	const uniqueTags = [
-		...new Set(renderedEntries.map((entry) => entry.data.tags).flat()),
+		...new Set(allEntries.map((entry) => entry.data.tags).flat()),
 	];
 
 	return uniqueTags.map((tag) => {
-		const filteredEntries = renderedEntries.filter((entry) =>
+		const filteredEntries = allEntries.filter((entry) =>
 			entry.data.tags.includes(tag),
 		);
 		return {

@@ -1,6 +1,5 @@
 ---
 import type { AnyEntry } from '@appTypes/entries';
-import { render } from 'astro:content';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
@@ -24,12 +23,7 @@ interface Props {
 
 const { page, title, description, sectionTitle } = Astro.props;
 
-const entries = await Promise.all(
-	page.data.map(async (entry) => {
-		const { Content } = await render(entry);
-		return { ...entry, Content };
-	}),
-);
+const entries = page.data;
 
 const pageTitle =
 	page.currentPage > 1 ? `Page ${page.currentPage} - ${title}` : title;
