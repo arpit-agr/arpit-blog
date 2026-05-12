@@ -9,7 +9,7 @@ import SiteSidebar from '@components/SiteSidebar.astro';
 import CurrentlyReading from '@components/CurrentlyReading.astro';
 
 import { loadAllEntries } from '@utils/loadAllEntries';
-import { SITE_DESCRIPTION, SITE_TITLE } from 'src/consts';
+import { SITE_DESCRIPTION, SITE_TITLE } from '@consts';
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allEntries = await loadAllEntries();

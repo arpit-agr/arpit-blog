@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import FeedPage from '@layouts/FeedPage.astro';
 import { loadAndFormatCollection } from '@utils/collection';
-import { LINKS_TITLE, LINKS_DESCRIPTION } from 'src/consts';
+import { LINKS_TITLE, LINKS_DESCRIPTION } from '@consts';
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allEntries = await loadAndFormatCollection('links');
