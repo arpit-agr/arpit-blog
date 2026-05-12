@@ -1,43 +1,28 @@
-# Astro Starter Kit: Minimal
+# arpit.blog
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Personal blog. Astro 6 static site, layered CSS, Pagefind for search.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
+- `npm run dev` — dev server at `localhost:4321`
+- `npm run build` — type-check then build to `./dist/`
+- `npm run preview` — serve the built `dist/` locally
+- `npm run books:colors` — extract dominant colors from book covers and write them to `books.json`
 
-Inside of your Astro project, you'll see the following folders and files:
+## Content
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+All content lives in `src/data/`. Add a file to the relevant directory; Astro picks it up automatically.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- `src/data/notes/` — short-form notes (Markdown/MDX, date-based URLs)
+- `src/data/articles/` — long-form articles (Markdown/MDX, require `title`)
+- `src/data/links/` — curated links (Markdown/MDX, require `title` and `link`)
+- `src/data/books.json` — reading library; `status` is `read`, `reading`, or `unread`
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## CSS
 
-Any static assets, like images, can be placed in the `public/` directory.
+Cascade layer order: `reset → theme → global → composition → blocks → utilities → exceptions`.
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **theme/** — design tokens: type scale (Utopia), space scale, colors (`oklch`, `light-dark()`), typography
+- **composition/** — layout primitives (`.stack`, `.cluster`, `.sidebar`, `.flow`, etc.)
+- **blocks/** — component styles scoped to a named element
+- **exceptions/** — page-scoped overrides (`entry-page.css`, `feed-page.css`, etc.)
