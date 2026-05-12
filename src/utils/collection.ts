@@ -6,7 +6,6 @@ export async function loadAndFormatCollection<
 >(name: T, withDate = true): Promise<EnhancedEntry<T>[]> {
 	const allEntries = await getCollection(name);
 
-	// Filter out drafts in production
 	const pubEntries = allEntries.filter((entry) =>
 		import.meta.env.PROD ? (entry.data as BaseEntryData).draft !== true : true,
 	);
