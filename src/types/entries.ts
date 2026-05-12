@@ -1,6 +1,11 @@
 import { type CollectionEntry } from 'astro:content';
 
-// 1. Define the manual additions
+// Shared fields present in every content collection (notes, articles, links)
+export interface BaseEntryData {
+	pubDate: Date;
+	draft?: boolean;
+}
+
 export interface InjectedProps {
 	absoluteURL: string;
 	relativeURL: string;
