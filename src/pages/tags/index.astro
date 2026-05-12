@@ -6,7 +6,7 @@ import SiteHeader from '@components/SiteHeader.astro';
 import SiteSidebar from '@components/SiteSidebar.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import { loadAllEntries } from '@utils/loadAllEntries';
-import { TAGS_TITLE, TAGS_DESCRIPTION } from 'src/consts';
+import { TAGS_TITLE, TAGS_DESCRIPTION } from '@consts';
 
 const allEntries = await loadAllEntries();
 
