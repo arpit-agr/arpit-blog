@@ -1,22 +1,28 @@
 # arpit.blog
 
-Personal blog of [Arpit Agrawal](https://arpit.blog) — notes, articles, curated links, and a reading library.
-
-Built with [Astro](https://astro.build), TypeScript, and layered CSS. Content is authored in Markdown/MDX and managed via Astro's content collections.
-
-## Stack
-
-- **Framework:** Astro 6 (static output)
-- **Content:** Markdown, MDX — notes, articles, links, books (JSON)
-- **Styles:** Cascade layers, CSS Utopia (responsive type/space scale), `oklch` color, `light-dark()`
-- **Search:** Pagefind (client-side, no backend)
-- **Fonts:** Figtree variable font, subsetted
+Personal blog. Astro 6 static site, layered CSS, Pagefind for search.
 
 ## Commands
 
-| Command | Action |
-| :--- | :--- |
-| `npm install` | Install dependencies |
-| `npm run dev` | Start dev server at `localhost:4321` |
-| `npm run build` | Type-check and build to `./dist/` |
-| `npm run books:colors` | Extract dominant colors from book covers |
+- `npm run dev` — dev server at `localhost:4321`
+- `npm run build` — type-check then build to `./dist/`
+- `npm run preview` — serve the built `dist/` locally
+- `npm run books:colors` — extract dominant colors from book covers and write them to `books.json`
+
+## Content
+
+All content lives in `src/data/`. Add a file to the relevant directory; Astro picks it up automatically.
+
+- `src/data/notes/` — short-form notes (Markdown/MDX, date-based URLs)
+- `src/data/articles/` — long-form articles (Markdown/MDX, require `title`)
+- `src/data/links/` — curated links (Markdown/MDX, require `title` and `link`)
+- `src/data/books.json` — reading library; `status` is `read`, `reading`, or `unread`
+
+## CSS
+
+Cascade layer order: `reset → theme → global → composition → blocks → utilities → exceptions`.
+
+- **theme/** — design tokens: type scale (Utopia), space scale, colors (`oklch`, `light-dark()`), typography
+- **composition/** — layout primitives (`.stack`, `.cluster`, `.sidebar`, `.flow`, etc.)
+- **blocks/** — component styles scoped to a named element
+- **exceptions/** — page-scoped overrides (`entry-page.css`, `feed-page.css`, etc.)
