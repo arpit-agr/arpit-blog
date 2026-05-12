@@ -1,43 +1,22 @@
-# Astro Starter Kit: Minimal
+# arpit.blog
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Personal blog of [Arpit Agrawal](https://arpit.blog) — notes, articles, curated links, and a reading library.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Built with [Astro](https://astro.build), TypeScript, and layered CSS. Content is authored in Markdown/MDX and managed via Astro's content collections.
 
-## 🚀 Project Structure
+## Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Framework:** Astro 6 (static output)
+- **Content:** Markdown, MDX — notes, articles, links, books (JSON)
+- **Styles:** Cascade layers, CSS Utopia (responsive type/space scale), `oklch` color, `light-dark()`
+- **Search:** Pagefind (client-side, no backend)
+- **Fonts:** Figtree variable font, subsetted
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Commands
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Command | Action |
+| :--- | :--- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start dev server at `localhost:4321` |
+| `npm run build` | Type-check and build to `./dist/` |
+| `npm run books:colors` | Extract dominant colors from book covers |
