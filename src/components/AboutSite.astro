@@ -2,9 +2,6 @@
 import { Image } from 'astro:assets';
 import myImage from '@images/arpit.jpg';
 import paperClip from '@images/paper-clip.png';
-
-const path = Astro.url.pathname;
-const isHomePage = path === '/';
 ---
 
 <section id="about-site" aria-labelledby="about-site_heading">
@@ -20,28 +17,24 @@ const isHomePage = path === '/';
 					hello@arpit.codes
 				</a>
 			</div>
-			{
-				isHomePage && (
-					<div class="sidebar">
-						<Image
-							src={myImage}
-							alt=""
-							class="profile-pic"
-							widths={[112, 224, 336]}
-							sizes="112px"
-							priority={true}
-						/>
-						<Image
-							src={paperClip}
-							alt=""
-							class="paper-clip"
-							widths={[27, 54, 81]}
-							sizes="27px"
-							priority={true}
-						/>
-					</div>
-				)
-			}
+			<div class="sidebar">
+				<Image
+					src={myImage}
+					alt=""
+					class="profile-pic"
+					widths={[112, 224, 336]}
+					sizes="112px"
+					priority={true}
+				/>
+				<Image
+					src={paperClip}
+					alt=""
+					class="paper-clip"
+					widths={[27, 54, 81]}
+					sizes="27px"
+					priority={true}
+				/>
+			</div>
 		</div>
 	</div>
 </section>
