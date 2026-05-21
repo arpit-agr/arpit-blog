@@ -1,5 +1,5 @@
 :root {
-	--code-font-size: 1rem;
+	--code-font-size: 0.9em;
 	--code-font-weight: var(--font-regular);
 	--code-border-thickness: var(--border-thickness-separator);
 	--code-border-radius: var(--border-radius);

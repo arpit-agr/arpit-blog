@@ -35,7 +35,6 @@ body {
 	accent-color: var(--color-accent);
 	font-family: var(--font-sans-serif);
 	font-size: var(--step-0);
-	font-size-adjust: from-font;
 	line-height: var(--leading-normal);
 	-webkit-font-smoothing: auto;
 
@@ -226,11 +225,11 @@ pre {
 	}
 }
 
-/*:not(pre) > code {
+:not(pre) > code {
 	padding: var(--space-5xs) var(--space-4xs);
-	border: var(--border-thickness-separator) solid var(--color-border);
+	background: var(--color-bg-button);
 	border-radius: calc(2 * var(--code-border-radius));
-}*/
+}
 
 mark,
 ::selection {
