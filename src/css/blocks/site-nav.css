@@ -33,7 +33,7 @@
 			inset-inline: var(--site-nav-padding-inline);
 			inset-block-end: 0;
 			block-size: var(--border-thickness-xl);
-			background: currentColor;
+			background: var(--color-accent);
 		}
 	}
 }
