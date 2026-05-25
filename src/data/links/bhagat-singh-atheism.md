@@ -3,11 +3,11 @@ title: "Why I am an atheist: Bhagat Singh's essay"
 link: https://www.marxists.org/archive/bhagat-singh/1930/10/05.htm
 pubDate: 2024-01-20
 tags:
-  - "atheism"
-  - "critical-thinking"
-  - "blind-faith"
-  - "bhagat-singh"
-  - "india"
+  - 'atheism'
+  - 'critical-thinking'
+  - 'blind-faith'
+  - 'bhagat-singh'
+  - 'india'
 ---
 
 This is one essay I re-read every year. In it, amongst other things, Bhagat Singh challenges blind faith and advocates for reason and critical thinking.

@@ -1,12 +1,12 @@
 ---
-title: "Adactio: Journal—HTML web components"
+title: 'Adactio: Journal—HTML web components'
 link: https://adactio.com/journal/20618
 pubDate: 2024-06-25
 tags:
-  - "web-components"
-  - "custom-elements"
-  - "progressive-enhancement"
-  - "jeremy-keith"
+  - 'web-components'
+  - 'custom-elements'
+  - 'progressive-enhancement'
+  - 'jeremy-keith'
 ---
 
 Jeremy Keith discusses what makes a custom element an HTML web component.

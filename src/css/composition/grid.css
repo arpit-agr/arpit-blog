@@ -8,12 +8,12 @@
 	);
 }
 
-.grid[data-layout="halves"] {
+.grid[data-layout='halves'] {
 	--grid-placement: auto-fit;
 	--grid-min-item-size: clamp(16rem, 50vw, 33rem);
 }
 
-.grid[data-layout="thirds"] {
+.grid[data-layout='thirds'] {
 	--grid-placement: auto-fit;
 	--grid-min-item-size: clamp(16rem, 33%, 20rem);
 }

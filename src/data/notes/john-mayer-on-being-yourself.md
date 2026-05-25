@@ -1,8 +1,8 @@
 ---
 pubDate: 2025-10-12T18:25+0530
 tags:
-  - "learning"
-  - "john-mayer"
+  - 'learning'
+  - 'john-mayer'
 ---
 
 [John Mayer on how trying and not doing it well enough is a wonderful technique for being yourself](https://youtube.com/watch?v=_GQbDRGm__o&t=2768):

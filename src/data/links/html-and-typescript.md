@@ -6,9 +6,9 @@ via:
   label: Jeremy Keith
 pubDate: 2025-11-20T11:22+0530
 tags:
-  - "html"
-  - "typescript"
-  - "semantics"
+  - 'html'
+  - 'typescript'
+  - 'semantics'
 ---
 
 Mandy Michael uses a brilliant analogy to explain why developers must get to know the HTML elements available to them and use the appropriate one for their content.

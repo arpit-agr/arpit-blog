@@ -3,10 +3,10 @@ title: Missed Connections - Jim Nielsen’s Blog
 link: https://blog.jim-nielsen.com/2025/missed-connections/
 pubDate: 2025-02-18
 tags:
-  - "connections"
-  - "ai"
-  - "llm"
-  - "jim-nielsen"
+  - 'connections'
+  - 'ai'
+  - 'llm'
+  - 'jim-nielsen'
 ---
 
 Jim Nielsen on the personal connections formed on the internet.

@@ -1,18 +1,18 @@
 ---
-title: "How to choose your Baseline target  |  Articles  |  web.dev"
-pubDate: "2026-01-05T13:52+0530"
-link: "https://web.dev/articles/how-to-choose-your-baseline-target"
+title: 'How to choose your Baseline target  |  Articles  |  web.dev'
+pubDate: '2026-01-05T13:52+0530'
+link: 'https://web.dev/articles/how-to-choose-your-baseline-target'
 tags:
-  - "baseline"
-  - "browser-support"
-  - "progressive-enhancement"
-  - "analytics"
+  - 'baseline'
+  - 'browser-support'
+  - 'progressive-enhancement'
+  - 'analytics'
 via:
-  url: "https://frontendmasters.com/blog/browserslist-baseline/"
-  label: "Frontend Masters Blog"
+  url: 'https://frontendmasters.com/blog/browserslist-baseline/'
+  label: 'Frontend Masters Blog'
 ---
 
-Jeremy Wagner and Rachel Andrew explain how to use analytics to select a Baseline target and what to do when you don't have any real user data. 
+Jeremy Wagner and Rachel Andrew explain how to use analytics to select a Baseline target and what to do when you don't have any real user data.
 
 In cases where there isn't any real user data:
 

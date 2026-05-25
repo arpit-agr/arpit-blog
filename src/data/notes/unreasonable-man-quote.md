@@ -1,9 +1,9 @@
 ---
-pubDate: "2026-01-13T20:55+0530"
+pubDate: '2026-01-13T20:55+0530'
 tags:
-  - "progress"
-  - "quote"
-  - "film"
+  - 'progress'
+  - 'quote'
+  - 'film'
 ---
 
 > The reasonable man adapts himself to the world; the unreasonable man persists in trying to adapt the world to himself. Therefore, all progress depends on the unreasonable man.

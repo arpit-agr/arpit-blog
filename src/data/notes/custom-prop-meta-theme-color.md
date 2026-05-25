@@ -1,9 +1,9 @@
 ---
 pubDate: 2025-08-13T10:33+0530
 tags:
-  - "theme-color"
-  - "html"
-  - "css"
+  - 'theme-color'
+  - 'html'
+  - 'css'
 ---
 
 I was reading [Manuel Matuzovic's article on meta theme

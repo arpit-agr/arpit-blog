@@ -3,10 +3,10 @@ title: The Case For Design Engineers, Pt. II - Jim Nielsen’s Blog
 link: https://blog.jim-nielsen.com/2024/the-case-for-design-engineers-pt-ii/
 pubDate: 2024-04-02
 tags:
-  - "design"
-  - "designing-in-the-browser"
-  - "design-engineers"
-  - "jim-nielsen"
+  - 'design'
+  - 'designing-in-the-browser'
+  - 'design-engineers'
+  - 'jim-nielsen'
 ---
 
 Jim Nielsen makes the case for design engineers as professionals who do design work with code. He also emphasizes the limitations of traditional design tools, which often produce static images that don’t fully capture the dynamic nature of web interactions, and advocates for designing in the browser instead.

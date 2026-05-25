@@ -1,12 +1,11 @@
 ---
-pubDate: "2026-03-29T17:36+0530"
+pubDate: '2026-03-29T17:36+0530'
 tags:
-  - "css"
-  - "cascade"
+  - 'css'
+  - 'cascade'
 ---
 
 I built a [visual explainer of the CSS Cascade](https://cascade.arpit.codes/), the algorithm that determines the "winning value" from a list of competing declarations.
-
 
 [![CSS cascade - visual explainer](./cascade.jpeg)](https://cascade.arpit.codes/)
 

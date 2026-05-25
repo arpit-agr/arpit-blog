@@ -1,7 +1,7 @@
-import rss from "@astrojs/rss";
-import { loadAllEntries } from "@utils/loadAllEntries";
-import { renderRSSItems } from "@utils/rss";
-import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
+import rss from '@astrojs/rss';
+import { loadAllEntries } from '@utils/loadAllEntries';
+import { renderRSSItems } from '@utils/rss';
+import { SITE_TITLE, SITE_DESCRIPTION } from 'src/consts';
 
 export async function GET(context) {
 	const baseUrl = context.site.origin;

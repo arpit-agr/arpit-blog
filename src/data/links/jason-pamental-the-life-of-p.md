@@ -1,12 +1,12 @@
 ---
-title: "Jason Pamental - The Life of p - YouTube"
-pubDate: "2026-01-01T22:03+0530"
-link: "https://www.youtube.com/watch?v=4ggOmfBtWRM"
+title: 'Jason Pamental - The Life of p - YouTube'
+pubDate: '2026-01-01T22:03+0530'
+link: 'https://www.youtube.com/watch?v=4ggOmfBtWRM'
 tags:
-  - "typography"
-  - "design"
-  - "paragraph"
-  - "css"
+  - 'typography'
+  - 'design'
+  - 'paragraph'
+  - 'css'
 ---
 
 I just saw Jason Pamental's excellent talk on 'The Life of `<p>`'. In this talk, Jason traces the evolution of paragraph design in print and shows how those typographic ideas can be applied using CSS.

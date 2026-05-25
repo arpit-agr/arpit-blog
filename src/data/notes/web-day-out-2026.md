@@ -1,8 +1,8 @@
 ---
-pubDate: "2026-03-18T11:36+0530"
+pubDate: '2026-03-18T11:36+0530'
 tags:
-  - "event"
-  - "conference"
+  - 'event'
+  - 'conference'
 ---
 
 I couldn't make it to [Web Day Out 2026](https://webdayout.com/). Thankfully, [Jeremy wrote about it](https://adactio.com/journal/22465) and linked to a bunch of online talk about it. Special shout out to Josh Tumath who live-blogged each talk.

@@ -1,8 +1,8 @@
 ---
-pubDate: "2026-04-04T15:54+0530"
+pubDate: '2026-04-04T15:54+0530'
 tags:
-  - "css"
-  - "grid"
+  - 'css'
+  - 'grid'
 ---
 
 Last week, I built a [visual explainer of the CSS Cascade](https://cascade.arpit.codes/).

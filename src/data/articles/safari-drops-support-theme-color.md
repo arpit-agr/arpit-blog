@@ -2,9 +2,9 @@
 title: Safari drops support for the theme-color meta tag
 pubDate: 2025-11-09T16:30+0530
 tags:
-  - "theme-color"
-  - "html"
-  - "safari"
+  - 'theme-color'
+  - 'html'
+  - 'safari'
 ---
 
 The `<meta name="theme-color">` tag is no longer supported in Safari 26 on macOS and iOS.

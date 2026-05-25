@@ -1,9 +1,9 @@
 ---
-pubDate: "2025-12-29T09:52+0530"
+pubDate: '2025-12-29T09:52+0530'
 tags:
-  - "job"
-  - "hiring"
-  - "career"
+  - 'job'
+  - 'hiring'
+  - 'career'
 ---
 
 Earlier this month, I noted down [Jason's advice on how to get hired as a developer](https://arpit.blog/links/2025/12/developer-job-jason-lengstorf/). I’d also like to add the following point from [@brandon](https://x.com/burcs/status/2002013464387105231):

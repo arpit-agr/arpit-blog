@@ -3,11 +3,11 @@ title: Why Swiss Trains are the Best in Europe - YouTube
 link: https://www.youtube.com/watch?v=muPcHs-E4qc
 pubDate: 2024-08-29
 tags:
-  - "trains"
-  - "switzerland"
-  - "mobility"
-  - "public-transport"
-  - "not-just-bikes"
+  - 'trains'
+  - 'switzerland'
+  - 'mobility'
+  - 'public-transport'
+  - 'not-just-bikes'
 ---
 
 I love this bit from the video where Jason quotes Enrique Peñalosa, the former mayor of Bogotá, Colombia:

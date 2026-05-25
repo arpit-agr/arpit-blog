@@ -1,12 +1,12 @@
 ---
-pubDate: "2025-12-18T21:07+0530"
+pubDate: '2025-12-18T21:07+0530'
 tags:
-  - "scrollbars"
-  - "layout"
-  - "viewport"
-  - "media-queries"
-  - "css"
-  - "mac-os"
+  - 'scrollbars'
+  - 'layout'
+  - 'viewport'
+  - 'media-queries'
+  - 'css'
+  - 'mac-os'
 ---
 
 Today I learned that on macOS, with the default scrollbar setting enabled, classic scrollbars are shown automatically when a mouse is connected. I used to believe that, mouse or not, users needed to explicitly change the scrollbar appearance to get the classic scrollbars.

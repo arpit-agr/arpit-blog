@@ -1,12 +1,12 @@
 ---
-title: "The f*** off contact page - Nic Chan"
-pubDate: "2025-12-08T16:21+0530"
-link: "https://www.nicchan.me/blog/the-f-off-contact-page/"
+title: 'The f*** off contact page - Nic Chan'
+pubDate: '2025-12-08T16:21+0530'
+link: 'https://www.nicchan.me/blog/the-f-off-contact-page/'
 tags:
-  - "design"
-  - "client-work"
-  - "blogging"
-  - "nic-chan"
+  - 'design'
+  - 'client-work'
+  - 'blogging'
+  - 'nic-chan'
 ---
 
 > Instead of seeing us as people who brought valuable knowledge and expertise to the project, they saw us as the hands that would execute their vision.

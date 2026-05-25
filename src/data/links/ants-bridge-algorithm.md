@@ -6,10 +6,10 @@ via:
   url: https://kottke.org/18/03/how-ants-build-bridges-using-very-simple-rules
 pubDate: 2025-10-16T18:35+0530
 tags:
-  - "ants"
-  - "algorithm"
-  - "rules"
-  - "emergence"
+  - 'ants'
+  - 'algorithm'
+  - 'rules'
+  - 'emergence'
 ---
 
 > To see how this unfolds, take the perspective of an ant on the march. When it comes to a gap in its path, it slows down. The rest of the colony, still barreling along at 12 centimeters per second, comes trampling over its back. At this point, two simple rules kick in.

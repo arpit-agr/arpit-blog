@@ -1,268 +1,427 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>arpit-blog — Technical Overview</title>
-<style>
-  :root {
-    --fg: #1b1b1f;
-    --muted: #5a5a66;
-    --bg: #fafaf7;
-    --panel: #ffffff;
-    --accent: #b4452b;
-    --accent-soft: #f4e7df;
-    --border: #e6e3da;
-    --code-bg: #f3f1ea;
-    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  }
-  * { box-sizing: border-box; }
-  html { color-scheme: light dark; }
-  body {
-    margin: 0;
-    font-family: var(--sans);
-    color: var(--fg);
-    background: var(--bg);
-    line-height: 1.55;
-    font-size: 16px;
-  }
-  .layout {
-    display: grid;
-    grid-template-columns: 240px minmax(0, 1fr);
-    max-width: 1180px;
-    margin: 0 auto;
-    gap: 2rem;
-    padding: 2rem 1.5rem 4rem;
-  }
-  aside {
-    position: sticky;
-    top: 2rem;
-    align-self: start;
-    font-size: 0.9rem;
-    max-height: calc(100vh - 4rem);
-    overflow: auto;
-  }
-  aside h2 {
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 0 0 0.5rem;
-  }
-  aside ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
-  aside li { counter-increment: toc; margin: 0.15rem 0; }
-  aside a {
-    display: block;
-    padding: 0.2rem 0.4rem;
-    color: var(--fg);
-    text-decoration: none;
-    border-left: 2px solid transparent;
-  }
-  aside a::before { content: counter(toc, decimal-leading-zero) "  "; color: var(--muted); font-family: var(--mono); font-size: 0.75rem; }
-  aside a:hover, aside a:focus { background: var(--accent-soft); border-left-color: var(--accent); }
-  main { min-width: 0; }
-  header.hero {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  header.hero p.lede { color: var(--muted); max-width: 60ch; }
-  h1 { font-size: clamp(1.75rem, 2.5vw, 2.4rem); margin: 0 0 0.4rem; letter-spacing: -0.02em; }
-  h2 { font-size: 1.35rem; margin-top: 2.5rem; letter-spacing: -0.01em; border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; }
-  h3 { font-size: 1.05rem; margin-top: 1.5rem; }
-  p, ul, ol { max-width: 72ch; }
-  code { font-family: var(--mono); font-size: 0.88em; background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 3px; }
-  pre {
-    background: var(--code-bg);
-    padding: 0.9rem 1rem;
-    border-radius: 6px;
-    overflow-x: auto;
-    font-family: var(--mono);
-    font-size: 0.82rem;
-    line-height: 1.5;
-    border: 1px solid var(--border);
-  }
-  pre code { background: transparent; padding: 0; }
-  .panel {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin: 1rem 0;
-  }
-  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-  .tag {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    padding: 0.15rem 0.5rem;
-    border-radius: 999px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    margin-right: 0.3rem;
-  }
-  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.9rem; }
-  th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-  th { background: var(--code-bg); font-weight: 600; }
-  .note { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 0.75rem 1rem; border-radius: 4px; margin: 1rem 0; }
-  .flow > * + * { margin-top: 0.5rem; }
-  ul.tight li { margin: 0.1rem 0; }
-  .diagram {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    white-space: pre;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1rem;
-    overflow-x: auto;
-    line-height: 1.4;
-  }
-  @media (max-width: 800px) {
-    .layout { grid-template-columns: 1fr; }
-    aside { position: static; max-height: none; }
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --fg: #e8e8ea;
-      --muted: #9a9aa6;
-      --bg: #16161a;
-      --panel: #1d1d22;
-      --border: #2c2c33;
-      --code-bg: #232329;
-      --accent: #e08560;
-      --accent-soft: #2e2422;
-    }
-  }
-</style>
-</head>
-<body>
-<div class="layout">
-  <aside aria-label="Table of contents">
-    <h2>Contents</h2>
-    <ol>
-      <li><a href="#what-is-this">What this site is</a></li>
-      <li><a href="#astro">What Astro does</a></li>
-      <li><a href="#stack">The stack</a></li>
-      <li><a href="#structure">Project structure</a></li>
-      <li><a href="#collections">Content collections</a></li>
-      <li><a href="#data-flow">Data flow</a></li>
-      <li><a href="#routing">Routing</a></li>
-      <li><a href="#layouts">Layouts &amp; components</a></li>
-      <li><a href="#rss">RSS feeds</a></li>
-      <li><a href="#search">Search</a></li>
-      <li><a href="#books">Books pipeline</a></li>
-      <li><a href="#styling">Styling</a></li>
-      <li><a href="#build">Build &amp; deploy</a></li>
-      <li><a href="#mental-model">Mental model recap</a></li>
-    </ol>
-  </aside>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>arpit-blog — Technical Overview</title>
+		<style>
+			:root {
+				--fg: #1b1b1f;
+				--muted: #5a5a66;
+				--bg: #fafaf7;
+				--panel: #ffffff;
+				--accent: #b4452b;
+				--accent-soft: #f4e7df;
+				--border: #e6e3da;
+				--code-bg: #f3f1ea;
+				--mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+				--sans:
+					ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+					sans-serif;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			html {
+				color-scheme: light dark;
+			}
+			body {
+				margin: 0;
+				font-family: var(--sans);
+				color: var(--fg);
+				background: var(--bg);
+				line-height: 1.55;
+				font-size: 16px;
+			}
+			.layout {
+				display: grid;
+				grid-template-columns: 240px minmax(0, 1fr);
+				max-width: 1180px;
+				margin: 0 auto;
+				gap: 2rem;
+				padding: 2rem 1.5rem 4rem;
+			}
+			aside {
+				position: sticky;
+				top: 2rem;
+				align-self: start;
+				font-size: 0.9rem;
+				max-height: calc(100vh - 4rem);
+				overflow: auto;
+			}
+			aside h2 {
+				font-size: 0.75rem;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--muted);
+				margin: 0 0 0.5rem;
+			}
+			aside ol {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				counter-reset: toc;
+			}
+			aside li {
+				counter-increment: toc;
+				margin: 0.15rem 0;
+			}
+			aside a {
+				display: block;
+				padding: 0.2rem 0.4rem;
+				color: var(--fg);
+				text-decoration: none;
+				border-left: 2px solid transparent;
+			}
+			aside a::before {
+				content: counter(toc, decimal-leading-zero) '  ';
+				color: var(--muted);
+				font-family: var(--mono);
+				font-size: 0.75rem;
+			}
+			aside a:hover,
+			aside a:focus {
+				background: var(--accent-soft);
+				border-left-color: var(--accent);
+			}
+			main {
+				min-width: 0;
+			}
+			header.hero {
+				border-bottom: 1px solid var(--border);
+				padding-bottom: 1.5rem;
+				margin-bottom: 2rem;
+			}
+			header.hero p.lede {
+				color: var(--muted);
+				max-width: 60ch;
+			}
+			h1 {
+				font-size: clamp(1.75rem, 2.5vw, 2.4rem);
+				margin: 0 0 0.4rem;
+				letter-spacing: -0.02em;
+			}
+			h2 {
+				font-size: 1.35rem;
+				margin-top: 2.5rem;
+				letter-spacing: -0.01em;
+				border-bottom: 1px solid var(--border);
+				padding-bottom: 0.35rem;
+			}
+			h3 {
+				font-size: 1.05rem;
+				margin-top: 1.5rem;
+			}
+			p,
+			ul,
+			ol {
+				max-width: 72ch;
+			}
+			code {
+				font-family: var(--mono);
+				font-size: 0.88em;
+				background: var(--code-bg);
+				padding: 0.1em 0.35em;
+				border-radius: 3px;
+			}
+			pre {
+				background: var(--code-bg);
+				padding: 0.9rem 1rem;
+				border-radius: 6px;
+				overflow-x: auto;
+				font-family: var(--mono);
+				font-size: 0.82rem;
+				line-height: 1.5;
+				border: 1px solid var(--border);
+			}
+			pre code {
+				background: transparent;
+				padding: 0;
+			}
+			.panel {
+				background: var(--panel);
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				padding: 1rem 1.25rem;
+				margin: 1rem 0;
+			}
+			.grid-2 {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+				gap: 1rem;
+			}
+			.tag {
+				display: inline-block;
+				font-family: var(--mono);
+				font-size: 0.75rem;
+				padding: 0.15rem 0.5rem;
+				border-radius: 999px;
+				background: var(--accent-soft);
+				color: var(--accent);
+				margin-right: 0.3rem;
+			}
+			table {
+				border-collapse: collapse;
+				width: 100%;
+				margin: 1rem 0;
+				font-size: 0.9rem;
+			}
+			th,
+			td {
+				text-align: left;
+				padding: 0.5rem 0.75rem;
+				border-bottom: 1px solid var(--border);
+				vertical-align: top;
+			}
+			th {
+				background: var(--code-bg);
+				font-weight: 600;
+			}
+			.note {
+				background: var(--accent-soft);
+				border-left: 3px solid var(--accent);
+				padding: 0.75rem 1rem;
+				border-radius: 4px;
+				margin: 1rem 0;
+			}
+			.flow > * + * {
+				margin-top: 0.5rem;
+			}
+			ul.tight li {
+				margin: 0.1rem 0;
+			}
+			.diagram {
+				font-family: var(--mono);
+				font-size: 0.78rem;
+				white-space: pre;
+				background: var(--panel);
+				border: 1px solid var(--border);
+				border-radius: 6px;
+				padding: 1rem;
+				overflow-x: auto;
+				line-height: 1.4;
+			}
+			@media (max-width: 800px) {
+				.layout {
+					grid-template-columns: 1fr;
+				}
+				aside {
+					position: static;
+					max-height: none;
+				}
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--fg: #e8e8ea;
+					--muted: #9a9aa6;
+					--bg: #16161a;
+					--panel: #1d1d22;
+					--border: #2c2c33;
+					--code-bg: #232329;
+					--accent: #e08560;
+					--accent-soft: #2e2422;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layout">
+			<aside aria-label="Table of contents">
+				<h2>Contents</h2>
+				<ol>
+					<li><a href="#what-is-this">What this site is</a></li>
+					<li><a href="#astro">What Astro does</a></li>
+					<li><a href="#stack">The stack</a></li>
+					<li><a href="#structure">Project structure</a></li>
+					<li><a href="#collections">Content collections</a></li>
+					<li><a href="#data-flow">Data flow</a></li>
+					<li><a href="#routing">Routing</a></li>
+					<li><a href="#layouts">Layouts &amp; components</a></li>
+					<li><a href="#rss">RSS feeds</a></li>
+					<li><a href="#search">Search</a></li>
+					<li><a href="#books">Books pipeline</a></li>
+					<li><a href="#styling">Styling</a></li>
+					<li><a href="#build">Build &amp; deploy</a></li>
+					<li><a href="#mental-model">Mental model recap</a></li>
+				</ol>
+			</aside>
 
-  <main>
-    <header class="hero">
-      <h1>arpit-blog — Technical Overview</h1>
-      <p class="lede">
-        A static, content-first personal site built with Astro. Three writing
-        formats (notes, articles, links) live as Markdown/MDX files in the repo;
-        Astro reads them at build time, validates their frontmatter, and
-        generates a fully static HTML site with paginated feeds, tag pages, an
-        archive, RSS, and client-side search.
-      </p>
-      <p>
-        <span class="tag">Astro 6</span>
-        <span class="tag">MDX</span>
-        <span class="tag">Pagefind</span>
-        <span class="tag">TypeScript</span>
-        <span class="tag">Zero JS framework</span>
-        <span class="tag">Netlify</span>
-      </p>
-    </header>
+			<main>
+				<header class="hero">
+					<h1>arpit-blog — Technical Overview</h1>
+					<p class="lede">
+						A static, content-first personal site built with Astro. Three
+						writing formats (notes, articles, links) live as Markdown/MDX files
+						in the repo; Astro reads them at build time, validates their
+						frontmatter, and generates a fully static HTML site with paginated
+						feeds, tag pages, an archive, RSS, and client-side search.
+					</p>
+					<p>
+						<span class="tag">Astro 6</span>
+						<span class="tag">MDX</span>
+						<span class="tag">Pagefind</span>
+						<span class="tag">TypeScript</span>
+						<span class="tag">Zero JS framework</span>
+						<span class="tag">Netlify</span>
+					</p>
+				</header>
 
-    <section id="what-is-this">
-      <h2>1. What this site is</h2>
-      <p>
-        Three content types coexist on the homepage feed, each with its own
-        section as well:
-      </p>
-      <ul class="tight">
-        <li><strong>Notes</strong> — short, dateless-title posts (Markdown).</li>
-        <li><strong>Articles</strong> — longer, titled posts (Markdown/MDX), can have an <code>updatedDate</code>.</li>
-        <li><strong>Links</strong> — bookmark-style entries that point to an external URL and may credit a <code>via</code> source.</li>
-      </ul>
-      <p>
-        Plus two book galleries (<strong>Library</strong> = read,
-        <strong>Antilibrary</strong> = owned-unread) sourced from a single
-        <code>books.json</code> file.
-      </p>
-    </section>
+				<section id="what-is-this">
+					<h2>1. What this site is</h2>
+					<p>
+						Three content types coexist on the homepage feed, each with its own
+						section as well:
+					</p>
+					<ul class="tight">
+						<li>
+							<strong>Notes</strong> — short, dateless-title posts (Markdown).
+						</li>
+						<li>
+							<strong>Articles</strong> — longer, titled posts (Markdown/MDX),
+							can have an <code>updatedDate</code>.
+						</li>
+						<li>
+							<strong>Links</strong> — bookmark-style entries that point to an
+							external URL and may credit a <code>via</code> source.
+						</li>
+					</ul>
+					<p>
+						Plus two book galleries (<strong>Library</strong> = read,
+						<strong>Antilibrary</strong> = owned-unread) sourced from a single
+						<code>books.json</code> file.
+					</p>
+				</section>
 
-    <section id="astro">
-      <h2>2. What Astro does for you</h2>
-      <p>
-        Astro is a static-site generator with a component model that looks like
-        JSX but runs entirely at build time. The mental model:
-      </p>
-      <ul>
-        <li>
-          <strong>File-based routing.</strong> Anything in
-          <code>src/pages/</code> becomes a URL. <code>about.astro</code> →
-          <code>/about/</code>. Brackets in the filename mean dynamic segments:
-          <code>[slug].astro</code>, <code>[...page].astro</code> (rest).
-        </li>
-        <li>
-          <strong>Content collections.</strong> A typed wrapper around a folder
-          of Markdown/MDX. You declare a Zod schema for frontmatter once; Astro
-          validates every file and gives you a typed API
-          (<code>getCollection('notes')</code>) to read them.
-        </li>
-        <li>
-          <strong>.astro components.</strong> Two parts separated by
-          <code>---</code> fences: a JS/TS frontmatter section (runs at build
-          time on the server) and an HTML-with-expressions template. There is
-          no client runtime unless you add <code>&lt;script&gt;</code> tags.
-        </li>
-        <li>
-          <strong>Zero JS by default.</strong> The output is plain HTML + CSS.
-          The few interactive widgets here (copy-to-clipboard, search,
-          Mastodon share, book filters) are tiny vanilla JS files in
-          <code>src/scripts/</code> loaded via <code>&lt;script src&gt;</code>.
-        </li>
-        <li>
-          <strong>Static build.</strong> <code>astro build</code> writes
-          everything to <code>dist/</code>. There is no server running in
-          production — Netlify just serves files.
-        </li>
-      </ul>
-    </section>
+				<section id="astro">
+					<h2>2. What Astro does for you</h2>
+					<p>
+						Astro is a static-site generator with a component model that looks
+						like JSX but runs entirely at build time. The mental model:
+					</p>
+					<ul>
+						<li>
+							<strong>File-based routing.</strong> Anything in
+							<code>src/pages/</code> becomes a URL. <code>about.astro</code> →
+							<code>/about/</code>. Brackets in the filename mean dynamic
+							segments: <code>[slug].astro</code>,
+							<code>[...page].astro</code> (rest).
+						</li>
+						<li>
+							<strong>Content collections.</strong> A typed wrapper around a
+							folder of Markdown/MDX. You declare a Zod schema for frontmatter
+							once; Astro validates every file and gives you a typed API
+							(<code>getCollection('notes')</code>) to read them.
+						</li>
+						<li>
+							<strong>.astro components.</strong> Two parts separated by
+							<code>---</code> fences: a JS/TS frontmatter section (runs at
+							build time on the server) and an HTML-with-expressions template.
+							There is no client runtime unless you add
+							<code>&lt;script&gt;</code> tags.
+						</li>
+						<li>
+							<strong>Zero JS by default.</strong> The output is plain HTML +
+							CSS. The few interactive widgets here (copy-to-clipboard, search,
+							Mastodon share, book filters) are tiny vanilla JS files in
+							<code>src/scripts/</code> loaded via
+							<code>&lt;script src&gt;</code>.
+						</li>
+						<li>
+							<strong>Static build.</strong> <code>astro build</code> writes
+							everything to <code>dist/</code>. There is no server running in
+							production — Netlify just serves files.
+						</li>
+					</ul>
+				</section>
 
-    <section id="stack">
-      <h2>3. The stack at a glance</h2>
-      <table>
-        <thead><tr><th>Package</th><th>Why it’s here</th></tr></thead>
-        <tbody>
-          <tr><td><code>astro</code></td><td>The framework. Routing, building, content collections, image handling.</td></tr>
-          <tr><td><code>@astrojs/mdx</code></td><td>Lets articles/notes embed components inside Markdown (<code>.mdx</code>).</td></tr>
-          <tr><td><code>@astrojs/rss</code></td><td>Generates the RSS XML and provides the Zod schema reused for frontmatter.</td></tr>
-          <tr><td><code>astro-pagefind</code></td><td>Integration that runs <a href="https://pagefind.app">Pagefind</a> after build to produce a static search index.</td></tr>
-          <tr><td><code>astro-html-minifier-next</code></td><td>Minifies the built HTML.</td></tr>
-          <tr><td><code>astro-font</code></td><td>Self-hosts the Figtree variable font with a preload + fallback metric.</td></tr>
-          <tr><td><code>sharp</code></td><td>Image processing — used by Astro’s <code>&lt;Image&gt;</code> and by the book-cover dominant-color script.</td></tr>
-          <tr><td><code>github-slugger</code></td><td>Slugifies tag names and book titles for URLs and IDs.</td></tr>
-          <tr><td><code>markdown-it</code> + <code>sanitize-html</code> + <code>tiny-decode</code></td><td>Available for RSS / content sanitisation helpers.</td></tr>
-          <tr><td><code>postcss-utopia</code>, <code>postcss-preset-env</code></td><td>Modern CSS toolchain — fluid type/space, future syntax.</td></tr>
-        </tbody>
-      </table>
-      <p>
-        Notably <em>not</em> here: React, Vue, Svelte, Tailwind, a database,
-        any server. There is no framework UI layer — every component is
-        <code>.astro</code>.
-      </p>
-    </section>
+				<section id="stack">
+					<h2>3. The stack at a glance</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Package</th>
+								<th>Why it’s here</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>astro</code></td>
+								<td>
+									The framework. Routing, building, content collections, image
+									handling.
+								</td>
+							</tr>
+							<tr>
+								<td><code>@astrojs/mdx</code></td>
+								<td>
+									Lets articles/notes embed components inside Markdown
+									(<code>.mdx</code>).
+								</td>
+							</tr>
+							<tr>
+								<td><code>@astrojs/rss</code></td>
+								<td>
+									Generates the RSS XML and provides the Zod schema reused for
+									frontmatter.
+								</td>
+							</tr>
+							<tr>
+								<td><code>astro-pagefind</code></td>
+								<td>
+									Integration that runs
+									<a href="https://pagefind.app">Pagefind</a> after build to
+									produce a static search index.
+								</td>
+							</tr>
+							<tr>
+								<td><code>astro-html-minifier-next</code></td>
+								<td>Minifies the built HTML.</td>
+							</tr>
+							<tr>
+								<td><code>astro-font</code></td>
+								<td>
+									Self-hosts the Figtree variable font with a preload + fallback
+									metric.
+								</td>
+							</tr>
+							<tr>
+								<td><code>sharp</code></td>
+								<td>
+									Image processing — used by Astro’s
+									<code>&lt;Image&gt;</code> and by the book-cover
+									dominant-color script.
+								</td>
+							</tr>
+							<tr>
+								<td><code>github-slugger</code></td>
+								<td>Slugifies tag names and book titles for URLs and IDs.</td>
+							</tr>
+							<tr>
+								<td>
+									<code>markdown-it</code> + <code>sanitize-html</code> +
+									<code>tiny-decode</code>
+								</td>
+								<td>Available for RSS / content sanitisation helpers.</td>
+							</tr>
+							<tr>
+								<td>
+									<code>postcss-utopia</code>, <code>postcss-preset-env</code>
+								</td>
+								<td>Modern CSS toolchain — fluid type/space, future syntax.</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>
+						Notably <em>not</em> here: React, Vue, Svelte, Tailwind, a database,
+						any server. There is no framework UI layer — every component is
+						<code>.astro</code>.
+					</p>
+				</section>
 
-    <section id="structure">
-      <h2>4. Project structure</h2>
-      <pre class="diagram">arpit-blog/
+				<section id="structure">
+					<h2>4. Project structure</h2>
+					<pre class="diagram">
+arpit-blog/
 ├── astro.config.mjs       integrations: mdx, pagefind, html-minifier
 ├── src/
 │   ├── content.config.ts  Zod schemas for all collections
@@ -290,73 +449,95 @@
 │   └── images/            Astro-processed images
 ├── public/                copied verbatim (fonts, favicon, og image)
 ├── scripts/               Node scripts (book dominant-color updater)
-└── dist/                  build output</pre>
+└── dist/                  build output</pre
+					>
 
-      <h3>Path aliases</h3>
-      <p>
-        <code>tsconfig.json</code> sets up nicer import paths so files don’t
-        drown in <code>../../</code>:
-      </p>
-      <pre><code>@layouts/*    → src/layouts/*
+					<h3>Path aliases</h3>
+					<p>
+						<code>tsconfig.json</code> sets up nicer import paths so files don’t
+						drown in <code>../../</code>:
+					</p>
+					<pre><code>@layouts/*    → src/layouts/*
 @components/* → src/components/*
 @css/*        → src/css/*
 @utils/*      → src/utils/*
 @images/*     → src/images/*
 @appTypes/*   → src/types/*
 @consts       → src/consts.ts</code></pre>
-    </section>
+				</section>
 
-    <section id="collections">
-      <h2>5. Content collections</h2>
-      <p>
-        Defined in <a href="src/content.config.ts"><code>src/content.config.ts</code></a>.
-        Each collection has a <em>loader</em> (where files are) and a
-        <em>schema</em> (what frontmatter must look like). All three text
-        collections share a base shape; <code>books</code> is a special case
-        backed by a single JSON file.
-      </p>
+				<section id="collections">
+					<h2>5. Content collections</h2>
+					<p>
+						Defined in
+						<a href="src/content.config.ts"
+							><code>src/content.config.ts</code></a
+						>. Each collection has a <em>loader</em> (where files are) and a
+						<em>schema</em> (what frontmatter must look like). All three text
+						collections share a base shape; <code>books</code> is a special case
+						backed by a single JSON file.
+					</p>
 
-      <div class="grid-2">
-        <div class="panel">
-          <h3>notes</h3>
-          <p>Glob: <code>src/data/notes/**/*.{md,mdx}</code></p>
-          <p>Schema: <code>rssSchema</code> + <code>pubDate</code>, <code>tags[]</code>, optional <code>draft</code>. No required title — notes are dateless-titled.</p>
-        </div>
-        <div class="panel">
-          <h3>articles</h3>
-          <p>Glob: <code>src/data/articles/**/*.{md,mdx}</code></p>
-          <p>Adds required <code>title</code> and optional <code>updatedDate</code>.</p>
-        </div>
-        <div class="panel">
-          <h3>links</h3>
-          <p>Glob: <code>src/data/links/**/*.{md,mdx}</code></p>
-          <p>Adds required <code>title</code>, <code>link</code> (external URL), and optional <code>via: { url, label }</code>.</p>
-        </div>
-        <div class="panel">
-          <h3>books</h3>
-          <p>Loader: <code>file('src/data/books.json')</code> — every object in the JSON array becomes one entry.</p>
-          <p>Fields: <code>id, title, subtitle?, author, cover, tags[], status, dominantColor</code>. <code>status</code> is an enum: <code>unread | read | reading</code>.</p>
-        </div>
-      </div>
+					<div class="grid-2">
+						<div class="panel">
+							<h3>notes</h3>
+							<p>Glob: <code>src/data/notes/**/*.{md,mdx}</code></p>
+							<p>
+								Schema: <code>rssSchema</code> + <code>pubDate</code>,
+								<code>tags[]</code>, optional <code>draft</code>. No required
+								title — notes are dateless-titled.
+							</p>
+						</div>
+						<div class="panel">
+							<h3>articles</h3>
+							<p>Glob: <code>src/data/articles/**/*.{md,mdx}</code></p>
+							<p>
+								Adds required <code>title</code> and optional
+								<code>updatedDate</code>.
+							</p>
+						</div>
+						<div class="panel">
+							<h3>links</h3>
+							<p>Glob: <code>src/data/links/**/*.{md,mdx}</code></p>
+							<p>
+								Adds required <code>title</code>, <code>link</code> (external
+								URL), and optional <code>via: { url, label }</code>.
+							</p>
+						</div>
+						<div class="panel">
+							<h3>books</h3>
+							<p>
+								Loader: <code>file('src/data/books.json')</code> — every object
+								in the JSON array becomes one entry.
+							</p>
+							<p>
+								Fields:
+								<code
+									>id, title, subtitle?, author, cover, tags[], status,
+									dominantColor</code
+								>. <code>status</code> is an enum:
+								<code>unread | read | reading</code>.
+							</p>
+						</div>
+					</div>
 
-      <p>
-        Two important details about the schemas:
-      </p>
-      <ul>
-        <li>
-          <code>pubDate</code> accepts string/number/Date and is
-          <em>transformed</em> into a JS <code>Date</code> object. Downstream
-          code can just call <code>.getFullYear()</code> without parsing.
-        </li>
-        <li>
-          Each schema <code>.transform()</code>s the entry to also expose
-          <code>categories</code> (a copy of <code>tags</code>) so RSS items
-          have what they need with no extra mapping.
-        </li>
-      </ul>
+					<p>Two important details about the schemas:</p>
+					<ul>
+						<li>
+							<code>pubDate</code> accepts string/number/Date and is
+							<em>transformed</em> into a JS <code>Date</code> object.
+							Downstream code can just call <code>.getFullYear()</code> without
+							parsing.
+						</li>
+						<li>
+							Each schema <code>.transform()</code>s the entry to also expose
+							<code>categories</code> (a copy of <code>tags</code>) so RSS items
+							have what they need with no extra mapping.
+						</li>
+					</ul>
 
-      <h3>What an entry file looks like</h3>
-      <pre><code>---
+					<h3>What an entry file looks like</h3>
+					<pre><code>---
 pubDate: "2026-03-11T18:52+0530"
 tags:
   - "anchor-positioning"
@@ -364,321 +545,487 @@ tags:
 ---
 
 Body of the note in Markdown…</code></pre>
-    </section>
+				</section>
 
-    <section id="data-flow">
-      <h2>6. Data flow — from <code>.md</code> to rendered page</h2>
-      <p>
-        Two small utilities mediate between raw collections and the pages that
-        consume them.
-      </p>
+				<section id="data-flow">
+					<h2>6. Data flow — from <code>.md</code> to rendered page</h2>
+					<p>
+						Two small utilities mediate between raw collections and the pages
+						that consume them.
+					</p>
 
-      <h3><code>loadAndFormatCollection(name)</code></h3>
-      <p>In <a href="src/utils/collection.ts"><code>src/utils/collection.ts</code></a>. For one collection it:</p>
-      <ol>
-        <li>Calls <code>getCollection(name)</code> (Astro’s built-in).</li>
-        <li>Filters out <code>draft: true</code> entries <em>in production only</em>.</li>
-        <li>For each entry, calls <code>render(entry)</code> to get a <code>&lt;Content /&gt;</code> component (compiled MDX/MD).</li>
-        <li>Computes <code>relativeURL</code> from <code>YYYY/MM/slug/</code> and an <code>absoluteURL</code> like <code>/notes/2026/03/foo/</code>.</li>
-        <li>Sorts newest first by <code>pubDate</code>.</li>
-      </ol>
-      <p>
-        The return type is <code>EnhancedEntry&lt;T&gt;[]</code> — see
-        <a href="src/types/entries.ts"><code>src/types/entries.ts</code></a>:
-        a <code>CollectionEntry</code> plus the three injected fields
-        (<code>Content</code>, <code>relativeURL</code>, <code>absoluteURL</code>).
-      </p>
+					<h3><code>loadAndFormatCollection(name)</code></h3>
+					<p>
+						In
+						<a href="src/utils/collection.ts"
+							><code>src/utils/collection.ts</code></a
+						>. For one collection it:
+					</p>
+					<ol>
+						<li>Calls <code>getCollection(name)</code> (Astro’s built-in).</li>
+						<li>
+							Filters out <code>draft: true</code> entries
+							<em>in production only</em>.
+						</li>
+						<li>
+							For each entry, calls <code>render(entry)</code> to get a
+							<code>&lt;Content /&gt;</code> component (compiled MDX/MD).
+						</li>
+						<li>
+							Computes <code>relativeURL</code> from
+							<code>YYYY/MM/slug/</code> and an <code>absoluteURL</code> like
+							<code>/notes/2026/03/foo/</code>.
+						</li>
+						<li>Sorts newest first by <code>pubDate</code>.</li>
+					</ol>
+					<p>
+						The return type is <code>EnhancedEntry&lt;T&gt;[]</code> — see
+						<a href="src/types/entries.ts"><code>src/types/entries.ts</code></a
+						>: a <code>CollectionEntry</code> plus the three injected fields
+						(<code>Content</code>, <code>relativeURL</code>,
+						<code>absoluteURL</code>).
+					</p>
 
-      <h3><code>loadAllEntries()</code></h3>
-      <p>In <a href="src/utils/loadAllEntries.ts"><code>src/utils/loadAllEntries.ts</code></a>. Loads notes, articles, links in parallel, concatenates them, and sorts the union newest-first. This is what powers anything that mixes types: the homepage feed, the archive, tag pages, and the combined RSS feed.</p>
+					<h3><code>loadAllEntries()</code></h3>
+					<p>
+						In
+						<a href="src/utils/loadAllEntries.ts"
+							><code>src/utils/loadAllEntries.ts</code></a
+						>. Loads notes, articles, links in parallel, concatenates them, and
+						sorts the union newest-first. This is what powers anything that
+						mixes types: the homepage feed, the archive, tag pages, and the
+						combined RSS feed.
+					</p>
 
-      <div class="diagram">.md / .mdx files
-       │
-       ▼
-  getCollection()          ← Astro reads & Zod-validates frontmatter
-       │
-       ▼
-  loadAndFormatCollection()  ← drafts filtered, render() called,
-       │                       URLs computed, sorted by date
-       ▼
-  loadAllEntries()           ← merges notes + articles + links
-       │
-       ▼
-  page .astro file           ← getStaticPaths() or top-of-file await
-       │
-       ▼
-  Layout (FeedPage / EntryPage)
-       │
-       ▼
-  built HTML in dist/</div>
-    </section>
+					<div class="diagram">
+						.md / .mdx files │ ▼ getCollection() ← Astro reads & Zod-validates
+						frontmatter │ ▼ loadAndFormatCollection() ← drafts filtered,
+						render() called, │ URLs computed, sorted by date ▼ loadAllEntries()
+						← merges notes + articles + links │ ▼ page .astro file ←
+						getStaticPaths() or top-of-file await │ ▼ Layout (FeedPage /
+						EntryPage) │ ▼ built HTML in dist/
+					</div>
+				</section>
 
-    <section id="routing">
-      <h2>7. Routing</h2>
-      <p>Pages fall into three shapes.</p>
+				<section id="routing">
+					<h2>7. Routing</h2>
+					<p>Pages fall into three shapes.</p>
 
-      <h3>Static pages</h3>
-      <p>Plain <code>.astro</code> files with no params: <code>archive.astro</code>, <code>tags/index.astro</code>, <code>search/index.astro</code>, <code>library/index.astro</code>, <code>antilibrary/index.astro</code>. Each does its own <code>await</code> at the top of the frontmatter.</p>
+					<h3>Static pages</h3>
+					<p>
+						Plain <code>.astro</code> files with no params:
+						<code>archive.astro</code>, <code>tags/index.astro</code>,
+						<code>search/index.astro</code>, <code>library/index.astro</code>,
+						<code>antilibrary/index.astro</code>. Each does its own
+						<code>await</code> at the top of the frontmatter.
+					</p>
 
-      <h3>Paginated feeds — <code>[...page].astro</code></h3>
-      <p>
-        The rest-bracket name is an Astro convention: page 1 is at the parent
-        URL, subsequent pages get appended as <code>/2/</code>, <code>/3/</code>.
-        The route exports <code>getStaticPaths</code> and uses the
-        <code>paginate</code> helper Astro injects:
-      </p>
-      <pre><code>export const getStaticPaths = (async ({ paginate }) =&gt; {
+					<h3>Paginated feeds — <code>[...page].astro</code></h3>
+					<p>
+						The rest-bracket name is an Astro convention: page 1 is at the
+						parent URL, subsequent pages get appended as <code>/2/</code>,
+						<code>/3/</code>. The route exports <code>getStaticPaths</code> and
+						uses the <code>paginate</code> helper Astro injects:
+					</p>
+					<pre><code>export const getStaticPaths = (async ({ paginate }) =&gt; {
   const allEntries = await loadAllEntries();
   return paginate(allEntries, { pageSize: 20 });
 });</code></pre>
-      <p>Used for: <code>/</code>, <code>/notes/</code>, <code>/articles/</code>, <code>/links/</code>.</p>
+					<p>
+						Used for: <code>/</code>, <code>/notes/</code>,
+						<code>/articles/</code>, <code>/links/</code>.
+					</p>
 
-      <h3>Dynamic entry pages — <code>[...slug].astro</code></h3>
-      <p>
-        Per-collection. <code>getStaticPaths</code> maps every entry to a route
-        whose <code>slug</code> param is its precomputed
-        <code>relativeURL</code> (<code>YYYY/MM/file-id/</code>):
-      </p>
-      <pre><code>export async function getStaticPaths() {
+					<h3>Dynamic entry pages — <code>[...slug].astro</code></h3>
+					<p>
+						Per-collection. <code>getStaticPaths</code> maps every entry to a
+						route whose <code>slug</code> param is its precomputed
+						<code>relativeURL</code> (<code>YYYY/MM/file-id/</code>):
+					</p>
+					<pre><code>export async function getStaticPaths() {
   const posts = await loadAndFormatCollection('notes');
   return posts.map((post) =&gt; ({
     params: { slug: post.relativeURL },
     props: { entry: post },
   }));
 }</code></pre>
-      <p>The page just renders <code>&lt;EntryPage entry={entry} /&gt;</code>.</p>
+					<p>
+						The page just renders
+						<code>&lt;EntryPage entry={entry} /&gt;</code>.
+					</p>
 
-      <h3>Full route map</h3>
-      <table>
-        <thead><tr><th>URL</th><th>Source</th></tr></thead>
-        <tbody>
-          <tr><td><code>/</code>, <code>/2/</code>, …</td><td><code>pages/[...page].astro</code> — combined feed</td></tr>
-          <tr><td><code>/notes/</code>, <code>/notes/2/</code></td><td><code>pages/notes/[...page].astro</code></td></tr>
-          <tr><td><code>/notes/YYYY/MM/slug/</code></td><td><code>pages/notes/[...slug].astro</code></td></tr>
-          <tr><td><code>/articles/...</code></td><td>parallel to notes</td></tr>
-          <tr><td><code>/links/...</code></td><td>parallel to notes</td></tr>
-          <tr><td><code>/tags/</code></td><td><code>pages/tags/index.astro</code> — tag cloud, sized by count</td></tr>
-          <tr><td><code>/tags/:tag/</code></td><td><code>pages/tags/[tag].astro</code> — entries with that tag</td></tr>
-          <tr><td><code>/archive/</code></td><td><code>pages/archive.astro</code> — years &amp; months</td></tr>
-          <tr><td><code>/archive/:year/:month/</code></td><td><code>pages/archive/[year]/[month].astro</code></td></tr>
-          <tr><td><code>/library/</code>, <code>/antilibrary/</code></td><td>book gallery, filtered by <code>status</code></td></tr>
-          <tr><td><code>/search/</code></td><td>Pagefind UI, disabled in dev</td></tr>
-          <tr><td><code>/rss.xml</code>, <code>/notes/rss.xml</code>, etc.</td><td><code>rss.xml.js</code> endpoints</td></tr>
-        </tbody>
-      </table>
-      <p>
-        Note <code>trailingSlash: 'always'</code> in <code>astro.config.mjs</code>
-        — every internal URL ends with <code>/</code>.
-      </p>
-    </section>
+					<h3>Full route map</h3>
+					<table>
+						<thead>
+							<tr>
+								<th>URL</th>
+								<th>Source</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>/</code>, <code>/2/</code>, …</td>
+								<td><code>pages/[...page].astro</code> — combined feed</td>
+							</tr>
+							<tr>
+								<td><code>/notes/</code>, <code>/notes/2/</code></td>
+								<td><code>pages/notes/[...page].astro</code></td>
+							</tr>
+							<tr>
+								<td><code>/notes/YYYY/MM/slug/</code></td>
+								<td><code>pages/notes/[...slug].astro</code></td>
+							</tr>
+							<tr>
+								<td><code>/articles/...</code></td>
+								<td>parallel to notes</td>
+							</tr>
+							<tr>
+								<td><code>/links/...</code></td>
+								<td>parallel to notes</td>
+							</tr>
+							<tr>
+								<td><code>/tags/</code></td>
+								<td>
+									<code>pages/tags/index.astro</code> — tag cloud, sized by
+									count
+								</td>
+							</tr>
+							<tr>
+								<td><code>/tags/:tag/</code></td>
+								<td>
+									<code>pages/tags/[tag].astro</code> — entries with that tag
+								</td>
+							</tr>
+							<tr>
+								<td><code>/archive/</code></td>
+								<td><code>pages/archive.astro</code> — years &amp; months</td>
+							</tr>
+							<tr>
+								<td><code>/archive/:year/:month/</code></td>
+								<td><code>pages/archive/[year]/[month].astro</code></td>
+							</tr>
+							<tr>
+								<td><code>/library/</code>, <code>/antilibrary/</code></td>
+								<td>book gallery, filtered by <code>status</code></td>
+							</tr>
+							<tr>
+								<td><code>/search/</code></td>
+								<td>Pagefind UI, disabled in dev</td>
+							</tr>
+							<tr>
+								<td>
+									<code>/rss.xml</code>, <code>/notes/rss.xml</code>, etc.
+								</td>
+								<td><code>rss.xml.js</code> endpoints</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>
+						Note <code>trailingSlash: 'always'</code> in
+						<code>astro.config.mjs</code> — every internal URL ends with
+						<code>/</code>.
+					</p>
+				</section>
 
-    <section id="layouts">
-      <h2>8. Layouts &amp; components</h2>
+				<section id="layouts">
+					<h2>8. Layouts &amp; components</h2>
 
-      <p>Four layouts compose the site. Each page picks one:</p>
-      <table>
-        <thead><tr><th>Layout</th><th>Used by</th><th>Renders</th></tr></thead>
-        <tbody>
-          <tr><td><code>BaseLayout</code></td><td>everything</td><td><code>&lt;html&gt;</code> shell + <code>BaseHead</code> + <code>SkipLink</code> + <code>&lt;slot /&gt;</code></td></tr>
-          <tr><td><code>FeedPage</code></td><td>notes, articles, links list pages</td><td>banner, header, paginated entries, sidebar with “currently reading”</td></tr>
-          <tr><td><code>EntryPage</code></td><td>single note/article/link pages</td><td>heading, body, pub/updated dates, tags, share actions, back link</td></tr>
-          <tr><td><code>BookGallery</code></td><td>library + antilibrary</td><td>filterable book grid, view-transition names per cover</td></tr>
-        </tbody>
-      </table>
+					<p>Four layouts compose the site. Each page picks one:</p>
+					<table>
+						<thead>
+							<tr>
+								<th>Layout</th>
+								<th>Used by</th>
+								<th>Renders</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>BaseLayout</code></td>
+								<td>everything</td>
+								<td>
+									<code>&lt;html&gt;</code> shell + <code>BaseHead</code> +
+									<code>SkipLink</code> + <code>&lt;slot /&gt;</code>
+								</td>
+							</tr>
+							<tr>
+								<td><code>FeedPage</code></td>
+								<td>notes, articles, links list pages</td>
+								<td>
+									banner, header, paginated entries, sidebar with “currently
+									reading”
+								</td>
+							</tr>
+							<tr>
+								<td><code>EntryPage</code></td>
+								<td>single note/article/link pages</td>
+								<td>
+									heading, body, pub/updated dates, tags, share actions, back
+									link
+								</td>
+							</tr>
+							<tr>
+								<td><code>BookGallery</code></td>
+								<td>library + antilibrary</td>
+								<td>filterable book grid, view-transition names per cover</td>
+							</tr>
+						</tbody>
+					</table>
 
-      <p>
-        <strong><code>BaseHead</code></strong> handles all the head-tag plumbing in one place:
-        title, OG/Twitter meta, canonical URL, fonts (preload + variable font
-        via <code>astro-font</code>), CSS, favicons (an emoji SVG in dev, real
-        files in prod), the four RSS <code>&lt;link rel="alternate"&gt;</code>s,
-        and the tiny inline script that swaps <code>no-js</code> → <code>js</code>
-        on <code>&lt;html&gt;</code>.
-      </p>
+					<p>
+						<strong><code>BaseHead</code></strong> handles all the head-tag
+						plumbing in one place: title, OG/Twitter meta, canonical URL, fonts
+						(preload + variable font via <code>astro-font</code>), CSS, favicons
+						(an emoji SVG in dev, real files in prod), the four RSS
+						<code>&lt;link rel="alternate"&gt;</code>s, and the tiny inline
+						script that swaps <code>no-js</code> → <code>js</code> on
+						<code>&lt;html&gt;</code>.
+					</p>
 
-      <p>
-        <strong>Component highlights</strong>:
-      </p>
-      <ul>
-        <li><code>EntryHeading</code> picks the right element/format per collection type.</li>
-        <li><code>EntryList</code> + <code>PaginatedEntries</code> render lists with pagination controls.</li>
-        <li><code>SiteNav</code> computes <code>aria-current="page"</code> vs <code>"true"</code> for active vs ancestor routes.</li>
-        <li><code>EntryActions</code>, <code>CopyToClipboard</code>, <code>MastodonShare</code>, <code>BackLink</code> — small widgets, each paired with a tiny script in <code>src/scripts/</code>.</li>
-        <li><code>CurrentlyReading</code> reads <code>books</code> entries where <code>status === 'reading'</code>.</li>
-      </ul>
+					<p><strong>Component highlights</strong>:</p>
+					<ul>
+						<li>
+							<code>EntryHeading</code> picks the right element/format per
+							collection type.
+						</li>
+						<li>
+							<code>EntryList</code> + <code>PaginatedEntries</code> render
+							lists with pagination controls.
+						</li>
+						<li>
+							<code>SiteNav</code> computes <code>aria-current="page"</code> vs
+							<code>"true"</code> for active vs ancestor routes.
+						</li>
+						<li>
+							<code>EntryActions</code>, <code>CopyToClipboard</code>,
+							<code>MastodonShare</code>, <code>BackLink</code> — small widgets,
+							each paired with a tiny script in <code>src/scripts/</code>.
+						</li>
+						<li>
+							<code>CurrentlyReading</code> reads <code>books</code> entries
+							where <code>status === 'reading'</code>.
+						</li>
+					</ul>
 
-      <div class="note">
-        <strong>Type guard trick worth noting</strong> in <code>EntryPage.astro</code>:
-        because <code>entry.data</code> is a union of three schemas,
-        accessing <code>updatedDate</code> or <code>via</code> uses
-        <code>'updatedDate' in entry.data</code> as a TypeScript narrowing
-        guard — clean and statically checked.
-      </div>
-    </section>
+					<div class="note">
+						<strong>Type guard trick worth noting</strong> in
+						<code>EntryPage.astro</code>: because <code>entry.data</code> is a
+						union of three schemas, accessing <code>updatedDate</code> or
+						<code>via</code> uses <code>'updatedDate' in entry.data</code> as a
+						TypeScript narrowing guard — clean and statically checked.
+					</div>
+				</section>
 
-    <section id="rss">
-      <h2>9. RSS feeds</h2>
-      <p>
-        Four feeds are generated, all as Astro <em>endpoints</em>
-        (<code>.js</code> files in <code>pages/</code> that export
-        <code>GET</code>):
-      </p>
-      <ul>
-        <li><code>/rss.xml</code> — everything</li>
-        <li><code>/notes/rss.xml</code>, <code>/articles/rss.xml</code>, <code>/links/rss.xml</code></li>
-      </ul>
-      <p>
-        The interesting bit is in <a href="src/utils/rss.ts"><code>src/utils/rss.ts</code></a>: feeds need full HTML, but
-        <code>render(entry)</code> gives you an Astro <em>component</em>, not a
-        string. The util spins up an <code>experimental_AstroContainer</code>
-        with the MDX renderer loaded, renders each Content component to a
-        string, then rewrites every relative <code>src</code>/<code>href</code>
-        to absolute using <code>baseUrl</code>. Per-collection branching maps
-        notes to <code>description</code>, articles/links to <code>content</code>,
-        and links use the external URL as their <code>link</code>.
-      </p>
-    </section>
+				<section id="rss">
+					<h2>9. RSS feeds</h2>
+					<p>
+						Four feeds are generated, all as Astro <em>endpoints</em> (<code
+							>.js</code
+						>
+						files in <code>pages/</code> that export <code>GET</code>):
+					</p>
+					<ul>
+						<li><code>/rss.xml</code> — everything</li>
+						<li>
+							<code>/notes/rss.xml</code>, <code>/articles/rss.xml</code>,
+							<code>/links/rss.xml</code>
+						</li>
+					</ul>
+					<p>
+						The interesting bit is in
+						<a href="src/utils/rss.ts"><code>src/utils/rss.ts</code></a
+						>: feeds need full HTML, but <code>render(entry)</code> gives you an
+						Astro <em>component</em>, not a string. The util spins up an
+						<code>experimental_AstroContainer</code> with the MDX renderer
+						loaded, renders each Content component to a string, then rewrites
+						every relative <code>src</code>/<code>href</code> to absolute using
+						<code>baseUrl</code>. Per-collection branching maps notes to
+						<code>description</code>, articles/links to <code>content</code>,
+						and links use the external URL as their <code>link</code>.
+					</p>
+				</section>
 
-    <section id="search">
-      <h2>10. Search — Pagefind</h2>
-      <p>
-        <a href="https://pagefind.app">Pagefind</a> is a static search indexer.
-        After <code>astro build</code>, the <code>astro-pagefind</code>
-        integration crawls <code>dist/</code> and writes a <code>/pagefind/</code>
-        directory of pre-built index shards + a JS client. At runtime, the
-        browser fetches just the shards it needs.
-      </p>
-      <p>
-        Two pieces wire this together:
-      </p>
-      <ul>
-        <li>
-          In <code>EntryPage.astro</code>, the body wrapper has
-          <code>data-pagefind-body</code>, <code>data-pagefind-meta="date:…"</code>,
-          and <code>data-pagefind-filter="collection:…"</code>. That tells
-          Pagefind <em>what</em> to index and how to facet it.
-        </li>
-        <li>
-          <code>/search/</code> renders the UI and loads
-          <code>/src/scripts/search.js</code>, which imports
-          <code>/pagefind/pagefind.js</code> at runtime. The Vite config marks
-          that path as <code>external</code> so Rollup doesn’t try to bundle it
-          (it only exists after the post-build step).
-        </li>
-      </ul>
-      <p>
-        Search is disabled in <code>npm run dev</code> because the index
-        doesn’t exist there — the search page shows a friendly message instead.
-      </p>
-    </section>
+				<section id="search">
+					<h2>10. Search — Pagefind</h2>
+					<p>
+						<a href="https://pagefind.app">Pagefind</a> is a static search
+						indexer. After <code>astro build</code>, the
+						<code>astro-pagefind</code> integration crawls
+						<code>dist/</code> and writes a <code>/pagefind/</code>
+						directory of pre-built index shards + a JS client. At runtime, the
+						browser fetches just the shards it needs.
+					</p>
+					<p>Two pieces wire this together:</p>
+					<ul>
+						<li>
+							In <code>EntryPage.astro</code>, the body wrapper has
+							<code>data-pagefind-body</code>,
+							<code>data-pagefind-meta="date:…"</code>, and
+							<code>data-pagefind-filter="collection:…"</code>. That tells
+							Pagefind <em>what</em> to index and how to facet it.
+						</li>
+						<li>
+							<code>/search/</code> renders the UI and loads
+							<code>/src/scripts/search.js</code>, which imports
+							<code>/pagefind/pagefind.js</code> at runtime. The Vite config
+							marks that path as <code>external</code> so Rollup doesn’t try to
+							bundle it (it only exists after the post-build step).
+						</li>
+					</ul>
+					<p>
+						Search is disabled in <code>npm run dev</code> because the index
+						doesn’t exist there — the search page shows a friendly message
+						instead.
+					</p>
+				</section>
 
-    <section id="books">
-      <h2>11. Books pipeline</h2>
-      <p>
-        Books are a JSON-backed collection — fast to edit, no per-file
-        frontmatter overhead. Each book has a <code>cover</code> image and a
-        precomputed <code>dominantColor</code> used for the wrapper background.
-      </p>
-      <p>
-        That color isn’t computed at build time. There’s a separate Node
-        script: <code>scripts/update-book-colors.mjs</code>, run via
-        <code>npm run books:colors</code>. It reads each cover with
-        <code>sharp</code>, derives a dominant color, and writes it back into
-        <code>books.json</code>. So the build stays fast; new books just need
-        the script run once.
-      </p>
-      <p>
-        <code>BookGallery.astro</code> filters by <code>status</code>
-        (passed as a prop — <code>['read']</code> for library,
-        <code>['unread']</code> for antilibrary), assigns a unique
-        <code>view-transition-name</code> per cover, and applies a small random
-        rotation for visual character.
-      </p>
-    </section>
+				<section id="books">
+					<h2>11. Books pipeline</h2>
+					<p>
+						Books are a JSON-backed collection — fast to edit, no per-file
+						frontmatter overhead. Each book has a <code>cover</code> image and a
+						precomputed <code>dominantColor</code> used for the wrapper
+						background.
+					</p>
+					<p>
+						That color isn’t computed at build time. There’s a separate Node
+						script: <code>scripts/update-book-colors.mjs</code>, run via
+						<code>npm run books:colors</code>. It reads each cover with
+						<code>sharp</code>, derives a dominant color, and writes it back
+						into <code>books.json</code>. So the build stays fast; new books
+						just need the script run once.
+					</p>
+					<p>
+						<code>BookGallery.astro</code> filters by
+						<code>status</code> (passed as a prop — <code>['read']</code> for
+						library, <code>['unread']</code> for antilibrary), assigns a unique
+						<code>view-transition-name</code> per cover, and applies a small
+						random rotation for visual character.
+					</p>
+				</section>
 
-    <section id="styling">
-      <h2>12. Styling</h2>
-      <p>
-        Plain CSS, hand-rolled, no utility framework. The folder structure
-        under <code>src/css/</code> follows a CUBE-like organisation:
-      </p>
-      <ul class="tight">
-        <li><code>reset.css</code>, <code>global.css</code>, <code>style.css</code> — root-level entries</li>
-        <li><code>theme/</code> — design tokens (colors, type scale, space scale)</li>
-        <li><code>blocks/</code> — component-scoped styles</li>
-        <li><code>composition/</code> — layout primitives (stack, cluster, center, flow…)</li>
-        <li><code>exceptions/</code> — one-off overrides</li>
-        <li><code>utilities/</code> — single-purpose helpers</li>
-      </ul>
-      <p>
-        Fluid type and spacing come from <a href="https://utopia.fyi">Utopia</a>
-        via <code>postcss-utopia</code>. <code>postcss-preset-env</code> handles
-        future syntax for the browserslist target <code>baseline widely available</code>.
-        Shiki provides syntax highlighting for code blocks using the
-        <code>css-variables</code> theme — so your CSS controls the palette.
-      </p>
-    </section>
+				<section id="styling">
+					<h2>12. Styling</h2>
+					<p>
+						Plain CSS, hand-rolled, no utility framework. The folder structure
+						under <code>src/css/</code> follows a CUBE-like organisation:
+					</p>
+					<ul class="tight">
+						<li>
+							<code>reset.css</code>, <code>global.css</code>,
+							<code>style.css</code> — root-level entries
+						</li>
+						<li>
+							<code>theme/</code> — design tokens (colors, type scale, space
+							scale)
+						</li>
+						<li><code>blocks/</code> — component-scoped styles</li>
+						<li>
+							<code>composition/</code> — layout primitives (stack, cluster,
+							center, flow…)
+						</li>
+						<li><code>exceptions/</code> — one-off overrides</li>
+						<li><code>utilities/</code> — single-purpose helpers</li>
+					</ul>
+					<p>
+						Fluid type and spacing come from
+						<a href="https://utopia.fyi">Utopia</a> via
+						<code>postcss-utopia</code>. <code>postcss-preset-env</code> handles
+						future syntax for the browserslist target
+						<code>baseline widely available</code>. Shiki provides syntax
+						highlighting for code blocks using the
+						<code>css-variables</code> theme — so your CSS controls the palette.
+					</p>
+				</section>
 
-    <section id="build">
-      <h2>13. Build &amp; deploy</h2>
-      <table>
-        <thead><tr><th>Command</th><th>What it does</th></tr></thead>
-        <tbody>
-          <tr><td><code>npm run dev</code></td><td>Local dev server at <code>localhost:4321</code> with HMR. Drafts visible. Search disabled.</td></tr>
-          <tr><td><code>npm run build</code></td><td><code>astro check</code> (type-check <code>.astro</code> + TS) then <code>astro build</code> → static <code>dist/</code>, drafts filtered, HTML minified, Pagefind index generated.</td></tr>
-          <tr><td><code>npm run preview</code></td><td>Serves the <code>dist/</code> output locally to sanity-check the production build.</td></tr>
-          <tr><td><code>npm run books:colors</code></td><td>Recompute dominant colors for book covers.</td></tr>
-        </tbody>
-      </table>
-      <p>
-        <strong>Hosting:</strong> Netlify (the <code>.netlify/</code> folder
-        gives it away). It’s static hosting — Netlify builds the repo, serves
-        <code>dist/</code>. No serverless functions, no edge logic.
-      </p>
-    </section>
+				<section id="build">
+					<h2>13. Build &amp; deploy</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Command</th>
+								<th>What it does</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>npm run dev</code></td>
+								<td>
+									Local dev server at <code>localhost:4321</code> with HMR.
+									Drafts visible. Search disabled.
+								</td>
+							</tr>
+							<tr>
+								<td><code>npm run build</code></td>
+								<td>
+									<code>astro check</code> (type-check <code>.astro</code> + TS)
+									then <code>astro build</code> → static <code>dist/</code>,
+									drafts filtered, HTML minified, Pagefind index generated.
+								</td>
+							</tr>
+							<tr>
+								<td><code>npm run preview</code></td>
+								<td>
+									Serves the <code>dist/</code> output locally to sanity-check
+									the production build.
+								</td>
+							</tr>
+							<tr>
+								<td><code>npm run books:colors</code></td>
+								<td>Recompute dominant colors for book covers.</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>
+						<strong>Hosting:</strong> Netlify (the <code>.netlify/</code> folder
+						gives it away). It’s static hosting — Netlify builds the repo,
+						serves <code>dist/</code>. No serverless functions, no edge logic.
+					</p>
+				</section>
 
-    <section id="mental-model">
-      <h2>14. Mental model recap</h2>
-      <p>
-        If you forget everything else, hold on to this:
-      </p>
-      <ol>
-        <li>
-          <strong>Content is files.</strong> Notes/articles/links are Markdown
-          in <code>src/data/</code>. Books are one JSON file. There is no CMS,
-          no database. Writing a new post = creating a file.
-        </li>
-        <li>
-          <strong>Schemas validate frontmatter.</strong> If a date is missing
-          or malformed, <code>astro check</code> fails. Frontmatter dates
-          arrive in <code>.astro</code> code as real <code>Date</code> objects.
-        </li>
-        <li>
-          <strong>Pages do the orchestration.</strong> Each route awaits the
-          data it needs (via <code>loadAllEntries</code> or
-          <code>loadAndFormatCollection</code>), and either renders directly or
-          uses <code>getStaticPaths</code> to fan out into many static URLs.
-        </li>
-        <li>
-          <strong>Build time, not request time.</strong> Everything you see in
-          <code>.astro</code> frontmatter executes once during
-          <code>astro build</code>. The browser only sees plain HTML + a few
-          small vanilla JS files.
-        </li>
-        <li>
-          <strong>Two interactive features need post-build steps.</strong>
-          Pagefind indexes <code>dist/</code> after build for search; book
-          colors are pre-computed by a separate script when you add a book.
-        </li>
-      </ol>
-      <p>
-        Adding a new note? Drop a Markdown file in
-        <code>src/data/notes/</code>, fill in <code>pubDate</code> and
-        <code>tags</code>, rebuild. The home feed, the notes feed, the
-        relevant tag pages, the archive month, all four RSS feeds, and the
-        search index all update automatically.
-      </p>
-    </section>
-  </main>
-</div>
-</body>
+				<section id="mental-model">
+					<h2>14. Mental model recap</h2>
+					<p>If you forget everything else, hold on to this:</p>
+					<ol>
+						<li>
+							<strong>Content is files.</strong> Notes/articles/links are
+							Markdown in <code>src/data/</code>. Books are one JSON file. There
+							is no CMS, no database. Writing a new post = creating a file.
+						</li>
+						<li>
+							<strong>Schemas validate frontmatter.</strong> If a date is
+							missing or malformed, <code>astro check</code> fails. Frontmatter
+							dates arrive in <code>.astro</code> code as real
+							<code>Date</code> objects.
+						</li>
+						<li>
+							<strong>Pages do the orchestration.</strong> Each route awaits the
+							data it needs (via <code>loadAllEntries</code> or
+							<code>loadAndFormatCollection</code>), and either renders directly
+							or uses <code>getStaticPaths</code> to fan out into many static
+							URLs.
+						</li>
+						<li>
+							<strong>Build time, not request time.</strong> Everything you see
+							in <code>.astro</code> frontmatter executes once during
+							<code>astro build</code>. The browser only sees plain HTML + a few
+							small vanilla JS files.
+						</li>
+						<li>
+							<strong>Two interactive features need post-build steps.</strong>
+							Pagefind indexes <code>dist/</code> after build for search; book
+							colors are pre-computed by a separate script when you add a book.
+						</li>
+					</ol>
+					<p>
+						Adding a new note? Drop a Markdown file in
+						<code>src/data/notes/</code>, fill in <code>pubDate</code> and
+						<code>tags</code>, rebuild. The home feed, the notes feed, the
+						relevant tag pages, the archive month, all four RSS feeds, and the
+						search index all update automatically.
+					</p>
+				</section>
+			</main>
+		</div>
+	</body>
 </html>

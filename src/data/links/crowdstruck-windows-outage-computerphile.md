@@ -3,8 +3,8 @@ title: Crowdstruck (Windows Outage) - Computerphile - YouTube
 link: https://www.youtube.com/watch?v=rlaNMJeA1EA
 pubDate: 2024-07-24
 tags:
-  - "operating-system"
-  - "computerphile"
+  - 'operating-system'
+  - 'computerphile'
 ---
 
 Dr. Steve Bagley explains in layman's terms what an operating system is:

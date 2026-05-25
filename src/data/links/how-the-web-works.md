@@ -3,7 +3,7 @@ title: Browsing the web - Learn web development | MDN
 link: https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web#how_the_web_works_the_basics
 pubDate: 2025-09-22T11:35+0530
 tags:
-  - "web"
+  - 'web'
 ---
 
 I really like this explanation of what happens in between the user entering a web address into the browser and the browser displaying the result.

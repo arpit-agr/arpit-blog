@@ -1,11 +1,11 @@
-import rss from "@astrojs/rss";
-import { loadAndFormatCollection } from "@utils/collection";
-import { renderRSSItems } from "@utils/rss";
-import { NOTES_TITLE, NOTES_DESCRIPTION } from "src/consts";
+import rss from '@astrojs/rss';
+import { loadAndFormatCollection } from '@utils/collection';
+import { renderRSSItems } from '@utils/rss';
+import { NOTES_TITLE, NOTES_DESCRIPTION } from 'src/consts';
 
 export async function GET(context) {
 	const baseUrl = context.site.origin;
-	const entries = await loadAndFormatCollection("notes");
+	const entries = await loadAndFormatCollection('notes');
 	const items = await renderRSSItems(entries, baseUrl);
 
 	return rss({

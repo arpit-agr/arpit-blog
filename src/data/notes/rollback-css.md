@@ -1,8 +1,8 @@
 ---
-pubDate: "2026-02-25T10:10+0530"
+pubDate: '2026-02-25T10:10+0530'
 tags:
-  - "cascade"
-  - "css"
+  - 'cascade'
+  - 'css'
 ---
 
 I keep forgetting how each of the following CSS values rolls back a declaration to a different point in the cascade. It was about time I jotted it down for my future self before it slips my mind again for the 1000th time.

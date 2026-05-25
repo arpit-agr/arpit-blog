@@ -1,12 +1,12 @@
 ---
-title: "Adactio: Journal—Mind set"
+title: 'Adactio: Journal—Mind set'
 link: https://adactio.com/journal/9688
 pubDate: 2025-10-01T14:51+0530
 tags:
-  - "mindset"
-  - "discussion"
-  - "debate"
-  - "jeremy-keith"
+  - 'mindset'
+  - 'discussion'
+  - 'debate'
+  - 'jeremy-keith'
 ---
 
 Ah! Good old Jeremy Keith, insightful and funny.

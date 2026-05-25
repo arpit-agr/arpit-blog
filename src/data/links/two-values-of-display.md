@@ -1,16 +1,16 @@
 ---
-title: "Digging Into The Display Property: The Two Values Of Display — Smashing Magazine"
+title: 'Digging Into The Display Property: The Two Values Of Display — Smashing Magazine'
 link: https://www.smashingmagazine.com/2019/04/display-two-value/
 pubDate: 2024-05-13
 via:
   url: https://front-end.social/@stefan/112426743422409016
   label: Stefan Judis
 tags:
-  - "display"
-  - "layout"
-  - "css"
-  - "rachel-andrew"
-  - "smashing-magazine"
+  - 'display'
+  - 'layout'
+  - 'css'
+  - 'rachel-andrew'
+  - 'smashing-magazine'
 ---
 
 > In [Level 3 of the Display specification](https://www.w3.org/TR/css-display-3), the value of `display` is defined as two keywords. These keywords define the outer value of display, which will be `inline` or `block` and therefore define how the element behaves in the layout alongside other elements. They also define the inner value of the element — or how the direct children of that element behave.

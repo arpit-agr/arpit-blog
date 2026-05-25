@@ -1,11 +1,11 @@
 ---
-title: "Enrique Peñalosa: Why buses represent democracy in action - YouTube"
-link: "https://www.youtube.com/watch?v=j3YjeARuilI"
+title: 'Enrique Peñalosa: Why buses represent democracy in action - YouTube'
+link: 'https://www.youtube.com/watch?v=j3YjeARuilI'
 pubDate: 2025-10-29T16:46+0530
 tags:
-  - "mobility"
-  - "public-transport"
-  - "transport-infrastructure"
+  - 'mobility'
+  - 'public-transport'
+  - 'transport-infrastructure'
 ---
 
 Enrique Peñalosa on how to build cities that prioritise human beings over cars and guarantee a citizen's right to safe mobility.

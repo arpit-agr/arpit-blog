@@ -1,15 +1,15 @@
 ---
-title: "zachleat’s Twitter Archive—№ 20,184"
-pubDate: "2026-02-11T04:03+0530"
-link: "https://www.zachleat.com/twitter/982251377010270210/"
+title: 'zachleat’s Twitter Archive—№ 20,184'
+pubDate: '2026-02-11T04:03+0530'
+link: 'https://www.zachleat.com/twitter/982251377010270210/'
 tags:
-  - "frontend-architecture"
-  - "component-design"
-  - "frameworks"
-  - "zach-leatherman"
+  - 'frontend-architecture'
+  - 'component-design'
+  - 'frameworks'
+  - 'zach-leatherman'
 via:
-  url: "https://bsky.app/profile/vale.rocks/post/3meifzsskgc2l"
-  label: "Vale"
+  url: 'https://bsky.app/profile/vale.rocks/post/3meifzsskgc2l'
+  label: 'Vale'
 ---
 
 Zach Leatherman on frontend architecture and building for longevity amid framework churn:

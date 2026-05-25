@@ -1,12 +1,12 @@
 ---
-pubDate: "2026-01-23T09:16+0530"
+pubDate: '2026-01-23T09:16+0530'
 tags:
-  - "color"
-  - "interaction-design"
-  - "design"
-  - "css"
-  - "tools"
-  - "resource"
+  - 'color'
+  - 'interaction-design'
+  - 'design'
+  - 'css'
+  - 'tools'
+  - 'resource'
 ---
 
 Just spent some time playing with [OKpalette](https://okpalette.color.pizza/), a color extraction tool by [David Aerne](https://elastiq.ch/), and I'm in awe.

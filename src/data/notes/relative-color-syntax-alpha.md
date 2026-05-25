@@ -1,8 +1,8 @@
 ---
 pubDate: 2025-09-17T08:31+0530
 tags:
-  - "color"
-  - "css"
+  - 'color'
+  - 'css'
 ---
 
 [Ana Tudor wrote on Mastodon](https://mastodon.social/@anatudor/115214693132139947):

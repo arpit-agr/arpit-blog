@@ -1,16 +1,16 @@
 ---
 title: "Writing code is cheap now - Agentic Engineering Patterns - Simon Willison's Weblog"
-pubDate: "2026-03-24T10:05+0530"
-link: "https://simonwillison.net/guides/agentic-engineering-patterns/code-is-cheap/"
+pubDate: '2026-03-24T10:05+0530'
+link: 'https://simonwillison.net/guides/agentic-engineering-patterns/code-is-cheap/'
 tags:
-  - "agentic-engineering"
-  - "simon-willison"
+  - 'agentic-engineering'
+  - 'simon-willison'
 ---
 
 Simon Willison on what they mean by "good code":
 
 > - The code works. It does what it's meant to do, without bugs.
-> - We *know the code works*. We've taken steps to confirm to ourselves and to others that the code is fit for purpose.
+> - We _know the code works_. We've taken steps to confirm to ourselves and to others that the code is fit for purpose.
 > - It solves the right problem.
 > - It handles error cases gracefully and predictably: it doesn't just consider the happy path. Errors should provide enough information to help future maintainers understand what went wrong.
 > - It’s simple and minimal - it does only what’s needed, in a way that both humans and machines can understand now and maintain in the future.
