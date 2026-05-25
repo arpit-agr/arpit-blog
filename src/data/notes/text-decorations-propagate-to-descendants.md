@@ -5,8 +5,8 @@ tags:
   - 'text-decoration'
 ---
 
-Today I learned via [Paweł Grzybek's post on Mastodon](https://mastodon.social/@pawelgrzybek/116623309838307564), where [Temani Afif pointed out](https://front-end.social/@css/116623467529621115) that text decorations propagate to descendants, they aren't inherited.
+Today I learned via [Paweł Grzybek's post on Mastodon](https://mastodon.social/@pawelgrzybek/116623309838307564), where [Temani Afif pointed out](https://front-end.social/@css/116623467529621115) that text decorations propagate to their descendants, they aren't inherited.
 
-The difference between propagation and inheritance is that the descendants don't get their own `text-decoration` property. So, the line, color, style and thickness of the underline are all determined by the the ancestor where `text-decoration` was declared.
+The difference between propagation and inheritance is that the descendants don't get their own `text-decoration` property. So, the line, color, style and thickness are all determined by the ancestor where `text-decoration` was declared.
 
 A descendant can still declare its own `text-decoration`, but that creates an additional decoration on top, it doesn't modify or remove the ancestor's.
