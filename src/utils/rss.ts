@@ -1,7 +1,7 @@
 import type { AnyEntry } from '@appTypes/entries';
 import { render } from 'astro:content';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
-import { getContainerRenderer as getMDXRenderer } from '@astrojs/mdx';
+import { getContainerRenderer } from '@astrojs/mdx/container-renderer';
 import { loadRenderers } from 'astro:container';
 
 /**
@@ -12,7 +12,7 @@ import { loadRenderers } from 'astro:container';
  * - links: full HTML as `content`, `link` comes from frontmatter (the external URL)
  */
 export async function renderRSSItems(entries: AnyEntry[], baseUrl: string) {
-	const renderers = await loadRenderers([getMDXRenderer()]);
+	const renderers = await loadRenderers([getContainerRenderer()]);
 	const container = await AstroContainer.create({ renderers });
 
 	const items = [];

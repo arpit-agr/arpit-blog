@@ -31,18 +31,8 @@ export default defineConfig({
 	],
 	vite: {
 		build: {
-			rollupOptions: {
-				// This tells Rollup: "Don't try to find this file, it's external"
-				// 'satteri' / '@astrojs/markdown-satteri' are optional peer deps of
-				// @astrojs/mdx 6 that we don't use (we're on the default markdown-remark
-				// engine). Rollup eagerly follows the dynamic import of the satteri code
-				// path and fails to resolve these uninstalled packages, so externalize
-				// them — the code path never executes at runtime.
-				external: [
-					'/pagefind/pagefind.js',
-					'satteri',
-					'@astrojs/markdown-satteri',
-				],
+			rolldownOptions: {
+				external: ['/pagefind/pagefind.js'],
 			},
 		},
 	},
