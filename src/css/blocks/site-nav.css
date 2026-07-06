@@ -1,7 +1,16 @@
 .site-header {
 	z-index: 1;
 	background: var(--color-bg-primary);
-	border-block-end: var(--border-thickness-separator) solid var(--color-border);
+	/*border-block-end: var(--border-thickness-separator) solid var(--color-border);*/
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset-inline: 0;
+		inset-block-end: 0;
+		block-size: var(--border-thickness-separator);
+		background-color: var(--color-border);
+	}
 }
 
 .site-nav {
@@ -32,7 +41,7 @@
 			position: absolute;
 			inset-inline: var(--site-nav-padding-inline);
 			inset-block-end: 0;
-			block-size: var(--border-thickness-xl);
+			block-size: var(--border-thickness-2xl);
 			background: var(--color-accent);
 		}
 	}
