@@ -1,6 +1,6 @@
 .banner-text {
 	position: relative;
-	view-transition-name: banner-text;
+	/*view-transition-name: banner-text;*/
 	transition: mix-blend-mode 0.2s;
 	transition-behavior: allow-discrete;
 
