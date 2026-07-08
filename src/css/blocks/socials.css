@@ -11,6 +11,7 @@
 
 		svg {
 			display: inline;
+			margin-inline-end: 0.5ch;
 			vertical-align: middle;
 			color: var(--color-text-secondary);
 		}
