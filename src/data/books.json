@@ -131,6 +131,15 @@
 		"dominantColor": "#985828"
 	},
 	{
+		"id": "eloquent-java-script",
+		"title": "Eloquent JavaScript",
+		"author": "Marijn Haverbeke",
+		"tags": ["Web", "Non-fiction"],
+		"status": "reading",
+		"cover": "/src/images/book-covers/eloquent-java-script.jpg",
+		"dominantColor": "#FDD618"
+	},
+	{
 		"id": "footnotes-in-gaza",
 		"title": "Footnotes in Gaza",
 		"author": "Joe Sacco",
