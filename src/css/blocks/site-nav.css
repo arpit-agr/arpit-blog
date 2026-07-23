@@ -24,24 +24,24 @@
 	a {
 		display: block;
 		padding: var(--site-nav-padding-block) var(--site-nav-padding-inline);
+		text-decoration-color: #0000;
+
+		&:hover {
+			text-decoration-color: revert;
+		}
 	}
 }
 
 .site-nav {
 	[aria-current] {
 		position: relative;
-		text-decoration-color: #0000;
-
-		&:hover {
-			text-decoration-color: revert;
-		}
 
 		&::before {
 			content: '';
 			position: absolute;
 			inset-inline: var(--site-nav-padding-inline);
 			inset-block-end: 0;
-			block-size: var(--border-thickness-2xl);
+			block-size: var(--border-thickness-xl);
 			background: var(--color-accent);
 		}
 	}
