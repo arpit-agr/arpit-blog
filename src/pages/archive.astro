@@ -30,13 +30,9 @@ const monthLabelFormatter = new Intl.DateTimeFormat('en-IN', { month: 'long' });
 
 const archiveByYear = years.map((year) => {
 	const monthsForYear = Array.from(archive.get(year));
-	const sortedMonths = monthsForYear.toSorted(
-		(a, b) => Number(b) - Number(a),
-	);
+	const sortedMonths = monthsForYear.toSorted((a, b) => Number(a) - Number(b));
 	const monthsWithLabels = sortedMonths.map((month) => {
-		const label = monthLabelFormatter.format(
-			new Date(year, Number(month) - 1),
-		);
+		const label = monthLabelFormatter.format(new Date(year, Number(month) - 1));
 		return { month, label };
 	});
 	return { year, months: monthsWithLabels };
