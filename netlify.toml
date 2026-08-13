@@ -67,11 +67,21 @@
 # Pagefind search index — deliberately NOT immutable.
 #
 # pagefind-entry.json is an unhashed manifest, rewritten on every build, that
-# points at hashed index chunks ("hash":"en_a2ef418e7a"). If a stale copy is
-# cached, search asks for chunks that no longer exist and breaks. Same for
-# pagefind.js / pagefind-ui.* / wasm.*, whose names are stable across versions.
+# points at the current index bundle ("hash":"en_<changes every build>"). If a
+# stale copy is cached, search asks for chunks that no longer exist and breaks.
+# Same for pagefind.js / pagefind-ui.* / wasm.*, whose names are stable across
+# versions.
 #
-# One week, with revalidation. These only load on the search page.
+# So: no caching at all — revalidate every time, same as before this file
+# existed. These only load on /search, so the cost is near zero.
+#
+# Tempting follow-up, deliberately NOT done: the chunks under index/ and
+# fragment/ (en_78b5f6f.pf_index) look content-hashed and could be immutable.
+# Two things are unverified — whether those names are true content hashes, and
+# whether a narrower /pagefind/index/* actually overrides this rule (every
+# override confirmed on this site is X-beats-/*, never glob-beats-glob).
+# If wrong, search breaks silently inside a web worker for up to a year.
+# Settle it on a Netlify branch deploy before touching production.
 # ---------------------------------------------------------------------------
 [[headers]]
   for = "/pagefind/*"
