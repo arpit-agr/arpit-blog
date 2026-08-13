@@ -1,0 +1,118 @@
+# Cache-Control policy.
+#
+# No [build] section on purpose — build command and publish dir stay in the
+# Netlify UI. Adding them here would silently override those settings.
+#
+# Rule of thumb used below:
+#   filename contains a content hash  -> immutable, cache for a year
+#   filename is stable across edits   -> short cache, revalidate
+#
+# Netlify applies the most specific matching rule, so the broad "/*" default
+# comes first and narrower rules override it.
+
+# ---------------------------------------------------------------------------
+# Default: HTML pages, and anything not matched by a rule below.
+#
+# max-age=0 + must-revalidate keeps the current behaviour (a new post is never
+# served stale on a fresh visit). stale-while-revalidate is the new part: for
+# 24h a returning visitor renders the cached page IMMEDIATELY while the
+# freshness check runs in the background, instead of blocking ~215ms on it.
+#
+# Tradeoff: a returning reader can see the previous version of a page for one
+# load after you publish, then gets the new one on their next navigation.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate, stale-while-revalidate=86400"
+
+# ---------------------------------------------------------------------------
+# Astro build output — 373 files, all content-hashed by the build
+# (style.CjbzqE0a.css, 1984.BB0ymils_1ezRW8.avif, ...).
+#
+# The hash changes whenever the content does, so a given URL can never point at
+# different bytes. immutable is honest here, and this is the biggest win:
+# CSS and images drop to ZERO requests on repeat visits.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/_astro/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ---------------------------------------------------------------------------
+# Fonts — NOT content-hashed. These live in public/ and Astro copies them
+# verbatim, so the filename is stable forever.
+#
+# !! immutable is only safe here as long as every font change ships under a
+# !! NEW filename. Re-subsetting in place under the same name means returning
+# !! visitors keep the OLD font for up to a year and never re-request it —
+# !! silently, and invisibly to you, since your own cache will be fresh.
+#
+# To change a font: bump the filename (…-subset.v2.woff2) and update BOTH
+# references in src/components/BaseHead.astro — the AstroFont config path
+# (~line 53) and the manual <link rel="preload"> href (~line 73).
+#
+# If that discipline feels fragile, delete this block: fonts then fall back to
+# the "/*" default and self-heal, at the cost of a revalidation per visit.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/fonts/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ---------------------------------------------------------------------------
+# Pagefind search index — deliberately NOT immutable.
+#
+# pagefind-entry.json is an unhashed manifest, rewritten on every build, that
+# points at hashed index chunks ("hash":"en_a2ef418e7a"). If a stale copy is
+# cached, search asks for chunks that no longer exist and breaks. Same for
+# pagefind.js / pagefind-ui.* / wasm.*, whose names are stable across versions.
+#
+# One week, with revalidation. These only load on the search page.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/pagefind/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ---------------------------------------------------------------------------
+# Unhashed static files in public/ — edited in place under a stable name,
+# so no immutable. A week of caching; a replacement self-heals within a week
+# rather than within a year.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/images/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/favicon.ico"
+
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/favicon.svg"
+
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/apple-touch-icon.png"
+
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# ---------------------------------------------------------------------------
+# Feeds — readers poll these. An hour of caching, then revalidate.
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/*.xml"
+
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
