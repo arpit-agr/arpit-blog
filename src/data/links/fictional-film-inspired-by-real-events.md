@@ -7,6 +7,7 @@ tags:
   - 'history'
   - 'film'
   - 'india'
+draft: true
 ---
 
 Loved this bit from Rahul Desai's review of 'Dhurandhar':

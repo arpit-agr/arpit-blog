@@ -9,6 +9,7 @@ tags:
   - 'press-conference'
   - 'karan-thapar'
   - 'india'
+draft: true
 ---
 
 In this piece, Karan Thapar emphasizes that:

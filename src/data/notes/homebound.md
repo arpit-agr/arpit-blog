@@ -3,6 +3,7 @@ pubDate: 2025-11-30T22:35+0530
 tags:
   - 'film'
   - 'india'
+draft: true
 ---
 
 I just watched [Homebound](https://www.themoviedb.org/movie/1227739), Neeraj Ghaywan’s second feature film. And it left me devastated.

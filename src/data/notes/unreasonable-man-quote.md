@@ -4,6 +4,7 @@ tags:
   - 'progress'
   - 'quote'
   - 'film'
+draft: true
 ---
 
 > The reasonable man adapts himself to the world; the unreasonable man persists in trying to adapt the world to himself. Therefore, all progress depends on the unreasonable man.

@@ -8,6 +8,7 @@ tags:
   - 'blind-faith'
   - 'bhagat-singh'
   - 'india'
+draft: true
 ---
 
 This is one essay I re-read every year. In it, amongst other things, Bhagat Singh challenges blind faith and advocates for reason and critical thinking.
