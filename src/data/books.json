@@ -123,6 +123,15 @@
 		"dominantColor": "#282828"
 	},
 	{
+		"id": "dom-scripting",
+		"title": "DOM Scripting",
+		"author": "Jeremy Keith",
+		"tags": ["Web", "Non-fiction"],
+		"status": "reading",
+		"cover": "/src/images/book-covers/dom-scripting.jpg",
+		"dominantColor": "#F1218F"
+	},
+	{
 		"id": "educated",
 		"title": "Educated",
 		"author": "Tara Westover",
