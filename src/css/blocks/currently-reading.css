@@ -21,7 +21,9 @@
 
 		div:has(.cover) {
 			position: relative;
-			flex-basis: var(--space-6xl);
+			/*flex-basis: var(--space-6xl);*/
+			min-inline-size: var(--space-4xl);
+			min-block-size: 3rlh;
 		}
 
 		.cover {
