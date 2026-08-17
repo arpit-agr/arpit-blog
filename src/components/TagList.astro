@@ -16,7 +16,7 @@ function formatLinks(items: string[]) {
 ---
 
 <p class="text-balance place-self-end text-align-end">
-	Tagged:
+	Tagged: {' '}
 	<Fragment
 		set:html={formatLinks(
 			tags.map((tag) => `<a href="/tags/${slug(tag)}/" rel="tag">${tag}</a>`),
