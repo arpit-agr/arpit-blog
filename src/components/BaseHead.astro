@@ -31,9 +31,8 @@ const {
 <title>{pageTitle}</title>
 
 <!-- If a browser does not support JS modules, then it is a browser that does not support modern JavaScript, therefore it won’t get any JavaScript and has to live with the plain old, even if reduced but still usable, HTML-only experience -->
-<!-- Processing of the script contents is deferred -->
 <!-- Use the js class in CSS, if the styling of a component is different, when JS is active. -->
-<script type="module" is:inline>
+<script is:inline>
 	document.documentElement.classList.remove('no-js');
 	document.documentElement.classList.add('js');
 </script>
