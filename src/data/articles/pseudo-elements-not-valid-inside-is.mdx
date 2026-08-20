@@ -1,0 +1,117 @@
+---
+title: 'Pseudo-elements are not valid inside :is(), :where(), and &'
+pubDate: '2026-08-20T19:29+0530'
+tags:
+  - 'pseudo-element'
+  - 'nesting'
+  - 'css'
+---
+
+A [pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-elements) is not a valid selector inside `:is()` or `:where()`. As per the [Selectors Level 4 spec](<https://www.w3.org/TR/selectors-4/#:~:text=Pseudo%2Delements%20cannot%20be%20represented%20by%20the%20matches%2Dany%20pseudo%2Dclass%3B%20they%20are%20not%20valid%20within%20:is().>):
+
+> Pseudo-elements cannot be represented by the matches-any pseudo-class; they are not valid within `:is()`.
+
+The nesting selector `&` behaves the same way. It desugars to the parent rule's selector list wrapped in `:is()`.
+
+However, neither of them fails loudly. `:is()` and `:where()` take a _forgiving_ selector list, so an invalid argument is dropped and the rest of the rule carries on. Similarly, nesting inside a pseudo-element rule parses fine. The nested style rule just never matches anything, unless the parent list also contains non-pseudo-element selectors or there are bare declarations nested inside an at-rule.
+
+```css
+/* exmaple 1 */
+.card::before {
+	content: '';
+
+	.dark & {
+		color: red; /* `&` can't represent `.card::before`, so this matches nothing */
+	}
+}
+```
+
+Either hoist the element out to the top level.
+
+```css
+/* exmaple 2 */
+.card::before {
+	content: '';
+}
+
+.dark .card::before {
+	color: red;
+}
+```
+
+Or restructure so `&` refers to the element and the pseudo-element is nested in it.
+
+```css
+/* exmaple 3 */
+.card {
+	&::before {
+		content: '';
+	}
+
+	.dark &::before {
+		color: red;
+	}
+}
+```
+
+A pseudo-element in the parent selector list doesn't poison the whole list. `&` drops just that entry and still represents the rest.
+
+```css
+/* exmaple 4 */
+.card,
+.card::before {
+	color: black;
+
+	.dark & {
+		color: red; /* matches `.card`, but not `.card::before` */
+	}
+}
+```
+
+The nested rule desugars to `.dark :is(.card, .card::before)`, and the forgiving list throws out the pseudo-element, leaving `.dark :is(.card)`. So the element turns red while its `::before` stays black.
+
+From Chrome 130 / Safari 18.2 / Firefox 132 and onwards, bare declarations nested inside an at-rule are the exception. They do apply to the pseudo-element.
+
+```css
+/* exmaple 5 */
+.card::before {
+	content: '';
+	color: black;
+
+	@media (prefers-color-scheme: dark) {
+		color: white; /* applies to `.card::before` */
+	}
+}
+```
+
+Wrap those same declarations in `& { ... }` and they stop applying.
+
+```css
+/* exmaple 6 */
+.card::before {
+	content: '';
+	color: black;
+
+	@media (prefers-color-scheme: dark) {
+		& {
+			color: white; /* matches nothing */
+		}
+	}
+}
+```
+
+So why does example 6 not work?
+
+The reason is that declarations can't sit loose inside a nested at-rule as far as the CSSOM is concerned. A `CSSMediaRule` exposes rules, and declarations only live on a style rule, so the parser has to wrap them in _something_. Examples 5 and 6 differ in what that something is.
+
+Example 5 wraps them in a [nested declarations rule](https://drafts.csswg.org/css-nesting-1/#nested-declarations-rule):
+
+> It matches the exact same elements and pseudo-elements as its parent style rule, with the same specificity behavior.
+
+Whereas example 6 wraps them in `& { ... }` and `&` obeys selector rules: it desugars to `:is(.card::before)`, which can't represent the pseudo-element, so nothing matches.
+
+Further reading:
+
+- [CSS nesting improves with CSSNestedDeclarations](https://web.dev/blog/css-nesting-cssnesteddeclarations)
+- [[css-nesting] How to resolve nested CSS with pseudo elements in the parent
+  #7433](https://github.com/w3c/csswg-drafts/issues/7433)
