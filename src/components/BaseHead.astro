@@ -1,6 +1,5 @@
 ---
-import { join } from 'node:path';
-import { AstroFont } from 'astro-font';
+import { Font } from 'astro:assets';
 import stylesUrl from '@css/style.css?url';
 // import printStylesUrl from "@css/print.css?url";
 
@@ -37,41 +36,9 @@ const {
 	document.documentElement.classList.add('js');
 </script>
 
-<AstroFont
-	config={[
-		{
-			name: 'Figtree',
-			src: [
-				{
-					style: 'normal',
-					weight: '300 900',
-					path: join(
-						process.cwd(),
-						'public',
-						'fonts',
-						'Figtree-VariableFont_wght-subset.woff2',
-					),
-				},
-			],
-			preload: false, // manually preloaded after Synchronous CSS
-			display: 'swap',
-			cssVariable: 'font-sans-serif',
-			fallback: 'sans-serif',
-			fallbackName: 'Figtree Fallback',
-		},
-	]}
-/>
-
+<Font cssVariable="--font-sans-serif" preload />
 <link rel="stylesheet" href={stylesUrl} />
 <!-- <link rel="stylesheet" href={printStylesUrl} media="print" /> -->
-
-<link
-	as="font"
-	crossorigin=""
-	rel="preload"
-	href="/fonts/Figtree-VariableFont_wght-subset.woff2"
-	type="font/woff2"
-/>
 
 <meta property="og:title" content={pageTitle} />
 {!!pageDesc && <meta name="description" content={pageDesc} />}
