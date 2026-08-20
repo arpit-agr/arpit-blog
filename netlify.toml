@@ -26,8 +26,13 @@
 # is a promise you cannot take back for that long.
 
 # ---------------------------------------------------------------------------
-# Astro build output — 373 files, all content-hashed by the build
-# (style.CjbzqE0a.css, 1984.BB0ymils_1ezRW8.avif, ...).
+# Astro build output — all content-hashed by the build
+# (style.CjbzqE0a.css, 1984.BB0ymils_1ezRW8.avif, fonts/1nJ0mBUE.woff2, ...).
+#
+# Fonts are in here too, under /_astro/fonts/. Astro hashes them by file
+# CONTENT, so re-subsetting the woff2 in place ships a new URL on its own —
+# no filename discipline to remember, unlike the public/fonts/ setup this
+# replaced.
 #
 # The hash changes whenever the content does, so a given URL can never point at
 # different bytes. immutable is honest here, and this is the biggest win:
@@ -35,29 +40,6 @@
 # ---------------------------------------------------------------------------
 [[headers]]
   for = "/_astro/*"
-
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# ---------------------------------------------------------------------------
-# Fonts — NOT content-hashed. These live in public/ and Astro copies them
-# verbatim, so the filename is stable forever.
-#
-# !! immutable is only safe here as long as every font change ships under a
-# !! NEW filename. Re-subsetting in place under the same name means returning
-# !! visitors keep the OLD font for up to a year and never re-request it —
-# !! silently, and invisibly to you, since your own cache will be fresh.
-#
-# To change a font: bump the filename (…-subset.v2.woff2) and update BOTH
-# references in src/components/BaseHead.astro — the AstroFont config path
-# (~line 53) and the manual <link rel="preload"> href (~line 73).
-#
-# If that discipline feels fragile, delete this block: fonts then fall back to
-# Netlify's revalidate-every-time default and self-heal, at the cost of one
-# revalidation per visit.
-# ---------------------------------------------------------------------------
-[[headers]]
-  for = "/fonts/*"
 
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
