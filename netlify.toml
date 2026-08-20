@@ -3,29 +3,27 @@
 # No [build] section on purpose — build command and publish dir stay in the
 # Netlify UI. Adding them here would silently override those settings.
 #
+# Netlify's baseline for every file is
+#
+#     public, max-age=0, must-revalidate
+#
+# plus an ETag, with the CDN cache purged on every deploy. That default is
+# already correct for HTML, so this file lists ONLY the paths that need to
+# deviate from it.
+#
 # Rule of thumb used below:
 #   filename contains a content hash  -> immutable, cache for a year
 #   filename is stable across edits   -> short cache, revalidate
 #
-# Netlify applies the most specific matching rule, so the broad "/*" default
-# comes first and narrower rules override it.
-
-# ---------------------------------------------------------------------------
-# Default: HTML pages, and anything not matched by a rule below.
+# Overlaps: a matching rule REPLACES Cache-Control outright — it never merges
+# with another rule. Verified in production: one header per response, no
+# duplicated directives. Where two rules could both match, the narrower one
+# won, but that is indistinguishable from "the later one won" while this file
+# stays ordered broad to narrow. Keep it ordered that way, and note that a
+# narrower glob does beat a broader glob (/*.xml beat a former /* rule).
 #
-# max-age=0 + must-revalidate keeps the current behaviour (a new post is never
-# served stale on a fresh visit). stale-while-revalidate is the new part: for
-# 24h a returning visitor renders the cached page IMMEDIATELY while the
-# freshness check runs in the background, instead of blocking ~215ms on it.
-#
-# Tradeoff: a returning reader can see the previous version of a page for one
-# load after you publish, then gets the new one on their next navigation.
-# ---------------------------------------------------------------------------
-[[headers]]
-  for = "/*"
-
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate, stale-while-revalidate=86400"
+# The deploy purge clears Netlify's edge, never a browser. Every max-age below
+# is a promise you cannot take back for that long.
 
 # ---------------------------------------------------------------------------
 # Astro build output — 373 files, all content-hashed by the build
@@ -55,7 +53,8 @@
 # (~line 53) and the manual <link rel="preload"> href (~line 73).
 #
 # If that discipline feels fragile, delete this block: fonts then fall back to
-# the "/*" default and self-heal, at the cost of a revalidation per visit.
+# Netlify's revalidate-every-time default and self-heal, at the cost of one
+# revalidation per visit.
 # ---------------------------------------------------------------------------
 [[headers]]
   for = "/fonts/*"
@@ -64,30 +63,24 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 # ---------------------------------------------------------------------------
-# Pagefind search index — deliberately NOT immutable.
+# /pagefind/* has NO rule here, deliberately — it must stay on Netlify's
+# max-age=0 default.
 #
 # pagefind-entry.json is an unhashed manifest, rewritten on every build, that
 # points at the current index bundle ("hash":"en_<changes every build>"). If a
-# stale copy is cached, search asks for chunks that no longer exist and breaks.
-# Same for pagefind.js / pagefind-ui.* / wasm.*, whose names are stable across
-# versions.
+# stale copy is cached, search asks for chunks that no longer exist and breaks
+# — silently, inside a web worker. Same for pagefind.js / pagefind-ui.* /
+# wasm.*, whose names are stable across versions.
 #
-# So: no caching at all — revalidate every time, same as before this file
-# existed. These only load on /search, so the cost is near zero.
+# So if you ever add a broad rule that would hand /pagefind/* a nonzero
+# max-age, add a /pagefind/* override alongside it that restores
+# "public, max-age=0, must-revalidate".
 #
 # Tempting follow-up, deliberately NOT done: the chunks under index/ and
 # fragment/ (en_78b5f6f.pf_index) look content-hashed and could be immutable.
-# Two things are unverified — whether those names are true content hashes, and
-# whether a narrower /pagefind/index/* actually overrides this rule (every
-# override confirmed on this site is X-beats-/*, never glob-beats-glob).
-# If wrong, search breaks silently inside a web worker for up to a year.
-# Settle it on a Netlify branch deploy before touching production.
+# Unverified whether those names are true content hashes — if they are not,
+# search breaks silently for up to a year. Settle it on a branch deploy first.
 # ---------------------------------------------------------------------------
-[[headers]]
-  for = "/pagefind/*"
-
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
 
 # ---------------------------------------------------------------------------
 # Unhashed static files in public/ — edited in place under a stable name,
