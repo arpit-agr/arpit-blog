@@ -36,11 +36,9 @@ const {
 	document.documentElement.classList.add('js');
 </script>
 
+<Font cssVariable="--font-sans-serif" preload />
 <link rel="stylesheet" href={stylesUrl} />
 <!-- <link rel="stylesheet" href={printStylesUrl} media="print" /> -->
-
-<!-- Emits the @font-face CSS and the preload link, deliberately after the synchronous stylesheet above -->
-<Font cssVariable="--font-sans-serif" preload />
 
 <meta property="og:title" content={pageTitle} />
 {!!pageDesc && <meta name="description" content={pageDesc} />}
