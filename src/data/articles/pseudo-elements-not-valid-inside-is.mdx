@@ -13,7 +13,7 @@ A [pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Se
 
 The nesting selector `&` behaves the same way. It desugars to the parent rule's selector list wrapped in `:is()`.
 
-However, neither of them fails loudly. `:is()` and `:where()` take a _forgiving_ selector list, so an invalid argument is dropped and the rest of the rule carries on. Similarly, nesting inside a pseudo-element rule parses fine. The nested style rule just never matches anything, unless the parent list also contains non-pseudo-element selectors or there are bare declarations nested inside an at-rule.
+However, neither of them fails loudly. `:is()` and `:where()` take a _forgiving_ selector list, so an invalid argument is dropped and the rest of the rule carries on. Similarly, nesting inside a pseudo-element rule parses fine. The nested style rule just never matches anything, unless the parent list also contains non-pseudo-element selectors.
 
 ```css
 /* exmaple 1 */
