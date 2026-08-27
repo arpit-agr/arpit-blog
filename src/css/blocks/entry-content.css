@@ -20,4 +20,32 @@
 	blockquote ul {
 		padding-inline-start: var(--space-s);
 	}
+
+	.footnotes {
+		--flow-space: 1lh;
+	}
+
+	.footnotes ol {
+		--flow-space: initial;
+		margin-block-start: var(--flow-space, 1em);
+		font-size: var(--step--1);
+	}
+
+	sup a {
+		font-variant: tabular-nums;
+
+		&::before {
+			content: '[' / '';
+		}
+
+		&::after {
+			content: ']' / '';
+		}
+
+		&:target {
+			scroll-margin-block-start: calc(
+				(2 * var(--site-nav-padding-block)) + 1lh
+			);
+		}
+	}
 }
