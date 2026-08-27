@@ -1,0 +1,71 @@
+---
+title: 'CSS value resolution process'
+pubDate: '2026-08-27T14:55+0530'
+tags:
+  - 'css'
+---
+
+Once the browser has parsed a document and built the DOM tree, it has to assign a value to every property for every element in the flat tree [^1], and in turn for every box those elements generate.
+
+The final value of a CSS property for a given element is the result of a multi-step calculation:
+
+<dl class="flow">
+	<div>
+		<dt>1. Filtering:</dt>
+		<dd>Collect all declarations that apply to a given element</dd>
+		<dd>→ Output: declared values (zero or many per property)</dd>
+	</div>
+	<div>
+		<dt>2. [Cascading](https://cascade.arpit.codes/):</dt>
+		<dd>
+			For each property, sort by precedence and resolve competing declarations
+		</dd>
+		<dd>→ Output: cascaded value (at most one; may be none)</dd>
+	</div>
+	<div>
+		<dt>3. Defaulting:</dt>
+		<dd>
+			Supply a value where the cascade produced none (inheritance or initial
+			value), and resolve the CSS-wide keywords [^2] when they are the cascaded
+			value of a property
+		</dd>
+		<dd>→ Output: specified value</dd>
+	</div>
+</dl>
+
+This results in exactly one specified value for every property (including custom properties) on every element. The remaining stages work out how those styles interact and what actually gets painted.
+
+<dl class="flow">
+	<div>
+		<dt>4. Resolving:</dt>
+		<dd>
+			Absolutise the specified values as far as possible _without_ layout [^3]
+		</dd>
+		<dd>→ Output: computed values (this is what inherits to children)</dd>
+	</div>
+	<div>
+		<dt>5. Formatting:</dt>
+		<dd>
+			Complete the remaining calculations, which require laying out the document
+		</dd>
+		<dd>→ Output: used values [^4]</dd>
+	</div>
+	<div>
+		<dt>6. Constraining:</dt>
+		<dd>
+			Adjust the used values based on what the rendering environment can
+			actually do
+		</dd>
+		<dd>→ Output: actual values</dd>
+	</div>
+</dl>
+
+[^1]: The DOM tree with any shadow trees flattened in
+
+[^2]:
+    `initial`, `inherit`, `unset`,
+    `revert`
+
+[^3]: For e.g. `width: auto` computes to `auto`, because you can't resolve it without knowing the ancestors' layout; the used value is a real length like 100px.
+
+[^4]: Used values only exist for properties that apply to that element or box type. For e.g. `flex` has no used value on an element that isn't a flex item.
