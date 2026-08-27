@@ -237,6 +237,7 @@ mark,
 	color: var(--color-text-highlight);
 }
 
+dt,
 strong {
 	font-weight: 550;
 }
