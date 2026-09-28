@@ -1,6 +1,6 @@
 ---
 import type { AnyEntry } from '@appTypes/entries';
-import { formatDate } from '@utils/date';
+import { formatDate, toISO } from '@utils/date';
 
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SiteBanner from '@components/SiteBanner.astro';
@@ -53,7 +53,7 @@ const pageTitle = collectionTitles[entry.collection];
 							<div
 								class="entry-content flow"
 								data-pagefind-body
-								data-pagefind-meta={`date:${entry.data.pubDate}`}
+								data-pagefind-meta={`date:${toISO(entry.data.pubDate)}`}
 								data-pagefind-filter={`collection:${entry.collection}`}
 							>
 								<Content />

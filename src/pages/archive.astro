@@ -5,7 +5,7 @@ import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import SiteSidebar from '@components/SiteSidebar.astro';
 import { loadAllEntries } from '@utils/loadAllEntries';
-import { getYearMonth } from '@utils/date';
+import { formatMonthName, getYearMonth } from '@utils/date';
 import { ARCHIVE_TITLE, ARCHIVE_DESCRIPTION } from '@consts';
 
 // Load all entries (already sorted newest → oldest)
@@ -24,13 +24,11 @@ for (const entry of allEntries) {
 // Convert to sorted structure
 const years = Array.from(archive.keys()).sort((a, b) => b - a);
 
-const monthLabelFormatter = new Intl.DateTimeFormat('en-IN', { month: 'long' });
-
 const archiveByYear = years.map((year) => {
 	const monthsForYear = Array.from(archive.get(year));
 	const sortedMonths = monthsForYear.toSorted((a, b) => Number(a) - Number(b));
 	const monthsWithLabels = sortedMonths.map((month) => {
-		const label = monthLabelFormatter.format(new Date(year, Number(month) - 1));
+		const label = formatMonthName(year, Number(month));
 		return { month, label };
 	});
 	return { year, months: monthsWithLabels };

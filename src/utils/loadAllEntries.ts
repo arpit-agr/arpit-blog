@@ -1,5 +1,6 @@
 import { loadAndFormatCollection } from '@utils/collection';
 import type { AnyEntry } from '@appTypes/entries';
+import { newestFirst } from '@utils/date';
 
 /**
  * Loads notes, articles, and links, formats them with URLs
@@ -19,7 +20,5 @@ export async function loadAllEntries(): Promise<AnyEntry[]> {
 
 	// 3. Sort by pubDate descending
 	// (Though the utility now sorts individually, we must sort the combined list)
-	return allEntries.sort(
-		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-	);
+	return allEntries.sort((a, b) => newestFirst(a.data.pubDate, b.data.pubDate));
 }

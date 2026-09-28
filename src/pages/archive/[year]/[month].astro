@@ -6,7 +6,7 @@ import FeedHeader from '@components/FeedHeader.astro';
 import EntryList from '@components/EntryList.astro';
 import SiteSidebar from '@components/SiteSidebar.astro';
 import { loadAllEntries } from '@utils/loadAllEntries';
-import { getYearMonth } from '@utils/date';
+import { formatMonthName, getYearMonth } from '@utils/date';
 import { SITE_TITLE } from '@consts';
 
 export async function getStaticPaths() {
@@ -32,9 +32,7 @@ const filtered = allEntries.filter((entry) => {
 	return entryDate.year === Number(year) && entryDate.month === month;
 });
 
-const monthName = new Intl.DateTimeFormat('en-IN', { month: 'long' }).format(
-	new Date(Number(year), Number(month) - 1),
-);
+const monthName = formatMonthName(Number(year), Number(month));
 
 const pageTitle = `Archive: ${monthName} ${year} | ${SITE_TITLE}`;
 const pageDescription = `All notes, articles, and links published in ${monthName} ${year} by Arpit Agrawal.`;

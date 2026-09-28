@@ -1,6 +1,6 @@
 import { getCollection, render } from 'astro:content';
 import type { EnhancedEntry, BaseEntryData } from '@appTypes/entries';
-import { getYearMonth } from '@utils/date';
+import { getYearMonth, newestFirst } from '@utils/date';
 
 export async function loadAndFormatCollection<
 	T extends 'notes' | 'articles' | 'links',
@@ -34,9 +34,10 @@ export async function loadAndFormatCollection<
 		}),
 	);
 
-	return formatted.sort(
-		(a, b) =>
-			(b.data as BaseEntryData).pubDate.valueOf() -
-			(a.data as BaseEntryData).pubDate.valueOf(),
+	return formatted.sort((a, b) =>
+		newestFirst(
+			(a.data as BaseEntryData).pubDate,
+			(b.data as BaseEntryData).pubDate,
+		),
 	);
 }

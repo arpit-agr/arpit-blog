@@ -1,5 +1,5 @@
 ---
-import { formatDate } from '@utils/date';
+import { formatDate, toISO } from '@utils/date';
 
 interface Props {
 	date?: Date;
@@ -10,7 +10,7 @@ const { date } = Astro.props;
 
 <span class="text-box-trim">
 	Updated on
-	<time datetime={date?.toISOString()}>
+	<time datetime={date && toISO(date)}>
 		{formatDate(date)}
 	</time>
 </span>
