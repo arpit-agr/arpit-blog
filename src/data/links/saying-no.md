@@ -1,6 +1,6 @@
 ---
 title: 'Saying “No” In an Age of Abundance - Jim Nielsen’s Blog'
-pubDate: '2026-02-04T10:35+0530'
+pubDate: '2026-02-04T10:35:00+05:30'
 link: 'https://blog.jim-nielsen.com/2026/saying-no/'
 tags:
   - 'focus'

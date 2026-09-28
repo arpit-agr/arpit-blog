@@ -1,7 +1,7 @@
 ---
 title: Just Build Websites - Jim Nielsen’s Blog
 link: https://blog.jim-nielsen.com/2024/just-build-websites/
-pubDate: 2024-08-20
+pubDate: '2024-08-20T05:30:00+05:30'
 tags:
   - 'build'
   - 'golf'

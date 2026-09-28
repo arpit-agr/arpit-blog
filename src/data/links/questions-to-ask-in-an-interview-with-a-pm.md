@@ -1,7 +1,7 @@
 ---
 title: What questions to ask in an interview with a PM | Hindustan Times
 link: https://www.hindustantimes.com/opinion/what-questions-to-ask-in-an-interview-with-a-pm-101716649766792.html
-pubDate: 2024-05-26
+pubDate: '2024-05-26T05:30:00+05:30'
 tags:
   - 'interview'
   - 'journalism'

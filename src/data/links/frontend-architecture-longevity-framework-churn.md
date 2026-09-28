@@ -1,6 +1,6 @@
 ---
 title: 'zachleat’s Twitter Archive—№ 20,184'
-pubDate: '2026-02-11T04:03+0530'
+pubDate: '2026-02-11T04:03:00+05:30'
 link: 'https://www.zachleat.com/twitter/982251377010270210/'
 tags:
   - 'frontend-architecture'

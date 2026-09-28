@@ -4,7 +4,7 @@ link: https://medium.com/@mandy.michael/understanding-why-semantic-html-is-impor
 via:
   url: https://adactio.com/links/14246
   label: Jeremy Keith
-pubDate: 2025-11-20T11:22+0530
+pubDate: '2025-11-20T11:22:00+05:30'
 tags:
   - 'html'
   - 'typescript'

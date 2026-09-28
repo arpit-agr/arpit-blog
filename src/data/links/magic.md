@@ -1,6 +1,6 @@
 ---
 title: 'Adactio: Journal—Magic'
-pubDate: '2026-03-24T09:56+0530'
+pubDate: '2026-03-24T09:56:00+05:30'
 link: 'https://adactio.com/journal/22399'
 tags:
   - 'abstractions'

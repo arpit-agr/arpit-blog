@@ -1,6 +1,6 @@
 ---
 title: 'Jason Pamental - The Life of p - YouTube'
-pubDate: '2026-01-01T22:03+0530'
+pubDate: '2026-01-01T22:03:00+05:30'
 link: 'https://www.youtube.com/watch?v=4ggOmfBtWRM'
 tags:
   - 'typography'

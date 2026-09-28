@@ -1,5 +1,5 @@
 ---
-pubDate: '2026-05-25T08:47+0530'
+pubDate: '2026-05-25T08:47:00+05:30'
 tags:
   - 'css'
   - 'text-decoration'

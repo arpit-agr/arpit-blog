@@ -1,6 +1,6 @@
 ---
 title: 'Config 2024: Serious play (Andy Allen, Software Designer, !Boring) | Figma - YouTube'
-pubDate: '2025-12-22T22:03+0530'
+pubDate: '2025-12-22T22:03:00+05:30'
 link: 'https://www.youtube.com/watch?v=wBnIyD5I8mM'
 tags:
   - 'design'

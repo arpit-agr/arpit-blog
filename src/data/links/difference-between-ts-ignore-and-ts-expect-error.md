@@ -1,7 +1,7 @@
 ---
 title: The difference between @ts-ignore and @ts-expect-error | Stefan Judis Web Development
 link: https://www.stefanjudis.com/today-i-learned/the-difference-ts-ignore-and-ts-expect-error/
-pubDate: 2025-11-14T18:18+0530
+pubDate: '2025-11-14T18:18:00+05:30'
 tags:
   - 'typescript'
   - 'stefan-judis'

@@ -1,6 +1,6 @@
 ---
 title: 'James Shore: You Need AI That Reduces Maintenance Costs'
-pubDate: '2026-05-12T10:20+0530'
+pubDate: '2026-05-12T10:20:00+05:30'
 link: 'https://www.jamesshore.com/v2/blog/2026/you-need-ai-that-reduces-your-maintenance-costs'
 tags:
   - 'ai'

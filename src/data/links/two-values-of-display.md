@@ -1,7 +1,7 @@
 ---
 title: 'Digging Into The Display Property: The Two Values Of Display — Smashing Magazine'
 link: https://www.smashingmagazine.com/2019/04/display-two-value/
-pubDate: 2024-05-13
+pubDate: '2024-05-13T05:30:00+05:30'
 via:
   url: https://front-end.social/@stefan/112426743422409016
   label: Stefan Judis

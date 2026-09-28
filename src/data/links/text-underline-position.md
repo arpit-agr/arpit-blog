@@ -1,6 +1,6 @@
 ---
 title: 'Underlining Links With CSS | Always Twisted'
-pubDate: '2026-02-25T17:15+0530'
+pubDate: '2026-02-25T17:15:00+05:30'
 link: 'https://www.alwaystwisted.com/articles/underlining-links-with-css'
 tags:
   - 'underline'

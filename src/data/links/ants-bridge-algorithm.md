@@ -4,7 +4,7 @@ link: https://www.quantamagazine.org/the-simple-algorithm-that-ants-use-to-build
 via:
   label: kottke.org
   url: https://kottke.org/18/03/how-ants-build-bridges-using-very-simple-rules
-pubDate: 2025-10-16T18:35+0530
+pubDate: '2025-10-16T18:35:00+05:30'
 tags:
   - 'ants'
   - 'algorithm'

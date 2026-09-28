@@ -1,5 +1,5 @@
 ---
-pubDate: 2025-10-23T18:43+0530
+pubDate: '2025-10-23T18:43:00+05:30'
 tags:
   - 'pseudo-class'
   - 'specificity'

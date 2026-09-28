@@ -1,6 +1,6 @@
 ---
 title: 'Singing the gospel of collective efficacy (Interconnected)'
-pubDate: '2026-02-02T06:15+0530'
+pubDate: '2026-02-02T06:15:00+05:30'
 link: 'https://interconnected.org/home/2026/01/30/efficacy'
 tags:
   - 'collective-action'

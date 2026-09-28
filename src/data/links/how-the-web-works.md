@@ -1,7 +1,7 @@
 ---
 title: Browsing the web - Learn web development | MDN
 link: https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Browsing_the_web#how_the_web_works_the_basics
-pubDate: 2025-09-22T11:35+0530
+pubDate: '2025-09-22T11:35:00+05:30'
 tags:
   - 'web'
 ---

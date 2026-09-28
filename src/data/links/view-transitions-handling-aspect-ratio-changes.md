@@ -1,7 +1,7 @@
 ---
 title: 'View transitions: Handling aspect ratio changes'
 link: https://jakearchibald.com/2024/view-transitions-handling-aspect-ratio-changes/
-pubDate: 2025-10-30T09:20+0530
+pubDate: '2025-10-30T09:20:00+05:30'
 tags:
   - 'view-transitions'
   - 'aspect-ratio'

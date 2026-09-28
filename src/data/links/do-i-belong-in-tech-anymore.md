@@ -1,6 +1,6 @@
 ---
 title: 'Do I belong in tech anymore? · Ky Decker'
-pubDate: '2026-04-27T10:01+0530'
+pubDate: '2026-04-27T10:01:00+05:30'
 link: 'https://ky.fyi/posts/ai-burnout'
 tags:
   - 'ai'

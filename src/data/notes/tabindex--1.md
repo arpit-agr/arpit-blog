@@ -1,5 +1,5 @@
 ---
-pubDate: '2026-09-02T15:56+0530'
+pubDate: '2026-09-02T15:56:00+05:30'
 tags:
   - 'html'
   - 'accessibility'

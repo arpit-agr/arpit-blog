@@ -1,7 +1,7 @@
 ---
 title: Every site needs a Links Page / Why linking matters | Melon's Thoughts
 link: https://thoughts.melonking.net/thoughts/every-site-needs-a-links-page-why-linking-matters
-pubDate: 2025-11-07T18:35+0530
+pubDate: '2025-11-07T18:35:00+05:30'
 tags:
   - 'links'
   - 'community'

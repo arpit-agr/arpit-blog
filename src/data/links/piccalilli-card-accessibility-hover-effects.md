@@ -1,7 +1,7 @@
 ---
 title: While you’re fixing the fun stuff, fix the important stuff too - Piccalilli
 link: https://piccalil.li/blog/while-youre-fixing-the-fun-stuff-fix-the-important-stuff-too/
-pubDate: 2025-10-01T18:27+0530
+pubDate: '2025-10-01T18:27:00+05:30'
 tags:
   - 'accessibility'
   - 'hover'

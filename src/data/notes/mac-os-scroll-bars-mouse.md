@@ -1,5 +1,5 @@
 ---
-pubDate: '2025-12-18T21:07+0530'
+pubDate: '2025-12-18T21:07:00+05:30'
 tags:
   - 'scrollbars'
   - 'layout'

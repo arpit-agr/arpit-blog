@@ -4,11 +4,18 @@ import { glob, file } from 'astro/loaders';
 import { rssSchema } from '@astrojs/rss';
 /* https://github.com/withastro/astro/blob/main/packages/astro-rss/src/schema.ts */
 
+// Quoted, with seconds and an offset: '2025-02-05T09:00:00+05:30'.
+// Output is a Date because Astro's content cache and @astrojs/rss need one.
+const timestamp = z.iso
+	.datetime({
+		offset: true,
+		precision: 0,
+		error: "Use a quoted timestamp like '2025-02-05T09:00:00+05:30'",
+	})
+	.pipe(z.coerce.date());
+
 const baseCollectionFields = {
-	pubDate: z
-		.union([z.string(), z.number(), z.date()])
-		.transform((value) => new Date(value))
-		.refine((value) => !isNaN(value.getTime())),
+	pubDate: timestamp,
 	tags: z.array(z.string()),
 	draft: z.boolean().optional(),
 };
@@ -27,11 +34,7 @@ const articles = defineCollection({
 		.extend({
 			...baseCollectionFields,
 			title: z.string(),
-			updatedDate: z
-				.union([z.string(), z.number(), z.date()])
-				.transform((value) => new Date(value))
-				.refine((value) => !isNaN(value.getTime()))
-				.optional(),
+			updatedDate: timestamp.optional(),
 		})
 		.transform((entry) => ({
 			...entry,

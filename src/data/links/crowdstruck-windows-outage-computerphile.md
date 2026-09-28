@@ -1,7 +1,7 @@
 ---
 title: Crowdstruck (Windows Outage) - Computerphile - YouTube
 link: https://www.youtube.com/watch?v=rlaNMJeA1EA
-pubDate: 2024-07-24
+pubDate: '2024-07-24T05:30:00+05:30'
 tags:
   - 'operating-system'
   - 'computerphile'

@@ -1,6 +1,6 @@
 ---
 title: 'Reminder: You Can Stitch Together Lots of Little HTML Pages With Navigations For Interactions - Jim Nielsen’s Blog'
-pubDate: '2026-05-18T11:00+0530'
+pubDate: '2026-05-18T11:00:00+05:30'
 link: 'https://blog.jim-nielsen.com/2026/small-html-pages/'
 tags:
   - 'html'

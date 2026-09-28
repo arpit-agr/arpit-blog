@@ -1,5 +1,5 @@
 ---
-pubDate: '2026-08-13T17:23+0530'
+pubDate: '2026-08-13T17:23:00+05:30'
 tags:
   - 'css'
   - 'conference'

@@ -1,6 +1,6 @@
 ---
 title: Safari drops support for the theme-color meta tag
-pubDate: 2025-11-09T16:30+0530
+pubDate: '2025-11-09T16:30:00+05:30'
 tags:
   - 'theme-color'
   - 'html'

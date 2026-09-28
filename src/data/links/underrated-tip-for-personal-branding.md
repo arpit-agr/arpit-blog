@@ -1,7 +1,7 @@
 ---
 title: An underrated tip for personal branding | beastoftraal.com
 link: https://beastoftraal.com/2023/10/05/an-underrated-tip-for-personal-branding/
-pubDate: 2024-08-26
+pubDate: '2024-08-26T05:30:00+05:30'
 tags:
   - 'personal-branding'
   - 'persistence'

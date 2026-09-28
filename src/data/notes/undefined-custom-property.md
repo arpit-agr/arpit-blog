@@ -1,5 +1,5 @@
 ---
-pubDate: '2026-03-14T14:43+0530'
+pubDate: '2026-03-14T14:43:00+05:30'
 tags:
   - 'css'
   - 'custom-properties'

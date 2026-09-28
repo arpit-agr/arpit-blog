@@ -1,7 +1,7 @@
 ---
 title: Embrace the Platform – Bram.us
 link: https://www.bram.us/2023/12/12/embrace-the-platform-article/
-pubDate: 2024-05-09
+pubDate: '2024-05-09T05:30:00+05:30'
 tags:
   - 'web-platform'
   - 'bramus'

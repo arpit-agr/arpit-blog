@@ -1,6 +1,6 @@
 ---
 title: 'Browser support at Clearleft'
-pubDate: '2025-12-30T15:27+0530'
+pubDate: '2025-12-30T15:27:00+05:30'
 link: 'https://browsersupport.clearleft.com/'
 tags:
   - 'baseline'

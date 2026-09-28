@@ -1,5 +1,5 @@
 ---
-pubDate: 2025-10-27T19:30+0530
+pubDate: '2025-10-27T19:30:00+05:30'
 title: How I used 11ty to power a world-class museum's digital infrastructure with Nic Chan | 11ty Meetup - YouTube
 link: https://www.youtube.com/watch?v=RRqnRCXBpzY
 tags:

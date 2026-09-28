@@ -1,7 +1,7 @@
 ---
 title: Astro RSS MDX
 link: https://blog.damato.design/posts/astro-rss-mdx/
-pubDate: 2025-10-15T09:48+0530
+pubDate: '2025-10-15T09:48:00+05:30'
 tags:
   - 'astro'
   - 'rss'

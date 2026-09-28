@@ -1,6 +1,6 @@
 ---
 title: 'Should You Use AI for a Task? Here’s a Simple Way to Decide - Schneier on Security'
-pubDate: '2026-07-31T15:40+0530'
+pubDate: '2026-07-31T15:40:00+05:30'
 link: 'https://www.schneier.com/blog/archives/2026/07/should-you-use-ai-for-a-task-heres-a-simple-way-to-decide.html'
 tags:
   - 'ai'

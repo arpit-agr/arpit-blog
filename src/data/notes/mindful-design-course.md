@@ -1,5 +1,5 @@
 ---
-pubDate: 2025-11-28T10:14+0530
+pubDate: '2025-11-28T10:14:00+05:30'
 tags:
   - 'design'
   - 'course'

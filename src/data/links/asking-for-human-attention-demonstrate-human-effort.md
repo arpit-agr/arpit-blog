@@ -1,6 +1,6 @@
 ---
 title: "If You are Asking for Human Attention, Demonstrate Human Effort | Tom Bedor's Blog"
-pubDate: '2026-06-18T13:40+0530'
+pubDate: '2026-06-18T13:40:00+05:30'
 link: 'https://tombedor.dev/human-attention-and-human-effort/'
 tags:
   - 'etiquette'

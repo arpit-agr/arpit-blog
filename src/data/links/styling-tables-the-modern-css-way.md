@@ -1,7 +1,7 @@
 ---
 title: Styling Tables the Modern CSS Way - Piccalilli
 link: https://piccalil.li/blog/styling-tables-the-modern-css-way
-pubDate: 2024-07-19
+pubDate: '2024-07-19T05:30:00+05:30'
 tags:
   - 'table'
   - 'css'

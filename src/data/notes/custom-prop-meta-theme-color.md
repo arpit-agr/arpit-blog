@@ -1,5 +1,5 @@
 ---
-pubDate: 2025-08-13T10:33+0530
+pubDate: '2025-08-13T10:33:00+05:30'
 tags:
   - 'theme-color'
   - 'html'

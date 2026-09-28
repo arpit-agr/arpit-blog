@@ -1,7 +1,7 @@
 ---
 title: 'Jimmy Kimmel & the FCC: Last Week Tonight with John Oliver (HBO) - YouTube'
 link: https://youtube.com/watch?v=ohPToBog_-g&t=1577
-pubDate: 2025-09-22T18:25+0530
+pubDate: '2025-09-22T18:25:00+05:30'
 tags:
   - 'freedom-of-speech'
   - 'censorship'

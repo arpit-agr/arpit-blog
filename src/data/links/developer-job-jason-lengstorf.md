@@ -1,6 +1,6 @@
 ---
 title: 'do THIS to get a developer job in 2024 - YouTube'
-pubDate: '2025-12-19T16:28+0530'
+pubDate: '2025-12-19T16:28:00+05:30'
 link: 'https://www.youtube.com/watch?v=T0deG6OpadM'
 tags:
   - 'job'

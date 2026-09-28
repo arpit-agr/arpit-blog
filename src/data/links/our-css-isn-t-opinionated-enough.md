@@ -1,6 +1,6 @@
 ---
 title: "Our CSS isn't opinionated enough - craigabbott.co.uk"
-pubDate: '2026-07-06T10:44+0530'
+pubDate: '2026-07-06T10:44:00+05:30'
 link: 'https://www.craigabbott.co.uk/blog/2026/our-css-isnt-opinionated-enough/'
 tags:
   - 'css'

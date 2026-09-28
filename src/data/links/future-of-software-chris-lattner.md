@@ -1,6 +1,6 @@
 ---
 title: 'Modular: The Claude C Compiler: What It Reveals About the Future of Software'
-pubDate: '2026-02-25T13:59+0530'
+pubDate: '2026-02-25T13:59:00+05:30'
 link: 'https://www.modular.com/blog/the-claude-c-compiler-what-it-reveals-about-the-future-of-software'
 tags:
   - 'claude'

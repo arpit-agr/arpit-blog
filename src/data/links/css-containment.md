@@ -1,6 +1,6 @@
 ---
 title: 'What Is CSS Containment and How Can I Use It? – CSS Wizardry'
-pubDate: '2026-04-06T13:09+0530'
+pubDate: '2026-04-06T13:09:00+05:30'
 link: 'https://csswizardry.com/2026/04/what-is-css-containment-and-how-can-i-use-it/'
 tags:
   - 'css'

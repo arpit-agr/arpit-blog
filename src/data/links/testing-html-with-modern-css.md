@@ -1,7 +1,7 @@
 ---
 title: Testing HTML With Modern CSS
 link: https://heydonworks.com/article/testing-html-with-modern-css/
-pubDate: 2024-07-20
+pubDate: '2024-07-20T05:30:00+05:30'
 tags:
   - 'testing'
   - 'html'

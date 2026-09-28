@@ -1,6 +1,6 @@
 ---
 title: 'Easy Measures Doing, Simple Measures Understanding - Jim Nielsen’s Blog'
-pubDate: '2026-01-22T16:42+0530'
+pubDate: '2026-01-22T16:42:00+05:30'
 link: 'https://blog.jim-nielsen.com/2026/easy-vs-simple/'
 tags:
   - 'jim-nielsen'

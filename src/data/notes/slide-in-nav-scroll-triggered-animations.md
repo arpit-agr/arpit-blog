@@ -1,5 +1,5 @@
 ---
-pubDate: '2026-03-09T21:34+0530'
+pubDate: '2026-03-09T21:34:00+05:30'
 tags:
   - 'animations'
   - 'css'

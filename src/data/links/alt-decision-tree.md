@@ -1,5 +1,5 @@
 ---
-pubDate: 2025-10-13T19:57+0530
+pubDate: '2025-10-13T19:57:00+05:30'
 title: An alt Decision Tree | Web Accessibility Initiative (WAI) | W3C
 link: https://www.w3.org/WAI/tutorials/images/decision-tree/
 tags:

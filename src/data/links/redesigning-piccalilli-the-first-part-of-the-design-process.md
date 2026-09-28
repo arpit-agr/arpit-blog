@@ -1,7 +1,7 @@
 ---
 title: 'Redesigning Piccalilli: the first part of the design process'
 link: https://piccalil.li/blog/redesigning-piccalilli-the-first-part-of-the-design-process/
-pubDate: 2024-07-29
+pubDate: '2024-07-29T05:30:00+05:30'
 tags:
   - 'priority-guides'
   - 'design'

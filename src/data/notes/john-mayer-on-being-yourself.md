@@ -1,5 +1,5 @@
 ---
-pubDate: 2025-10-12T18:25+0530
+pubDate: '2025-10-12T18:25:00+05:30'
 tags:
   - 'learning'
   - 'john-mayer'

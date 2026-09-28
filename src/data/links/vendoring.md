@@ -1,7 +1,7 @@
 ---
 title: '</> htmx ~ Vendoring'
-pubDate: '2026-07-17T10:33+0530'
-link: '2026-07-17T10:33+0530'
+pubDate: '2026-07-17T10:33:00+05:30'
+link: 'https://htmx.org/essays/vendoring/'
 tags:
   - 'dependencies'
   - 'npm'

@@ -1,6 +1,6 @@
 ---
 title: "Getting Developers to Care about Accessibility: Carrots and Sticks - Sheri Byrne-Haber's Blog"
-pubDate: '2026-05-06T09:38+0530'
+pubDate: '2026-05-06T09:38:00+05:30'
 link: 'https://www.sheribyrnehaber.com/getting-developers-to-care-about-accessibility-carrots-and-sticks/'
 tags:
   - 'accessibility'

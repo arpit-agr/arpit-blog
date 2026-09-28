@@ -1,6 +1,6 @@
 ---
 title: 'Make It Work vs. Make It Good - Jim Nielsen’s Blog'
-pubDate: '2026-08-19T22:46+0530'
+pubDate: '2026-08-19T22:46:00+05:30'
 link: 'https://blog.jim-nielsen.com/2026/make-it-work-make-it-good/'
 tags:
   - 'jim-nielsen'

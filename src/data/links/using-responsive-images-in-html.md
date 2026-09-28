@@ -1,7 +1,7 @@
 ---
 title: Using responsive images in HTML - HTML | MDN
 link: https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images
-pubDate: 2025-11-17T14:34+0530
+pubDate: '2025-11-17T14:34:00+05:30'
 tags:
   - 'html'
   - 'images'

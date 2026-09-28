@@ -1,6 +1,6 @@
 ---
 title: 'Accidental anonymity - macwright.com'
-pubDate: '2026-08-15T20:31+0530'
+pubDate: '2026-08-15T20:31:00+05:30'
 link: 'https://macwright.com/2026/06/24/accidental-anonymity'
 tags:
   - 'career'

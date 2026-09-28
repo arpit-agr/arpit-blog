@@ -1,7 +1,7 @@
 ---
 title: A cartoonist's review of AI art - The Oatmeal
 link: https://theoatmeal.com/comics/ai_art
-pubDate: 2025-11-04T22:04+0530
+pubDate: '2025-11-04T22:04:00+05:30'
 tags:
   - 'ai'
   - 'art'

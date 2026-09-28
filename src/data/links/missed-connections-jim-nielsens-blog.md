@@ -1,7 +1,7 @@
 ---
 title: Missed Connections - Jim Nielsen’s Blog
 link: https://blog.jim-nielsen.com/2025/missed-connections/
-pubDate: 2025-02-18
+pubDate: '2025-02-18T05:30:00+05:30'
 tags:
   - 'connections'
   - 'ai'

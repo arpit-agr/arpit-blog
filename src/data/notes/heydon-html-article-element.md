@@ -1,5 +1,5 @@
 ---
-pubDate: 2025-08-14T08:12+0530
+pubDate: '2025-08-14T08:12:00+05:30'
 tags:
   - 'heydon-pickering'
   - 'article-element'

@@ -1,5 +1,5 @@
 ---
-pubDate: '2026-04-18T04:18+0530'
+pubDate: '2026-04-18T04:18:00+05:30'
 tags:
   - 'css'
   - 'dave-rupert'

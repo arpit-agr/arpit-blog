@@ -1,7 +1,7 @@
 ---
 title: Blinded By the Light DOM  –  Eric’s Archived Thoughts
 link: https://meyerweb.com/eric/thoughts/2023/11/01/blinded-by-the-light-dom/
-pubDate: 2024-06-25
+pubDate: '2024-06-25T05:30:00+05:30'
 tags:
   - 'web-components'
   - 'custom-elements'

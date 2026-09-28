@@ -1,5 +1,5 @@
 ---
-pubDate: 2024-01-19T07:00+0530
+pubDate: '2024-01-19T07:00:00+05:30'
 tags:
   - 'underline'
   - 'text-decoration'

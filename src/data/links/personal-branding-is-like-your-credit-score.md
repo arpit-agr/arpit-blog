@@ -1,7 +1,7 @@
 ---
 title: Personal branding is like your credit score
 link: https://beastoftraal.com/2024/07/03/personal-branding-is-like-your-credit-score/
-pubDate: 2024-08-20
+pubDate: '2024-08-20T05:30:00+05:30'
 tags:
   - 'personal-branding'
   - 'karthik-srinivasan'

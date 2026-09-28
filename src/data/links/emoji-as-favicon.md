@@ -1,6 +1,6 @@
 ---
 title: 'How To Use an Emoji as a Favicon Easily | CSS-Tricks'
-pubDate: '2026-08-18T10:11+0530'
+pubDate: '2026-08-18T10:11:00+05:30'
 link: 'https://css-tricks.com/emoji-as-a-favicon/'
 tags:
   - 'favicon'

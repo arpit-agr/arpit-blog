@@ -1,6 +1,6 @@
 ---
 title: 'Conditional JSX in Astro — Roma’s Unpolished Posts'
-pubDate: '2025-12-08T12:51+0530'
+pubDate: '2025-12-08T12:51:00+05:30'
 link: 'https://blog.kizu.dev/conditional-jsx-in-astro/'
 tags:
   - 'astro'

@@ -1,7 +1,7 @@
 ---
 title: 'Adactio: Journal—Mind set'
 link: https://adactio.com/journal/9688
-pubDate: 2025-10-01T14:51+0530
+pubDate: '2025-10-01T14:51:00+05:30'
 tags:
   - 'mindset'
   - 'discussion'

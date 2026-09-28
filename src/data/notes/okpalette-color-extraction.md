@@ -1,5 +1,5 @@
 ---
-pubDate: '2026-01-23T09:16+0530'
+pubDate: '2026-01-23T09:16:00+05:30'
 tags:
   - 'color'
   - 'interaction-design'

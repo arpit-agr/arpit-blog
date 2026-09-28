@@ -1,6 +1,6 @@
 ---
 title: 'Web development tip: disable pointer events on link images'
-pubDate: '2026-01-29T19:24+0530'
+pubDate: '2026-01-29T19:24:00+05:30'
 link: 'https://lapcatsoftware.com/articles/2025/11/2.html'
 tags:
   - 'css'

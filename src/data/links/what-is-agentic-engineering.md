@@ -1,6 +1,6 @@
 ---
 title: "What is agentic engineering? - Agentic Engineering Patterns - Simon Willison's Weblog"
-pubDate: '2026-03-24T09:47+0530'
+pubDate: '2026-03-24T09:47:00+05:30'
 link: 'https://simonwillison.net/guides/agentic-engineering-patterns/what-is-agentic-engineering/'
 tags:
   - 'agentic-engineering'
