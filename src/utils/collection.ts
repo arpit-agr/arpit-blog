@@ -1,5 +1,6 @@
 import { getCollection, render } from 'astro:content';
 import type { EnhancedEntry, BaseEntryData } from '@appTypes/entries';
+import { getYearMonth } from '@utils/date';
 
 export async function loadAndFormatCollection<
 	T extends 'notes' | 'articles' | 'links',
@@ -18,8 +19,7 @@ export async function loadAndFormatCollection<
 			// T is generic here so TypeScript can't resolve CollectionEntry<T>['data']
 			// to a concrete shape — cast to the shared base all three collections extend.
 			const pubDate = (entry.data as BaseEntryData).pubDate;
-			const year = pubDate.getFullYear();
-			const month = (pubDate.getMonth() + 1).toString().padStart(2, '0');
+			const { year, month } = getYearMonth(pubDate);
 
 			const relativeURL = withDate
 				? `${year}/${month}/${entry.id}/`

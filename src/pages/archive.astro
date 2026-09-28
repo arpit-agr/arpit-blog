@@ -5,6 +5,7 @@ import SiteHeader from '@components/SiteHeader.astro';
 import FeedHeader from '@components/FeedHeader.astro';
 import SiteSidebar from '@components/SiteSidebar.astro';
 import { loadAllEntries } from '@utils/loadAllEntries';
+import { getYearMonth } from '@utils/date';
 import { ARCHIVE_TITLE, ARCHIVE_DESCRIPTION } from '@consts';
 
 // Load all entries (already sorted newest → oldest)
@@ -14,10 +15,7 @@ const allEntries = await loadAllEntries();
 const archive = new Map();
 
 for (const entry of allEntries) {
-	const date = entry.data.pubDate;
-	const year = date.getFullYear();
-	const month = date.getMonth() + 1;
-	const monthKey = String(month).padStart(2, '0');
+	const { year, month: monthKey } = getYearMonth(entry.data.pubDate);
 
 	if (!archive.has(year)) archive.set(year, new Set());
 	archive.get(year).add(monthKey);

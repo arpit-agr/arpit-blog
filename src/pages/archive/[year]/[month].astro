@@ -6,6 +6,7 @@ import FeedHeader from '@components/FeedHeader.astro';
 import EntryList from '@components/EntryList.astro';
 import SiteSidebar from '@components/SiteSidebar.astro';
 import { loadAllEntries } from '@utils/loadAllEntries';
+import { getYearMonth } from '@utils/date';
 import { SITE_TITLE } from '@consts';
 
 export async function getStaticPaths() {
@@ -13,9 +14,7 @@ export async function getStaticPaths() {
 	const set = new Set<string>();
 
 	for (const entry of allEntries) {
-		const date = entry.data.pubDate;
-		const year = date.getFullYear();
-		const month = String(date.getMonth() + 1).padStart(2, '0');
+		const { year, month } = getYearMonth(entry.data.pubDate);
 		set.add(`${year}-${month}`);
 	}
 
@@ -29,11 +28,8 @@ const { year, month } = Astro.params;
 const allEntries = await loadAllEntries();
 
 const filtered = allEntries.filter((entry) => {
-	const date = entry.data.pubDate;
-	return (
-		date.getFullYear() === Number(year) &&
-		String(date.getMonth() + 1).padStart(2, '0') === month
-	);
+	const entryDate = getYearMonth(entry.data.pubDate);
+	return entryDate.year === Number(year) && entryDate.month === month;
 });
 
 const monthName = new Intl.DateTimeFormat('en-IN', { month: 'long' }).format(
