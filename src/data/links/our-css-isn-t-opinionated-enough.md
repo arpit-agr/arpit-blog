@@ -5,7 +5,7 @@ link: 'https://www.craigabbott.co.uk/blog/2026/our-css-isnt-opinionated-enough/'
 tags:
   - 'css'
   - 'accessibility'
-  - 'semantics'
+  - 'semantic-html'
 via:
   url: 'https://stephaniewalter.design/blog/pixels-of-the-week-july-5-2026/'
   label: 'Stéphanie Walter'
