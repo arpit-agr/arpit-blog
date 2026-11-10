@@ -3,8 +3,6 @@ title: "'Dhurandhar' Movie Review: No Love Lost or Found In Ranveer Singh's Spy 
 link: https://www.hollywoodreporterindia.com/reviews/theatrical/dhurandhar-movie-review-no-love-lost-or-found-in-ranveer-singhs-spy-thriller
 pubDate: '2025-12-06T18:53:00+05:30'
 tags:
-  - 'fiction'
-  - 'history'
   - 'film'
   - 'india'
 draft: true

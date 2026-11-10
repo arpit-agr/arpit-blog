@@ -5,8 +5,7 @@ pubDate: '2025-11-17T14:34:00+05:30'
 tags:
   - 'html'
   - 'images'
-  - 'responsive-web-design'
-  - 'guide'
+  - 'resource'
 ---
 
 [Images on the web are hard](https://css-tricks.com/images-are-hard/). After trying and failing so many times before, now I finally understand how to configure `srcset` and `sizes` attributes to serve differently sized images for different viewports.

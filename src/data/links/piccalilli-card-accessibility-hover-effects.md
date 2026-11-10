@@ -4,8 +4,6 @@ link: https://piccalil.li/blog/while-youre-fixing-the-fun-stuff-fix-the-importan
 pubDate: '2025-10-01T18:27:00+05:30'
 tags:
   - 'accessibility'
-  - 'hover'
-  - 'card'
   - 'piccalilli'
 ---
 

@@ -4,6 +4,8 @@ tags:
   - 'theme-color'
   - 'html'
   - 'css'
+
+  - 'custom-properties'
 ---
 
 I was reading [Manuel Matuzovic's article on meta theme

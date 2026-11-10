@@ -3,6 +3,7 @@ pubDate: '2025-02-05T05:30:00+05:30'
 tags:
   - 'grid'
   - 'css'
+  - 'til'
 ---
 
 Today I learned, `grid-auto-columns` and `grid-auto-rows` size implicit tracks as well as any explicit tracks that are not explicitly sized by by `grid-template-rows` or `grid-template-columns`.

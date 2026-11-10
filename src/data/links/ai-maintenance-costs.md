@@ -5,7 +5,7 @@ link: 'https://www.jamesshore.com/v2/blog/2026/you-need-ai-that-reduces-your-mai
 tags:
   - 'ai'
   - 'agentic-engineering'
-  - 'maintenance'
+  - 'software-engineering'
 via:
   url: 'https://simonwillison.net/2026/May/11/james-shore/#atom-everything'
   label: 'Simon Willison'

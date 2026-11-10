@@ -4,7 +4,6 @@ pubDate: '2026-01-29T19:24:00+05:30'
 link: 'https://lapcatsoftware.com/articles/2025/11/2.html'
 tags:
   - 'css'
-  - 'link'
   - 'images'
   - 'safari'
 via:

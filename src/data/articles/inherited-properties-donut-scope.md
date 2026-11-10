@@ -2,8 +2,9 @@
 title: 'Inherited properties leak through the donut scope'
 pubDate: '2026-03-14T16:20:00+05:30'
 tags:
-  - 'scope'
+  - 'selectors'
   - 'css'
+  - 'til'
 ---
 
 Today I learned about a potential pitfall with `@scope`.

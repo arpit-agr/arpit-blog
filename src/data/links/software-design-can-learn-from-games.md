@@ -4,7 +4,7 @@ pubDate: '2025-12-22T22:03:00+05:30'
 link: 'https://www.youtube.com/watch?v=wBnIyD5I8mM'
 tags:
   - 'design'
-  - 'games'
+  - 'video'
 ---
 
 Great talk by Andy Allen on how software designers can learn from game designers.

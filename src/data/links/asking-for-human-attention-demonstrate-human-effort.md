@@ -3,7 +3,7 @@ title: "If You are Asking for Human Attention, Demonstrate Human Effort | Tom Be
 pubDate: '2026-06-18T13:40:00+05:30'
 link: 'https://tombedor.dev/human-attention-and-human-effort/'
 tags:
-  - 'etiquette'
+  - 'ai'
 via:
   url: 'https://chriscoyier.net/2026/06/16/13720/'
   label: 'Chris Coyier'

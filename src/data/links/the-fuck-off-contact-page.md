@@ -4,7 +4,6 @@ pubDate: '2025-12-08T16:21:00+05:30'
 link: 'https://www.nicchan.me/blog/the-f-off-contact-page/'
 tags:
   - 'design'
-  - 'client-work'
   - 'blogging'
   - 'nic-chan'
 ---

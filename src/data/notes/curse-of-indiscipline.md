@@ -1,7 +1,8 @@
 ---
 pubDate: '2026-08-30T10:18:00+05:30'
 tags:
-  - 'discipline'
+  - 'mindset'
+  - 'quote'
 ---
 
 [Hemant Mohapatra on X](https://x.com/MohapatraHemant/status/2086255070585495862):

@@ -3,7 +3,6 @@ pubDate: '2026-03-14T14:43:00+05:30'
 tags:
   - 'css'
   - 'custom-properties'
-  - 'variables'
 ---
 
 What happens when the `var()` CSS function references a custom property that is undefined or explicitly set to `initial`?

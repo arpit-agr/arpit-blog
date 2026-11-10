@@ -4,8 +4,6 @@ link: https://blog.jim-nielsen.com/2024/the-case-for-design-engineers-pt-ii/
 pubDate: '2024-04-02T05:30:00+05:30'
 tags:
   - 'design'
-  - 'designing-in-the-browser'
-  - 'design-engineers'
   - 'jim-nielsen'
 ---
 

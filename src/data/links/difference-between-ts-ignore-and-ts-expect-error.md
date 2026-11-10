@@ -4,7 +4,6 @@ link: https://www.stefanjudis.com/today-i-learned/the-difference-ts-ignore-and-t
 pubDate: '2025-11-14T18:18:00+05:30'
 tags:
   - 'typescript'
-  - 'stefan-judis'
 ---
 
 > `@ts-expect-error` will let you know when there's no TypeScript error to silence and when it has become useless. `@ts-ignore` will stay put and sit silently wherever you placed it.

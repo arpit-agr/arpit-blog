@@ -2,6 +2,7 @@
 pubDate: '2026-08-10T12:23:00+05:30'
 tags:
   - 'accessibility'
+  - 'til'
 ---
 
 Today I learned, through [Sara Soueidan’s course, Practical Accessibility](https://practical-accessibility.today/), that spectacles/eyeglasses are a form of assistive technology.

@@ -4,7 +4,6 @@ pubDate: '2026-07-31T15:40:00+05:30'
 link: 'https://www.schneier.com/blog/archives/2026/07/should-you-use-ai-for-a-task-heres-a-simple-way-to-decide.html'
 tags:
   - 'ai'
-  - 'llm'
 via:
   url: 'https://simonwillison.net/2026/Jul/30/bruce-schneier/'
   label: 'Simon Willison'

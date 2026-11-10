@@ -3,9 +3,7 @@ title: 'Modular: The Claude C Compiler: What It Reveals About the Future of Soft
 pubDate: '2026-02-25T13:59:00+05:30'
 link: 'https://www.modular.com/blog/the-claude-c-compiler-what-it-reveals-about-the-future-of-software'
 tags:
-  - 'claude'
   - 'ai'
-  - 'llm'
   - 'software-engineering'
 via:
   url: 'https://simonwillison.net/2026/Feb/22/ccc/'

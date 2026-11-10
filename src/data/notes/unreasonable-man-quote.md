@@ -1,7 +1,6 @@
 ---
 pubDate: '2026-01-13T20:55:00+05:30'
 tags:
-  - 'progress'
   - 'quote'
   - 'film'
 draft: true

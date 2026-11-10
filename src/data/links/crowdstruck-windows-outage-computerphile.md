@@ -4,7 +4,7 @@ link: https://www.youtube.com/watch?v=rlaNMJeA1EA
 pubDate: '2024-07-24T05:30:00+05:30'
 tags:
   - 'operating-system'
-  - 'computerphile'
+  - 'video'
 ---
 
 Dr. Steve Bagley explains in layman's terms what an operating system is:

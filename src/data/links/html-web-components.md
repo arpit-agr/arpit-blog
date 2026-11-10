@@ -4,7 +4,6 @@ link: https://adactio.com/journal/20618
 pubDate: '2024-06-25T05:30:00+05:30'
 tags:
   - 'web-components'
-  - 'custom-elements'
   - 'progressive-enhancement'
   - 'jeremy-keith'
 ---

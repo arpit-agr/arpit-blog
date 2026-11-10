@@ -3,10 +3,8 @@ title: 'How to choose your Baseline target  |  Articles  |  web.dev'
 pubDate: '2026-01-05T13:52:00+05:30'
 link: 'https://web.dev/articles/how-to-choose-your-baseline-target'
 tags:
-  - 'baseline'
   - 'browser-support'
   - 'progressive-enhancement'
-  - 'analytics'
 via:
   url: 'https://frontendmasters.com/blog/browserslist-baseline/'
   label: 'Frontend Masters Blog'

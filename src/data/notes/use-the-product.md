@@ -1,7 +1,6 @@
 ---
 pubDate: '2025-12-29T09:52:00+05:30'
 tags:
-  - 'job'
   - 'hiring'
   - 'career'
 ---

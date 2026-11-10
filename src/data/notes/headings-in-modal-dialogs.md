@@ -3,6 +3,7 @@ pubDate: '2026-09-02T10:44:00+05:30'
 tags:
   - 'html'
   - 'accessibility'
+  - 'til'
 ---
 
 Today I learned that modal `<dialog>`s opened with `showModal()` can have their own `<h1>`.

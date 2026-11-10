@@ -3,7 +3,6 @@ title: 'Pedagogy Recommendations'
 pubDate: '2026-01-30T10:53:00+05:30'
 link: 'https://parentheticallyspeaking.org/articles/pedagogy-recommendations/'
 tags:
-  - 'teaching'
   - 'learning'
 via:
   url: 'https://simonwillison.net/2025/Dec/21/'

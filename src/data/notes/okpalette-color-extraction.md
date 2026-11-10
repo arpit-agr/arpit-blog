@@ -2,10 +2,8 @@
 pubDate: '2026-01-23T09:16:00+05:30'
 tags:
   - 'color'
-  - 'interaction-design'
   - 'design'
   - 'css'
-  - 'tools'
   - 'resource'
 ---
 

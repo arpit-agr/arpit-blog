@@ -1,9 +1,8 @@
 ---
 pubDate: '2026-02-09T15:25:00+05:30'
 tags:
-  - 'button'
-  - 'input'
   - 'html'
+  - 'til'
 ---
 
 Today I learned that setting `type="reset"` on a `<button>` element in HTML creates a reset button that, when activated, immediately clears all form data, resetting it to its initial state.

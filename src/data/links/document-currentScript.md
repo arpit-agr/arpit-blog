@@ -4,6 +4,8 @@ pubDate: '2026-10-19T11:15:48+05:30'
 link: 'https://leanrada.com/notes/inline-rendering-currentscript/'
 tags:
   - 'javascript'
+  - 'til'
+
 via:
   url: 'https://simonwillison.net/2026/Oct/17/document-currentscript/'
   label: 'Simon Willison'

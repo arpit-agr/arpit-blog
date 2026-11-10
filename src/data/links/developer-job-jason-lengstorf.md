@@ -3,10 +3,9 @@ title: 'do THIS to get a developer job in 2024 - YouTube'
 pubDate: '2025-12-19T16:28:00+05:30'
 link: 'https://www.youtube.com/watch?v=T0deG6OpadM'
 tags:
-  - 'job'
   - 'hiring'
   - 'career'
-  - 'jason-lengstorf'
+  - 'video'
 ---
 
 Jason Lengstorf on how to get hired as a developer:

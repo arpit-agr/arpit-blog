@@ -3,12 +3,9 @@ title: "Reckoning: Frontend's Lost Decade | Alex Russell | performance.now() 202
 pubDate: '2026-01-09T18:49:00+05:30'
 link: 'https://www.youtube.com/watch?v=0XwWVjQOmyg'
 tags:
-  - 'platform'
+  - 'web-platform'
   - 'frameworks'
-  - 'mobile'
-  - 'apps'
-  - 'performance'
-  - 'alex-russell'
+  - 'video'
 ---
 
 In this excellent, data-driven talk, Alex Russell explains:

@@ -3,7 +3,7 @@ pubDate: '2026-05-21T15:01:00+05:30'
 tags:
   - 'html'
   - 'accessibility'
-  - 'usability'
+  - 'til'
 ---
 
 Today I learned, adding `tabindex="-1"` to skip link targets is likely no longer necessary in modern browsers.

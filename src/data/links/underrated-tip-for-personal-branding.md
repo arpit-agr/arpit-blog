@@ -4,8 +4,7 @@ link: https://beastoftraal.com/2023/10/05/an-underrated-tip-for-personal-brandin
 pubDate: '2024-08-26T05:30:00+05:30'
 tags:
   - 'personal-branding'
-  - 'persistence'
-  - 'karthik-srinivasan'
+  - 'mindset'
 ---
 
 Karthik Srinivasan uses his experience with running as an analogy to emphasize the importance of consistently showing up in the context of personal branding.

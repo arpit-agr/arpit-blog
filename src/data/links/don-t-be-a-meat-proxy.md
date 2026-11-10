@@ -4,7 +4,6 @@ pubDate: '2026-08-04T11:32:00+05:30'
 link: 'https://gruhn.me/blog/2026-08-03/'
 tags:
   - 'ai'
-  - 'llm'
   - 'simon-willison'
   - 'dave-rupert'
 via:

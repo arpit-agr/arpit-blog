@@ -3,10 +3,7 @@ title: "Why I am an atheist: Bhagat Singh's essay"
 link: https://www.marxists.org/archive/bhagat-singh/1930/10/05.htm
 pubDate: '2024-01-20T05:30:00+05:30'
 tags:
-  - 'atheism'
-  - 'critical-thinking'
-  - 'blind-faith'
-  - 'bhagat-singh'
+  - 'society'
   - 'india'
 draft: true
 ---

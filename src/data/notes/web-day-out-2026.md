@@ -1,7 +1,6 @@
 ---
 pubDate: '2026-03-18T11:36:00+05:30'
 tags:
-  - 'event'
   - 'conference'
 ---
 

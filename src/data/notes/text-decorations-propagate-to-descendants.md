@@ -3,6 +3,7 @@ pubDate: '2026-05-25T08:47:00+05:30'
 tags:
   - 'css'
   - 'text-decoration'
+  - 'til'
 ---
 
 Today I learned via [Paweł Grzybek's post on Mastodon](https://mastodon.social/@pawelgrzybek/116623309838307564), where [Temani Afif pointed out](https://front-end.social/@css/116623467529621115) that text decorations propagate to their descendants, they aren't inherited.

@@ -3,11 +3,8 @@ title: Why Swiss Trains are the Best in Europe - YouTube
 link: https://www.youtube.com/watch?v=muPcHs-E4qc
 pubDate: '2024-08-29T05:30:00+05:30'
 tags:
-  - 'trains'
-  - 'switzerland'
-  - 'mobility'
   - 'public-transport'
-  - 'not-just-bikes'
+  - 'video'
 draft: true
 ---
 

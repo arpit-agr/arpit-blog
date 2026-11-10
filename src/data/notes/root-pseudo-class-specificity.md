@@ -1,9 +1,10 @@
 ---
 pubDate: '2025-10-23T18:43:00+05:30'
 tags:
-  - 'pseudo-class'
-  - 'specificity'
+  - 'selectors'
+  - 'cascade'
   - 'css'
+  - 'til'
 ---
 
 Today I learned, `:root` (0-1-0) has a higher specificity than `html` (0-0-1).

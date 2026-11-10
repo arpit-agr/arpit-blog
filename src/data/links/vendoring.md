@@ -4,9 +4,8 @@ pubDate: '2026-07-17T10:33:00+05:30'
 link: 'https://htmx.org/essays/vendoring/'
 tags:
   - 'dependencies'
-  - 'npm'
   - 'javascript'
-  - 'vendoring'
+  - 'til'
 via:
   url: 'https://blog.jim-nielsen.com/2025/be-mindful-of-what-you-make-easy/index.html'
   label: "Jim's Blog"

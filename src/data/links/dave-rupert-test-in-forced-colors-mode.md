@@ -3,12 +3,9 @@ title: 'You Want border-color: transparent, Not border: none – Frontend Master
 link: https://frontendmasters.com/blog/you-want-border-color-transparent-not-border-none/
 pubDate: '2024-05-21T05:30:00+05:30'
 tags:
-  - 'forced-colors'
-  - 'testing'
   - 'high-contrast-mode'
-  - 'low-vision'
+  - 'testing'
   - 'accessibility'
-  - 'design'
   - 'dave-rupert'
 ---
 

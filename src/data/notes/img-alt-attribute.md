@@ -2,7 +2,6 @@
 pubDate: '2025-10-13T10:32:00+05:30'
 tags:
   - 'alt'
-  - 'img'
   - 'accessibility'
   - 'html'
 ---

@@ -1,9 +1,7 @@
 ---
 pubDate: '2025-10-21T04:39:00+05:30'
 tags:
-  - 'padel'
-  - 'tennis'
-  - 'bowling'
+  - 'sport'
 draft: true
 ---
 

@@ -4,7 +4,7 @@ pubDate: '2026-04-27T10:01:00+05:30'
 link: 'https://ky.fyi/posts/ai-burnout'
 tags:
   - 'ai'
-  - 'burnout'
+  - 'mindset'
 via:
   url: 'https://notes.jim-nielsen.com/n/2026-04-25-1523/'
   label: 'Jim Nielsen’s Notes'
