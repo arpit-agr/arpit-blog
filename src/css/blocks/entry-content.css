@@ -48,4 +48,32 @@
 			);
 		}
 	}
+
+	*:has(> table) {
+		overflow-x: auto;
+	}
+
+	table {
+		min-inline-size: max-content;
+		border-collapse: collapse;
+	}
+
+	thead {
+		border-block-end: var(--border-thickness-separator) solid
+			var(--color-border);
+	}
+
+	th,
+	td {
+		text-align: start;
+		padding-block: var(--space-3xs);
+	}
+
+	:is(th + th, td + td) {
+		padding-inline-start: var(--space-m);
+	}
+
+	th {
+		font-weight: var(--font-medium);
+	}
 }
