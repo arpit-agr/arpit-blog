@@ -4,6 +4,7 @@ tags:
   - 'html'
   - 'images'
   - 'web-performance'
+  - 'til'
 ---
 
 Today I learned, lazy loading only works when JavaScript is enabled.

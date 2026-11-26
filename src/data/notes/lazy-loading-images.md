@@ -4,6 +4,7 @@ tags:
   - 'html'
   - 'images'
   - 'web-performance'
+  - 'til'
 ---
 
 Today I learned, via [Calibre's article on Lazy Loading Images](https://calibreapp.com/blog/native-lazy-loading#how-far-ahead-each-browser-fetches-lazy-images), there is a difference in how far ahead each browser fetches lazy images.
